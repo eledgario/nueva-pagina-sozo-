@@ -516,28 +516,19 @@ export default function KitDrawer() {
                   </div>
 
                   {/* Payment Methods */}
-                  <div className="flex items-center justify-center gap-4 pt-2">
-                    <Image
-                      src="/visa.svg"
-                      alt="Visa"
-                      width={40}
-                      height={24}
-                      className="opacity-50"
-                    />
-                    <Image
-                      src="/mastercard.svg"
-                      alt="Mastercard"
-                      width={40}
-                      height={24}
-                      className="opacity-50"
-                    />
-                    <Image
-                      src="/amex.svg"
-                      alt="Amex"
-                      width={40}
-                      height={24}
-                      className="opacity-50"
-                    />
+                  <div className="flex items-center justify-center gap-3 pt-2">
+                    <span className="px-2 py-1 bg-zinc-100 rounded text-xs font-bold text-zinc-500">
+                      VISA
+                    </span>
+                    <span className="px-2 py-1 bg-zinc-100 rounded text-xs font-bold text-zinc-500">
+                      MC
+                    </span>
+                    <span className="px-2 py-1 bg-zinc-100 rounded text-xs font-bold text-zinc-500">
+                      AMEX
+                    </span>
+                    <span className="px-2 py-1 bg-zinc-100 rounded text-xs font-bold text-zinc-500">
+                      OXXO
+                    </span>
                   </div>
                 </div>
               </div>

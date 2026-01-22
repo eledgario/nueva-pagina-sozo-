@@ -8,9 +8,12 @@ import {
   getTierForQuantity,
 } from '@/lib/pricing';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia',
-});
+// Initialize Stripe only if key is available
+const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2024-12-18.acacia',
+    })
+  : null;
 
 export interface CheckoutItem {
   id: string;
@@ -38,6 +41,14 @@ const PACKAGING_NAMES: Record<string, string> = {
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if Stripe is configured
+    if (!stripe) {
+      return NextResponse.json(
+        { error: 'Stripe no esta configurado. Contacta al administrador.' },
+        { status: 503 }
+      );
+    }
+
     const body: CheckoutRequest = await request.json();
     const { items, packaging, kitQuantity, customerEmail, customerName, customerPhone, companyName } = body;
 
@@ -208,6 +219,13 @@ export async function POST(request: NextRequest) {
 // GET endpoint to retrieve session status
 export async function GET(request: NextRequest) {
   try {
+    if (!stripe) {
+      return NextResponse.json(
+        { error: 'Stripe no esta configurado' },
+        { status: 503 }
+      );
+    }
+
     const sessionId = request.nextUrl.searchParams.get('session_id');
 
     if (!sessionId) {
