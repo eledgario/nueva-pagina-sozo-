@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
+import Analytics from "@/components/Analytics";
+import { KitBuilderProvider } from "@/context/KitBuilderContext";
+import { ToastProvider } from "@/components/kit-builder/Toast";
+import { FloatingBuilderBar, KitDrawer } from "@/components/kit-builder";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -84,7 +88,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans">
-        <LayoutWrapper>{children}</LayoutWrapper>
+        <Analytics />
+        <KitBuilderProvider>
+          <ToastProvider>
+            <LayoutWrapper>{children}</LayoutWrapper>
+            <FloatingBuilderBar />
+            <KitDrawer />
+          </ToastProvider>
+        </KitBuilderProvider>
       </body>
     </html>
   );

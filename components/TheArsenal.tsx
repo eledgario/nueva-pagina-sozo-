@@ -3,7 +3,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { Plus, Package, Layers, Leaf, Zap } from 'lucide-react';
+import { Plus, Package, Layers, Leaf, Zap, Check } from 'lucide-react';
+import { useKitBuilder } from '@/context/KitBuilderContext';
+import { useToast } from '@/components/kit-builder/Toast';
 
 type Category = 'todos' | 'textil' | 'drinkware' | 'tech' | 'packaging' | 'kits';
 type BadgeType = 'premium' | 'event-ready' | 'eco' | 'new' | 'bestseller';
@@ -155,8 +157,23 @@ const products: Product[] = [
   },
 ];
 
-function ProductCard({ product, index }: { product: Product; index: number }) {
+function ProductCard({
+  product,
+  index,
+  onAddToKit,
+}: {
+  product: Product;
+  index: number;
+  onAddToKit: (product: Product) => void;
+}) {
   const badge = badgeConfig[product.badge];
+  const [justAdded, setJustAdded] = useState(false);
+
+  const handleAddToKit = () => {
+    onAddToKit(product);
+    setJustAdded(true);
+    setTimeout(() => setJustAdded(false), 1500);
+  };
 
   return (
     <motion.div
@@ -189,11 +206,20 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 
         {/* Quick Add Button */}
         <motion.button
-          className="absolute top-3 right-3 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-opacity border border-zinc-200 hover:bg-[#FF007F] hover:text-white hover:border-[#FF007F]"
+          onClick={handleAddToKit}
+          className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center shadow-lg transition-all border ${
+            justAdded
+              ? 'bg-green-500 border-green-500 opacity-100'
+              : 'bg-white border-zinc-200 opacity-0 group-hover:opacity-100 hover:bg-[#FF007F] hover:text-white hover:border-[#FF007F]'
+          }`}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Plus className="w-5 h-5" />
+          {justAdded ? (
+            <Check className="w-5 h-5 text-white" />
+          ) : (
+            <Plus className="w-5 h-5" />
+          )}
         </motion.button>
 
         {/* Hover Overlay */}
@@ -226,9 +252,27 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         </div>
 
         {/* Action Button */}
-        <button className="w-full py-2.5 bg-zinc-900 hover:bg-[#FF007F] text-white font-bold text-sm uppercase tracking-wider rounded-lg transition-colors duration-300">
-          Cotizar
-        </button>
+        <motion.button
+          onClick={handleAddToKit}
+          whileTap={{ scale: 0.98 }}
+          className={`w-full py-2.5 font-bold text-sm uppercase tracking-wider rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 ${
+            justAdded
+              ? 'bg-green-500 text-white'
+              : 'bg-zinc-900 hover:bg-[#FF007F] text-white'
+          }`}
+        >
+          {justAdded ? (
+            <>
+              <Check className="w-4 h-4" />
+              Agregado
+            </>
+          ) : (
+            <>
+              <Plus className="w-4 h-4" />
+              Agregar al Kit
+            </>
+          )}
+        </motion.button>
       </div>
     </motion.div>
   );
@@ -236,10 +280,23 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 
 export default function TheArsenal() {
   const [activeFilter, setActiveFilter] = useState<Category>('todos');
+  const { addItem } = useKitBuilder();
+  const { showToast } = useToast();
 
   const filteredProducts = activeFilter === 'todos'
     ? products
     : products.filter((p) => p.category === activeFilter);
+
+  const handleAddToKit = (product: Product) => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      imageUrl: product.imageUrl,
+      price: product.price,
+      category: product.category,
+    });
+    showToast(`${product.name} agregado al kit`, 'success');
+  };
 
   return (
     <section className="py-24 lg:py-32 px-6 bg-white relative overflow-hidden">
@@ -304,7 +361,12 @@ export default function TheArsenal() {
         >
           <AnimatePresence mode="popLayout">
             {filteredProducts.map((product, index) => (
-              <ProductCard key={product.id} product={product} index={index} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                index={index}
+                onAddToKit={handleAddToKit}
+              />
             ))}
           </AnimatePresence>
         </motion.div>

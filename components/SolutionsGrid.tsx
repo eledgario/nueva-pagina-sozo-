@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 interface SolutionCard {
@@ -25,7 +26,7 @@ const solutions: SolutionCard[] = [
     tag: 'Incluye Almacenaje',
     tagColor: '#FF007F',
     imageUrl: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&auto=format&fit=crop',
-    href: '#configurator?type=teams',
+    href: '/solutions/teams',
     gridClass: 'md:col-span-2 md:row-span-1',
   },
   {
@@ -36,7 +37,7 @@ const solutions: SolutionCard[] = [
     tag: 'Precios de Mayoreo',
     tagColor: '#06b6d4',
     imageUrl: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop',
-    href: '#configurator?type=events',
+    href: '/solutions/massive',
     gridClass: 'md:col-span-1 md:row-span-2',
   },
   {
@@ -47,7 +48,7 @@ const solutions: SolutionCard[] = [
     tag: 'Premium Unboxing',
     tagColor: '#8b5cf6',
     imageUrl: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=1200&auto=format&fit=crop',
-    href: '#configurator?type=gifting',
+    href: '/solutions/vip',
     gridClass: 'md:col-span-1 md:row-span-1',
   },
   {
@@ -58,7 +59,7 @@ const solutions: SolutionCard[] = [
     tag: 'Diseño a Medida',
     tagColor: '#f59e0b',
     imageUrl: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1200&auto=format&fit=crop',
-    href: '#configurator?type=social',
+    href: '/solutions/social',
     gridClass: 'md:col-span-1 md:row-span-1',
   },
 ];
@@ -68,15 +69,16 @@ function SolutionCardComponent({ solution, index }: { solution: SolutionCard; in
   const isTall = solution.id === 'events';
 
   return (
-    <motion.a
-      href={solution.href}
-      className={`group relative overflow-hidden rounded-3xl bg-white border border-zinc-200 cursor-pointer ${solution.gridClass}`}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
-    >
+    <Link href={solution.href} className={solution.gridClass}>
+      <motion.div
+        className="group relative overflow-hidden rounded-3xl bg-white border border-zinc-200 cursor-pointer h-full"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
+        whileHover={{ y: -8 }}
+        whileTap={{ scale: 0.98 }}
+      >
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -149,7 +151,8 @@ function SolutionCardComponent({ solution, index }: { solution: SolutionCard; in
           boxShadow: `inset 0 0 0 2px ${solution.tagColor}`,
         }}
       />
-    </motion.a>
+      </motion.div>
+    </Link>
   );
 }
 
@@ -189,7 +192,7 @@ export default function SolutionsGrid() {
         </motion.div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div id="solutions" className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {solutions.map((solution, index) => (
             <SolutionCardComponent key={solution.id} solution={solution} index={index} />
           ))}
