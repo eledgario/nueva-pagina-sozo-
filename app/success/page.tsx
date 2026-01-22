@@ -102,8 +102,16 @@ function TimelineStep({
 
 export default function SuccessPage() {
   const [showConfetti, setShowConfetti] = useState(false);
+  const [sessionId, setSessionId] = useState<string | null>(null);
 
   useEffect(() => {
+    // Get session_id from URL
+    const params = new URLSearchParams(window.location.search);
+    const sid = params.get('session_id');
+    if (sid) {
+      setSessionId(sid);
+    }
+
     // Trigger confetti after checkmark animation
     const timer = setTimeout(() => {
       setShowConfetti(true);
@@ -225,22 +233,20 @@ export default function SuccessPage() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
+            href={sessionId ? `/client/portal?session_id=${sessionId}` : '/client/portal'}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF007F] hover:bg-[#FF007F]/90 text-white font-bold rounded-full transition-colors"
+          >
+            <Sparkles className="w-5 h-5" />
+            Ver Mi Proyecto
+          </Link>
+
+          <Link
             href="/"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 hover:bg-[#FF007F] text-white font-bold rounded-full transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 hover:bg-zinc-800 text-white font-bold rounded-full transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             Volver al Inicio
           </Link>
-
-          <a
-            href="https://wa.me/5215512345678"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] hover:bg-[#25D366]/90 text-white font-bold rounded-full transition-colors"
-          >
-            <MessageCircle className="w-5 h-5" />
-            Contactar Ahora
-          </a>
         </motion.div>
 
         {/* Footer Note */}

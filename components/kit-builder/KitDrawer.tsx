@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import {
@@ -8,16 +9,27 @@ import {
   Plus,
   Trash2,
   Package,
-  MessageCircle,
   ChevronRight,
   Box,
   Sparkles,
+  CreditCard,
+  Shield,
+  Zap,
+  Loader2,
+  TrendingDown,
 } from 'lucide-react';
 import {
   useKitBuilder,
   PACKAGING_OPTIONS,
   PackagingType,
 } from '@/context/KitBuilderContext';
+import {
+  calculatePricing,
+  formatPrice,
+  PRODUCT_BASE_PRICES,
+  PACKAGING_PRICES,
+  VOLUME_TIERS,
+} from '@/lib/pricing';
 
 // Packaging icons
 const packagingIcons: Record<PackagingType, React.ReactNode> = {
@@ -38,12 +50,69 @@ export default function KitDrawer() {
     setPackaging,
     setKitQuantity,
     clearKit,
-    getWhatsAppUrl,
     itemCount,
   } = useKitBuilder();
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   // Quantity presets
   const quantityPresets = [25, 50, 100, 250, 500];
+
+  // Calculate pricing
+  const pricing = useMemo(() => {
+    if (items.length === 0) return null;
+
+    const pricingItems = items.map((item) => ({
+      id: item.id,
+      name: item.name,
+      basePrice: PRODUCT_BASE_PRICES[item.id] || 10000,
+      quantity: item.quantity,
+    }));
+
+    const packagingPrice = PACKAGING_PRICES[packaging] || PACKAGING_PRICES.kraft;
+
+    return calculatePricing(pricingItems, kitQuantity, packagingPrice);
+  }, [items, packaging, kitQuantity]);
+
+  // Handle checkout
+  const handleCheckout = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: items.map((item) => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            imageUrl: item.imageUrl,
+          })),
+          packaging,
+          kitQuantity,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Error al crear la sesion de pago');
+      }
+
+      // Redirect to Stripe Checkout
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Error al procesar el pago');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -64,7 +133,7 @@ export default function KitDrawer() {
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed inset-x-0 bottom-0 z-[70] bg-white rounded-t-3xl max-h-[90vh] overflow-hidden flex flex-col md:right-0 md:left-auto md:top-0 md:bottom-0 md:w-[480px] md:rounded-l-3xl md:rounded-tr-none"
+            className="fixed inset-x-0 bottom-0 z-[70] bg-white rounded-t-3xl max-h-[90vh] overflow-hidden flex flex-col md:right-0 md:left-auto md:top-0 md:bottom-0 md:w-[520px] md:rounded-l-3xl md:rounded-tr-none"
           >
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-zinc-200">
@@ -152,7 +221,9 @@ export default function KitDrawer() {
                             <p className="font-semibold text-zinc-900 truncate">
                               {item.name}
                             </p>
-                            <p className="text-sm text-zinc-500">{item.price}</p>
+                            <p className="text-sm text-zinc-500">
+                              {formatPrice(PRODUCT_BASE_PRICES[item.id] || 10000)}/ud
+                            </p>
                           </div>
 
                           {/* Quantity Controls */}
@@ -228,7 +299,7 @@ export default function KitDrawer() {
                                       : 'text-zinc-500'
                                   }`}
                                 >
-                                  {option.priceLabel}
+                                  {formatPrice(PACKAGING_PRICES[option.id])}
                                 </span>
                               </div>
                               <p className="text-sm text-zinc-500 mt-0.5">
@@ -253,11 +324,48 @@ export default function KitDrawer() {
                     </div>
                   </div>
 
-                  {/* Section 3: Quantity */}
+                  {/* Section 3: Quantity with Volume Pricing */}
                   <div>
                     <h3 className="text-sm font-mono font-bold text-zinc-400 uppercase tracking-widest mb-4">
                       Cantidad de Kits
                     </h3>
+
+                    {/* Volume Tiers Display */}
+                    <div className="flex gap-2 mb-4 overflow-x-auto pb-2">
+                      {VOLUME_TIERS.map((tier, index) => {
+                        const isActive =
+                          pricing?.currentTier.minQty === tier.minQty;
+                        const isPast = pricing
+                          ? kitQuantity >= tier.minQty
+                          : false;
+
+                        return (
+                          <div
+                            key={index}
+                            className={`flex-shrink-0 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                              isActive
+                                ? 'bg-green-100 text-green-700 border border-green-300'
+                                : isPast
+                                ? 'bg-zinc-100 text-zinc-500'
+                                : 'bg-zinc-50 text-zinc-400'
+                            }`}
+                          >
+                            <span className="font-bold">
+                              {tier.maxQty === Infinity
+                                ? `${tier.minQty}+`
+                                : `${tier.minQty}-${tier.maxQty}`}
+                            </span>
+                            <span className="ml-1">
+                              {tier.discount === 0
+                                ? 'Base'
+                                : `-${Math.round(tier.discount * 100)}%`}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Quantity Presets */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {quantityPresets.map((preset) => (
                         <button
@@ -273,6 +381,8 @@ export default function KitDrawer() {
                         </button>
                       ))}
                     </div>
+
+                    {/* Custom Quantity Input */}
                     <div className="flex items-center gap-3">
                       <input
                         type="number"
@@ -285,37 +395,151 @@ export default function KitDrawer() {
                       />
                       <span className="text-zinc-500 font-medium">kits</span>
                     </div>
+
+                    {/* Next Tier Hint */}
+                    {pricing && pricing.nextTier && pricing.unitsToNextTier > 0 && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-xl"
+                      >
+                        <div className="flex items-center gap-2 text-amber-700">
+                          <Zap className="w-4 h-4" />
+                          <span className="text-sm font-medium">
+                            Agrega {pricing.unitsToNextTier} kits mas y obtiene{' '}
+                            <strong>
+                              {Math.round(pricing.nextTier.discount * 100)}% de descuento
+                            </strong>
+                          </span>
+                        </div>
+                      </motion.div>
+                    )}
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Footer - CTA */}
-            {items.length > 0 && (
-              <div className="p-6 border-t border-zinc-200 bg-zinc-50">
-                {/* Summary */}
-                <div className="flex items-center justify-between mb-4 text-sm">
-                  <span className="text-zinc-500">Resumen:</span>
-                  <span className="font-bold text-zinc-900">
-                    {itemCount} productos × {kitQuantity} kits
-                  </span>
+            {/* Footer - Pricing & CTA */}
+            {items.length > 0 && pricing && (
+              <div className="border-t border-zinc-200 bg-zinc-50">
+                {/* Savings Banner */}
+                {pricing.discount > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    className="px-6 py-3 bg-green-500 text-white"
+                  >
+                    <div className="flex items-center justify-center gap-2">
+                      <TrendingDown className="w-5 h-5" />
+                      <span className="font-bold">
+                        Ahorraste {formatPrice(pricing.discount)} (
+                        {Math.round(pricing.discountPercent * 100)}% descuento por
+                        volumen)
+                      </span>
+                    </div>
+                  </motion.div>
+                )}
+
+                <div className="p-6 space-y-4">
+                  {/* Price Breakdown */}
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-zinc-500">Subtotal</span>
+                      <span className="text-zinc-700">
+                        {formatPrice(pricing.subtotal)}
+                      </span>
+                    </div>
+
+                    {pricing.discount > 0 && (
+                      <div className="flex justify-between text-sm">
+                        <span className="text-green-600">
+                          Descuento ({pricing.discountLabel})
+                        </span>
+                        <span className="text-green-600 font-medium">
+                          -{formatPrice(pricing.discount)}
+                        </span>
+                      </div>
+                    )}
+
+                    <div className="flex justify-between text-sm">
+                      <span className="text-zinc-500">IVA (16%)</span>
+                      <span className="text-zinc-700">
+                        {formatPrice(pricing.tax)}
+                      </span>
+                    </div>
+
+                    <div className="h-px bg-zinc-200 my-2" />
+
+                    <div className="flex justify-between">
+                      <span className="font-bold text-zinc-900">Total</span>
+                      <span className="text-2xl font-black text-[#FF007F]">
+                        {formatPrice(pricing.total)}
+                      </span>
+                    </div>
+
+                    <div className="text-right text-xs text-zinc-500">
+                      {formatPrice(pricing.pricePerKit)} por kit
+                    </div>
+                  </div>
+
+                  {/* Error Message */}
+                  {error && (
+                    <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+                      {error}
+                    </div>
+                  )}
+
+                  {/* Pay Button */}
+                  <button
+                    onClick={handleCheckout}
+                    disabled={isLoading}
+                    className="flex items-center justify-center gap-3 w-full py-4 bg-[#FF007F] hover:bg-[#FF007F]/90 disabled:bg-zinc-300 text-white font-bold rounded-2xl transition-colors"
+                  >
+                    {isLoading ? (
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                    ) : (
+                      <>
+                        <CreditCard className="w-5 h-5" />
+                        Pagar Orden Completa
+                        <ChevronRight className="w-5 h-5" />
+                      </>
+                    )}
+                  </button>
+
+                  {/* Trust Badge */}
+                  <div className="flex items-center justify-center gap-2 text-xs text-zinc-500">
+                    <Shield className="w-4 h-4 text-green-500" />
+                    <span>
+                      Garantia de devolucion. Produccion inicia solo tras
+                      aprobacion del diseno.
+                    </span>
+                  </div>
+
+                  {/* Payment Methods */}
+                  <div className="flex items-center justify-center gap-4 pt-2">
+                    <Image
+                      src="/visa.svg"
+                      alt="Visa"
+                      width={40}
+                      height={24}
+                      className="opacity-50"
+                    />
+                    <Image
+                      src="/mastercard.svg"
+                      alt="Mastercard"
+                      width={40}
+                      height={24}
+                      className="opacity-50"
+                    />
+                    <Image
+                      src="/amex.svg"
+                      alt="Amex"
+                      width={40}
+                      height={24}
+                      className="opacity-50"
+                    />
+                  </div>
                 </div>
-
-                {/* WhatsApp CTA */}
-                <a
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full py-4 bg-[#25D366] hover:bg-[#25D366]/90 text-white font-bold rounded-2xl transition-colors"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  Solicitar Cotizacion por WhatsApp
-                  <ChevronRight className="w-5 h-5" />
-                </a>
-
-                <p className="text-center text-xs text-zinc-400 mt-3">
-                  Te responderemos en menos de 2 horas
-                </p>
               </div>
             )}
           </motion.div>

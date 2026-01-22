@@ -29,6 +29,20 @@ import {
   ORDER_STATUS_OPTIONS,
 } from '@/lib/admin-types';
 
+// Agent type
+interface Agent {
+  id: string;
+  email: string;
+  full_name: string;
+  avatar_url?: string;
+  phone?: string;
+  whatsapp_number?: string;
+  role: 'agent' | 'producer';
+  is_active: boolean;
+  current_order_count: number;
+  max_concurrent_orders: number;
+}
+
 // ============================================
 // LOGIN GATE COMPONENT
 // ============================================
@@ -255,6 +269,108 @@ function StatusDropdown({
 }
 
 // ============================================
+// AGENT DROPDOWN COMPONENT
+// ============================================
+function AgentDropdown({
+  agents,
+  currentAgentId,
+  onAssign,
+  loading,
+}: {
+  agents: Agent[];
+  currentAgentId?: string;
+  onAssign: (agentId: string) => void;
+  loading: boolean;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const currentAgent = agents.find((a) => a.id === currentAgentId);
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        disabled={loading}
+        className="flex items-center gap-2 px-3 py-2 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-lg transition-colors disabled:opacity-50 min-w-[140px]"
+      >
+        {currentAgent ? (
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 bg-[#FF007F] rounded-full flex items-center justify-center text-white text-xs font-bold">
+              {currentAgent.full_name?.charAt(0) || 'A'}
+            </div>
+            <span className="text-white text-sm truncate max-w-[80px]">
+              {currentAgent.full_name || 'Agent'}
+            </span>
+          </div>
+        ) : (
+          <span className="text-zinc-400 text-sm">Sin asignar</span>
+        )}
+        {loading ? (
+          <RefreshCw className="w-4 h-4 text-zinc-400 animate-spin ml-auto" />
+        ) : (
+          <ChevronDown className="w-4 h-4 text-zinc-400 ml-auto" />
+        )}
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            <div
+              className="fixed inset-0 z-10"
+              onClick={() => setIsOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="absolute top-full left-0 mt-2 w-64 bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl z-20 overflow-hidden"
+            >
+              <div className="px-4 py-2 border-b border-zinc-800">
+                <p className="text-zinc-400 text-xs font-mono uppercase">Asignar Producer</p>
+              </div>
+              <div className="max-h-64 overflow-y-auto">
+                {agents.length === 0 ? (
+                  <div className="px-4 py-3 text-zinc-500 text-sm">
+                    No hay agentes disponibles
+                  </div>
+                ) : (
+                  agents.map((agent) => (
+                    <button
+                      key={agent.id}
+                      onClick={() => {
+                        onAssign(agent.id);
+                        setIsOpen(false);
+                      }}
+                      className={`w-full px-4 py-3 text-left hover:bg-zinc-800 transition-colors flex items-center gap-3 ${
+                        currentAgentId === agent.id ? 'bg-zinc-800' : ''
+                      }`}
+                    >
+                      <div className="w-8 h-8 bg-gradient-to-br from-[#FF007F] to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                        {agent.full_name?.charAt(0) || 'A'}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-white text-sm font-medium truncate">
+                          {agent.full_name || agent.email}
+                        </p>
+                        <p className="text-zinc-500 text-xs">
+                          {agent.current_order_count}/{agent.max_concurrent_orders} proyectos
+                        </p>
+                      </div>
+                      {currentAgentId === agent.id && (
+                        <CheckCircle2 className="w-4 h-4 text-[#FF007F] flex-shrink-0" />
+                      )}
+                    </button>
+                  ))
+                )}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+// ============================================
 // ORDER DETAIL MODAL
 // ============================================
 function OrderDetailModal({
@@ -428,13 +544,19 @@ function OrderDetailModal({
 // ============================================
 function OrderRow({
   order,
+  agents,
   onStatusChange,
+  onAssignAgent,
   updatingStatus,
+  assigningAgent,
   onViewDetails,
 }: {
-  order: Order;
+  order: Order & { assigned_agent_id?: string };
+  agents: Agent[];
   onStatusChange: (id: string, status: OrderStatus) => void;
+  onAssignAgent: (orderId: string, agentId: string) => void;
   updatingStatus: string | null;
+  assigningAgent: string | null;
   onViewDetails: (order: Order) => void;
 }) {
   const formatDate = (dateString: string) => {
@@ -528,6 +650,16 @@ function OrderRow({
         )}
       </td>
 
+      {/* Agent */}
+      <td className="px-4 py-4">
+        <AgentDropdown
+          agents={agents}
+          currentAgentId={order.assigned_agent_id}
+          onAssign={(agentId) => onAssignAgent(order.id, agentId)}
+          loading={assigningAgent === order.id}
+        />
+      </td>
+
       {/* Status */}
       <td className="px-4 py-4">
         <StatusDropdown
@@ -555,10 +687,14 @@ function OrderRow({
 // ============================================
 function Dashboard({ onLogout }: { onLogout: () => void }) {
   const [orders, setOrders] = useState<Order[]>([]);
+  const [agents, setAgents] = useState<Agent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [updatingStatus, setUpdatingStatus] = useState<string | null>(null);
+  const [assigningAgent, setAssigningAgent] = useState<string | null>(null);
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
+
+  const getAdminPassword = () => localStorage.getItem('admin_token') || '';
 
   const fetchOrders = useCallback(async () => {
     try {
@@ -579,9 +715,57 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
     }
   }, []);
 
+  const fetchAgents = useCallback(async () => {
+    try {
+      const res = await fetch('/api/admin/agents', {
+        headers: { 'x-admin-password': getAdminPassword() },
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        setAgents(data.agents || []);
+      }
+    } catch (err) {
+      console.error('Failed to fetch agents:', err);
+    }
+  }, []);
+
   useEffect(() => {
     fetchOrders();
-  }, [fetchOrders]);
+    fetchAgents();
+  }, [fetchOrders, fetchAgents]);
+
+  const handleAssignAgent = async (orderId: string, agentId: string) => {
+    setAssigningAgent(orderId);
+
+    try {
+      const res = await fetch('/api/admin/orders/assign', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-password': getAdminPassword(),
+        },
+        body: JSON.stringify({ orderId, agentId }),
+      });
+
+      if (res.ok) {
+        // Update local state
+        setOrders((prev) =>
+          prev.map((order) =>
+            order.id === orderId
+              ? { ...order, assigned_agent_id: agentId, status: order.status === 'paid' ? 'assigned' as OrderStatus : order.status }
+              : order
+          )
+        );
+        // Refresh agents to update counts
+        fetchAgents();
+      }
+    } catch (err) {
+      console.error('Failed to assign agent:', err);
+    } finally {
+      setAssigningAgent(null);
+    }
+  };
 
   const handleStatusChange = async (orderId: string, newStatus: OrderStatus) => {
     setUpdatingStatus(orderId);
@@ -763,6 +947,9 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
                       Logo
                     </th>
                     <th className="px-4 py-3 text-zinc-500 text-xs font-mono uppercase tracking-wider">
+                      Producer
+                    </th>
+                    <th className="px-4 py-3 text-zinc-500 text-xs font-mono uppercase tracking-wider">
                       Estado
                     </th>
                     <th className="px-4 py-3 text-zinc-500 text-xs font-mono uppercase tracking-wider">
@@ -775,8 +962,11 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
                     <OrderRow
                       key={order.id}
                       order={order}
+                      agents={agents}
                       onStatusChange={handleStatusChange}
+                      onAssignAgent={handleAssignAgent}
                       updatingStatus={updatingStatus}
+                      assigningAgent={assigningAgent}
                       onViewDetails={setSelectedOrder}
                     />
                   ))}
