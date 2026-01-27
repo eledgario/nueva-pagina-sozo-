@@ -2,17 +2,42 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// Helper to validate Supabase URL
+function isValidSupabaseUrl(url: string | undefined): url is string {
+  if (!url) return false;
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia',
-});
+// Initialize Supabase conditionally
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+const supabase = isValidSupabaseUrl(supabaseUrl) && supabaseServiceKey
+  ? createClient(supabaseUrl, supabaseServiceKey)
+  : null;
+
+// Initialize Stripe conditionally
+const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2025-12-15.clover',
+    })
+  : null;
 
 export async function GET(request: NextRequest) {
   try {
+    // Check if Supabase is configured
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Supabase no esta configurado. Contacta al administrador.' },
+        { status: 503 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const sessionId = searchParams.get('session_id');
     const email = searchParams.get('email');
@@ -39,32 +64,34 @@ export async function GET(request: NextRequest) {
 
       if (error) {
         // If not found in DB, try to get from Stripe session
-        try {
-          const session = await stripe.checkout.sessions.retrieve(sessionId);
+        if (stripe) {
+          try {
+            const session = await stripe.checkout.sessions.retrieve(sessionId);
 
-          if (session.payment_status === 'paid') {
-            // Order might not be in DB yet, return session info
-            return NextResponse.json({
-              order: {
-                id: session.id,
-                order_number: 0,
-                status: 'paid',
-                payment_status: session.payment_status,
-                design_status: 'awaiting_files',
-                customer_name: session.customer_details?.name || '',
-                customer_email: session.customer_details?.email || '',
-                items: JSON.parse(session.metadata?.items || '[]'),
-                kit_quantity: parseInt(session.metadata?.kitQuantity || '1'),
-                packaging_type: session.metadata?.packaging || 'kraft',
-                total_amount: session.amount_total || 0,
-                created_at: new Date(session.created * 1000).toISOString(),
-                assigned_agent: null,
-              },
-              message: 'Order being processed',
-            });
+            if (session.payment_status === 'paid') {
+              // Order might not be in DB yet, return session info
+              return NextResponse.json({
+                order: {
+                  id: session.id,
+                  order_number: 0,
+                  status: 'paid',
+                  payment_status: session.payment_status,
+                  design_status: 'awaiting_files',
+                  customer_name: session.customer_details?.name || '',
+                  customer_email: session.customer_details?.email || '',
+                  items: JSON.parse(session.metadata?.items || '[]'),
+                  kit_quantity: parseInt(session.metadata?.kitQuantity || '1'),
+                  packaging_type: session.metadata?.packaging || 'kraft',
+                  total_amount: session.amount_total || 0,
+                  created_at: new Date(session.created * 1000).toISOString(),
+                  assigned_agent: null,
+                },
+                message: 'Order being processed',
+              });
+            }
+          } catch (stripeError) {
+            console.error('Stripe session lookup error:', stripeError);
           }
-        } catch (stripeError) {
-          console.error('Stripe session lookup error:', stripeError);
         }
 
         return NextResponse.json(

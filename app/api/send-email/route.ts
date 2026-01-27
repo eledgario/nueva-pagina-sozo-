@@ -2,8 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import OrderConfirmationEmail from '@/emails/OrderConfirmation';
 
-// Initialize Resend with API key
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend conditionally
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 export async function POST(request: NextRequest) {
   try {
@@ -19,7 +21,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if Resend is configured
-    if (!process.env.RESEND_API_KEY) {
+    if (!resend) {
       console.warn('RESEND_API_KEY not configured, skipping email');
       return NextResponse.json({
         success: true,

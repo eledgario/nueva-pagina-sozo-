@@ -6,7 +6,7 @@ import { Resend } from 'resend';
 // Initialize services conditionally
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2024-12-18.acacia',
+      apiVersion: '2025-12-15.clover',
     })
   : null;
 
@@ -83,6 +83,11 @@ export async function POST(request: NextRequest) {
 }
 
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
+  if (!supabase) {
+    console.error('Supabase not configured');
+    return;
+  }
+
   console.log('Processing checkout.session.completed:', session.id);
 
   const metadata = session.metadata || {};
@@ -101,16 +106,30 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   const customerPhone = session.customer_details?.phone || '';
   const companyName = metadata.companyName || '';
 
-  // Get shipping address
-  const shippingAddress = session.shipping_details?.address
+  // Get shipping address (use type assertion for compatibility)
+  const sessionAny = session as unknown as {
+    shipping_details?: {
+      address?: {
+        line1?: string | null;
+        line2?: string | null;
+        city?: string | null;
+        state?: string | null;
+        postal_code?: string | null;
+        country?: string | null;
+      };
+      name?: string | null;
+    };
+  };
+
+  const shippingAddress = sessionAny.shipping_details?.address
     ? {
-        line1: session.shipping_details.address.line1,
-        line2: session.shipping_details.address.line2,
-        city: session.shipping_details.address.city,
-        state: session.shipping_details.address.state,
-        postal_code: session.shipping_details.address.postal_code,
-        country: session.shipping_details.address.country,
-        name: session.shipping_details.name,
+        line1: sessionAny.shipping_details.address.line1,
+        line2: sessionAny.shipping_details.address.line2,
+        city: sessionAny.shipping_details.address.city,
+        state: sessionAny.shipping_details.address.state,
+        postal_code: sessionAny.shipping_details.address.postal_code,
+        country: sessionAny.shipping_details.address.country,
+        name: sessionAny.shipping_details.name,
       }
     : null;
 
@@ -167,6 +186,11 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 }
 
 async function handlePaymentSucceeded(paymentIntent: Stripe.PaymentIntent) {
+  if (!supabase) {
+    console.error('Supabase not configured');
+    return;
+  }
+
   console.log('Processing payment_intent.succeeded:', paymentIntent.id);
 
   // Update order payment status
@@ -203,6 +227,11 @@ async function handlePaymentSucceeded(paymentIntent: Stripe.PaymentIntent) {
 }
 
 async function handlePaymentFailed(paymentIntent: Stripe.PaymentIntent) {
+  if (!supabase) {
+    console.error('Supabase not configured');
+    return;
+  }
+
   console.log('Processing payment_intent.payment_failed:', paymentIntent.id);
 
   const { data: order, error } = await supabase
@@ -234,6 +263,11 @@ async function autoAssignAndNotify(order: {
   kit_quantity: number;
   total_amount: number;
 }) {
+  if (!supabase) {
+    console.error('Supabase not configured');
+    return;
+  }
+
   // Try to auto-assign using database function
   const { data: agentId, error: assignError } = await supabase.rpc(
     'auto_assign_order',
@@ -254,19 +288,21 @@ async function autoAssignAndNotify(order: {
   }
 
   // Send confirmation email to customer
-  try {
-    await resend.emails.send({
-      from: 'Sozo <orders@sozo.mx>',
-      to: order.customer_email,
-      subject: `Orden #${order.order_number} Confirmada - Sozo`,
-      html: generateOrderConfirmationEmail(order, assignedAgent),
-    });
-  } catch (emailError) {
-    console.error('Failed to send confirmation email:', emailError);
+  if (resend) {
+    try {
+      await resend.emails.send({
+        from: 'Sozo <orders@sozo.mx>',
+        to: order.customer_email,
+        subject: `Orden #${order.order_number} Confirmada - Sozo`,
+        html: generateOrderConfirmationEmail(order, assignedAgent),
+      });
+    } catch (emailError) {
+      console.error('Failed to send confirmation email:', emailError);
+    }
   }
 
   // If agent assigned, send notification email to agent
-  if (assignedAgent) {
+  if (assignedAgent && resend) {
     try {
       await resend.emails.send({
         from: 'Sozo <notifications@sozo.mx>',

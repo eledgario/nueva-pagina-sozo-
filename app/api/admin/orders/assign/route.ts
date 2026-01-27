@@ -2,16 +2,41 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// Helper to validate Supabase URL
+function isValidSupabaseUrl(url: string | undefined): url is string {
+  if (!url) return false;
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Supabase conditionally
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+const supabase = isValidSupabaseUrl(supabaseUrl) && supabaseServiceKey
+  ? createClient(supabaseUrl, supabaseServiceKey)
+  : null;
+
+// Initialize Resend conditionally
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 // POST - Assign agent to order
 export async function POST(request: NextRequest) {
   try {
+    // Check if Supabase is configured
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Supabase no esta configurado. Contacta al administrador.' },
+        { status: 503 }
+      );
+    }
+
     // Verify admin password
     const adminPassword = request.headers.get('x-admin-password');
     if (adminPassword !== process.env.ADMIN_PASSWORD) {
@@ -106,7 +131,7 @@ export async function POST(request: NextRequest) {
     });
 
     // Send email notification to agent
-    if (agent?.email) {
+    if (agent?.email && resend) {
       try {
         await resend.emails.send({
           from: 'Sozo <notifications@sozo.mx>',

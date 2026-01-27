@@ -2,15 +2,34 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { Package, ChevronUp, X } from 'lucide-react';
+import { Package, ChevronUp, X, Trash2 } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import { useKitBuilder } from '@/context/KitBuilderContext';
+import { useToast } from '@/components/kit-builder/Toast';
 
 export default function FloatingBuilderBar() {
-  const { items, hasItems, itemCount, openDrawer, removeItem } = useKitBuilder();
+  const pathname = usePathname();
+  const { items, hasItems, itemCount, openDrawer, removeItem, clearKit } = useKitBuilder();
+  const { showToast } = useToast();
+
+  // Hide on admin/dashboard/client routes
+  if (
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/dashboard') ||
+    pathname.startsWith('/client')
+  ) {
+    return null;
+  }
 
   // Show only first 5 thumbnails
   const visibleItems = items.slice(0, 5);
   const remainingCount = items.length - 5;
+
+  const handleClearCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    clearKit();
+    showToast('Carrito vaciado', 'info');
+  };
 
   return (
     <AnimatePresence>
@@ -89,17 +108,31 @@ export default function FloatingBuilderBar() {
                 )}
               </div>
 
-              {/* Right - CTA Button */}
-              <motion.button
-                onClick={openDrawer}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center gap-2 px-4 md:px-6 py-3 bg-zinc-900 hover:bg-[#FF007F] text-white font-bold text-sm rounded-xl transition-colors flex-shrink-0"
-              >
-                <span className="hidden sm:inline">Revisar Kit</span>
-                <span className="sm:hidden">Ver</span>
-                <ChevronUp className="w-4 h-4" />
-              </motion.button>
+              {/* Right - Actions */}
+              <div className="flex items-center gap-2">
+                {/* Quick Clear Button */}
+                <motion.button
+                  onClick={handleClearCart}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="p-2.5 bg-zinc-100 hover:bg-red-50 text-zinc-500 hover:text-red-500 rounded-xl transition-colors"
+                  title="Vaciar carrito"
+                >
+                  <Trash2 className="w-5 h-5" />
+                </motion.button>
+
+                {/* CTA Button */}
+                <motion.button
+                  onClick={openDrawer}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center gap-2 px-4 md:px-6 py-3 bg-zinc-900 hover:bg-[#FF007F] text-white font-bold text-sm rounded-xl transition-colors flex-shrink-0"
+                >
+                  <span className="hidden sm:inline">Revisar Kit</span>
+                  <span className="sm:hidden">Ver</span>
+                  <ChevronUp className="w-4 h-4" />
+                </motion.button>
+              </div>
             </div>
           </div>
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import {
@@ -17,6 +17,7 @@ import {
   Zap,
   Loader2,
   TrendingDown,
+  AlertTriangle,
 } from 'lucide-react';
 import {
   useKitBuilder,
@@ -38,6 +39,13 @@ const packagingIcons: Record<PackagingType, React.ReactNode> = {
   premium: <Sparkles className="w-5 h-5" />,
 };
 
+// MOQ (Minimum Order Quantity) by packaging type
+const MOQ_BY_PACKAGING: Record<PackagingType, number> = {
+  mailer: 25,   // Poly Mailer/Bag: min 25
+  kraft: 50,    // Custom Box: min 50
+  premium: 50,  // Premium Box: min 50
+};
+
 export default function KitDrawer() {
   const {
     items,
@@ -55,9 +63,50 @@ export default function KitDrawer() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [moqWarning, setMoqWarning] = useState<string | null>(null);
 
-  // Quantity presets
-  const quantityPresets = [25, 50, 100, 250, 500];
+  // Get current MOQ based on packaging
+  const currentMOQ = MOQ_BY_PACKAGING[packaging];
+
+  // Quantity presets - filtered to show only valid options for current MOQ
+  const quantityPresets = [25, 50, 100, 250, 500].filter(
+    (preset) => preset >= currentMOQ
+  );
+
+  // Auto-correct quantity when packaging changes
+  useEffect(() => {
+    if (kitQuantity < currentMOQ) {
+      setKitQuantity(currentMOQ);
+      setMoqWarning(
+        `Cantidad ajustada a ${currentMOQ} unidades (mínimo para este empaque)`
+      );
+      // Clear warning after 3 seconds
+      const timer = setTimeout(() => setMoqWarning(null), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [packaging, currentMOQ, kitQuantity, setKitQuantity]);
+
+  // Handle quantity change with MOQ validation
+  const handleQuantityChange = (newQuantity: number) => {
+    if (newQuantity < currentMOQ) {
+      setMoqWarning(
+        `El mínimo para este tipo de empaque es de ${currentMOQ} unidades.`
+      );
+      // Still allow them to type, but show warning
+      setKitQuantity(newQuantity || currentMOQ);
+    } else {
+      setMoqWarning(null);
+      setKitQuantity(newQuantity);
+    }
+  };
+
+  // Validate and enforce MOQ on blur
+  const handleQuantityBlur = () => {
+    if (kitQuantity < currentMOQ) {
+      setKitQuantity(currentMOQ);
+      setMoqWarning(null);
+    }
+  };
 
   // Calculate pricing
   const pricing = useMemo(() => {
@@ -370,7 +419,7 @@ export default function KitDrawer() {
                       {quantityPresets.map((preset) => (
                         <button
                           key={preset}
-                          onClick={() => setKitQuantity(preset)}
+                          onClick={() => handleQuantityChange(preset)}
                           className={`px-4 py-2 rounded-xl font-bold text-sm transition-all ${
                             kitQuantity === preset
                               ? 'bg-zinc-900 text-white'
@@ -382,19 +431,46 @@ export default function KitDrawer() {
                       ))}
                     </div>
 
+                    {/* MOQ Info Badge */}
+                    <div className="mb-4 text-xs text-zinc-500 flex items-center gap-1">
+                      <span className="font-medium">Mínimo:</span>
+                      <span className="font-bold text-zinc-700">{currentMOQ} kits</span>
+                      <span className="text-zinc-400">
+                        ({packaging === 'mailer' ? 'Mailer Bag' : 'Caja'})
+                      </span>
+                    </div>
+
                     {/* Custom Quantity Input */}
                     <div className="flex items-center gap-3">
                       <input
                         type="number"
-                        min="1"
+                        min={currentMOQ}
                         value={kitQuantity}
                         onChange={(e) =>
-                          setKitQuantity(parseInt(e.target.value) || 1)
+                          handleQuantityChange(parseInt(e.target.value) || currentMOQ)
                         }
-                        className="flex-1 px-4 py-3 bg-zinc-100 border border-zinc-200 rounded-xl text-zinc-900 font-bold focus:outline-none focus:ring-2 focus:ring-[#FF007F] focus:border-transparent"
+                        onBlur={handleQuantityBlur}
+                        className={`flex-1 px-4 py-3 bg-zinc-100 border rounded-xl text-zinc-900 font-bold focus:outline-none focus:ring-2 focus:ring-[#FF007F] focus:border-transparent ${
+                          moqWarning ? 'border-amber-400' : 'border-zinc-200'
+                        }`}
                       />
                       <span className="text-zinc-500 font-medium">kits</span>
                     </div>
+
+                    {/* MOQ Warning */}
+                    {moqWarning && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -5 }}
+                        className="mt-2 p-3 bg-amber-50 border border-amber-200 rounded-xl"
+                      >
+                        <div className="flex items-center gap-2 text-amber-700">
+                          <AlertTriangle className="w-4 h-4 flex-shrink-0" />
+                          <span className="text-sm font-medium">{moqWarning}</span>
+                        </div>
+                      </motion.div>
+                    )}
 
                     {/* Next Tier Hint */}
                     {pricing && pricing.nextTier && pricing.unitsToNextTier > 0 && (
