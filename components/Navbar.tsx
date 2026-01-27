@@ -12,85 +12,75 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { id: 'drops', label: 'Esenciales', href: '#drops' },
+  { id: 'catalog', label: 'Catálogo', href: '#drops' },
   { id: 'lab', label: 'El Lab', href: '#lab' },
-  { id: 'process', label: 'Nosotros', href: '#process' },
+  { id: 'process', label: 'Proceso', href: '#process' },
+  { id: 'faq', label: 'FAQ', href: '#faq' },
 ];
 
 export default function Navbar() {
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <>
-      {/* Desktop Navbar */}
+      {/* Desktop Navbar - Full Width Industrial Style */}
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-[60] w-[95%] max-w-5xl"
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+        className="fixed top-0 left-0 right-0 z-[60] bg-white border-b border-zinc-200"
       >
-        <div className="relative bg-white/70 backdrop-blur-md border border-zinc-200 rounded-full shadow-lg shadow-zinc-200/20 px-4 md:px-6 py-3">
-          <div className="flex items-center justify-between">
+        <div className="max-w-[1800px] mx-auto">
+          <div className="flex items-center justify-between h-14">
             {/* Left - Logo */}
-            <Link href="/" className="flex items-center gap-2">
-              <span className="font-black text-xl tracking-tighter text-zinc-900">
+            <Link href="/" className="flex items-center h-full px-6 border-r border-zinc-200">
+              <span className="font-black text-lg tracking-tighter text-zinc-900">
                 SOZO
               </span>
-              <span className="hidden sm:inline-block px-2 py-0.5 bg-[#FF007F] text-white text-[10px] font-bold rounded-full">
+              <span className="ml-2 px-2 py-0.5 bg-zinc-900 text-white font-mono text-[9px] tracking-wider">
                 MFG
               </span>
             </Link>
 
             {/* Center - Navigation Links (Desktop) */}
-            <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
+            <div className="hidden md:flex items-center h-full flex-1">
+              {navLinks.map((link, index) => (
                 <Link
                   key={link.id}
                   href={link.href}
-                  className="relative px-4 py-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 transition-colors"
-                  onMouseEnter={() => setHoveredLink(link.id)}
-                  onMouseLeave={() => setHoveredLink(null)}
+                  className="flex items-center h-full px-6 font-mono text-xs uppercase tracking-wider text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50 transition-colors border-r border-zinc-200"
                 >
-                  {/* Animated Background Pill */}
-                  {hoveredLink === link.id && (
-                    <motion.div
-                      layoutId="navHoverPill"
-                      className="absolute inset-0 bg-zinc-100 rounded-full"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ type: 'spring', duration: 0.4, bounce: 0.2 }}
-                    />
-                  )}
-                  <span className="relative z-10">{link.label}</span>
+                  {link.label}
                 </Link>
               ))}
+
+              {/* Spacer */}
+              <div className="flex-1 border-r border-zinc-200 h-full" />
             </div>
 
             {/* Right - Actions */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center h-full">
               {/* Client Login (Desktop) */}
               <Link
                 href="/login"
-                className="hidden md:block text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors"
+                className="hidden md:flex items-center h-full px-6 font-mono text-xs uppercase tracking-wider text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50 transition-colors border-l border-zinc-200"
               >
-                Acceso Clientes
+                Acceso
               </Link>
 
               {/* Start Project Button */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-zinc-900 hover:bg-[#FF007F] text-white text-sm font-bold rounded-full transition-colors duration-300"
+              <Link
+                href="#contact"
+                className="hidden sm:flex items-center h-full px-6 bg-zinc-900 hover:bg-[#FF007F] text-white font-mono text-xs uppercase tracking-wider transition-colors duration-200"
               >
-                Empezar Proyecto
-              </motion.button>
+                Iniciar Proyecto
+                <ArrowRight className="w-3 h-3 ml-2" />
+              </Link>
 
               {/* Mobile Menu Toggle */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="md:hidden p-2 text-zinc-900 hover:bg-zinc-100 rounded-full transition-colors"
+                className="md:hidden flex items-center justify-center h-full w-14 text-zinc-900 hover:bg-zinc-50 transition-colors border-l border-zinc-200"
                 aria-label="Open menu"
               >
                 <Menu className="w-5 h-5" />
@@ -100,102 +90,84 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile Full-Screen Menu */}
+      {/* Mobile Full-Screen Menu - Industrial Style */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 z-[100] bg-white"
           >
-            {/* Background Pattern */}
-            <div
-              className="absolute inset-0 opacity-[0.02]"
-              style={{
-                backgroundImage: `
-                  linear-gradient(to right, #000 1px, transparent 1px),
-                  linear-gradient(to bottom, #000 1px, transparent 1px)
-                `,
-                backgroundSize: '40px 40px',
-              }}
-            />
+            {/* Grid Background */}
+            <div className="industrial-grid" />
 
-            {/* Close Button */}
-            <motion.button
-              initial={{ opacity: 0, rotate: -90 }}
-              animate={{ opacity: 1, rotate: 0 }}
-              exit={{ opacity: 0, rotate: 90 }}
-              transition={{ duration: 0.3 }}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="absolute top-6 right-6 p-3 bg-zinc-100 hover:bg-zinc-200 rounded-full transition-colors z-10"
-              aria-label="Close menu"
-            >
-              <X className="w-6 h-6 text-zinc-900" />
-            </motion.button>
-
-            {/* Menu Content */}
-            <div className="flex flex-col justify-center items-center min-h-screen px-8 py-20">
-              {/* Logo */}
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="mb-12"
-              >
-                <span className="font-black text-3xl tracking-tighter text-zinc-900">
+            {/* Header */}
+            <div className="flex items-center justify-between h-14 border-b border-zinc-200">
+              <div className="flex items-center h-full px-6 border-r border-zinc-200">
+                <span className="font-black text-lg tracking-tighter text-zinc-900">
                   SOZO
                 </span>
-                <span className="ml-2 px-2 py-1 bg-[#FF007F] text-white text-xs font-bold rounded-full">
+                <span className="ml-2 px-2 py-0.5 bg-zinc-900 text-white font-mono text-[9px] tracking-wider">
                   MFG
                 </span>
-              </motion.div>
+              </div>
 
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center justify-center h-full w-14 text-zinc-900 hover:bg-zinc-50 transition-colors border-l border-zinc-200"
+                aria-label="Close menu"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Menu Content */}
+            <div className="flex flex-col">
               {/* Navigation Links */}
-              <nav className="flex flex-col items-center gap-2 mb-12">
-                {navLinks.map((link, index) => (
-                  <motion.div
-                    key={link.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15 + index * 0.1, duration: 0.4 }}
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 * index }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-6 py-5 border-b border-zinc-200 hover:bg-zinc-50 transition-colors"
                   >
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="group flex items-center gap-4 text-4xl md:text-5xl font-black text-zinc-900 hover:text-[#FF007F] transition-colors py-3"
-                    >
-                      <span className="font-mono text-sm font-normal text-zinc-400 group-hover:text-[#FF007F]">
-                        0{index + 1}
-                      </span>
+                    <span className="font-black text-2xl uppercase tracking-tight text-zinc-900">
                       {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-              </nav>
-
-              {/* Divider */}
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-                className="w-32 h-px bg-zinc-200 mb-8"
-              />
+                    </span>
+                    <span className="font-mono text-xs text-zinc-400">
+                      0{index + 1}
+                    </span>
+                  </Link>
+                </motion.div>
+              ))}
 
               {/* Secondary Links */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="flex flex-col items-center gap-4 mb-12"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="flex border-b border-zinc-200"
               >
                 <Link
                   href="/login"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-zinc-500 hover:text-zinc-900 transition-colors"
+                  className="flex-1 px-6 py-4 font-mono text-xs uppercase tracking-wider text-zinc-500 hover:bg-zinc-50 border-r border-zinc-200 text-center"
                 >
                   Acceso Clientes
+                </Link>
+                <Link
+                  href="#contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex-1 px-6 py-4 font-mono text-xs uppercase tracking-wider text-zinc-500 hover:bg-zinc-50 text-center"
+                >
+                  Contacto
                 </Link>
               </motion.div>
 
@@ -203,14 +175,15 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
+                transition={{ delay: 0.4 }}
+                className="p-6"
               >
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-8 py-4 bg-[#FF007F] hover:bg-zinc-900 text-white font-bold text-lg rounded-full transition-colors duration-300"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-zinc-900 hover:bg-[#FF007F] text-white font-mono text-xs uppercase tracking-wider transition-colors duration-200"
                 >
-                  Empezar Proyecto
-                  <ArrowRight className="w-5 h-5" />
+                  Iniciar Proyecto
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </motion.div>
 
@@ -218,12 +191,17 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
-                className="absolute bottom-8 left-0 right-0 flex justify-center"
+                transition={{ delay: 0.5 }}
+                className="absolute bottom-0 left-0 right-0 px-6 py-4 border-t border-zinc-200"
               >
-                <span className="font-mono text-xs text-zinc-400 uppercase tracking-widest">
-                  CDMX // Hybrid Manufacturing Lab
-                </span>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-wider">
+                    CDMX / MX
+                  </span>
+                  <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-wider">
+                    Hybrid Manufacturing Lab
+                  </span>
+                </div>
               </motion.div>
             </div>
           </motion.div>

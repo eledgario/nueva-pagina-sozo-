@@ -3,6 +3,14 @@
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  /* Industrial Precision - Border Radius Reset */
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
+  --radius-3xl: 2px;
 }
 
 html {
@@ -10,27 +18,211 @@ html {
 }
 
 body {
-  @apply antialiased bg-zinc-50;
+  @apply antialiased bg-white text-zinc-900;
 }
 
-/* Industrial Paper Texture - Subtle Grey Noise */
-.industrial-noise {
-  position: fixed;
-  inset: 0;
-  opacity: 0.025;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
-}
+/* ═══════════════════════════════════════════════════════════
+   INDUSTRIAL PRECISION DESIGN SYSTEM
+   Inspired by: Teenage Engineering, Dieter Rams, Braun
+   ═══════════════════════════════════════════════════════════ */
 
-/* Technical Blueprint Grid Lines */
-.blueprint-grid {
+/* Industrial Grid Overlay */
+.industrial-grid {
   position: fixed;
   inset: 0;
-  opacity: 0.035;
+  opacity: 0.03;
   pointer-events: none;
-  background-size: 40px 40px;
+  background-size: 80px 80px;
   background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, #000 1px, transparent 1px),
+    linear-gradient(to bottom, #000 1px, transparent 1px);
+  z-index: 0;
+}
+
+/* Micro Grid (Denser) */
+.micro-grid {
+  background-size: 20px 20px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TYPOGRAPHY SYSTEM
+   ───────────────────────────────────────────────────────────── */
+
+/* Technical Labels - Monospace Uppercase */
+.label-tech {
+  @apply font-mono text-xs uppercase tracking-widest text-zinc-500;
+}
+
+/* Specs/Data Display */
+.label-spec {
+  @apply font-mono text-[10px] uppercase tracking-wider text-zinc-400;
+}
+
+/* Industrial Heading */
+.heading-industrial {
+  @apply font-black uppercase tracking-tight leading-[0.9];
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BUTTON SYSTEM
+   ───────────────────────────────────────────────────────────── */
+
+/* Primary Button - Solid Black */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2
+         px-6 py-3
+         bg-zinc-900 text-white
+         font-mono text-xs uppercase tracking-wider font-bold
+         border border-zinc-900
+         transition-all duration-200;
+}
+.btn-primary:hover {
+  @apply bg-[#FF007F] border-[#FF007F];
+}
+
+/* Secondary Button - Outline */
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2
+         px-6 py-3
+         bg-white text-zinc-900
+         font-mono text-xs uppercase tracking-wider font-bold
+         border border-zinc-900
+         transition-all duration-200;
+}
+.btn-secondary:hover {
+  @apply bg-zinc-900 text-white;
+}
+
+/* Ghost Button */
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2
+         px-4 py-2
+         bg-transparent text-zinc-600
+         font-mono text-xs uppercase tracking-wider
+         border border-transparent
+         transition-all duration-200;
+}
+.btn-ghost:hover {
+  @apply text-zinc-900 border-zinc-200;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CARD SYSTEM
+   ───────────────────────────────────────────────────────────── */
+
+/* Industrial Card */
+.card-industrial {
+  @apply bg-white border border-zinc-200
+         transition-all duration-200;
+}
+.card-industrial:hover {
+  @apply border-zinc-900;
+}
+
+/* Product Image Container */
+.product-image-container {
+  @apply bg-[#f4f4f4] aspect-square flex items-center justify-center;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   DIVIDERS & BORDERS
+   ───────────────────────────────────────────────────────────── */
+
+/* Horizontal Divider */
+.divider-h {
+  @apply w-full h-px bg-zinc-200;
+}
+
+/* Vertical Divider */
+.divider-v {
+  @apply w-px h-full bg-zinc-200;
+}
+
+/* Section Border */
+.border-section {
+  @apply border-b border-zinc-200;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FORM ELEMENTS
+   ───────────────────────────────────────────────────────────── */
+
+/* Industrial Input */
+.input-industrial {
+  @apply w-full px-4 py-3
+         bg-white text-zinc-900
+         font-mono text-sm
+         border border-zinc-200
+         placeholder:text-zinc-400
+         focus:outline-none focus:border-zinc-900
+         transition-colors duration-200;
+}
+
+/* Industrial Select */
+.select-industrial {
+  @apply w-full px-4 py-3
+         bg-white text-zinc-900
+         font-mono text-sm
+         border border-zinc-200
+         focus:outline-none focus:border-zinc-900
+         transition-colors duration-200
+         appearance-none cursor-pointer;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   UTILITY CLASSES
+   ───────────────────────────────────────────────────────────── */
+
+/* Grid Cell */
+.grid-cell {
+  @apply border border-zinc-200 p-4;
+}
+
+/* Specs Grid */
+.specs-grid {
+  @apply grid grid-cols-2 divide-x divide-y divide-zinc-200 border border-zinc-200;
+}
+
+.specs-grid > * {
+  @apply p-3;
+}
+
+/* Badge Industrial */
+.badge-industrial {
+  @apply inline-flex items-center px-3 py-1
+         bg-zinc-900 text-white
+         font-mono text-[10px] uppercase tracking-wider;
+}
+
+/* Badge Outline */
+.badge-outline {
+  @apply inline-flex items-center px-3 py-1
+         bg-white text-zinc-900
+         font-mono text-[10px] uppercase tracking-wider
+         border border-zinc-900;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes border-pulse {
+  0%, 100% { border-color: rgb(228 228 231); }
+  50% { border-color: rgb(24 24 27); }
+}
+
+.animate-border-pulse {
+  animation: border-pulse 2s ease-in-out infinite;
+}
+
+/* Swiper Overrides for Industrial Style */
+.swiper-pagination-bullet {
+  @apply !rounded-none !w-6 !h-1 !bg-zinc-300 transition-all duration-200;
+}
+
+.swiper-pagination-bullet-active {
+  @apply !bg-zinc-900 !w-10;
 }

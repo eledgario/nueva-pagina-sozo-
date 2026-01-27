@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import SolutionHero from '@/components/solutions/SolutionHero';
+import PortfolioHero from '@/components/solutions/PortfolioHero';
 import PreBuiltKits, { KitItem } from '@/components/solutions/PreBuiltKits';
 import FilteredCatalog from '@/components/solutions/FilteredCatalog';
 import Footer from '@/components/Footer';
@@ -78,18 +78,20 @@ const volumePricing = [
 export default function MassivePage() {
   return (
     <main>
-      <SolutionHero
-        tag="Eventos Masivos"
-        title="ESCALA"
-        titleAccent="INDUSTRIAL"
-        description="Conferencias, expos, hackathons y eventos corporativos. Producción de alto volumen con precios de mayoreo y logística incluida."
-        imageUrl="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200"
-        accentColor={ACCENT_COLOR}
-        stats={[
-          { value: '50+', label: 'MOQ Mínimo' },
-          { value: '-40%', label: 'Precio Mayoreo' },
-          { value: '48hrs', label: 'Express Disponible' },
+      <PortfolioHero
+        category="Eventos Masivos"
+        title="ESCALA
+INDUSTRIAL"
+        subtitle="Conferencias, expos, hackathons y eventos corporativos. Producción de alto volumen con precios de mayoreo y logística incluida."
+        images={[
+          'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200',
+          'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200',
+          'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1200',
+          'https://images.unsplash.com/photo-1591115765373-5207764f72e7?q=80&w=1200',
         ]}
+        accentColor={ACCENT_COLOR}
+        moq={50}
+        leadTime="3-5 días"
         ctaText="Cotizar Volumen"
         ctaHref="#pricing"
       />

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import SolutionHero from '@/components/solutions/SolutionHero';
+import PortfolioHero from '@/components/solutions/PortfolioHero';
 import PreBuiltKits, { KitItem } from '@/components/solutions/PreBuiltKits';
 import FilteredCatalog from '@/components/solutions/FilteredCatalog';
 import Footer from '@/components/Footer';
@@ -91,18 +91,20 @@ const useCases = [
 export default function VIPPage() {
   return (
     <main>
-      <SolutionHero
-        tag="Client Gifting"
-        title="CIERRA"
-        titleAccent="TRATOS"
-        description="Regalos ejecutivos que abren puertas y fortalecen relaciones. Porque un buen regalo dice más que mil correos de seguimiento."
-        imageUrl="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1200"
-        accentColor={ACCENT_COLOR}
-        stats={[
-          { value: '5+', label: 'MOQ Mínimo' },
-          { value: '100%', label: 'Personalizable' },
-          { value: '48hrs', label: 'Express CDMX' },
+      <PortfolioHero
+        category="Client Gifting"
+        title="CIERRA
+TRATOS"
+        subtitle="Regalos ejecutivos que abren puertas y fortalecen relaciones. Porque un buen regalo dice más que mil correos de seguimiento."
+        images={[
+          'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1200',
+          'https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?q=80&w=1200',
+          'https://images.unsplash.com/photo-1607082349566-187342175e2f?q=80&w=1200',
+          'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=1200',
         ]}
+        accentColor={ACCENT_COLOR}
+        moq={5}
+        leadTime="48hrs express"
         ctaText="Crear Regalo VIP"
         ctaHref="#kits"
       />

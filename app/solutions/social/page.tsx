@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import SolutionHero from '@/components/solutions/SolutionHero';
+import PortfolioHero from '@/components/solutions/PortfolioHero';
 import PreBuiltKits, { KitItem } from '@/components/solutions/PreBuiltKits';
 import FilteredCatalog from '@/components/solutions/FilteredCatalog';
 import Footer from '@/components/Footer';
@@ -154,18 +154,20 @@ function DesignServicesSection() {
 export default function SocialPage() {
   return (
     <main>
-      <SolutionHero
-        tag="Eventos Sociales"
-        title="MOMENTOS"
-        titleAccent="ÚNICOS"
-        description="Bodas, XV años, cumpleaños y celebraciones especiales. Creamos merchandise que tus invitados guardarán para siempre."
-        imageUrl="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1200"
-        accentColor={ACCENT_COLOR}
-        stats={[
-          { value: '25+', label: 'MOQ Mínimo' },
-          { value: '100%', label: 'Personalizable' },
-          { value: '∞', label: 'Recuerdos' },
+      <PortfolioHero
+        category="Eventos Sociales"
+        title="MOMENTOS
+QUE BRILLAN"
+        subtitle="Bodas, XV años, cumpleaños y celebraciones especiales. Creamos merchandise que tus invitados guardarán para siempre."
+        images={[
+          'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200',
+          'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1200',
+          'https://images.unsplash.com/photo-1496843916299-590492c751f4?q=80&w=1200',
+          'https://images.unsplash.com/photo-1478146896981-b80fe463b330?q=80&w=1200',
         ]}
+        accentColor={ACCENT_COLOR}
+        moq={25}
+        leadTime="7-10 días"
         ctaText="Cotizar Evento"
         ctaHref="#kits"
       />

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import SolutionHero from '@/components/solutions/SolutionHero';
+import PortfolioHero from '@/components/solutions/PortfolioHero';
 import PreBuiltKits, { KitItem } from '@/components/solutions/PreBuiltKits';
 import FilteredCatalog from '@/components/solutions/FilteredCatalog';
 import Footer from '@/components/Footer';
@@ -68,18 +68,20 @@ const teamsKits: KitItem[] = [
 export default function TeamsPage() {
   return (
     <main>
-      <SolutionHero
-        tag="Onboarding & Cultura"
-        title="EQUIPA A TU"
-        titleAccent="EQUIPO"
-        description="Desde el primer día hasta cada aniversario. Kits de bienvenida que construyen cultura y hacen que cada empleado se sienta parte desde el inicio."
-        imageUrl="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200"
-        accentColor={ACCENT_COLOR}
-        stats={[
-          { value: '12+', label: 'MOQ Mínimo' },
-          { value: '5-7', label: 'Días Producción' },
-          { value: '90', label: 'Días Almacenaje Gratis' },
+      <PortfolioHero
+        category="Teams & Onboarding"
+        title="EQUIPA A TU
+EQUIPO"
+        subtitle="Desde el primer día hasta cada aniversario. Kits de bienvenida que construyen cultura y hacen que cada empleado se sienta parte desde el inicio."
+        images={[
+          'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200',
+          'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1200',
+          'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200',
+          'https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?q=80&w=1200',
         ]}
+        accentColor={ACCENT_COLOR}
+        moq={12}
+        leadTime="5-7 días"
         ctaText="Armar Kit"
         ctaHref="#kits"
       />
