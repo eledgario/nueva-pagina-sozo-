@@ -26,8 +26,7 @@ const legalLinks = [
 ];
 
 const socialLinks = [
-  { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/sozo' },
-  { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/company/sozo' },
+  { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/sozo.cstudio' },
   { icon: Mail, label: 'Email', href: 'mailto:ventas@sozo.com.mx' },
 ];
 

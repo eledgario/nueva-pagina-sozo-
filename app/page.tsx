@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Mail, MapPin, MessageCircle, Instagram, Linkedin } from 'lucide-react';
+import { Mail, MapPin, MessageCircle, Instagram } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -194,22 +194,13 @@ export default function ExpoPage() {
             {/* Social */}
             <div className="flex items-center justify-center gap-4">
               <a
-                href="https://instagram.com/sozo"
+                href="https://www.instagram.com/sozo.cstudio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-zinc-800 hover:bg-[#FF007F] border border-zinc-700 flex items-center justify-center transition-all"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com/company/sozo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 bg-zinc-800 hover:bg-[#FF007F] border border-zinc-700 flex items-center justify-center transition-all"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
               </a>
             </div>
 
