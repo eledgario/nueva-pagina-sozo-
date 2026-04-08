@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   Lock,
   LogOut,
@@ -20,6 +21,7 @@ import {
   FileText,
   X,
   MessageCircle,
+  Warehouse,
 } from 'lucide-react';
 import {
   Order,
@@ -821,7 +823,14 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <Link
+              href="/admin/inventory"
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-lg transition-colors text-sm"
+            >
+              <Warehouse className="w-4 h-4" />
+              Inventario
+            </Link>
             <button
               onClick={fetchOrders}
               disabled={loading}

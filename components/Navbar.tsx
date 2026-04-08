@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface NavLink {
   id: string;
@@ -33,13 +34,15 @@ export default function Navbar() {
         <div className="max-w-[1800px] mx-auto">
           <div className="flex items-center justify-between h-14">
             {/* Left - Logo */}
-            <Link href="/" className="flex items-center h-full px-6 border-r border-zinc-200">
-              <span className="font-black text-lg tracking-tighter text-zinc-900">
-                SOZO
-              </span>
-              <span className="ml-2 px-2 py-0.5 bg-zinc-900 text-white font-mono text-[9px] tracking-wider">
-                MFG
-              </span>
+            <Link href="/" className="flex items-center justify-center h-full px-5 bg-zinc-900 border-r border-zinc-200">
+              <Image
+                src="/sozo-logo.png"
+                alt="SOZO MFG"
+                width={100}
+                height={32}
+                className="h-7 w-auto object-contain"
+                priority
+              />
             </Link>
 
             {/* Center - Navigation Links (Desktop) */}
@@ -105,13 +108,14 @@ export default function Navbar() {
 
             {/* Header */}
             <div className="flex items-center justify-between h-14 border-b border-zinc-200">
-              <div className="flex items-center h-full px-6 border-r border-zinc-200">
-                <span className="font-black text-lg tracking-tighter text-zinc-900">
-                  SOZO
-                </span>
-                <span className="ml-2 px-2 py-0.5 bg-zinc-900 text-white font-mono text-[9px] tracking-wider">
-                  MFG
-                </span>
+              <div className="flex items-center justify-center h-full px-5 bg-zinc-900 border-r border-zinc-200">
+                <Image
+                  src="/sozo-logo.png"
+                  alt="SOZO MFG"
+                  width={100}
+                  height={32}
+                  className="h-7 w-auto object-contain"
+                />
               </div>
 
               <button

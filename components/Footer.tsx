@@ -28,7 +28,7 @@ const legalLinks = [
 const socialLinks = [
   { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/sozo' },
   { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/company/sozo' },
-  { icon: Mail, label: 'Email', href: 'mailto:hola@sozo.mx' },
+  { icon: Mail, label: 'Email', href: 'mailto:ventas@sozo.com.mx' },
 ];
 
 export default function Footer() {
