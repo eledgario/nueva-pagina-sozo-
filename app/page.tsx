@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Mail, MapPin, MessageCircle, Instagram } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CatalogoCTA from '@/components/CatalogoCTA';
 
 const features = [
   {
@@ -153,6 +154,8 @@ export default function ExpoPage() {
           </div>
         </div>
       </section>
+
+      <CatalogoCTA />
 
       {/* Contact CTA */}
       <section className="py-24 px-6 bg-zinc-900 text-white">

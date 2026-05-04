@@ -3,14 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-
-type Category = 'todos' | 'textil' | 'promocional';
-
-const filterTabs: { id: Category; label: string }[] = [
-  { id: 'todos', label: 'Todos' },
-  { id: 'textil', label: 'Textil' },
-  { id: 'promocional', label: 'Promocional' },
-];
+import { ArrowLeft, MessageCircle } from 'lucide-react';
 
 const techniques = [
   'Serigrafía',
@@ -21,238 +14,158 @@ const techniques = [
   'DTF Textil',
 ];
 
-interface TextileProduct {
-  type: 'textile';
+interface CategoryDef {
   id: string;
-  name: string;
-  subtitle: string;
-  specs: string[];
-  imageUrl: string;
-  colors: string;
+  label: string;
+  cover: string;
+  pages: number[];
 }
 
-interface PromoCategory {
-  type: 'promo';
-  id: string;
-  name: string;
-  imageUrl: string;
-}
-
-type Product = TextileProduct | PromoCategory;
-
-const textiles: TextileProduct[] = [
+const categories: CategoryDef[] = [
   {
-    type: 'textile',
+    id: 'bebidas',
+    label: 'Bebidas',
+    cover: '/catalogo/bebidas/product_page-004.jpg',
+    pages: [4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
+  },
+  {
+    id: 'belleza',
+    label: 'Belleza',
+    cover: '/catalogo/belleza/product_page-026.jpg',
+    pages: [26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43],
+  },
+  {
+    id: 'ejecutiva',
+    label: 'Línea Ejecutiva',
+    cover: '/catalogo/ejecutiva/product_page-044.jpg',
+    pages: [44,45,46,47,48,49,50,51],
+  },
+  {
+    id: 'escritura',
+    label: 'Escritura',
+    cover: '/catalogo/escritura/product_page-052.jpg',
+    pages: [52,53,54,55,56,57,58,59,60,61,62,63,64,65,66],
+  },
+  {
+    id: 'hieleras',
+    label: 'Hieleras',
+    cover: '/catalogo/hieleras/product_page-067.jpg',
+    pages: [67,68,69,70,71,72],
+  },
+  {
+    id: 'hogar',
+    label: 'Hogar',
+    cover: '/catalogo/hogar/product_page-073.jpg',
+    pages: [73,74,75,76,77,78,79,80,81,82,83,84,85],
+  },
+  {
+    id: 'oficina',
+    label: 'Oficina',
+    cover: '/catalogo/oficina/product_page-086.jpg',
+    pages: [86,87,88,89,90,91,92,93],
+  },
+  {
+    id: 'mochilas',
+    label: 'Mochilas',
+    cover: '/catalogo/mochilas/product_page-094.jpg',
+    pages: [94,95,96,97,98,99,100,101,102,103],
+  },
+  {
+    id: 'tecnologia',
+    label: 'Tecnología',
+    cover: '/catalogo/tecnologia/product_page-104.jpg',
+    pages: [104,105,106,107,108,109,110,111,112,113,114,115,116,117,118],
+  },
+  {
+    id: 'viaje',
+    label: 'Viaje',
+    cover: '/catalogo/viaje/product_page-119.jpg',
+    pages: [119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136],
+  },
+];
+
+const textiles = [
+  {
     id: 'playera-4800',
+    label: 'Textil',
     name: 'Playera Hombre',
     subtitle: 'Modelo 4800 — Heavy Weight',
     specs: ['100% Algodón', '165gr', '+40 colores'],
     imageUrl: 'https://www.moplayeras.com/cdn/shop/products/92058_MF-GRISGRAVA.jpg?v=1682361480',
-    colors: '+40 colores',
   },
   {
-    type: 'textile',
     id: 'playera-4810',
+    label: 'Textil',
     name: 'Playera Mujer',
     subtitle: 'Modelo 4810 — Corte Femenino',
     specs: ['Heavy Weight', '165gr', 'Múltiples colores'],
     imageUrl: 'https://www.moplayeras.com/cdn/shop/products/92137_MF_57939673-5f69-4eeb-be6e-90c439bab38b_1024x1024.jpg?v=1682365769',
-    colors: 'Múltiples colores',
   },
   {
-    type: 'textile',
     id: 'sudadera-3320',
+    label: 'Textil',
     name: 'Sudadera Unisex',
     subtitle: 'Modelo 3320 — Con Capucha',
     specs: ['Felpa interior', 'Máxima suavidad', 'Múltiples colores'],
     imageUrl: 'https://www.moplayeras.com/cdn/shop/products/91758_MF_9d73fa8b-4864-4180-986a-bbe04205de5f.jpg?v=1682109881',
-    colors: 'Múltiples colores',
   },
 ];
 
-const promoCategories: PromoCategory[] = [
-  {
-    type: 'promo',
-    id: 'tazas',
-    name: 'Tazas y Cilindros',
-    imageUrl: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'boligrafos',
-    name: 'Bolígrafos y Escritura',
-    imageUrl: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'libretas',
-    name: 'Libretas',
-    imageUrl: 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'mochilas',
-    name: 'Mochilas y Maletas',
-    imageUrl: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'llaveros',
-    name: 'Llaveros',
-    imageUrl: 'https://images.unsplash.com/photo-1582578598774-a377d4b32223?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'tecnologia',
-    name: 'Tecnología',
-    imageUrl: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'powerbanks',
-    name: 'Power Banks',
-    imageUrl: 'https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'usb',
-    name: 'Memorias USB',
-    imageUrl: 'https://images.unsplash.com/photo-1597852074816-d933c7d2b988?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'relojes',
-    name: 'Relojes',
-    imageUrl: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'paraguas',
-    name: 'Paraguas',
-    imageUrl: 'https://images.unsplash.com/photo-1534126874-5f6762db5e6c?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'fitness',
-    name: 'Fitness',
-    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'ecologico',
-    name: 'Línea Ecológica',
-    imageUrl: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'ejecutivo',
-    name: 'Línea Ejecutiva',
-    imageUrl: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'hogar',
-    name: 'Hogar y Oficina',
-    imageUrl: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'viaje',
-    name: 'Viaje',
-    imageUrl: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    type: 'promo',
-    id: 'bar',
-    name: 'Artículos de Bar',
-    imageUrl: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop',
-  },
-];
-
-function TextileCard({ product, index }: { product: TextileProduct; index: number }) {
+function CategoryCard({ cat, onClick }: { cat: CategoryDef; onClick: () => void }) {
   return (
-    <motion.div
+    <motion.button
       layout
-      initial={{ opacity: 0, scale: 0.93 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.93 }}
-      transition={{ duration: 0.25, delay: index * 0.05 }}
-      className="bg-white border-2 border-zinc-200 hover:border-[#FF007F] transition-all group overflow-hidden"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      whileHover={{ y: -4 }}
+      onClick={onClick}
+      className="group relative bg-white border-2 border-zinc-200 hover:border-[#FF007F] transition-all overflow-hidden text-left w-full"
     >
-      {/* Image */}
       <div className="relative aspect-square overflow-hidden bg-zinc-100">
         <Image
-          src={product.imageUrl}
-          alt={product.name}
+          src={cat.cover}
+          alt={cat.label}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 768px) 50vw, 25vw"
-          onError={() => {}}
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
         />
-        <div className="absolute top-3 left-3 px-2.5 py-1 bg-zinc-900 text-white font-mono text-[10px] font-bold uppercase tracking-wider">
-          Textil
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-3">
+          <p className="text-white font-black text-sm leading-tight">{cat.label}</p>
+          <p className="text-zinc-300 font-mono text-[10px] mt-0.5">{cat.pages.length} productos</p>
         </div>
       </div>
-      {/* Info */}
-      <div className="p-4">
-        <h3 className="font-black text-zinc-900 text-sm leading-tight">{product.name}</h3>
-        <p className="font-mono text-[10px] text-[#FF007F] mt-0.5 mb-3">{product.subtitle}</p>
-        <div className="flex flex-wrap gap-1 mb-3">
-          {product.specs.map((s) => (
-            <span key={s} className="px-2 py-0.5 bg-zinc-100 font-mono text-[9px] text-zinc-500 uppercase tracking-wide">
-              {s}
-            </span>
-          ))}
-        </div>
-        <a
-          href={`https://wa.me/525588060340?text=Hola! Me interesa el producto: ${encodeURIComponent(product.name)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-1.5 w-full py-2 bg-zinc-900 hover:bg-[#FF007F] text-white font-mono text-[10px] font-bold uppercase tracking-wider transition-colors"
-        >
-          Cotizar por WhatsApp
-        </a>
-      </div>
-    </motion.div>
+    </motion.button>
   );
 }
 
-function PromoCard({ product, index }: { product: PromoCategory; index: number }) {
+function ProductImage({ src, alt, label }: { src: string; alt: string; label: string }) {
+  const waMsg = `Hola! Me interesa este producto de ${label}`;
   return (
     <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.93 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.93 }}
-      transition={{ duration: 0.25, delay: index * 0.04 }}
-      className="bg-white border-2 border-zinc-200 hover:border-[#FF007F] transition-all group overflow-hidden"
+      className="group relative bg-white border-2 border-zinc-200 hover:border-[#FF007F] transition-all overflow-hidden"
     >
-      {/* Image */}
       <div className="relative aspect-square overflow-hidden bg-zinc-100">
         <Image
-          src={product.imageUrl}
-          alt={product.name}
+          src={src}
+          alt={alt}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 768px) 50vw, 25vw"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
-        <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#FF007F] text-white font-mono text-[10px] font-bold uppercase tracking-wider">
-          Promo
-        </div>
       </div>
-      {/* Info */}
-      <div className="p-4">
-        <h3 className="font-black text-zinc-900 text-sm leading-tight">{product.name}</h3>
-        <p className="font-mono text-[10px] text-zinc-400 mt-1 mb-3 uppercase tracking-wide">
-          Personalizable con tu marca
-        </p>
+      <div className="p-3">
         <a
-          href={`https://wa.me/525588060340?text=Hola! Me interesa el producto: ${encodeURIComponent(product.name)}`}
+          href={`https://wa.me/525588060340?text=${encodeURIComponent(waMsg)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-1.5 w-full py-2 bg-zinc-900 hover:bg-[#FF007F] text-white font-mono text-[10px] font-bold uppercase tracking-wider transition-colors"
         >
-          Cotizar por WhatsApp
+          <MessageCircle className="w-3 h-3" />
+          Cotizar
         </a>
       </div>
     </motion.div>
@@ -260,11 +173,9 @@ function PromoCard({ product, index }: { product: PromoCategory; index: number }
 }
 
 export default function ExpoCatalog() {
-  const [active, setActive] = useState<Category>('todos');
+  const [selected, setSelected] = useState<string | null>(null);
 
-  const textileItems = active === 'todos' || active === 'textil' ? textiles : [];
-  const promoItems = active === 'todos' || active === 'promocional' ? promoCategories : [];
-  const totalItems = textileItems.length + promoItems.length;
+  const activeCat = categories.find((c) => c.id === selected);
 
   return (
     <section className="py-24 px-6 bg-zinc-50">
@@ -295,7 +206,7 @@ export default function ExpoCatalog() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-wrap justify-center gap-2 mb-10"
+          className="flex flex-wrap justify-center gap-2 mb-12"
         >
           {techniques.map((t) => (
             <span key={t} className="px-4 py-1.5 bg-zinc-900 text-white font-mono text-[10px] font-bold uppercase tracking-widest">
@@ -304,55 +215,101 @@ export default function ExpoCatalog() {
           ))}
         </motion.div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {filterTabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActive(tab.id)}
-              className={`px-6 py-2.5 font-mono text-xs font-bold uppercase tracking-wider border-2 transition-all ${
-                active === tab.id
-                  ? 'bg-zinc-900 text-white border-zinc-900'
-                  : 'bg-white text-zinc-500 border-zinc-200 hover:border-zinc-400 hover:text-zinc-900'
-              }`}
+        <AnimatePresence mode="wait">
+          {/* Category grid view */}
+          {!selected && (
+            <motion.div
+              key="grid"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
-              {tab.label}
-              {tab.id !== 'todos' && (
-                <span className="ml-2 opacity-50">
-                  {tab.id === 'textil' ? textiles.length : promoCategories.length}
-                </span>
-              )}
-            </button>
-          ))}
-        </div>
+              {/* Textil */}
+              <p className="font-mono text-[11px] text-zinc-400 uppercase tracking-widest mb-3">Textil</p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
+                {textiles.map((t) => (
+                  <motion.div
+                    key={t.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="group bg-white border-2 border-zinc-200 hover:border-[#FF007F] transition-all overflow-hidden"
+                  >
+                    <div className="relative aspect-square overflow-hidden bg-zinc-100">
+                      <Image
+                        src={t.imageUrl}
+                        alt={t.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 640px) 50vw, 20vw"
+                      />
+                      <div className="absolute top-2 left-2 px-2 py-0.5 bg-zinc-900 text-white font-mono text-[9px] font-bold uppercase">
+                        Textil
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <p className="font-black text-zinc-900 text-xs leading-tight">{t.name}</p>
+                      <p className="font-mono text-[9px] text-[#FF007F] mt-0.5 mb-2">{t.subtitle}</p>
+                      <a
+                        href={`https://wa.me/525588060340?text=Hola! Me interesa: ${encodeURIComponent(t.name)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-1 w-full py-1.5 bg-zinc-900 hover:bg-[#FF007F] text-white font-mono text-[9px] font-bold uppercase tracking-wider transition-colors"
+                      >
+                        Cotizar
+                      </a>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
 
-        {/* Grid */}
-        {totalItems > 0 ? (
-          <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-            <AnimatePresence mode="popLayout">
-              {textileItems.map((p, i) => (
-                <TextileCard key={p.id} product={p} index={i} />
-              ))}
-              {promoItems.map((p, i) => (
-                <PromoCard key={p.id} product={p} index={textileItems.length + i} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        ) : null}
+              {/* Promocional */}
+              <p className="font-mono text-[11px] text-zinc-400 uppercase tracking-widest mb-3">Promocional — elige una categoría</p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {categories.map((cat) => (
+                  <CategoryCard key={cat.id} cat={cat} onClick={() => setSelected(cat.id)} />
+                ))}
+              </div>
+            </motion.div>
+          )}
 
-        {/* Promo source note */}
-        {(active === 'todos' || active === 'promocional') && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center font-mono text-[11px] text-zinc-400 mt-8"
-          >
-            Catálogo promocional completo disponible en{' '}
-            <a href="https://innovation.com.mx/categoria/" target="_blank" rel="noopener noreferrer" className="text-[#FF007F] hover:underline">
-              innovation.com.mx
-            </a>
-          </motion.p>
-        )}
+          {/* Single category expanded */}
+          {selected && activeCat && (
+            <motion.div
+              key={selected}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+            >
+              {/* Back button */}
+              <button
+                onClick={() => setSelected(null)}
+                className="inline-flex items-center gap-2 mb-8 font-mono text-xs font-bold uppercase tracking-wider text-zinc-500 hover:text-[#FF007F] transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Todas las categorías
+              </button>
+
+              <div className="flex items-baseline gap-3 mb-8">
+                <h3 className="text-3xl font-black text-zinc-900">{activeCat.label}</h3>
+                <span className="font-mono text-sm text-zinc-400">{activeCat.pages.length} productos</span>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                {activeCat.pages.map((n) => {
+                  const src = `/catalogo/${activeCat.id}/product_page-${String(n).padStart(3, '0')}.jpg`;
+                  return (
+                    <ProductImage
+                      key={n}
+                      src={src}
+                      alt={`${activeCat.label} pág. ${n}`}
+                      label={activeCat.label}
+                    />
+                  );
+                })}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Bottom CTA */}
         <motion.div
@@ -360,7 +317,7 @@ export default function ExpoCatalog() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mt-14"
+          className="text-center mt-16"
         >
           <p className="text-zinc-500 font-mono text-sm mb-5">
             ¿No encuentras lo que buscas? Hacemos custom desde cero.
@@ -371,6 +328,7 @@ export default function ExpoCatalog() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 hover:bg-[#FF007F] text-white font-black text-sm uppercase tracking-wider border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
           >
+            <MessageCircle className="w-4 h-4" />
             Cotizar por WhatsApp
           </a>
         </motion.div>

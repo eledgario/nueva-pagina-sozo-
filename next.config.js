@@ -12,7 +12,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.moplayeras.com',
         port: '',
-        pathname: '/**',
+        pathname: '/cdn/shop/products/**',
       },
     ],
   },
