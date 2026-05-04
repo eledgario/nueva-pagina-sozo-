@@ -276,7 +276,7 @@ function Box3DScene() {
   const [phase, setPhase] = useState<'hidden' | 'assembled' | 'open'>('hidden');
   const [productsVisible, setProductsVisible] = useState(false);
   const [isIdle, setIsIdle] = useState(false);
-  const idleTimer = useRef<ReturnType<typeof setTimeout>>();
+  const idleTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   // Mouse parallax
   const mx = useMotionValue(0);
