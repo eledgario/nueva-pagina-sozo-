@@ -825,6 +825,13 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
 
           <div className="flex items-center gap-3">
             <Link
+              href="/admin/leads"
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-lg transition-colors text-sm"
+            >
+              <Users className="w-4 h-4" />
+              Leads Expo
+            </Link>
+            <Link
               href="/admin/inventory"
               className="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-lg transition-colors text-sm"
             >
