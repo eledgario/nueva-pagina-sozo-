@@ -1,23 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 import path from 'path';
 
+// Supabase client
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
+
+// Fallback local (solo funciona en dev, no en Vercel)
 const LEADS_FILE = path.join(process.cwd(), 'data', 'leads.json');
-
-function readLeads(): Lead[] {
-  try {
-    fs.mkdirSync(path.dirname(LEADS_FILE), { recursive: true });
-    if (!fs.existsSync(LEADS_FILE)) return [];
-    return JSON.parse(fs.readFileSync(LEADS_FILE, 'utf-8'));
-  } catch {
-    return [];
-  }
-}
-
-function saveLeads(leads: Lead[]) {
-  fs.mkdirSync(path.dirname(LEADS_FILE), { recursive: true });
-  fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2));
-}
 
 interface Lead {
   id: string;
@@ -28,9 +20,25 @@ interface Lead {
   whatsapp: string;
 }
 
+function readLocalLeads(): Lead[] {
+  try {
+    fs.mkdirSync(path.dirname(LEADS_FILE), { recursive: true });
+    if (!fs.existsSync(LEADS_FILE)) return [];
+    return JSON.parse(fs.readFileSync(LEADS_FILE, 'utf-8'));
+  } catch {
+    return [];
+  }
+}
+
+function saveLocalLead(lead: Lead) {
+  const leads = readLocalLeads();
+  leads.push(lead);
+  fs.mkdirSync(path.dirname(LEADS_FILE), { recursive: true });
+  fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2));
+}
+
 export async function POST(req: NextRequest) {
-  const body = await req.json();
-  const { nombre, empresa, email, whatsapp } = body;
+  const { nombre, empresa, email, whatsapp } = await req.json();
 
   if (!nombre || !empresa || !email || !whatsapp) {
     return NextResponse.json({ error: 'Todos los campos son requeridos' }, { status: 400 });
@@ -45,11 +53,22 @@ export async function POST(req: NextRequest) {
     whatsapp,
   };
 
-  const leads = readLeads();
-  leads.push(lead);
-  saveLeads(leads);
+  if (supabase) {
+    const { error } = await supabase.from('expo_leads').insert({
+      nombre,
+      empresa,
+      email,
+      whatsapp,
+    });
+    if (error) {
+      console.error('Supabase error:', error);
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+  } else {
+    // Fallback solo en desarrollo
+    saveLocalLead(lead);
+  }
 
-  console.log(`✅ Lead guardado: ${nombre} — ${empresa}`);
   return NextResponse.json({ ok: true });
 }
 
@@ -59,9 +78,19 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
   }
 
-  const leads = readLeads();
+  let leads: Lead[] = [];
 
-  // Si piden CSV, devolver CSV
+  if (supabase) {
+    const { data, error } = await supabase
+      .from('expo_leads')
+      .select('*')
+      .order('created_at', { ascending: false });
+    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+    leads = data || [];
+  } else {
+    leads = readLocalLeads();
+  }
+
   const format = new URL(req.url).searchParams.get('format');
   if (format === 'csv') {
     const rows = [
@@ -76,7 +105,6 @@ export async function GET(req: NextRequest) {
         ].join(',')
       ),
     ].join('\n');
-
     return new NextResponse(rows, {
       headers: {
         'Content-Type': 'text/csv; charset=utf-8',
