@@ -73,7 +73,7 @@ export default function Navbar() {
 
               {/* Start Project Button */}
               <Link
-                href="#contact"
+                href="/registro"
                 className="hidden sm:flex items-center h-full px-6 bg-zinc-900 hover:bg-[#FF007F] text-white font-mono text-xs uppercase tracking-wider transition-colors duration-200"
               >
                 Iniciar Proyecto
@@ -182,13 +182,14 @@ export default function Navbar() {
                 transition={{ delay: 0.4 }}
                 className="p-6"
               >
-                <button
+                <Link
+                  href="/registro"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-zinc-900 hover:bg-[#FF007F] text-white font-mono text-xs uppercase tracking-wider transition-colors duration-200"
                 >
                   Iniciar Proyecto
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
               </motion.div>
 
               {/* Bottom Info */}
