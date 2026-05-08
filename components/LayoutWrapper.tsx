@@ -6,13 +6,13 @@ import FloatingChat from '@/components/FloatingChat';
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isAdminPage = pathname?.startsWith('/admin');
+  const isStandalone = pathname?.startsWith('/admin') || pathname?.startsWith('/catalogo');
 
   return (
     <>
-      {!isAdminPage && <Navbar />}
+      {!isStandalone && <Navbar />}
       {children}
-      {!isAdminPage && <FloatingChat />}
+      {!isStandalone && <FloatingChat />}
     </>
   );
 }
