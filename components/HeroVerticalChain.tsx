@@ -15,67 +15,79 @@ interface ProductCard {
 
 const productsColumnLeft: ProductCard[] = [
   {
-    id: 'hoodie-black',
-    name: 'Founder Hoodie',
-    category: 'Textil',
-    imageUrl: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=800&auto=format&fit=crop',
+    id: 'te238',
+    name: 'Vaso Barete',
+    category: 'Drinkware',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747900822968x120981413178805170/TE-238_03.jpg',
   },
   {
-    id: 'tumbler',
-    name: 'Stealth Tumbler',
-    category: 'Hardware',
-    imageUrl: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=800&auto=format&fit=crop',
+    id: 'tx394',
+    name: 'Mochila Engomi',
+    category: 'Mochilas',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778020406984x307413490126253060/TX-394_02.jpg',
   },
   {
-    id: 'tee-white',
-    name: 'Classic Tee',
-    category: 'Textil',
-    imageUrl: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop',
+    id: 'th267',
+    name: 'Power Bank Slim',
+    category: 'Tech',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773158282714x196271180865279700/TH-267_02.jpg',
   },
   {
-    id: 'notebook',
-    name: 'Field Notes',
-    category: 'Print',
-    imageUrl: 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop',
+    id: 'be018',
+    name: 'Espejo Doble',
+    category: 'Belleza',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889692039x901247230555155300/BE-018_04.jpg',
   },
   {
-    id: 'cap',
-    name: 'Dad Cap',
-    category: 'Textil',
-    imageUrl: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop',
+    id: 'hm158',
+    name: 'Tabla Salzach',
+    category: 'Hogar',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747901073305x124567883909376700/HM-158_03.jpg',
+  },
+  {
+    id: 'bl011',
+    name: 'Bolígrafo Praga',
+    category: 'Escritura',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889748174x958718231294709800/BL-011_02.jpg',
   },
 ];
 
 const productsColumnRight: ProductCard[] = [
   {
-    id: 'mug',
-    name: 'Ceramic Mug',
-    category: 'Hardware',
-    imageUrl: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800&auto=format&fit=crop',
+    id: 'te240',
+    name: 'Vaso Pergole',
+    category: 'Drinkware',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747900434802x613829082142993500/TE-240_02.jpg',
   },
   {
-    id: 'stand',
-    name: 'Monolith Stand',
-    category: '3D Print',
-    imageUrl: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=800&auto=format&fit=crop',
+    id: 'tx395',
+    name: 'Bagpack Legnica',
+    category: 'Mochilas',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773076096607x665235266830753300/TX-395_02.jpg',
   },
   {
-    id: 'tote',
-    name: 'Canvas Tote',
-    category: 'Textil',
-    imageUrl: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    id: 'nfc-card',
-    name: 'NFC Card',
+    id: 'th272',
+    name: 'Bocina Opole',
     category: 'Tech',
-    imageUrl: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773073056788x656601407991168600/TH-272_02.jpg',
   },
   {
-    id: 'bottle',
-    name: 'Sport Bottle',
-    category: 'Hardware',
-    imageUrl: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=800&auto=format&fit=crop',
+    id: 'be022',
+    name: 'Espejo Blarney',
+    category: 'Belleza',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889709036x982914059701036700/BE-022_03.jpg',
+  },
+  {
+    id: 'hm155',
+    name: 'Set Corbeil',
+    category: 'Hogar',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747901190273x839789660090816800/HM-155_05.jpg',
+  },
+  {
+    id: 'st063',
+    name: 'Set Belitsa',
+    category: 'Ejecutiva',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778189413515x131896192704845420/ST-063_02.jpg',
   },
 ];
 
@@ -225,9 +237,9 @@ export default function HeroVerticalChain() {
               }}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tighter text-zinc-900 mb-6"
             >
-              TU CULTURA
+              MERCH QUE
               <br />
-              <span className="text-[#FF007F]">EN UNA CAJA.</span>
+              <span className="text-[#FF007F]">IMPACTA.</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -238,9 +250,9 @@ export default function HeroVerticalChain() {
               }}
               className="text-lg lg:text-xl text-zinc-500 mb-8 max-w-lg leading-relaxed"
             >
-              Diseñamos, producimos y almacenamos los kits de tu equipo.{' '}
+              Producimos, almacenamos y enviamos tus kits corporativos.{' '}
               <span className="text-zinc-900 font-semibold">
-                Gestiona todo sin tocar una sola caja.
+                Sin mínimos absurdos. Sin fricción.
               </span>
             </motion.p>
 

@@ -3,173 +3,74 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { Plus, Package, Layers, Leaf, Zap, Check } from 'lucide-react';
+import { Plus, Check, MessageCircle } from 'lucide-react';
 import { useKitBuilder } from '@/context/KitBuilderContext';
 import { useToast } from '@/components/kit-builder/Toast';
 
-type Category = 'todos' | 'textil' | 'drinkware' | 'tech' | 'packaging' | 'kits';
-type BadgeType = 'premium' | 'event-ready' | 'eco' | 'new' | 'bestseller';
+type Category = 'todos' | 'drinkware' | 'escritura' | 'ejecutiva' | 'tech' | 'mochilas' | 'hogar' | 'belleza';
 
 interface Product {
   id: string;
-  name: string;
-  category: Category;
-  badge: BadgeType;
+  modelo: string;
+  nombre: string;
+  categoria: Category;
   imageUrl: string;
-  specs: {
-    moq: string;
-    material: string;
-    technique: string;
-  };
-  price: string;
+  desc: string;
 }
 
 const filterTabs: { id: Category; label: string }[] = [
-  { id: 'todos', label: 'Todos' },
-  { id: 'textil', label: 'Textil' },
-  { id: 'drinkware', label: 'Drinkware' },
-  { id: 'tech', label: 'Tech' },
-  { id: 'packaging', label: 'Packaging' },
-  { id: 'kits', label: 'Kits' },
+  { id: 'todos',     label: 'Todos'      },
+  { id: 'drinkware', label: 'Drinkware'  },
+  { id: 'escritura', label: 'Escritura'  },
+  { id: 'ejecutiva', label: 'Ejecutiva'  },
+  { id: 'tech',      label: 'Tech'       },
+  { id: 'mochilas',  label: 'Mochilas'   },
+  { id: 'hogar',     label: 'Hogar'      },
+  { id: 'belleza',   label: 'Belleza'    },
 ];
 
-const badgeConfig: Record<BadgeType, { label: string; color: string; icon: React.ReactNode }> = {
-  premium: { label: 'Premium', color: '#8b5cf6', icon: <Zap className="w-3 h-3" /> },
-  'event-ready': { label: 'Event Ready', color: '#06b6d4', icon: <Package className="w-3 h-3" /> },
-  eco: { label: 'Eco', color: '#22c55e', icon: <Leaf className="w-3 h-3" /> },
-  new: { label: 'Nuevo', color: '#FF007F', icon: <Zap className="w-3 h-3" /> },
-  bestseller: { label: 'Bestseller', color: '#f59e0b', icon: <Layers className="w-3 h-3" /> },
-};
+const WA = '525588060340';
 
 const products: Product[] = [
-  // Textil
-  {
-    id: 'founder-hoodie',
-    name: 'Founder Hoodie',
-    category: 'textil',
-    badge: 'premium',
-    imageUrl: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '12', material: 'Cotton 320g', technique: 'Bordado' },
-    price: 'Desde $890',
-  },
-  {
-    id: 'promo-tee',
-    name: 'Promo Tee',
-    category: 'textil',
-    badge: 'event-ready',
-    imageUrl: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '50', material: 'Cotton 180g', technique: 'Serigrafía' },
-    price: 'Desde $180',
-  },
-  {
-    id: 'eco-tote',
-    name: 'Canvas Tote',
-    category: 'textil',
-    badge: 'eco',
-    imageUrl: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '25', material: 'Algodón Orgánico', technique: 'Serigrafía' },
-    price: 'Desde $120',
-  },
   // Drinkware
-  {
-    id: 'stealth-tumbler',
-    name: 'Stealth Tumbler',
-    category: 'drinkware',
-    badge: 'premium',
-    imageUrl: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '24', material: 'Acero Inox', technique: 'Grabado Láser' },
-    price: 'Desde $450',
-  },
-  {
-    id: 'festival-cup',
-    name: 'Festival Cup',
-    category: 'drinkware',
-    badge: 'event-ready',
-    imageUrl: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '100', material: 'PP Reciclado', technique: 'UV Print' },
-    price: 'Desde $35',
-  },
-  {
-    id: 'ceramic-mug',
-    name: 'Ceramic Mug',
-    category: 'drinkware',
-    badge: 'bestseller',
-    imageUrl: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '36', material: 'Cerámica Mate', technique: 'Sublimación' },
-    price: 'Desde $180',
-  },
+  { id: 'te238', modelo: 'TE-238', nombre: 'Vaso Barete',          categoria: 'drinkware', imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747900822968x120981413178805170/TE-238_03.jpg', desc: 'Acero inoxidable doble pared · Grabado láser' },
+  { id: 'te240', modelo: 'TE-240', nombre: 'Vaso Pergole',         categoria: 'drinkware', imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747900434802x613829082142993500/TE-240_02.jpg', desc: 'Acero inoxidable · Tapa con sello · Serigrafía' },
+  { id: 'te247', modelo: 'TE-247', nombre: 'Vaso Milena',          categoria: 'drinkware', imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747900838456x986216984109397200/TE-247_03.jpg', desc: 'Doble pared · Asas ergonómicas · Láser' },
+  // Escritura
+  { id: 'bl011', modelo: 'BL-011', nombre: 'Bolígrafo Praga',      categoria: 'escritura', imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889748174x958718231294709800/BL-011_02.jpg', desc: 'Cuerpo metálico · Grabado láser · Premium' },
+  { id: 'bl022', modelo: 'BL-022', nombre: 'Bolígrafo Vigo',       categoria: 'escritura', imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889760578x100035872023655380/BL-022_07.jpg', desc: 'Plástico ABS · Tampografía · Múltiples colores' },
+  { id: 'bl057', modelo: 'BL-057', nombre: 'Bolígrafo Andros',     categoria: 'escritura', imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889561474x259629390652678980/BL-057_09.jpg', desc: 'Retráctil · Tinta negra · Ligero y funcional' },
+  // Ejecutiva
+  { id: 'st063', modelo: 'ST-063', nombre: 'Set Belitsa',          categoria: 'ejecutiva', imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778189413515x131896192704845420/ST-063_02.jpg', desc: 'Set ejecutivo completo · Presentación premium' },
+  { id: 'st058', modelo: 'ST-058', nombre: 'Set Ejecutivo Devin',  categoria: 'ejecutiva', imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778017030936x247009838287304700/ST-058_02.jpg', desc: 'Set de lujo · Láser + tampografía' },
+  { id: 'lb110', modelo: 'LB-110', nombre: 'Libreta Erimi',        categoria: 'ejecutiva', imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1776970212376x672882803919316200/LB-110_02.jpg', desc: 'Pasta dura · Diseño ejecutivo · Grabado láser' },
   // Tech
-  {
-    id: 'monolith-stand',
-    name: 'Monolith Stand',
-    category: 'tech',
-    badge: 'new',
-    imageUrl: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '12', material: 'PLA/PETG', technique: '3D Print' },
-    price: 'Desde $280',
-  },
-  {
-    id: 'nfc-card',
-    name: 'NFC Business Card',
-    category: 'tech',
-    badge: 'premium',
-    imageUrl: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '50', material: 'Acrílico Negro', technique: 'Láser + NFC' },
-    price: 'Desde $150',
-  },
-  // Packaging
-  {
-    id: 'premium-box',
-    name: 'Premium Gift Box',
-    category: 'packaging',
-    badge: 'premium',
-    imageUrl: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '25', material: 'Cartón Rígido', technique: 'Hot Stamping' },
-    price: 'Desde $180',
-  },
-  {
-    id: 'kraft-mailer',
-    name: 'Kraft Mailer',
-    category: 'packaging',
-    badge: 'eco',
-    imageUrl: 'https://images.unsplash.com/photo-1607082349566-187342175e2f?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '100', material: 'Kraft Reciclado', technique: 'Flexografía' },
-    price: 'Desde $25',
-  },
-  // Kits
-  {
-    id: 'starter-kit',
-    name: 'Starter Kit',
-    category: 'kits',
-    badge: 'bestseller',
-    imageUrl: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '10', material: 'Mixed', technique: 'Múltiple' },
-    price: 'Desde $1,200',
-  },
-  {
-    id: 'executive-kit',
-    name: 'Executive Kit',
-    category: 'kits',
-    badge: 'premium',
-    imageUrl: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=800&auto=format&fit=crop',
-    specs: { moq: '5', material: 'Premium', technique: 'Láser + Bordado' },
-    price: 'Desde $2,800',
-  },
+  { id: 'th267', modelo: 'TH-267', nombre: 'Power Bank Ultra Slim',categoria: 'tech',      imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773158282714x196271180865279700/TH-267_02.jpg', desc: 'Carga rápida · Compacto · Personalizable' },
+  { id: 'th272', modelo: 'TH-272', nombre: 'Bocina Opole',         categoria: 'tech',      imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773073056788x656601407991168600/TH-272_02.jpg', desc: 'Bluetooth · Portátil · Tampografía' },
+  { id: 'th268', modelo: 'TH-268', nombre: 'Audífonos Bytom',      categoria: 'tech',      imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1772836601487x567090319905139100/TH-268_02.jpg', desc: 'Inalámbricos TWS · Estuche personalizable' },
+  // Mochilas
+  { id: 'tx394', modelo: 'TX-394', nombre: 'Mochila Engomi',       categoria: 'mochilas',  imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778020406984x307413490126253060/TX-394_02.jpg', desc: 'Plegable · Resistente · Serigrafía' },
+  { id: 'tx395', modelo: 'TX-395', nombre: 'Bagpack Legnica',      categoria: 'mochilas',  imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773076096607x665235266830753300/TX-395_02.jpg', desc: 'Compartimento laptop · Resistente al agua' },
+  { id: 'tx402', modelo: 'TX-402', nombre: 'Mochila Leszno',       categoria: 'mochilas',  imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1771254538314x229027982964813200/TX-402_02.jpg', desc: 'Ejecutiva · Múltiples compartimentos' },
+  // Hogar
+  { id: 'hm158', modelo: 'HM-158', nombre: 'Mini Tabla Salzach',   categoria: 'hogar',     imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747901073305x124567883909376700/HM-158_03.jpg', desc: 'Madera natural · Grabado láser · Con accesorios' },
+  { id: 'hm155', modelo: 'HM-155', nombre: 'Set Corbeil',          categoria: 'hogar',     imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747901190273x839789660090816800/HM-155_05.jpg', desc: 'Set de cocina premium · Grabado láser' },
+  { id: 'hm149', modelo: 'HM-149', nombre: 'Porta Vasos Frazé',    categoria: 'hogar',     imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747901340660x140011128801512450/HM-149_03.jpg', desc: 'Juego porta vasos · Madera · Láser' },
+  // Belleza
+  { id: 'be018', modelo: 'BE-018', nombre: 'Espejo Rectangular',   categoria: 'belleza',   imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889692039x901247230555155300/BE-018_04.jpg', desc: 'Doble vista · Compacto · Tampografía' },
+  { id: 'be022', modelo: 'BE-022', nombre: 'Espejo Blarney',       categoria: 'belleza',   imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889709036x982914059701036700/BE-022_03.jpg', desc: 'ABS rubber · Doble cara · Portátil' },
 ];
 
-function ProductCard({
-  product,
-  index,
-  onAddToKit,
-}: {
-  product: Product;
-  index: number;
-  onAddToKit: (product: Product) => void;
+function buildWAUrl(p: Product): string {
+  return `https://wa.me/${WA}?text=${encodeURIComponent(`Hola SOZO! Me interesa cotizar: ${p.nombre} (${p.modelo})`)}`;
+}
+
+function ProductCard({ product, index, onAddToKit }: {
+  product: Product; index: number; onAddToKit: (p: Product) => void;
 }) {
-  const badge = badgeConfig[product.badge];
   const [justAdded, setJustAdded] = useState(false);
 
-  const handleAddToKit = () => {
+  const handleAdd = () => {
     onAddToKit(product);
     setJustAdded(true);
     setTimeout(() => setJustAdded(false), 1500);
@@ -181,32 +82,21 @@ function ProductCard({
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3, delay: index * 0.05 }}
-      whileHover={{ y: -8 }}
-      className="group bg-white rounded-2xl border border-zinc-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-zinc-300 transition-all cursor-pointer"
+      transition={{ duration: 0.3, delay: index * 0.04 }}
+      whileHover={{ y: -6 }}
+      className="group bg-white rounded-2xl border border-zinc-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-zinc-300 transition-all"
     >
-      {/* Image Area */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-zinc-100">
+      {/* Image */}
+      <div className="relative aspect-square overflow-hidden bg-zinc-100">
         <Image
           src={product.imageUrl}
-          alt={product.name}
+          alt={product.nombre}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
-
-        {/* Badge */}
-        <div
-          className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-white text-[10px] font-bold uppercase tracking-wider"
-          style={{ backgroundColor: badge.color }}
-        >
-          {badge.icon}
-          {badge.label}
-        </div>
-
-        {/* Quick Add Button */}
         <motion.button
-          onClick={handleAddToKit}
+          onClick={handleAdd}
           className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center shadow-lg transition-all border ${
             justAdded
               ? 'bg-green-500 border-green-500 opacity-100'
@@ -215,64 +105,38 @@ function ProductCard({
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          {justAdded ? (
-            <Check className="w-5 h-5 text-white" />
-          ) : (
-            <Plus className="w-5 h-5" />
-          )}
+          {justAdded ? <Check className="w-4 h-4 text-white" /> : <Plus className="w-4 h-4" />}
         </motion.button>
-
-        {/* Hover Overlay */}
         <div className="absolute inset-0 bg-[#FF007F]/0 group-hover:bg-[#FF007F]/5 transition-colors duration-300" />
       </div>
 
       {/* Content */}
       <div className="p-4">
-        {/* Title & Price */}
-        <div className="flex items-start justify-between gap-2 mb-3">
-          <h3 className="font-bold text-zinc-900 text-lg leading-tight">
-            {product.name}
-          </h3>
-          <span className="text-sm font-bold text-[#FF007F] whitespace-nowrap">
-            {product.price}
-          </span>
+        <div className="flex items-start justify-between gap-2 mb-1">
+          <h3 className="font-bold text-zinc-900 text-base leading-tight">{product.nombre}</h3>
+          <span className="font-mono text-[10px] text-zinc-400 flex-shrink-0 mt-0.5">{product.modelo}</span>
         </div>
+        <p className="text-zinc-500 text-xs mb-4 leading-relaxed">{product.desc}</p>
 
-        {/* Specs */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          <span className="inline-flex items-center gap-1 px-2 py-1 bg-zinc-100 rounded text-[10px] font-mono text-zinc-600">
-            MOQ: {product.specs.moq}
-          </span>
-          <span className="inline-flex items-center gap-1 px-2 py-1 bg-zinc-100 rounded text-[10px] font-mono text-zinc-600">
-            {product.specs.material}
-          </span>
-          <span className="inline-flex items-center gap-1 px-2 py-1 bg-zinc-100 rounded text-[10px] font-mono text-zinc-600">
-            {product.specs.technique}
-          </span>
+        <div className="flex gap-2">
+          <motion.button
+            onClick={handleAdd}
+            whileTap={{ scale: 0.97 }}
+            className={`flex-1 py-2.5 font-bold text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-1.5 ${
+              justAdded ? 'bg-green-500 text-white' : 'bg-zinc-900 hover:bg-[#FF007F] text-white'
+            }`}
+          >
+            {justAdded ? <><Check className="w-3.5 h-3.5" />Agregado</> : <><Plus className="w-3.5 h-3.5" />Al kit</>}
+          </motion.button>
+          <a
+            href={buildWAUrl(product)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#25D366] hover:bg-[#1ebe5d] transition-colors"
+          >
+            <MessageCircle className="w-4 h-4 text-white" />
+          </a>
         </div>
-
-        {/* Action Button */}
-        <motion.button
-          onClick={handleAddToKit}
-          whileTap={{ scale: 0.98 }}
-          className={`w-full py-2.5 font-bold text-sm uppercase tracking-wider rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 ${
-            justAdded
-              ? 'bg-green-500 text-white'
-              : 'bg-zinc-900 hover:bg-[#FF007F] text-white'
-          }`}
-        >
-          {justAdded ? (
-            <>
-              <Check className="w-4 h-4" />
-              Agregado
-            </>
-          ) : (
-            <>
-              <Plus className="w-4 h-4" />
-              Agregar al Kit
-            </>
-          )}
-        </motion.button>
       </div>
     </motion.div>
   );
@@ -283,25 +147,20 @@ export default function TheArsenal() {
   const { addItem } = useKitBuilder();
   const { showToast } = useToast();
 
-  const filteredProducts = activeFilter === 'todos'
+  const filtered = activeFilter === 'todos'
     ? products
-    : products.filter((p) => p.category === activeFilter);
+    : products.filter((p) => p.categoria === activeFilter);
 
-  const handleAddToKit = (product: Product) => {
-    addItem({
-      id: product.id,
-      name: product.name,
-      imageUrl: product.imageUrl,
-      price: product.price,
-      category: product.category,
-    });
-    showToast(`${product.name} agregado al kit`, 'success');
+  const handleAddToKit = (p: Product) => {
+    addItem({ id: p.id, name: p.nombre, imageUrl: p.imageUrl, price: '', category: p.categoria });
+    showToast(`${p.nombre} agregado al kit`, 'success');
   };
 
   return (
     <section className="py-24 lg:py-32 px-6 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
+
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -310,14 +169,14 @@ export default function TheArsenal() {
           className="text-center mb-12"
         >
           <span className="font-mono text-sm font-bold text-[#FF007F] mb-4 block">
-            [CATÁLOGO_INTELIGENTE]
+            [CATÁLOGO_DESTACADO]
           </span>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 text-zinc-900 tracking-tight">
             EL ARSENAL
           </h2>
           <p className="text-xl text-zinc-500 max-w-2xl mx-auto leading-relaxed">
-            Todo lo que necesitas para equipar a tu equipo.{' '}
-            <span className="text-zinc-900 font-semibold">Filtra, explora, cotiza.</span>
+            Productos reales, listos para personalizarse con tu marca.{' '}
+            <span className="text-zinc-900 font-semibold">Agrega al kit o cotiza directo.</span>
           </p>
         </motion.div>
 
@@ -327,20 +186,17 @@ export default function TheArsenal() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center mb-12"
+          className="flex justify-center mb-12 overflow-x-auto pb-2"
         >
           <div className="inline-flex items-center gap-1 p-1.5 bg-zinc-100 rounded-full">
             {filterTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
-                className={`relative px-5 py-2.5 text-sm font-bold uppercase tracking-wider transition-colors rounded-full ${
-                  activeFilter === tab.id
-                    ? 'text-white'
-                    : 'text-zinc-600 hover:text-zinc-900'
+                className={`relative px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors rounded-full whitespace-nowrap ${
+                  activeFilter === tab.id ? 'text-white' : 'text-zinc-600 hover:text-zinc-900'
                 }`}
               >
-                {/* Animated Background */}
                 {activeFilter === tab.id && (
                   <motion.div
                     layoutId="activeFilterPill"
@@ -355,32 +211,13 @@ export default function TheArsenal() {
         </motion.div>
 
         {/* Products Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-        >
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <AnimatePresence mode="popLayout">
-            {filteredProducts.map((product, index) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                index={index}
-                onAddToKit={handleAddToKit}
-              />
+            {filtered.map((p, i) => (
+              <ProductCard key={p.id} product={p} index={i} onAddToKit={handleAddToKit} />
             ))}
           </AnimatePresence>
         </motion.div>
-
-        {/* Empty State */}
-        {filteredProducts.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-16"
-          >
-            <p className="text-zinc-500 text-lg">No hay productos en esta categoría.</p>
-          </motion.div>
-        )}
 
         {/* Bottom CTA */}
         <motion.div
@@ -392,13 +229,17 @@ export default function TheArsenal() {
         >
           <div className="inline-flex flex-col sm:flex-row items-center gap-4">
             <p className="text-zinc-500 font-mono text-sm">
-              ¿No encuentras lo que buscas?
+              +1,300 productos disponibles en el catálogo completo
             </p>
-            <button className="px-6 py-3 bg-[#FF007F] hover:bg-zinc-900 text-white font-bold text-sm uppercase tracking-wider rounded-full transition-colors">
-              Solicitar Producto Custom
-            </button>
+            <a
+              href="/catalogo"
+              className="px-6 py-3 bg-[#FF007F] hover:bg-zinc-900 text-white font-bold text-sm uppercase tracking-wider rounded-full transition-colors"
+            >
+              Ver catálogo completo
+            </a>
           </div>
         </motion.div>
+
       </div>
     </section>
   );
