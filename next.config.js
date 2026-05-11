@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    qualities: [75, 85, 90],
     remotePatterns: [
       {
         protocol: 'https',
@@ -10,9 +11,9 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'www.moplayeras.com',
+        hostname: 'cdn.shopify.com',
         port: '',
-        pathname: '/cdn/shop/products/**',
+        pathname: '/**',
       },
       {
         protocol: 'https',

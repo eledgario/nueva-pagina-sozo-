@@ -10,7 +10,7 @@ const categories = [
   { label: 'Kits Ejecutivos', count: '178' },
   { label: 'Hieleras', count: '305' },
   { label: 'Hogar', count: '293' },
-  { label: 'Textiles', count: '278' },
+  { label: 'Textiles', count: '309' },
   { label: 'Belleza', count: '151' },
   { label: 'Varios', count: '1,405' },
 ];

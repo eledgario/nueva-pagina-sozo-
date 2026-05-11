@@ -17,7 +17,7 @@ interface Categoria { id: string; nombre: string; }
 interface Producto  {
   id: string; nombre: string; modelo: string; desc: string;
   categoria: string; tecnicas: string[];
-  imagenes?: string[]; dimensiones?: string; colores?: string;
+  imagenes?: string[]; dimensiones?: string; colores?: string | string[];
 }
 interface KitItem   { producto: Producto; cantidad: number; }
 
@@ -353,6 +353,34 @@ function KitPanel({
   );
 }
 
+// ─── Colores Section ─────────────────────────────────────────────────────────
+
+function ColoresSection({ colores }: { colores: string[] }) {
+  const [expanded, setExpanded] = useState(false);
+  const LIMIT = 12;
+  const visible = expanded ? colores : colores.slice(0, LIMIT);
+  return (
+    <div>
+      <p className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">
+        Colores disponibles <span className="text-zinc-300 font-normal">({colores.length})</span>
+      </p>
+      <div className="flex flex-wrap gap-1.5">
+        {visible.map((c) => (
+          <span key={c} className="text-xs px-2.5 py-1 bg-zinc-100 text-zinc-700 font-mono">{c}</span>
+        ))}
+        {colores.length > LIMIT && (
+          <button
+            onClick={() => setExpanded(e => !e)}
+            className="text-xs px-2.5 py-1 bg-zinc-900 text-white font-mono hover:bg-[#FF007F] transition-colors"
+          >
+            {expanded ? 'Ver menos' : `+${colores.length - LIMIT} más`}
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ─── Product Modal ────────────────────────────────────────────────────────────
 
 function ProductModal({ p, nombre, empresa, onClose, onAddToKit, inKit }: {
@@ -361,7 +389,7 @@ function ProductModal({ p, nombre, empresa, onClose, onAddToKit, inKit }: {
 }) {
   const [imgIdx, setImgIdx] = useState(0);
   const imgs   = p.imagenes ?? [];
-  const colores = p.colores ? p.colores.split(' | ').filter(Boolean) : [];
+  const colores = Array.isArray(p.colores) ? p.colores.filter(Boolean) : p.colores ? p.colores.split(' | ').filter(Boolean) : [];
   const isKit   = p.categoria === 'kits';
 
   useEffect(() => {
@@ -396,7 +424,7 @@ function ProductModal({ p, nombre, empresa, onClose, onAddToKit, inKit }: {
               {imgs.length > 0 ? (
                 <AnimatePresence>
                   <motion.div key={imgIdx} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }} className="absolute inset-0 p-4">
-                    <Image src={imgs[imgIdx]} alt={p.nombre} fill className="object-contain" sizes="(max-width: 640px) 100vw, 50vw" />
+                    <Image src={imgs[imgIdx]} alt={p.nombre} fill quality={90} className="object-contain" sizes="(max-width: 640px) 100vw, 50vw" />
                   </motion.div>
                 </AnimatePresence>
               ) : (
@@ -485,14 +513,7 @@ function ProductModal({ p, nombre, empresa, onClose, onAddToKit, inKit }: {
               )}
 
               {colores.length > 0 && (
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Colores disponibles</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {colores.map((c) => (
-                      <span key={c} className="text-xs px-2.5 py-1 bg-zinc-100 text-zinc-700 font-mono">{c}</span>
-                    ))}
-                  </div>
-                </div>
+                <ColoresSection colores={colores} />
               )}
 
               {/* Técnicas con descripción y tiempo */}
@@ -568,7 +589,7 @@ function ProductCard({ p, index, onOpen, onAddToKit, inKit }: {
     setHovered(true);
     if (imgs[0]) {
       const img = new window.Image();
-      img.src = `/_next/image?url=${encodeURIComponent(imgs[0])}&w=1080&q=75`;
+      img.src = `/_next/image?url=${encodeURIComponent(imgs[0])}&w=1080&q=85`;
     }
   }, [imgs]);
 
@@ -585,9 +606,9 @@ function ProductCard({ p, index, onOpen, onAddToKit, inKit }: {
       <div className="relative aspect-[3/4] overflow-hidden bg-zinc-100 mb-3 cursor-pointer" onClick={onOpen}>
         {imgs.length > 0 ? (
           <>
-            <Image src={imgs[0]} alt={p.nombre} fill className={`object-cover transition-all duration-500 ${hovered ? 'scale-105' : 'scale-100'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
+            <Image src={imgs[0]} alt={p.nombre} fill quality={85} className={`object-cover transition-all duration-500 ${hovered ? 'scale-105' : 'scale-100'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
             {imgs[1] && (
-              <Image src={imgs[1]} alt={p.nombre} fill className={`object-cover absolute inset-0 transition-opacity duration-500 ${hovered ? 'opacity-100' : 'opacity-0'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
+              <Image src={imgs[1]} alt={p.nombre} fill quality={85} className={`object-cover absolute inset-0 transition-opacity duration-500 ${hovered ? 'opacity-100' : 'opacity-0'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
             )}
           </>
         ) : (
@@ -687,7 +708,7 @@ export default function CatalogoContent() {
   const [categorias, setCategorias] = useState<Categoria[]>([]);
   const [paginated, setPaginated]   = useState<Producto[]>([]);
   const [totalFiltered, setTotal]   = useState(0);
-  const [totalProducts, setTotalProducts] = useState(6731);
+  const [totalProducts, setTotalProducts] = useState(6762);
   const [loading, setLoading]       = useState(false);
   const [, startTransition]         = useTransition();
 

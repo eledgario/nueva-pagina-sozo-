@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
 
   const data = await getProductsData() as {
     tecnicas: unknown[]; categorias: unknown[];
-    productos: Array<{ id: string; nombre: string; modelo: string; desc: string; categoria: string; tecnicas: string[]; imagenes?: string[]; dimensiones?: string; colores?: string; }>;
+    productos: Array<{ id: string; nombre: string; modelo: string; desc: string; categoria: string; tecnicas: string[]; imagenes?: string[]; dimensiones?: string; colores?: string | string[]; }>;
   };
 
   if (meta) {
