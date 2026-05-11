@@ -13,10 +13,10 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { id: 'catalog', label: 'Catálogo', href: '#drops' },
-  { id: 'lab', label: 'El Lab', href: '#lab' },
-  { id: 'process', label: 'Proceso', href: '#process' },
-  { id: 'faq', label: 'FAQ', href: '#faq' },
+  { id: 'catalog', label: 'Catálogo', href: '/catalogo' },
+  { id: 'lab', label: 'El Lab', href: '/#lab' },
+  { id: 'process', label: 'Proceso', href: '/#process' },
+  { id: 'faq', label: 'FAQ', href: '/#faq' },
 ];
 
 export default function Navbar() {

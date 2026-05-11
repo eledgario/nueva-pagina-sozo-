@@ -4,7 +4,7 @@ import CatalogoContent from './CatalogoContent';
 
 export const metadata: Metadata = {
   title: 'SOZO | Catálogo de Productos Corporativos',
-  description: 'Catálogo digital de productos corporativos y kits de merch. Más de 111 productos personalizables con serigrafía, grabado láser, sublimación y más.',
+  description: 'Catálogo digital de productos corporativos y kits de merch. Más de 6,700 productos personalizables con serigrafía, grabado láser, sublimación y más.',
   robots: { index: false, follow: false },
 };
 

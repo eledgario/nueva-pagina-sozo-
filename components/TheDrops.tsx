@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import TiltCard from './TiltCard';
 
 interface Product {
@@ -10,38 +11,43 @@ interface Product {
   description: string;
   techTag: string;
   imageUrl: string;
+  href: string;
   featured?: boolean;
 }
 
 const products: Product[] = [
   {
-    id: 'starter-kit',
-    title: 'The Starter Kit',
-    description: 'La experiencia completa de unboxing. Incluye Hoodie, Termo y Accesorio Tech.',
-    techTag: 'Hybrid Production',
-    imageUrl: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=2070&auto=format&fit=crop',
+    id: 'kit-ejecutivo',
+    title: 'Kit Ejecutivo',
+    description: 'Libreta de piel, bolígrafo roller y termo de doble pared. La combinación favorita para bienvenidas y regalos corporativos.',
+    techTag: 'Grabado Láser · Serigrafía',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778017030936x247009838287304700/ST-058_02.jpg',
+    href: '/catalogo?cat=kits',
     featured: true,
   },
   {
-    id: 'founder-hoodie',
-    title: 'The Founder Hoodie',
-    description: 'Algodón 240g. Corte Boxy. Durabilidad industrial con estilo streetwear.',
-    techTag: 'Screen Printed',
-    imageUrl: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=2070&auto=format&fit=crop',
+    id: 'termo-premium',
+    title: 'Termo de Doble Pared',
+    description: 'Acero inoxidable. Logo grabado con láser que no se borra. El clásico que nunca falla.',
+    techTag: 'Grabado Láser',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1775603640543x759288295926205400/TE-267_02.jpg',
+    href: '/catalogo?cat=bebidas',
   },
   {
-    id: 'stealth-tumbler',
-    title: 'Stealth Tumbler',
-    description: 'Acero inoxidable negro mate. Grabado permanente que no se borra.',
-    techTag: 'Precision Laser',
-    imageUrl: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=2087&auto=format&fit=crop',
+    id: 'mochila-urban',
+    title: 'Mochila Urban',
+    description: 'Poliéster técnico plegable. Logotipo bordado o serigrafía. Caben laptop y accesorios.',
+    techTag: 'Serigrafía · Bordado',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778081018710x500232710744867400/TX-409_02.jpg',
+    href: '/catalogo?cat=mochilas',
   },
   {
-    id: 'monolith-stand',
-    title: 'Monolith Stand',
-    description: 'Diseño paramétrico para tu setup. Soporte de celular con branding en relieve.',
-    techTag: '3D Printed',
-    imageUrl: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2070&auto=format&fit=crop',
+    id: 'bocina-bt',
+    title: 'Bocina Bluetooth',
+    description: 'Sonido premium, batería de larga duración. Impresión DTF UV directa sobre la carcasa.',
+    techTag: 'DTF UV',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773073056788x656601407991168600/TH-272_02.jpg',
+    href: '/catalogo?cat=tecnologia',
   },
 ];
 
@@ -58,13 +64,14 @@ export default function TheDrops() {
           className="mb-16"
         >
           <span className="font-mono text-sm font-bold text-[#FF007F] mb-4 block">
-            [CATÁLOGO_CURADO]
+            [SELECCIÓN_CURADA]
           </span>
           <h2 className="text-6xl md:text-7xl font-black mb-4 text-zinc-900 tracking-tight">
             LOS ESENCIALES
           </h2>
           <p className="text-xl text-zinc-500 max-w-2xl leading-relaxed">
-            Hardware y textiles curados. <span className="text-zinc-900 font-bold">Nada de relleno</span>, solo lo que tu equipo sí va a usar.
+            Los productos más solicitados por nuestros clientes.{' '}
+            <span className="text-zinc-900 font-bold">Todos personalizables</span> con tu marca.
           </p>
         </motion.div>
 
@@ -78,83 +85,52 @@ export default function TheDrops() {
             transition={{ duration: 0.6 }}
           >
             <TiltCard className="w-full">
-              <div className="group relative h-[500px] rounded-3xl overflow-hidden bg-white border border-zinc-200 hover:border-[#FF007F]/50 transition-all duration-500 shadow-xl shadow-zinc-200/50 cursor-pointer">
-                {/* Background Image - Full Card */}
-                <div className="absolute inset-0">
-                  {/* Light Grey Background */}
+              <Link href={products[0].href}>
+                <div className="group relative h-[500px] rounded-3xl overflow-hidden bg-white border border-zinc-200 hover:border-[#FF007F]/50 transition-all duration-500 shadow-xl shadow-zinc-200/50 cursor-pointer">
                   <div className="absolute inset-0 bg-[#F4F4F5]" />
-
                   <Image
                     src={products[0].imageUrl}
                     alt={products[0].title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="100vw"
                   />
-
-                  {/* Pink Overlay on Hover */}
                   <div className="absolute inset-0 bg-[#FF007F]/0 group-hover:bg-[#FF007F]/5 transition-all duration-500" />
-                </div>
 
-                {/* Tech Tag (Top Right) */}
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="absolute top-6 right-6 z-20 group/tag"
-                >
-                  <div className="relative">
-                    {/* Tag */}
-                    <div className="relative px-4 py-2 bg-white border-2 border-[#FF007F] rounded-full shadow-md">
+                  <div className="absolute top-6 right-6 z-20">
+                    <div className="px-4 py-2 bg-white border-2 border-[#FF007F] rounded-full shadow-md">
                       <span className="text-xs font-mono font-bold text-[#FF007F] uppercase tracking-wider">
                         {products[0].techTag}
                       </span>
                     </div>
                   </div>
-                </motion.div>
 
-                {/* Featured Badge */}
-                <div className="absolute top-6 left-6 z-20">
-                  <div className="px-4 py-2 bg-[#FF007F] border-2 border-white rounded-full shadow-lg">
-                    <span className="text-xs font-black text-white uppercase tracking-wider">
-                      Featured
-                    </span>
+                  <div className="absolute top-6 left-6 z-20">
+                    <div className="px-4 py-2 bg-[#FF007F] border-2 border-white rounded-full shadow-lg">
+                      <span className="text-xs font-black text-white uppercase tracking-wider">
+                        Más solicitado
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="absolute left-0 top-0 bottom-0 z-10 p-8 md:p-12 flex items-center">
+                    <div className="relative z-10 bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 max-w-lg shadow-lg">
+                      <h3 className="text-4xl md:text-5xl font-black mb-4 text-zinc-900">
+                        {products[0].title}
+                      </h3>
+                      <p className="text-lg md:text-xl text-zinc-600 leading-relaxed mb-6">
+                        {products[0].description}
+                      </p>
+                      <span className="inline-flex items-center gap-2 text-[#FF007F] font-bold text-sm uppercase">
+                        <span>Ver en catálogo</span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                 </div>
-
-                {/* Content Area (Left Side) */}
-                <div className="absolute left-0 top-0 bottom-0 z-10 p-8 md:p-12 flex items-center">
-                  <div className="relative z-10 bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 max-w-lg shadow-lg">
-                    {/* Title */}
-                    <h3 className="text-4xl md:text-5xl font-black mb-4 text-zinc-900">
-                      {products[0].title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-lg md:text-xl text-zinc-600 leading-relaxed mb-6">
-                      {products[0].description}
-                    </p>
-
-                    {/* Action Link */}
-                    <motion.button
-                      whileHover={{ x: 5 }}
-                      className="inline-flex items-center gap-2 text-[#FF007F] font-bold text-sm uppercase group/btn"
-                    >
-                      <span>Ver Detalles</span>
-                      <svg
-                        className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </motion.button>
-                  </div>
-                </div>
-              </div>
+              </Link>
             </TiltCard>
           </motion.div>
 
@@ -169,74 +145,44 @@ export default function TheDrops() {
                 transition={{ duration: 0.6, delay: (index + 1) * 0.1 }}
               >
                 <TiltCard className="h-full">
-                  <div className="group relative h-[450px] rounded-3xl overflow-hidden bg-white border border-zinc-200 hover:border-[#FF007F]/50 transition-all duration-500 shadow-xl shadow-zinc-200/50 cursor-pointer">
-                    {/* Background Image - Full Card */}
-                    <div className="absolute inset-0">
-                      {/* Light Grey Background */}
+                  <Link href={product.href}>
+                    <div className="group relative h-[450px] rounded-3xl overflow-hidden bg-white border border-zinc-200 hover:border-[#FF007F]/50 transition-all duration-500 shadow-xl shadow-zinc-200/50 cursor-pointer">
                       <div className="absolute inset-0 bg-[#F4F4F5]" />
-
                       <Image
                         src={product.imageUrl}
                         alt={product.title}
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, 33vw"
                       />
-
-                      {/* Pink Overlay on Hover */}
                       <div className="absolute inset-0 bg-[#FF007F]/0 group-hover:bg-[#FF007F]/5 transition-all duration-500" />
-                    </div>
 
-                    {/* Tech Tag (Top Right) */}
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      className="absolute top-4 right-4 z-20 group/tag"
-                    >
-                      <div className="relative">
-                        {/* Tag */}
-                        <div className="relative px-4 py-2 bg-white border-2 border-[#FF007F] rounded-full shadow-md">
+                      <div className="absolute top-4 right-4 z-20">
+                        <div className="px-4 py-2 bg-white border-2 border-[#FF007F] rounded-full shadow-md">
                           <span className="text-xs font-mono font-bold text-[#FF007F] uppercase tracking-wider">
                             {product.techTag}
                           </span>
                         </div>
                       </div>
-                    </motion.div>
 
-                    {/* Content Area (Bottom) */}
-                    <div className="absolute bottom-0 left-0 right-0 z-10 p-4">
-                      <div className="relative z-10 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                        {/* Title */}
-                        <h3 className="text-2xl md:text-3xl font-black mb-2 text-zinc-900">
-                          {product.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-sm text-zinc-600 leading-relaxed mb-4">
-                          {product.description}
-                        </p>
-
-                        {/* Action Link */}
-                        <motion.button
-                          whileHover={{ x: 5 }}
-                          className="inline-flex items-center gap-2 text-[#FF007F] font-bold text-sm uppercase group/btn"
-                        >
-                          <span>Ver Detalles</span>
-                          <svg
-                            className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M9 5l7 7-7 7"
-                            />
-                          </svg>
-                        </motion.button>
+                      <div className="absolute bottom-0 left-0 right-0 z-10 p-4">
+                        <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+                          <h3 className="text-2xl md:text-3xl font-black mb-2 text-zinc-900">
+                            {product.title}
+                          </h3>
+                          <p className="text-sm text-zinc-600 leading-relaxed mb-4">
+                            {product.description}
+                          </p>
+                          <span className="inline-flex items-center gap-2 text-[#FF007F] font-bold text-sm uppercase">
+                            <span>Ver en catálogo</span>
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </TiltCard>
               </motion.div>
             ))}
@@ -252,13 +198,14 @@ export default function TheDrops() {
           className="mt-12 text-center"
         >
           <p className="text-zinc-500 font-mono text-sm mb-4">
-            ¿No encuentras lo que buscas?
+            +6,700 productos disponibles para personalizar
           </p>
-          <button className="px-8 py-4 bg-white border-2 border-zinc-200 hover:border-[#FF007F] rounded-2xl font-bold text-zinc-900 transition-all group shadow-md">
-            <span className="group-hover:text-[#FF007F] transition-colors">
-              Explorar Catálogo Completo
-            </span>
-          </button>
+          <Link
+            href="/catalogo"
+            className="inline-block px-8 py-4 bg-white border-2 border-zinc-200 hover:border-[#FF007F] rounded-2xl font-bold text-zinc-900 hover:text-[#FF007F] transition-all shadow-md"
+          >
+            Explorar Catálogo Completo
+          </Link>
         </motion.div>
       </div>
     </section>

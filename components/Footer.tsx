@@ -6,17 +6,17 @@ import Link from 'next/link';
 import { Instagram, Linkedin, Mail, MapPin, ArrowUpRight } from 'lucide-react';
 
 const solutionsLinks = [
-  { label: 'Teams & Onboarding', href: '#solutions' },
-  { label: 'Massive Events', href: '#solutions' },
-  { label: 'Client Gifting', href: '#solutions' },
-  { label: 'Social Studio', href: '#solutions' },
+  { label: 'Equipos & Onboarding', href: '/#solutions' },
+  { label: 'Eventos Masivos', href: '/#solutions' },
+  { label: 'Regalos Corporativos', href: '/#solutions' },
+  { label: 'Merch para Redes', href: '/#solutions' },
 ];
 
 const labLinks = [
-  { label: 'Catálogo', href: '#arsenal' },
-  { label: 'Técnicas', href: '#lab' },
-  { label: 'Proceso', href: '#process' },
-  { label: 'Cotizador', href: '#configurator' },
+  { label: 'Catálogo', href: '/catalogo' },
+  { label: 'Técnicas', href: '/#lab' },
+  { label: 'Proceso', href: '/#process' },
+  { label: 'FAQ', href: '/#faq' },
 ];
 
 const legalLinks = [
@@ -203,23 +203,17 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <p className="font-mono text-xs text-zinc-500">
-              © 2026 Sozo Inc. All systems operational.
+              © 2026 SOZO MFG. Todos los derechos reservados.
             </p>
 
-            {/* Status Indicator */}
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                <span className="font-mono text-xs text-zinc-500">
-                  API Status: Online
-                </span>
-              </div>
-              <span className="text-zinc-700">|</span>
+            {/* Location */}
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
               <span className="font-mono text-xs text-zinc-500">
-                v2.4.1
+                Ciudad de México · Entregas en toda la República
               </span>
             </div>
           </div>
