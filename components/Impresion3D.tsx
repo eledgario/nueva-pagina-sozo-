@@ -203,7 +203,7 @@ export default function Impresion3D() {
           <span className="font-mono text-[10px] font-bold text-[#FF007F] uppercase tracking-widest">
             [IMPRESIÓN_3D]
           </span>
-          <h2 className="text-5xl sm:text-6xl md:text-7xl font-black mt-4 mb-6 tracking-tight leading-none">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl font-black mt-4 mb-6 tracking-tight leading-none text-white">
             CADA MARCA<br />
             <span className="text-[#FF007F]">TIENE SU OBJETO.</span>
           </h2>
