@@ -353,27 +353,98 @@ function KitPanel({
   );
 }
 
+// ─── Color resolver ───────────────────────────────────────────────────────────
+
+const COLOR_MAP: Record<string, string> = {
+  // Basics
+  'NEGRO': '#1a1a1a', 'NEGRO JASPEADO': '#2d2d2d', 'NEGRO BRUNEK': '#111111', 'NEGRO ARANZA': '#0a0a0a',
+  'BLANCO': '#f5f5f5', 'BLANCO BAOTOU': '#f0eeea',
+  'GRIS': '#9ca3af', 'GRIS CLARO': '#d1d5db', 'GRIS OXFORD': '#4b5563', 'GRIS OSCURO': '#374151',
+  'GRIS TB': '#6b7280', 'GRIS CHERASCO': '#8d9097', 'GRIS JASPEADO': '#a8a8a8',
+  'CARBON JASPEADO': '#3d3d3d', 'CARBÓN JASPEADO': '#3d3d3d', 'JASPE OBSCURO': '#4a4a4a', 'HUMO': '#6b7280', 'PLATA': '#c0c0c0',
+  // Blues
+  'AZUL': '#3b82f6', 'AZUL MARINO': '#1e3a5f', 'AZUL REY': '#1d4ed8', 'AZUL CIELO': '#7dd3fc',
+  'AZUL CLARO': '#93c5fd', 'AZUL PASTEL': '#bfdbfe', 'AZUL AQUA': '#06b6d4', 'MARINO JASPEADO': '#1e3a5f',
+  'MARINO BRILLANTE': '#0f2d5e', 'AZUL HEZE': '#4a6fa5', 'AZUL LENI': '#5b8dd9', 'AZUL SAKAI': '#2563a8',
+  'AZUL PURIST BLUE': '#5b8fd4', 'AZUL COLOMBIA BLUE': '#4a90d9', 'AZUL TRASLUCIDO': '#93c5fd',
+  'AZUL WINKLE P': '#6b7fa8',
+  // Reds / Pinks
+  'ROJO': '#dc2626', 'ROJO JASPEADO': '#c93535', 'ROJO BRILLANTE': '#ef4444', 'ROJO TRASLUCIDO': '#fca5a5',
+  'ROJO DAVAO': '#c0392b', 'ROJO SURAT': '#b91c1c', 'ROJO CARDENAL': '#9b1c1c',
+  'ROSA': '#f472b6', 'ROSA CLARO': '#fbcfe8', 'ROSA PALIDO': '#fce7f3', 'ROSA PASTEL': '#fce7f3',
+  'ROSA LIGHT PINK': '#ffb6c1', 'FIUSHA': '#ff0090', 'FIUSHA JASPEADO': '#e91e8c',
+  'ROSA AZALEA': '#f48fb1', 'MORADO': '#7c3aed', 'MORADO MOLVENO': '#6d28d9', 'MORADO JASPEADO': '#8b5cf6',
+  'LILA': '#c4b5fd', 'TINTO': '#7f1d1d',
+  // Greens
+  'VERDE': '#16a34a', 'VERDE CLARO': '#86efac', 'VERDE LIMON': '#a3e635', 'VERDE TURQUESA': '#2dd4bf',
+  'VERDE MILITAR': '#4a5c3a', 'VERDE MILITARY GREEN': '#4a5c3a', 'VERDE NEO MINT': '#a8e6cf',
+  'VERDE BOSQUE': '#1a4731', 'NUEVO VERDE BOSQUE': '#1a4731', 'VERDE BANDERA': '#006847',
+  'TURQUESA': '#0d9488',
+  // Yellows / Oranges / Browns
+  'AMARILLO': '#fbbf24', 'NARANJA': '#f97316', 'NARANJA SEGURIDAD': '#ff6b00',
+  'CAFE': '#92400e', 'CAFE CLARO': '#b45309', 'CAFE BROWN': '#795548', 'NUEVO MARRÓN': '#795548',
+  'BEIGE': '#d4b483', 'BEIGE SAND': '#c8a96e', 'NATURAL': '#e8d5b7', 'CANTALOUPE': '#ff8c69',
+  // Metallics / Special
+  'DORADO': '#d4af37', 'GRIS METALICO': '#9e9e9e', 'MULTICOLOR': 'linear-gradient(135deg,#f00,#ff0,#0f0,#00f,#f0f)',
+  'TRANSPARENTE': 'transparent',
+};
+
+function resolveColor(name: string): string {
+  const upper = name.trim().toUpperCase();
+  // Direct RGB value stored as string
+  const rgb = upper.match(/^RGB\((\d+),\s*(\d+),\s*(\d+)\)$/);
+  if (rgb) return `rgb(${rgb[1]},${rgb[2]},${rgb[3]})`;
+  // Exact match
+  if (COLOR_MAP[upper]) return COLOR_MAP[upper];
+  // Partial match: find the longest key contained in the name
+  const match = Object.keys(COLOR_MAP)
+    .filter(k => upper.includes(k))
+    .sort((a, b) => b.length - a.length)[0];
+  if (match) return COLOR_MAP[match];
+  return '#e5e7eb'; // fallback light gray
+}
+
 // ─── Colores Section ─────────────────────────────────────────────────────────
 
 function ColoresSection({ colores }: { colores: string[] }) {
   const [expanded, setExpanded] = useState(false);
-  const LIMIT = 12;
+  const [tooltip, setTooltip] = useState<string | null>(null);
+  const LIMIT = 20;
   const visible = expanded ? colores : colores.slice(0, LIMIT);
   return (
     <div>
       <p className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">
         Colores disponibles <span className="text-zinc-300 font-normal">({colores.length})</span>
       </p>
-      <div className="flex flex-wrap gap-1.5">
-        {visible.map((c) => (
-          <span key={c} className="text-xs px-2.5 py-1 bg-zinc-100 text-zinc-700 font-mono">{c}</span>
-        ))}
+      <div className="flex flex-wrap gap-2">
+        {visible.map((c) => {
+          const css = resolveColor(c);
+          const isLight = css === '#f5f5f5' || css === '#f0eeea' || css === '#d1d5db' || css === '#bfdbfe' || css === '#fce7f3' || css === '#fbcfe8' || css === '#ffb6c1' || css === '#e8d5b7' || css === 'transparent';
+          return (
+            <div key={c} className="relative group/swatch">
+              <div
+                className="w-7 h-7 rounded-full border-2 cursor-default transition-transform group-hover/swatch:scale-110"
+                style={{
+                  background: css,
+                  borderColor: isLight ? '#d1d5db' : 'transparent',
+                }}
+                onMouseEnter={() => setTooltip(c)}
+                onMouseLeave={() => setTooltip(null)}
+              />
+              {tooltip === c && (
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-1 bg-zinc-900 text-white text-[10px] font-mono whitespace-nowrap pointer-events-none z-50">
+                  {c}
+                </div>
+              )}
+            </div>
+          );
+        })}
         {colores.length > LIMIT && (
           <button
             onClick={() => setExpanded(e => !e)}
-            className="text-xs px-2.5 py-1 bg-zinc-900 text-white font-mono hover:bg-[#FF007F] transition-colors"
+            className="w-7 h-7 rounded-full bg-zinc-800 text-white text-[9px] font-bold hover:bg-[#FF007F] transition-colors flex items-center justify-center"
           >
-            {expanded ? 'Ver menos' : `+${colores.length - LIMIT} más`}
+            {expanded ? '−' : `+${colores.length - LIMIT}`}
           </button>
         )}
       </div>

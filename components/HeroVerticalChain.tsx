@@ -15,79 +15,79 @@ interface ProductCard {
 
 const productsColumnLeft: ProductCard[] = [
   {
-    id: 'te238',
-    name: 'Vaso Barete',
-    category: 'Drinkware',
-    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747900822968x120981413178805170/TE-238_03.jpg',
+    id: 'st058',
+    name: 'Kit Ejecutivo Devin',
+    category: 'Kits',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778017030936x247009838287304700/ST-058_02.jpg',
   },
   {
-    id: 'tx394',
-    name: 'Mochila Engomi',
+    id: 'te268',
+    name: 'Botella Vratsa',
+    category: 'Bebidas',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778178479593x458789352973942200/TE-268_02.jpg',
+  },
+  {
+    id: 'tx409',
+    name: 'Bolsa Kameno',
     category: 'Mochilas',
-    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778020406984x307413490126253060/TX-394_02.jpg',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778081018710x500232710744867400/TX-409_02.jpg',
   },
   {
-    id: 'th267',
-    name: 'Power Bank Slim',
-    category: 'Tech',
-    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773158282714x196271180865279700/TH-267_02.jpg',
+    id: 'th268',
+    name: 'Audífonos Bytom',
+    category: 'Tecnología',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1772836601487x567090319905139100/TH-268_02.jpg',
   },
   {
-    id: 'be018',
-    name: 'Espejo Doble',
-    category: 'Belleza',
-    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889692039x901247230555155300/BE-018_04.jpg',
+    id: 'mop3320',
+    name: 'Hoodie 3320',
+    category: 'Textiles',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0663/2239/9466/products/91758_MF_9d73fa8b-4864-4180-986a-bbe04205de5f.jpg',
   },
   {
-    id: 'hm158',
-    name: 'Tabla Salzach',
-    category: 'Hogar',
-    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747901073305x124567883909376700/HM-158_03.jpg',
-  },
-  {
-    id: 'bl011',
-    name: 'Bolígrafo Praga',
+    id: 'bl022',
+    name: 'Bolígrafo Vigo',
     category: 'Escritura',
-    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889748174x958718231294709800/BL-011_02.jpg',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1776284948708x739248531116932700/BL-022_02.jpg',
   },
 ];
 
 const productsColumnRight: ProductCard[] = [
   {
-    id: 'te240',
-    name: 'Vaso Pergole',
-    category: 'Drinkware',
-    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747900434802x613829082142993500/TE-240_02.jpg',
+    id: 'te267',
+    name: 'Termo Yambol',
+    category: 'Bebidas',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1775603640543x759288295926205400/TE-267_02.jpg',
   },
   {
     id: 'tx395',
-    name: 'Bagpack Legnica',
+    name: 'Mochila Legnica',
     category: 'Mochilas',
     imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773076096607x665235266830753300/TX-395_02.jpg',
   },
   {
     id: 'th272',
     name: 'Bocina Opole',
-    category: 'Tech',
+    category: 'Tecnología',
     imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773073056788x656601407991168600/TH-272_02.jpg',
   },
   {
-    id: 'be022',
-    name: 'Espejo Blarney',
-    category: 'Belleza',
-    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889709036x982914059701036700/BE-022_03.jpg',
+    id: 'st062',
+    name: 'Kit Brezovo',
+    category: 'Kits',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1775602779331x979863542572584100/ST-062_02.jpg',
   },
   {
-    id: 'hm155',
-    name: 'Set Corbeil',
+    id: 'hm187',
+    name: 'Set Botellas',
     category: 'Hogar',
-    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747901190273x839789660090816800/HM-155_05.jpg',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778104301272x161962742569409020/HM-187_02.jpg',
   },
   {
-    id: 'st063',
-    name: 'Set Belitsa',
-    category: 'Ejecutiva',
-    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778189413515x131896192704845420/ST-063_02.jpg',
+    id: 'dk129',
+    name: 'Set Escolar Eco',
+    category: 'Escritura',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1775602047585x210036920769523170/DK-129_02.jpg',
   },
 ];
 
@@ -140,6 +140,7 @@ function ElevatorColumn({ products, direction, duration = 25 }: ElevatorColumnPr
                 src={product.imageUrl}
                 alt={product.name}
                 fill
+                quality={90}
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                 sizes="200px"
               />
