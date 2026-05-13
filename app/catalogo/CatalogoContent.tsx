@@ -1,6 +1,6 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useState, useEffect, useRef, useCallback, useTransition } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
@@ -762,11 +762,19 @@ function Pagination({ page, total, pageSize, onChange }: {
 
 export default function CatalogoContent() {
   const params  = useSearchParams();
+  const router  = useRouter();
   const nombre  = params.get('nombre')  ?? '';
   const empresa = params.get('empresa') ?? '';
   const expo    = params.get('expo')    ?? '';
 
-  const [activeCategory, setActiveCategory] = useState('todos');
+  const [activeCategory, setActiveCategory] = useState(() => params.get('cat') ?? 'todos');
+
+  const handleCategoryChange = useCallback((cat: string) => {
+    setActiveCategory(cat);
+    const next = new URLSearchParams(params.toString());
+    if (cat === 'todos') next.delete('cat'); else next.set('cat', cat);
+    router.replace(`/catalogo?${next.toString()}`, { scroll: false });
+  }, [params, router]);
   const [search, setSearch]                 = useState('');
   const [page, setPage]                     = useState(1);
   const [selected, setSelected]             = useState<Producto | null>(null);
@@ -936,7 +944,7 @@ export default function CatalogoContent() {
 
           <div className="flex gap-0 overflow-x-auto mb-12 border-b border-zinc-100">
             {[{ id: 'todos', nombre: 'Todos' }, ...categorias].map(c => (
-              <button key={c.id} onClick={() => setActiveCategory(c.id)} className={`flex-shrink-0 pb-3 px-4 text-xs font-bold uppercase tracking-wider transition-all border-b-2 -mb-px whitespace-nowrap ${activeCategory === c.id ? 'border-zinc-900 text-zinc-900' : 'border-transparent text-zinc-400 hover:text-zinc-700'}`}>
+              <button key={c.id} onClick={() => handleCategoryChange(c.id)} className={`flex-shrink-0 pb-3 px-4 text-xs font-bold uppercase tracking-wider transition-all border-b-2 -mb-px whitespace-nowrap ${activeCategory === c.id ? 'border-zinc-900 text-zinc-900' : 'border-transparent text-zinc-400 hover:text-zinc-700'}`}>
                 {c.nombre}
               </button>
             ))}
