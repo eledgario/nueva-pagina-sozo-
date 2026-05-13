@@ -775,7 +775,14 @@ export default function CatalogoContent() {
     if (cat === 'todos') next.delete('cat'); else next.set('cat', cat);
     router.replace(`/catalogo?${next.toString()}`, { scroll: false });
   }, [params, router]);
-  const [search, setSearch]                 = useState('');
+  const [search, setSearch] = useState(() => params.get('q') ?? '');
+
+  const handleSearchChange = useCallback((val: string) => {
+    setSearch(val);
+    const next = new URLSearchParams(params.toString());
+    if (val) next.set('q', val); else next.delete('q');
+    router.replace(`/catalogo?${next.toString()}`, { scroll: false });
+  }, [params, router]);
   const [page, setPage]                     = useState(1);
   const [selected, setSelected]             = useState<Producto | null>(null);
   const [kitItems, setKitItems]             = useState<Map<string, KitItem>>(new Map());
@@ -935,7 +942,7 @@ export default function CatalogoContent() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
             <div className="relative flex-1 max-w-xs">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
-              <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Buscar por nombre o modelo..." className="w-full pl-10 pr-4 py-2.5 text-sm border border-zinc-200 focus:outline-none focus:border-zinc-900 transition-colors bg-white placeholder-zinc-400" />
+              <input type="text" value={search} onChange={e => handleSearchChange(e.target.value)} placeholder="Buscar por nombre o modelo..." className="w-full pl-10 pr-4 py-2.5 text-sm border border-zinc-200 focus:outline-none focus:border-zinc-900 transition-colors bg-white placeholder-zinc-400" />
             </div>
             <p className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest sm:ml-auto">
               {totalFiltered.toLocaleString()} producto{totalFiltered !== 1 ? 's' : ''}{search && ` · "${search}"`}
