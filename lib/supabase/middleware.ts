@@ -17,11 +17,6 @@ export async function updateSession(request: NextRequest) {
     request,
   });
 
-  // TEMPORARY: Manual bypass for development - remove when Supabase is configured
-  const BYPASS_AUTH = true; // Set to false when ready to enable auth
-  if (BYPASS_AUTH) {
-    return supabaseResponse;
-  }
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -59,12 +54,11 @@ export async function updateSession(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   // Protected routes that require authentication
-  const protectedRoutes = ['/dashboard', '/admin'];
+  const protectedRoutes = ['/dashboard', '/admin', '/portal'];
   const isProtectedRoute = protectedRoutes.some((route) =>
     pathname.startsWith(route)
   );
 
-  // If accessing protected route without session, redirect to login
   if (isProtectedRoute && !user) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
@@ -72,10 +66,12 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // If accessing login with active session, redirect to dashboard
+  // If accessing login with active session, redirect appropriately
   if (pathname === '/login' && user) {
     const url = request.nextUrl.clone();
-    url.pathname = '/dashboard';
+    const next = request.nextUrl.searchParams.get('redirect');
+    url.pathname = next && next.startsWith('/') ? next : '/portal';
+    url.search = '';
     return NextResponse.redirect(url);
   }
 

@@ -141,6 +141,7 @@ function ElevatorColumn({ products, direction, duration = 25 }: ElevatorColumnPr
                 alt={product.name}
                 fill
                 quality={90}
+                unoptimized
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                 sizes="200px"
               />

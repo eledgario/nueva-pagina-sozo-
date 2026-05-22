@@ -92,6 +92,7 @@ function ProductCard({ product, index, onAddToKit }: {
           src={product.imageUrl}
           alt={product.nombre}
           fill
+          unoptimized
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />

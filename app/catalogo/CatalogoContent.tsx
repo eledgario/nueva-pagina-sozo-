@@ -299,7 +299,7 @@ function KitPanel({
             <div key={p.modelo} className="flex gap-3 items-start">
               <div className="w-16 h-16 flex-shrink-0 bg-zinc-100 relative overflow-hidden">
                 {p.imagenes?.[0] ? (
-                  <Image src={p.imagenes[0]} alt={p.nombre} fill className="object-cover" sizes="64px" />
+                  <Image src={p.imagenes[0]} alt={p.nombre} fill unoptimized className="object-cover" sizes="64px" />
                 ) : (
                   <span className="absolute inset-0 flex items-center justify-center font-mono text-[9px] text-zinc-400">{p.modelo}</span>
                 )}
@@ -495,7 +495,7 @@ function ProductModal({ p, nombre, empresa, onClose, onAddToKit, inKit }: {
               {imgs.length > 0 ? (
                 <AnimatePresence>
                   <motion.div key={imgIdx} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }} className="absolute inset-0 p-4">
-                    <Image src={imgs[imgIdx]} alt={p.nombre} fill quality={90} className="object-contain" sizes="(max-width: 640px) 100vw, 50vw" />
+                    <Image src={imgs[imgIdx]} alt={p.nombre} fill quality={90} unoptimized className="object-contain" sizes="(max-width: 640px) 100vw, 50vw" />
                   </motion.div>
                 </AnimatePresence>
               ) : (
@@ -519,7 +519,7 @@ function ProductModal({ p, nombre, empresa, onClose, onAddToKit, inKit }: {
               <div className="flex gap-1.5 px-3 py-2.5 bg-zinc-100 border-t border-zinc-200 overflow-x-auto flex-shrink-0">
                 {imgs.map((src, i) => (
                   <button key={i} onClick={() => setImgIdx(i)} className={`w-12 h-12 relative flex-shrink-0 border-2 transition-all overflow-hidden ${i === imgIdx ? 'border-zinc-900' : 'border-transparent opacity-50 hover:opacity-90'}`}>
-                    <Image src={src} alt="" fill className="object-cover" sizes="48px" />
+                    <Image src={src} alt="" fill unoptimized className="object-cover" sizes="48px" />
                   </button>
                 ))}
               </div>
@@ -677,9 +677,9 @@ function ProductCard({ p, index, onOpen, onAddToKit, inKit }: {
       <div className="relative aspect-[3/4] overflow-hidden bg-zinc-100 mb-3 cursor-pointer" onClick={onOpen}>
         {imgs.length > 0 ? (
           <>
-            <Image src={imgs[0]} alt={p.nombre} fill quality={85} className={`object-cover transition-all duration-500 ${hovered ? 'scale-105' : 'scale-100'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
+            <Image src={imgs[0]} alt={p.nombre} fill quality={85} unoptimized className={`object-cover transition-all duration-500 ${hovered ? 'scale-105' : 'scale-100'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
             {imgs[1] && (
-              <Image src={imgs[1]} alt={p.nombre} fill quality={85} className={`object-cover absolute inset-0 transition-opacity duration-500 ${hovered ? 'opacity-100' : 'opacity-0'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
+              <Image src={imgs[1]} alt={p.nombre} fill quality={85} unoptimized className={`object-cover absolute inset-0 transition-opacity duration-500 ${hovered ? 'opacity-100' : 'opacity-0'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
             )}
           </>
         ) : (
