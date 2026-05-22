@@ -127,6 +127,7 @@ function CategoryCard({ cat, onClick }: { cat: CategoryDef; onClick: () => void 
           src={cat.cover}
           alt={cat.label}
           fill
+          unoptimized
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
         />
@@ -153,6 +154,7 @@ function ProductImage({ src, alt, label }: { src: string; alt: string; label: st
           src={src}
           alt={alt}
           fill
+          unoptimized
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
@@ -239,6 +241,7 @@ export default function ExpoCatalog() {
                         src={t.imageUrl}
                         alt={t.name}
                         fill
+                        unoptimized
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-width: 640px) 50vw, 20vw"
                       />

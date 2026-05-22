@@ -323,6 +323,7 @@ export default function TheLab() {
                         src={material.imageUrl}
                         alt={material.name}
                         fill
+                        unoptimized
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
@@ -504,6 +505,7 @@ export default function TheLab() {
                             src={item.imageUrl}
                             alt={item.title}
                             fill
+                            unoptimized
                             className="object-cover"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           />

@@ -92,6 +92,7 @@ export default function TheDrops() {
                     src={products[0].imageUrl}
                     alt={products[0].title}
                     fill
+                    unoptimized
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     sizes="100vw"
                   />
@@ -152,6 +153,7 @@ export default function TheDrops() {
                         src={product.imageUrl}
                         alt={product.title}
                         fill
+                        unoptimized
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
