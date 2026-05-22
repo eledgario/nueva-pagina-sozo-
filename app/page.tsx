@@ -1,7 +1,3 @@
-'use client';
-
-import { useState, useCallback } from 'react';
-import KittingLoader from '@/components/ui/KittingLoader';
 import HeroVerticalChain from '@/components/HeroVerticalChain';
 import TrustMarquee from '@/components/TrustMarquee';
 import VelocityMarquee from '@/components/VelocityMarquee';
@@ -17,12 +13,8 @@ import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 
 export default function HomePage() {
-  const [loading, setLoading] = useState(true);
-  const handleComplete = useCallback(() => setLoading(false), []);
-
   return (
     <>
-      {loading && <KittingLoader onLoadingComplete={handleComplete} />}
       <HeroVerticalChain />
       <TrustMarquee />
       <VelocityMarquee text="MERCH QUE IMPACTA · SWAG CORPORATIVO · KITS ON-DEMAND · CDMX MX · " />
