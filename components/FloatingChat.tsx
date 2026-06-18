@@ -66,7 +66,7 @@ export default function FloatingChat() {
 
       {/* Chat Button */}
       <motion.a
-        href="https://wa.me/5215512345678"
+        href="https://wa.me/5637929344"
         target="_blank"
         rel="noopener noreferrer"
         className="relative group"

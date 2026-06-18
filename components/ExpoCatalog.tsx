@@ -161,7 +161,7 @@ function ProductImage({ src, alt, label }: { src: string; alt: string; label: st
       </div>
       <div className="p-3">
         <a
-          href={`https://wa.me/525588060340?text=${encodeURIComponent(waMsg)}`}
+          href={`https://wa.me/5637929344?text=${encodeURIComponent(waMsg)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-1.5 w-full py-2 bg-zinc-900 hover:bg-[#FF007F] text-white font-mono text-[10px] font-bold uppercase tracking-wider transition-colors"
@@ -253,7 +253,7 @@ export default function ExpoCatalog() {
                       <p className="font-black text-zinc-900 text-xs leading-tight">{t.name}</p>
                       <p className="font-mono text-[9px] text-[#FF007F] mt-0.5 mb-2">{t.subtitle}</p>
                       <a
-                        href={`https://wa.me/525588060340?text=Hola! Me interesa: ${encodeURIComponent(t.name)}`}
+                        href={`https://wa.me/5637929344?text=Hola! Me interesa: ${encodeURIComponent(t.name)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-1 w-full py-1.5 bg-zinc-900 hover:bg-[#FF007F] text-white font-mono text-[9px] font-bold uppercase tracking-wider transition-colors"
@@ -326,7 +326,7 @@ export default function ExpoCatalog() {
             ¿No encuentras lo que buscas? Hacemos custom desde cero.
           </p>
           <a
-            href="https://wa.me/525588060340"
+            href="https://wa.me/5637929344"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 hover:bg-[#FF007F] text-white font-black text-sm uppercase tracking-wider border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"

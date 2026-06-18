@@ -482,7 +482,7 @@ export default function ClientPortalPage() {
                 Nuestro equipo esta disponible para responder tus preguntas.
               </p>
               <a
-                href="https://wa.me/5215512345678"
+                href="https://wa.me/5637929344"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 font-bold rounded-xl transition-colors"

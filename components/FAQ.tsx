@@ -147,7 +147,7 @@ export default function FAQ() {
             ¿Tienes otra pregunta?
           </p>
           <a
-            href="https://wa.me/5215512345678"
+            href="https://wa.me/5637929344"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-[#FF007F] text-white font-bold text-sm uppercase tracking-wider rounded-full transition-colors"

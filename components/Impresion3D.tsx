@@ -374,7 +374,7 @@ export default function Impresion3D() {
               </p>
             </div>
             <a
-              href="https://wa.me/525588060340?text=Hola%20SOZO!%20Quiero%20cotizar%20merch%20personalizado%20en%203D%20para%20mi%20marca."
+              href="https://wa.me/5637929344?text=Hola%20SOZO!%20Quiero%20cotizar%20merch%20personalizado%20en%203D%20para%20mi%20marca."
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#FF007F] hover:bg-[#e0006f] text-white font-black text-sm uppercase tracking-wider border-4 border-[#FF007F] shadow-[4px_4px_0px_0px_rgba(255,0,127,0.3)] hover:shadow-[6px_6px_0px_0px_rgba(255,0,127,0.3)] transition-all"
