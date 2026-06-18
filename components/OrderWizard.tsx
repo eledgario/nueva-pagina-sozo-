@@ -84,7 +84,7 @@ export default function OrderWizard() {
     const message = `¡Hola! Quiero iniciar un proyecto:%0A%0A🎯 Producto: ${formData.product}%0A📦 Cantidad: ${formData.quantity}%0A🎨 Vibe: ${formData.vibe}%0A👤 Nombre: ${formData.name}%0A🏢 Empresa: ${formData.company}`;
 
     // Open WhatsApp
-    window.open(`https://wa.me/${formData.whatsapp}?text=${message}`, '_blank');
+    window.open(`https://wa.me/5637929344?text=${message}`, '_blank');
   };
 
   // Validation

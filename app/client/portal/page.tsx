@@ -54,9 +54,7 @@ const STATUS_STEPS = [
 ];
 
 function AgentCard({ agent }: { agent: Agent }) {
-  const whatsappUrl = agent.whatsapp_number
-    ? `https://wa.me/${agent.whatsapp_number}?text=${encodeURIComponent('Hola! Tengo una pregunta sobre mi pedido.')}`
-    : null;
+  const whatsappUrl = `https://wa.me/5637929344?text=${encodeURIComponent('Hola! Tengo una pregunta sobre mi pedido.')}`;
 
   return (
     <motion.div

@@ -489,9 +489,8 @@ export default function OrderDetailPage({ params }: { params: Promise<{ id: stri
                 <p className="text-white/70 text-sm">{order.assigned_agent.email}</p>
               </div>
             </div>
-            {order.assigned_agent.whatsapp_number && (
-              <a
-                href={`https://wa.me/${order.assigned_agent.whatsapp_number}?text=${encodeURIComponent(`Hola, soy ${order.customer_name}. Tengo una pregunta sobre mi pedido #${String(order.order_number).padStart(4, '0')}`)}`}
+            <a
+                href={`https://wa.me/${WA}?text=${encodeURIComponent(`Hola, soy ${order.customer_name}. Tengo una pregunta sobre mi pedido #${String(order.order_number).padStart(4, '0')}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-2.5 bg-white/20 hover:bg-white/30 text-white font-bold text-sm rounded-xl transition-colors"
@@ -499,7 +498,6 @@ export default function OrderDetailPage({ params }: { params: Promise<{ id: stri
                 <MessageCircle className="w-4 h-4" />
                 Contactar por WhatsApp
               </a>
-            )}
           </div>
         )}
 
