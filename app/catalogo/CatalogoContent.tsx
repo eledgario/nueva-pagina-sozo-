@@ -45,6 +45,7 @@ const TECNICA_DESC: Record<string, string> = {
 };
 
 const CAT_LABEL: Record<string, string> = {
+  'anio-nuevo': 'Año Nuevo',
   bebidas: 'Bebidas', belleza: 'Belleza', escritura: 'Escritura',
   ejecutiva: 'Ejecutiva', hogar: 'Hogar', hieleras: 'Hieleras',
   mochilas: 'Mochilas & Bolsas', tecnologia: 'Tecnología',
@@ -951,11 +952,63 @@ export default function CatalogoContent() {
 
           <div className="flex gap-0 overflow-x-auto mb-12 border-b border-zinc-100">
             {[{ id: 'todos', nombre: 'Todos' }, ...categorias].map(c => (
-              <button key={c.id} onClick={() => handleCategoryChange(c.id)} className={`flex-shrink-0 pb-3 px-4 text-xs font-bold uppercase tracking-wider transition-all border-b-2 -mb-px whitespace-nowrap ${activeCategory === c.id ? 'border-zinc-900 text-zinc-900' : 'border-transparent text-zinc-400 hover:text-zinc-700'}`}>
-                {c.nombre}
-              </button>
+              c.id === 'anio-nuevo' ? (
+                <button
+                  key={c.id}
+                  onClick={() => handleCategoryChange(c.id)}
+                  className={`flex-shrink-0 pb-3 px-4 text-xs font-bold uppercase tracking-wider transition-all border-b-2 -mb-px whitespace-nowrap ${
+                    activeCategory === c.id
+                      ? 'border-[#FF007F] text-[#FF007F]'
+                      : 'border-transparent text-[#FF007F]/60 hover:text-[#FF007F]'
+                  }`}
+                >
+                  ✦ {c.nombre}
+                </button>
+              ) : (
+                <button key={c.id} onClick={() => handleCategoryChange(c.id)} className={`flex-shrink-0 pb-3 px-4 text-xs font-bold uppercase tracking-wider transition-all border-b-2 -mb-px whitespace-nowrap ${activeCategory === c.id ? 'border-zinc-900 text-zinc-900' : 'border-transparent text-zinc-400 hover:text-zinc-700'}`}>
+                  {c.nombre}
+                </button>
+              )
             ))}
           </div>
+
+          {activeCategory === 'anio-nuevo' && (
+            <motion.div
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="mb-10 relative overflow-hidden bg-zinc-950 px-8 py-8"
+            >
+              <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
+              <div className="absolute top-0 right-0 w-80 h-full bg-[#FF007F]/10 blur-[80px] pointer-events-none" />
+              <div className="relative z-10 flex flex-col sm:flex-row sm:items-center gap-6">
+                <div className="flex-1">
+                  <span className="inline-block font-mono text-[9px] font-bold text-[#FF007F] tracking-widest uppercase border border-[#FF007F]/40 px-3 py-1 mb-4">
+                    Edición Especial · Año Nuevo 2025
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-2">
+                    Regalos Corporativos<br />
+                    <span className="text-[#FF007F]">para cerrar el año a lo grande.</span>
+                  </h2>
+                  <p className="text-zinc-400 text-sm max-w-lg leading-relaxed">
+                    Selección curada de kits, tecnología, bebidas premium, artículos ejecutivos y más — todo listo para personalizar con tu logo y sorprender a tu equipo o clientes.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-3 text-center sm:text-right flex-shrink-0">
+                  {[
+                    { n: totalFiltered, label: 'productos' },
+                    { n: 6, label: 'técnicas' },
+                    { n: 15, label: 'días de entrega' },
+                  ].map(s => (
+                    <div key={s.label}>
+                      <p className="text-2xl font-black text-white tabular-nums">{s.n.toLocaleString()}{s.label === 'días de entrega' && '–'}{s.label === 'días de entrega' && '20'}</p>
+                      <p className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
 
           <div className={`relative transition-opacity duration-150 ${loading ? 'opacity-40 pointer-events-none' : 'opacity-100'}`}>
             {paginated.length > 0 ? (

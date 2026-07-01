@@ -25,17 +25,36 @@ export async function GET(req: NextRequest) {
     productos: Array<{ id: string; nombre: string; modelo: string; desc: string; categoria: string; tecnicas: string[]; imagenes?: string[]; dimensiones?: string; colores?: string | string[]; }>;
   };
 
+  // Virtual "Año Nuevo" category — products ideal for corporate year-end gifts
+  const ANIO_NUEVO_CATS = ['kits', 'bebidas', 'tecnologia', 'ejecutiva', 'hogar', 'hieleras'];
+  const anioNuevoFilter = (p: typeof data.productos[number]) => {
+    if (ANIO_NUEVO_CATS.includes(p.categoria)) return true;
+    if (p.categoria === 'escritura') {
+      const n = p.nombre.toLowerCase();
+      return ['roller', 'metal', 'ejecut', 'premium', 'set'].some(kw => n.includes(kw));
+    }
+    if (p.categoria === 'textiles') {
+      const n = p.nombre.toLowerCase();
+      return ['chamarra', 'fleece', 'polar', 'softshell', 'jacket'].some(kw => n.includes(kw));
+    }
+    return false;
+  };
+
   if (meta) {
+    const anioNuevoCount = data.productos.filter(anioNuevoFilter).length;
+    const anioNuevoCategory = { id: 'anio-nuevo', nombre: 'Año Nuevo', count: anioNuevoCount };
     return NextResponse.json({
       tecnicas:   data.tecnicas,
-      categorias: data.categorias,
+      categorias: [anioNuevoCategory, ...data.categorias],
       total:      data.productos.length,
     });
   }
 
   let list = category === 'todos'
     ? data.productos
-    : data.productos.filter(p => p.categoria === category);
+    : category === 'anio-nuevo'
+      ? data.productos.filter(anioNuevoFilter)
+      : data.productos.filter(p => p.categoria === category);
 
   if (search) {
     list = list.filter(p =>
