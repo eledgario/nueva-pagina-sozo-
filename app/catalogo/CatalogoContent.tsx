@@ -13,6 +13,80 @@ import {
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 interface Tecnica   { id: string; nombre: string; desc: string; }
+
+// ─── Año Nuevo curated picks ──────────────────────────────────────────────────
+
+interface AnioNuevoPick {
+  id: string; modelo: string; nombre: string;
+  imageUrl: string; desc: string; tecnica: string;
+  href: string;
+}
+
+const ANIO_NUEVO_PICKS: AnioNuevoPick[] = [
+  {
+    id: 'st058', modelo: 'ST-058', nombre: 'Set Ejecutivo Devin',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778017030936x247009838287304700/ST-058_02.jpg',
+    desc: 'Libreta de piel + bolígrafo roller + termo doble pared. El kit de cierre de año favorito.',
+    tecnica: 'Grabado Láser · Tampografía',
+    href: '/catalogo?cat=kits&q=ST-058',
+  },
+  {
+    id: 'st063', modelo: 'ST-063', nombre: 'Set Ejecutivo Belitsa',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1778189413515x131896192704845420/ST-063_02.jpg',
+    desc: 'Set ejecutivo completo con presentación premium. Artículos ideales para el entorno corporativo.',
+    tecnica: 'Grabado Láser · Serigrafía',
+    href: '/catalogo?cat=kits&q=ST-063',
+  },
+  {
+    id: 'te267', modelo: 'TE-267', nombre: 'Bote Yambol',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1775603640543x759288295926205400/TE-267_02.jpg',
+    desc: 'Termo compacto Tritan, doble pared. Diseño limpio y funcional. Logo grabado con láser.',
+    tecnica: 'Grabado Láser · Serigrafía',
+    href: '/catalogo?cat=bebidas&q=TE-267',
+  },
+  {
+    id: 'te238', modelo: 'TE-238', nombre: 'Vaso Barete',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747900822968x120981413178805170/TE-238_03.jpg',
+    desc: 'Vaso térmico de doble pared, acero inoxidable 304. 400 ml. Grabado permanente.',
+    tecnica: 'Grabado Láser · Serigrafía',
+    href: '/catalogo?cat=bebidas&q=TE-238',
+  },
+  {
+    id: 'th267', modelo: 'TH-267', nombre: 'Power Bank Ultra Slim',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773158282714x196271180865279700/TH-267_02.jpg',
+    desc: 'Power bank ultra delgado en aleación de aluminio. 5000 mAh. Carga rápida. Muy personalizable.',
+    tecnica: 'Tampografía · Grabado Láser',
+    href: '/catalogo?cat=tecnologia&q=TH-267',
+  },
+  {
+    id: 'th268', modelo: 'TH-268', nombre: 'Audífonos Bytom',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1772836601487x567090319905139100/TH-268_02.jpg',
+    desc: 'TWS inalámbricos con estuche personalizable. Regalo tecnológico de alto impacto.',
+    tecnica: 'Tampografía · DTF UV',
+    href: '/catalogo?cat=tecnologia&q=TH-268',
+  },
+  {
+    id: 'th272', modelo: 'TH-272', nombre: 'Bocina Bluetooth Opole',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1773073056788x656601407991168600/TH-272_02.jpg',
+    desc: 'Bocina portátil con recubrimiento de tela y luz RGB. Impresión DTF UV en carcasa.',
+    tecnica: 'DTF UV · Tampografía',
+    href: '/catalogo?cat=tecnologia&q=TH-272',
+  },
+  {
+    id: 'bl011', modelo: 'BL-011', nombre: 'Bolígrafo Praga',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/f1747889748174x958718231294709800/BL-011_02.jpg',
+    desc: 'Roller Ball metálico con estuche incluido. Tinta negra fluida. Grabado láser premium.',
+    tecnica: 'Grabado Láser · Tampografía',
+    href: '/catalogo?cat=escritura&q=BL-011',
+  },
+  {
+    id: 'lb110', modelo: 'LB-110', nombre: 'Libreta Erimi',
+    imageUrl: 'https://96a45939c451fa39780aa8f6c40c1b77.cdn.bubble.io/d362/f1776970212376x672882803919316200/LB-110_02.jpg',
+    desc: 'Libreta A5 tapa dura en cuero sintético. 96 hojas rayadas. Grabado láser en cubierta.',
+    tecnica: 'Grabado Láser · Serigrafía',
+    href: '/catalogo?cat=ejecutiva&q=LB-110',
+  },
+];
 interface Categoria { id: string; nombre: string; }
 interface Producto  {
   id: string; nombre: string; modelo: string; desc: string;
@@ -977,35 +1051,116 @@ export default function CatalogoContent() {
               initial={{ opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="mb-10 relative overflow-hidden bg-zinc-950 px-8 py-8"
+              className="mb-12"
             >
-              <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
-              <div className="absolute top-0 right-0 w-80 h-full bg-[#FF007F]/10 blur-[80px] pointer-events-none" />
-              <div className="relative z-10 flex flex-col sm:flex-row sm:items-center gap-6">
-                <div className="flex-1">
-                  <span className="inline-block font-mono text-[9px] font-bold text-[#FF007F] tracking-widest uppercase border border-[#FF007F]/40 px-3 py-1 mb-4">
-                    Edición Especial · Año Nuevo 2025
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-2">
-                    Regalos Corporativos<br />
-                    <span className="text-[#FF007F]">para cerrar el año a lo grande.</span>
-                  </h2>
-                  <p className="text-zinc-400 text-sm max-w-lg leading-relaxed">
-                    Selección curada de kits, tecnología, bebidas premium, artículos ejecutivos y más — todo listo para personalizar con tu logo y sorprender a tu equipo o clientes.
-                  </p>
+              {/* Banner */}
+              <div className="relative overflow-hidden bg-zinc-950 px-8 py-8 mb-10">
+                <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
+                <div className="absolute top-0 right-0 w-80 h-full bg-[#FF007F]/10 blur-[80px] pointer-events-none" />
+                <div className="relative z-10 flex flex-col sm:flex-row sm:items-center gap-6">
+                  <div className="flex-1">
+                    <span className="inline-block font-mono text-[9px] font-bold text-[#FF007F] tracking-widest uppercase border border-[#FF007F]/40 px-3 py-1 mb-4">
+                      Edición Especial · Año Nuevo 2025
+                    </span>
+                    <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-2">
+                      Regalos Corporativos<br />
+                      <span className="text-[#FF007F]">para cerrar el año a lo grande.</span>
+                    </h2>
+                    <p className="text-zinc-400 text-sm max-w-lg leading-relaxed">
+                      Selección curada de kits, tecnología, bebidas premium, artículos ejecutivos y más — todo listo para personalizar con tu logo y sorprender a tu equipo o clientes.
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-3 text-center sm:text-right flex-shrink-0">
+                    {[
+                      { n: totalFiltered, label: 'productos' },
+                      { n: 6, label: 'técnicas' },
+                      { n: 15, label: 'días de entrega' },
+                    ].map(s => (
+                      <div key={s.label}>
+                        <p className="text-2xl font-black text-white tabular-nums">{s.n.toLocaleString()}{s.label === 'días de entrega' && '–'}{s.label === 'días de entrega' && '20'}</p>
+                        <p className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">{s.label}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-col gap-3 text-center sm:text-right flex-shrink-0">
-                  {[
-                    { n: totalFiltered, label: 'productos' },
-                    { n: 6, label: 'técnicas' },
-                    { n: 15, label: 'días de entrega' },
-                  ].map(s => (
-                    <div key={s.label}>
-                      <p className="text-2xl font-black text-white tabular-nums">{s.n.toLocaleString()}{s.label === 'días de entrega' && '–'}{s.label === 'días de entrega' && '20'}</p>
-                      <p className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">{s.label}</p>
-                    </div>
+              </div>
+
+              {/* Curated picks grid */}
+              <div>
+                <p className="font-mono text-[10px] font-bold text-[#FF007F] uppercase tracking-widest mb-6">
+                  ✦ Los más solicitados para regalar en Año Nuevo
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-10">
+                  {ANIO_NUEVO_PICKS.map((pick, i) => (
+                    <motion.div
+                      key={pick.id}
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.35, delay: i * 0.05 }}
+                      className="group"
+                    >
+                      <div
+                        className="relative aspect-[3/4] overflow-hidden bg-zinc-100 mb-3 cursor-pointer"
+                        onClick={() => {
+                          const found = paginated.find(p => p.modelo === pick.modelo);
+                          if (found) setSelected(found);
+                        }}
+                      >
+                        <Image
+                          src={pick.imageUrl}
+                          alt={pick.nombre}
+                          fill
+                          unoptimized
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        />
+                        <div className="absolute top-2 left-2">
+                          <span className="font-mono text-[9px] font-bold bg-white/90 text-zinc-700 px-2 py-0.5">{pick.modelo}</span>
+                        </div>
+                        <div className="absolute top-2 right-2">
+                          <span className="font-mono text-[8px] font-bold bg-[#FF007F] text-white px-2 py-0.5">✦ AÑO NUEVO</span>
+                        </div>
+                      </div>
+                      <div className="px-1">
+                        <h3
+                          className="font-bold text-sm text-zinc-900 leading-snug cursor-pointer group-hover:text-[#FF007F] transition-colors"
+                          onClick={() => {
+                            const found = paginated.find(p => p.modelo === pick.modelo);
+                            if (found) setSelected(found);
+                          }}
+                        >
+                          {pick.nombre}
+                        </h3>
+                        <p className="text-zinc-400 text-xs mt-1 line-clamp-2">{pick.desc}</p>
+                        <div className="flex gap-1.5 mt-2 flex-wrap">
+                          {pick.tecnica.split(' · ').slice(0, 2).map(t => (
+                            <span key={t} className="text-[8px] font-mono font-bold uppercase tracking-wider text-zinc-400 border border-zinc-200 px-1.5 py-0.5">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                        <a
+                          href={`https://wa.me/${WA}?text=${encodeURIComponent(`Hola SOZO! Me interesa cotizar: ${pick.nombre} (${pick.modelo}) para regalo de Año Nuevo`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 flex items-center justify-center gap-1.5 w-full py-2 bg-zinc-900 hover:bg-[#FF007F] text-white font-mono text-[9px] font-bold uppercase tracking-wider transition-colors"
+                        >
+                          <MessageCircle className="w-3 h-3" />
+                          Cotizar
+                        </a>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
+              </div>
+
+              {/* Divider before full catalog */}
+              <div className="mt-12 mb-0 flex items-center gap-4">
+                <div className="flex-1 h-px bg-zinc-100" />
+                <span className="font-mono text-[9px] text-zinc-400 uppercase tracking-widest flex-shrink-0">
+                  Catálogo completo · {totalFiltered.toLocaleString()} productos
+                </span>
+                <div className="flex-1 h-px bg-zinc-100" />
               </div>
             </motion.div>
           )}
