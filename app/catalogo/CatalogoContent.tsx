@@ -726,6 +726,7 @@ function ProductCard({ p, index, onOpen, onAddToKit, inKit }: {
   onAddToKit: (p: Producto) => void; inKit: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
+  const [imgError, setImgError] = useState(false);
   const imgs = p.imagenes ?? [];
   const isKit = p.categoria === 'kits';
 
@@ -750,9 +751,9 @@ function ProductCard({ p, index, onOpen, onAddToKit, inKit }: {
       className="group"
     >
       <div className="relative aspect-[3/4] overflow-hidden bg-zinc-100 mb-3 cursor-pointer" onClick={onOpen}>
-        {imgs.length > 0 ? (
+        {imgs.length > 0 && !imgError ? (
           <>
-            <Image src={imgs[0]} alt={p.nombre} fill quality={85} unoptimized className={`object-cover transition-all duration-500 ${hovered ? 'scale-105' : 'scale-100'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
+            <Image src={imgs[0]} alt={p.nombre} fill quality={85} unoptimized onError={() => setImgError(true)} className={`object-cover transition-all duration-500 ${hovered ? 'scale-105' : 'scale-100'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
             {imgs[1] && (
               <Image src={imgs[1]} alt={p.nombre} fill quality={85} unoptimized className={`object-cover absolute inset-0 transition-opacity duration-500 ${hovered ? 'opacity-100' : 'opacity-0'}`} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
             )}
