@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -19,8 +19,17 @@ const navLinks: NavLink[] = [
   { id: 'faq', label: 'FAQ', href: '/#faq' },
 ];
 
+const servicesLinks = [
+  { label: 'Señalización & Displays', href: '/servicios/senalizacion', desc: 'Banners, roll-ups, stands' },
+  { label: 'Reconocimientos & Premios', href: '/servicios/reconocimientos', desc: 'Medallas, trofeos, placas' },
+  { label: 'Material Impreso', href: '/servicios/impresion', desc: 'Tarjetas, flyers, carpetas' },
+  { label: 'Teams & Onboarding', href: '/solutions/teams', desc: 'Kits de bienvenida' },
+  { label: 'Eventos Masivos', href: '/solutions/massive', desc: 'Volumen 500+ unidades' },
+];
+
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showServicesMenu, setShowServicesMenu] = useState(false);
 
   return (
     <>
@@ -47,7 +56,7 @@ export default function Navbar() {
 
             {/* Center - Navigation Links (Desktop) */}
             <div className="hidden md:flex items-center h-full flex-1">
-              {navLinks.map((link, index) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.id}
                   href={link.href}
@@ -56,6 +65,46 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+
+              {/* Servicios Dropdown */}
+              <div
+                className="relative flex items-center h-full border-r border-zinc-200"
+                onMouseEnter={() => setShowServicesMenu(true)}
+                onMouseLeave={() => setShowServicesMenu(false)}
+              >
+                <button className="flex items-center gap-1 h-full px-6 font-mono text-xs uppercase tracking-wider text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50 transition-colors">
+                  Servicios
+                  <ChevronDown className="w-3 h-3" />
+                </button>
+                <AnimatePresence>
+                  {showServicesMenu && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 bg-white border border-zinc-200 shadow-xl min-w-[260px] z-50"
+                    >
+                      <div className="py-2">
+                        <p className="font-mono text-[9px] text-zinc-400 uppercase tracking-widest px-4 py-2 border-b border-zinc-100">Producción</p>
+                        {servicesLinks.slice(0, 3).map(s => (
+                          <Link key={s.href} href={s.href} className="flex flex-col px-4 py-3 hover:bg-zinc-50 transition-colors">
+                            <span className="text-xs font-bold text-zinc-900">{s.label}</span>
+                            <span className="text-[10px] text-zinc-400 font-mono">{s.desc}</span>
+                          </Link>
+                        ))}
+                        <p className="font-mono text-[9px] text-zinc-400 uppercase tracking-widest px-4 py-2 border-t border-b border-zinc-100">Soluciones</p>
+                        {servicesLinks.slice(3).map(s => (
+                          <Link key={s.href} href={s.href} className="flex flex-col px-4 py-3 hover:bg-zinc-50 transition-colors">
+                            <span className="text-xs font-bold text-zinc-900">{s.label}</span>
+                            <span className="text-[10px] text-zinc-400 font-mono">{s.desc}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* Spacer */}
               <div className="flex-1 border-r border-zinc-200 h-full" />
@@ -151,6 +200,25 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+
+              {/* Servicios in Mobile */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.05 * navLinks.length }}
+              >
+                <div className="border-b border-zinc-200">
+                  <p className="px-6 py-5 font-black text-2xl uppercase tracking-tight text-zinc-900">Servicios</p>
+                  <div className="pb-3 px-6 grid grid-cols-1 gap-1">
+                    {servicesLinks.map(s => (
+                      <Link key={s.href} href={s.href} onClick={() => setIsMobileMenuOpen(false)}
+                        className="text-sm font-medium text-zinc-500 hover:text-zinc-900 py-1">
+                        → {s.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
 
               {/* Secondary Links */}
               <motion.div

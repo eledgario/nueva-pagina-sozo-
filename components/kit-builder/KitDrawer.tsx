@@ -18,6 +18,7 @@ import {
   Loader2,
   TrendingDown,
   AlertTriangle,
+  MessageCircle,
 } from 'lucide-react';
 import {
   useKitBuilder,
@@ -64,6 +65,10 @@ export default function KitDrawer() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [moqWarning, setMoqWarning] = useState<string | null>(null);
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [clientNombre, setClientNombre] = useState('');
+  const [clientEmpresa, setClientEmpresa] = useState('');
+  const [clientTelefono, setClientTelefono] = useState('');
 
   // Get current MOQ based on packaging
   const currentMOQ = MOQ_BY_PACKAGING[packaging];
@@ -123,6 +128,23 @@ export default function KitDrawer() {
 
     return calculatePricing(pricingItems, kitQuantity, packagingPrice);
   }, [items, packaging, kitQuantity]);
+
+  // Build WhatsApp cotización URL with client info + kit details
+  const buildWhatsAppCotizacion = () => {
+    const phone = '5637929344';
+    const packagingOption = PACKAGING_OPTIONS.find(p => p.id === packaging);
+    const itemsList = items.map(item => `  • ${item.quantity}x ${item.name}`).join('\n');
+    const lines: string[] = ['¡Hola! Quiero solicitar una cotización:'];
+    if (clientNombre) lines.push(`\n👤 *${clientNombre}*`);
+    if (clientEmpresa) lines.push(`🏢 ${clientEmpresa}`);
+    if (clientTelefono) lines.push(`📱 ${clientTelefono}`);
+    lines.push(`\n📦 *Contenido del kit:*\n${itemsList}`);
+    lines.push(`🎁 Empaque: ${packagingOption?.name ?? 'Estándar'}`);
+    lines.push(`👥 Cantidad: *${kitQuantity} kits*`);
+    if (pricing) lines.push(`💰 Estimado: ${formatPrice(pricing.total)} + IVA`);
+    lines.push('\n¿Me pueden enviar una propuesta formal? Gracias.');
+    return `https://wa.me/${phone}?text=${encodeURIComponent(lines.join('\n'))}`;
+  };
 
   // Handle checkout
   const handleCheckout = async () => {
@@ -565,19 +587,90 @@ export default function KitDrawer() {
                     </div>
                   )}
 
-                  {/* Pay Button */}
+                  {/* Contact Form (WhatsApp Quote) */}
+                  <AnimatePresence>
+                    {showContactForm && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="space-y-2 pb-1">
+                          <p className="text-xs font-bold text-zinc-500 uppercase tracking-wider">¿Con quién hablamos?</p>
+                          <input
+                            type="text"
+                            placeholder="Tu nombre *"
+                            value={clientNombre}
+                            onChange={e => setClientNombre(e.target.value)}
+                            className="w-full px-4 py-3 bg-white border border-zinc-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:border-transparent"
+                          />
+                          <input
+                            type="text"
+                            placeholder="Empresa (opcional)"
+                            value={clientEmpresa}
+                            onChange={e => setClientEmpresa(e.target.value)}
+                            className="w-full px-4 py-3 bg-white border border-zinc-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:border-transparent"
+                          />
+                          <input
+                            type="tel"
+                            placeholder="Teléfono *"
+                            value={clientTelefono}
+                            onChange={e => setClientTelefono(e.target.value)}
+                            className="w-full px-4 py-3 bg-white border border-zinc-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:border-transparent"
+                          />
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {/* WhatsApp CTA */}
+                  {!showContactForm ? (
+                    <button
+                      onClick={() => setShowContactForm(true)}
+                      className="flex items-center justify-center gap-3 w-full py-4 bg-[#25D366] hover:bg-[#22c55e] text-white font-bold rounded-2xl transition-colors"
+                    >
+                      <MessageCircle className="w-5 h-5" />
+                      Cotizar por WhatsApp
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  ) : (
+                    <a
+                      href={clientNombre && clientTelefono ? buildWhatsAppCotizacion() : '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={e => { if (!clientNombre || !clientTelefono) e.preventDefault(); }}
+                      className={`flex items-center justify-center gap-3 w-full py-4 rounded-2xl font-bold transition-colors ${
+                        clientNombre && clientTelefono
+                          ? 'bg-[#25D366] hover:bg-[#22c55e] text-white cursor-pointer'
+                          : 'bg-zinc-200 text-zinc-400 cursor-not-allowed'
+                      }`}
+                    >
+                      <MessageCircle className="w-5 h-5" />
+                      Enviar Cotización
+                      <ChevronRight className="w-5 h-5" />
+                    </a>
+                  )}
+
+                  {/* Divider */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1 h-px bg-zinc-200" />
+                    <span className="text-xs text-zinc-400 font-mono">o bien</span>
+                    <div className="flex-1 h-px bg-zinc-200" />
+                  </div>
+
+                  {/* Pay Online Button */}
                   <button
                     onClick={handleCheckout}
                     disabled={isLoading}
-                    className="flex items-center justify-center gap-3 w-full py-4 bg-[#FF007F] hover:bg-[#FF007F]/90 disabled:bg-zinc-300 text-white font-bold rounded-2xl transition-colors"
+                    className="flex items-center justify-center gap-3 w-full py-3 bg-zinc-900 hover:bg-zinc-800 disabled:bg-zinc-300 text-white font-bold rounded-2xl transition-colors text-sm"
                   >
                     {isLoading ? (
-                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
                       <>
-                        <CreditCard className="w-5 h-5" />
-                        Pagar Orden Completa
-                        <ChevronRight className="w-5 h-5" />
+                        <CreditCard className="w-4 h-4" />
+                        Pagar en línea
                       </>
                     )}
                   </button>
@@ -586,24 +679,7 @@ export default function KitDrawer() {
                   <div className="flex items-center justify-center gap-2 text-xs text-zinc-500">
                     <Shield className="w-4 h-4 text-green-500" />
                     <span>
-                      Garantia de devolucion. Produccion inicia solo tras
-                      aprobacion del diseno.
-                    </span>
-                  </div>
-
-                  {/* Payment Methods */}
-                  <div className="flex items-center justify-center gap-3 pt-2">
-                    <span className="px-2 py-1 bg-zinc-100 rounded text-xs font-bold text-zinc-500">
-                      VISA
-                    </span>
-                    <span className="px-2 py-1 bg-zinc-100 rounded text-xs font-bold text-zinc-500">
-                      MC
-                    </span>
-                    <span className="px-2 py-1 bg-zinc-100 rounded text-xs font-bold text-zinc-500">
-                      AMEX
-                    </span>
-                    <span className="px-2 py-1 bg-zinc-100 rounded text-xs font-bold text-zinc-500">
-                      OXXO
+                      Producción inicia solo tras aprobación del diseño.
                     </span>
                   </div>
                 </div>
