@@ -207,13 +207,42 @@ export default function Impresion3D() {
             CADA MARCA<br />
             <span className="text-[#FF007F]">TIENE SU OBJETO.</span>
           </h2>
-          <p className="text-zinc-400 text-lg leading-relaxed">
-            ¿Qué símbolo identifica a tu empresa?
-            Sea un camión, una taza, un edificio o lo que sea —
-            lo diseñamos en 3D y lo convertimos en el merch
-            que <span className="text-white font-semibold">nadie más va a tener.</span>
+          <p className="text-zinc-300 text-lg leading-relaxed mb-4">
+            Imprimimos en 3D <span className="text-white font-semibold">cualquier forma que imagines</span> — miniaturas de tus productos, mascotas corporativas, trofeos, logos volumétricos, figuras de colección. Pintado, terminado y listo para regalar o exhibir.
+          </p>
+          <p className="text-zinc-500 text-base leading-relaxed">
+            ¿Qué símbolo identifica a tu empresa? Lo diseñamos en 3D y lo convertimos en el merch que <span className="text-zinc-300 font-semibold">nadie más va a tener.</span>
           </p>
         </motion.div>
+
+        {/* Qué se puede hacer — ejemplos rápidos */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10"
+        >
+          {[
+            { emoji: '🏆', label: 'Trofeos & premios', sub: 'Para premiaciones corporativas' },
+            { emoji: '🐾', label: 'Mascotas de marca', sub: 'Tu personaje en 3D coleccionable' },
+            { emoji: '📦', label: 'Miniaturas de producto', sub: 'Tu best-seller a escala' },
+            { emoji: '🔤', label: 'Logos volumétricos', sub: 'Tu logo como objeto real' },
+          ].map((e) => (
+            <div key={e.label} className="bg-zinc-900 border border-zinc-800 p-4 flex flex-col gap-2">
+              <span className="text-3xl">{e.emoji}</span>
+              <p className="text-white font-bold text-sm leading-tight">{e.label}</p>
+              <p className="text-zinc-500 text-xs leading-snug">{e.sub}</p>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Separator */}
+        <div className="flex items-center gap-4 mb-8">
+          <div className="flex-1 h-px bg-zinc-800" />
+          <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">Por industria</span>
+          <div className="flex-1 h-px bg-zinc-800" />
+        </div>
 
         {/* Main showcase */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">

@@ -5,7 +5,7 @@ import { MapPin, Clock, MessageCircle, CalendarCheck } from 'lucide-react';
 
 const HORARIOS = [
   { dia: 'Lunes — Viernes', horas: '10:00 am – 6:00 pm' },
-  { dia: 'Sábado', horas: 'Previa cita' },
+  { dia: 'Sábado', horas: '10:00 am – 3:00 pm' },
   { dia: 'Domingo', horas: 'Cerrado' },
 ];
 
