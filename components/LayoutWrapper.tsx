@@ -6,7 +6,7 @@ import FloatingChat from '@/components/FloatingChat';
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isStandalone = pathname?.startsWith('/admin');
+  const isStandalone = pathname?.startsWith('/admin') || pathname?.startsWith('/kiosko');
 
   return (
     <>

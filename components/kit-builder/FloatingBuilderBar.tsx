@@ -12,11 +12,12 @@ export default function FloatingBuilderBar() {
   const { items, hasItems, itemCount, openDrawer, removeItem, clearKit } = useKitBuilder();
   const { showToast } = useToast();
 
-  // Hide on admin/dashboard/client routes
+  // Hide on admin/dashboard/client/kiosko routes
   if (
     pathname.startsWith('/admin') ||
     pathname.startsWith('/dashboard') ||
-    pathname.startsWith('/client')
+    pathname.startsWith('/client') ||
+    pathname.startsWith('/kiosko')
   ) {
     return null;
   }
