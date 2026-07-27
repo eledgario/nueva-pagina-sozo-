@@ -93,7 +93,7 @@ const PAGE_SIZE = 18;
 export default function KioskoPage() {
   const [products, setProducts] = useState<Producto[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [activeCategory, setActiveCategory] = useState('todos');
+  const [activeCategory, setActiveCategory] = useState('bebidas');
   const [search, setSearch] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
   const [page, setPage] = useState(1);
@@ -181,7 +181,7 @@ export default function KioskoPage() {
     setShowSelection(false);
     setCustomerPhone('');
     setSearch('');
-    setActiveCategory('todos');
+    setActiveCategory('bebidas');
   };
 
   const buildWhatsApp = (toAdvisor = false) => {
