@@ -103,6 +103,7 @@ export default function KioskoPage() {
   const [showSelection, setShowSelection] = useState(false);
   const [customerPhone, setCustomerPhone] = useState('');
   const searchRef = useRef<HTMLInputElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
   // Debounce search
   useEffect(() => {
@@ -145,11 +146,27 @@ export default function KioskoPage() {
     fetchProducts(activeCategory, debouncedSearch, 1, true);
   }, [activeCategory, debouncedSearch, fetchProducts]);
 
-  const loadMore = () => {
-    const next = page + 1;
-    setPage(next);
-    fetchProducts(activeCategory, debouncedSearch, next, false);
-  };
+  const loadMore = useCallback(() => {
+    setPage(prev => {
+      const next = prev + 1;
+      fetchProducts(activeCategory, debouncedSearch, next, false);
+      return next;
+    });
+  }, [activeCategory, debouncedSearch, fetchProducts]);
+
+  // Infinite scroll — trigger loadMore when sentinel enters viewport
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting && !loading) loadMore();
+      },
+      { rootMargin: '200px' },
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [loading, loadMore]);
 
   const toggleProduct = (p: Producto) => {
     setSelected(prev =>
@@ -257,17 +274,8 @@ export default function KioskoPage() {
           ))}
         </div>
 
-        {/* Load more */}
-        {hasMore && !loading && (
-          <div className="flex justify-center py-6">
-            <button
-              onClick={loadMore}
-              className="px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-sm uppercase tracking-wider transition-colors rounded-xl"
-            >
-              Ver más productos ({total - products.length} restantes)
-            </button>
-          </div>
-        )}
+        {/* Sentinel for infinite scroll */}
+        {hasMore && <div ref={sentinelRef} className="h-4" />}
 
         {loading && (
           <div className="flex justify-center py-6">
