@@ -53,8 +53,8 @@ export async function updateSession(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
 
-  // Protected routes that require authentication
-  const protectedRoutes = ['/dashboard', '/admin', '/portal'];
+  // Protected routes that require authentication (/admin is handled separately by JWT)
+  const protectedRoutes = ['/dashboard', '/portal'];
   const isProtectedRoute = protectedRoutes.some((route) =>
     pathname.startsWith(route)
   );
