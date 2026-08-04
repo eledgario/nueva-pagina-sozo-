@@ -1028,38 +1028,10 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
 // MAIN PAGE EXPORT
 // ============================================
 export default function AdminPage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [checkingAuth, setCheckingAuth] = useState(true);
-
-  useEffect(() => {
-    // Check for existing token
-    const token = localStorage.getItem('admin_token');
-    if (token) {
-      setIsAuthenticated(true);
-    }
-    setCheckingAuth(false);
-  }, []);
-
-  const handleLogin = () => {
-    setIsAuthenticated(true);
+  const handleLogout = async () => {
+    await fetch('/api/admin/logout', { method: 'POST' });
+    window.location.href = '/admin/login';
   };
-
-  const handleLogout = () => {
-    localStorage.removeItem('admin_token');
-    setIsAuthenticated(false);
-  };
-
-  if (checkingAuth) {
-    return (
-      <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
-        <RefreshCw className="w-8 h-8 text-zinc-500 animate-spin" />
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
-    return <LoginGate onLogin={handleLogin} />;
-  }
 
   return <Dashboard onLogout={handleLogout} />;
 }
