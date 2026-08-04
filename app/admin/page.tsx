@@ -22,6 +22,7 @@ import {
   X,
   MessageCircle,
   Warehouse,
+  Tag,
 } from 'lucide-react';
 import {
   Order,
@@ -837,6 +838,13 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
             >
               <Warehouse className="w-4 h-4" />
               Inventario
+            </Link>
+            <Link
+              href="/admin/precios"
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-lg transition-colors text-sm"
+            >
+              <Tag className="w-4 h-4" />
+              Precios
             </Link>
             <button
               onClick={fetchOrders}

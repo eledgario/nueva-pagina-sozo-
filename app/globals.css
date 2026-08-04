@@ -209,6 +209,19 @@ body {
    ANIMATIONS
    ───────────────────────────────────────────────────────────── */
 
+@keyframes elevatorUp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+@keyframes elevatorDown {
+  from { transform: translateY(-50%); }
+  to   { transform: translateY(0); }
+}
+@keyframes marqueeLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 @keyframes border-pulse {
   0%, 100% { border-color: rgb(228 228 231); }
   50% { border-color: rgb(24 24 27); }
