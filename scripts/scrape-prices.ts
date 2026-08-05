@@ -245,20 +245,62 @@ async function main() {
     : products.filter(p => !(p.id in existing));
 
   // Apply source filter and limit AFTER splitting, so --limit respects --source
-  let innovPending = sourceArg === 'promo' ? [] : pending.filter(p => !p.id.startsWith('promo') && !p.id.startsWith('mop'));
-  let promoPending = sourceArg === 'innov' ? [] : pending.filter(p =>  p.id.startsWith('promo'));
+  let innovPending = (sourceArg === 'promo' || sourceArg === 'mop') ? [] : pending.filter(p => !p.id.startsWith('promo') && !p.id.startsWith('mop'));
+  let promoPending = (sourceArg === 'innov' || sourceArg === 'mop') ? [] : pending.filter(p =>  p.id.startsWith('promo'));
+  let mopPending   = (sourceArg === 'innov' || sourceArg === 'promo') ? [] : pending.filter(p => p.id.startsWith('mop'));
   if (limitArg > 0) {
     innovPending = innovPending.slice(0, limitArg);
     promoPending = promoPending.slice(0, limitArg);
+    mopPending   = mopPending.slice(0, limitArg);
   }
 
   console.log(`\n📦 Categoría: ${catArg} | Total: ${products.length} | Pendientes: ${pending.length}`);
-  console.log(`   Innovation: ${innovPending.length} | PromoOpcion: ${promoPending.length}`);
+  console.log(`   Innovation: ${innovPending.length} | PromoOpcion: ${promoPending.length} | M&O: ${mopPending.length}`);
   console.log(`   Workers: ${workers} | Modo: headless`);
   console.log('─'.repeat(60));
 
-  if (innovPending.length === 0 && promoPending.length === 0) {
+  if (innovPending.length === 0 && promoPending.length === 0 && mopPending.length === 0) {
     console.log('✅ Todo ya tiene precio. Usa --force para re-scrapear nulls.');
+    return;
+  }
+
+  const newPrices: Record<string, number | null> = {};
+
+  // ── M&O Playeras (Shopify — no browser needed) ──
+  if (mopPending.length > 0) {
+    console.log(`\n🔴 M&O Playeras (${mopPending.length} productos, fetch directo)…`);
+    let done = 0;
+    for (const p of mopPending) {
+      done++;
+      const pct = Math.round((done / mopPending.length) * 100);
+      process.stdout.write(`\r[${pct}%] ${done}/${mopPending.length} mop — ${p.modelo.padEnd(8)} `);
+      try {
+        const res = await fetch(
+          `https://www.moplayeras.com/search/suggest.json?q=${encodeURIComponent(p.modelo)}&resources[type]=product&resources[limit]=1`
+        );
+        const data = await res.json() as { resources?: { results?: { products?: { price?: string }[] } } };
+        const found = data.resources?.results?.products?.[0];
+        if (found?.price) {
+          const n = parseFloat(String(found.price).replace(/[^0-9.]/g, ''));
+          newPrices[p.id] = (n >= 10 && n <= 50000) ? n : null;
+          if (newPrices[p.id] != null) process.stdout.write(`$${newPrices[p.id]}   `);
+        } else {
+          newPrices[p.id] = null;
+        }
+      } catch {
+        newPrices[p.id] = null;
+      }
+      await sleep(400);
+    }
+    console.log('\n');
+  }
+
+  if (innovPending.length === 0 && promoPending.length === 0) {
+    const final = { ...existing, ...newPrices };
+    savePrices(final);
+    const withPrice = Object.values(final).filter(v => v != null).length;
+    const total2 = Object.keys(final).length;
+    console.log(`✅ Guardado: ${withPrice}/${total2} con precio`);
     return;
   }
 
@@ -266,8 +308,6 @@ async function main() {
     headless: true,
     args: ['--disable-blink-features=AutomationControlled', '--no-sandbox'],
   });
-
-  const newPrices: Record<string, number | null> = {};
 
   // ── Innovation ──
   if (innovPending.length > 0) {

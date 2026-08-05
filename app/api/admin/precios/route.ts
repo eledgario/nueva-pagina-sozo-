@@ -28,7 +28,7 @@ export async function GET() {
     nombre: p.nombre,
     categoria: p.categoria,
     precio: prices[p.id] ?? null,
-    fuente: p.id.startsWith('promo') ? 'promoopcion' : 'innovation',
+    fuente: p.id.startsWith('promo') ? 'promoopcion' : p.id.startsWith('mop') ? 'moplayeras' : 'innovation',
   }));
 
   return NextResponse.json({ productos: rows });

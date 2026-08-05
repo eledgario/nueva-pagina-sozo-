@@ -13,7 +13,7 @@ interface ProductRow {
   nombre: string;
   categoria: string;
   precio: number | null;
-  fuente: 'innovation' | 'promoopcion';
+  fuente: 'innovation' | 'promoopcion' | 'moplayeras';
 }
 
 interface KitItem {
@@ -29,15 +29,32 @@ function fmt(n: number) {
   return n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-function itemFinalPrice(it: KitItem, globalMargin: number): number {
+// M&O descuentos por volumen — se aplican al costo ANTES del margen
+const MOP_TIERS = [
+  { min: 1,   max: 10,  discount: 10 },
+  { min: 11,  max: 29,  discount: 20 },
+  { min: 30,  max: 99,  discount: 25 },
+  { min: 100, max: Infinity, discount: 38 },
+] as const;
+
+function mopTier(totalQty: number) {
+  return MOP_TIERS.find(t => totalQty >= t.min && totalQty <= t.max) ?? MOP_TIERS[0];
+}
+
+function itemFinalPrice(it: KitItem, globalMargin: number, kits: number): number {
   if (it.product.precio == null) return 0;
-  const base = it.product.precio * it.qty;
+  let costo = it.product.precio;
+  if (it.product.id.startsWith('mop_')) {
+    const tier = mopTier(it.qty * kits);
+    costo = costo * (1 - tier.discount / 100);
+  }
+  const base = costo * it.qty;
   const conMargen = base * (1 + (globalMargin + it.margenExtra) / 100);
   return conMargen + it.costoImpresion * it.qty;
 }
 
-function kitTotal(items: KitItem[], globalMargin: number): number {
-  return items.reduce((acc, it) => acc + itemFinalPrice(it, globalMargin), 0);
+function kitTotal(items: KitItem[], globalMargin: number, kits: number): number {
+  return items.reduce((acc, it) => acc + itemFinalPrice(it, globalMargin, kits), 0);
 }
 
 // ─── Buscador de productos ────────────────────────────────────────────────────
@@ -243,7 +260,7 @@ function QuotePreview({ items, kits, globalMargin, cliente }: {
 }) {
   const [copied, setCopied] = useState(false);
 
-  const perKit = kitTotal(items, globalMargin);
+  const perKit = kitTotal(items, globalMargin, kits);
   const total  = perKit * kits;
 
   const text = [
@@ -254,7 +271,7 @@ function QuotePreview({ items, kits, globalMargin, cliente }: {
     '',
     'ARTÍCULOS POR KIT:',
     ...items.map((it, i) => {
-      const precio = itemFinalPrice(it, globalMargin);
+      const precio = itemFinalPrice(it, globalMargin, kits);
       return `  ${i + 1}. ${it.product.nombre} (${it.product.modelo})` +
         (precio > 0 ? ` — $${fmt(precio)}` : ' — precio a confirmar') +
         (it.costoImpresion > 0 ? ` (incl. impresión $${fmt(it.costoImpresion)}/u)` : '');
@@ -343,7 +360,7 @@ export default function CotizadorPage() {
     });
   }, []);
 
-  const perKit = kitTotal(items, globalMargin);
+  const perKit = kitTotal(items, globalMargin, kits);
   const total  = perKit * kits;
   const withoutPrice = items.filter(it => it.product.precio == null);
 
@@ -455,7 +472,9 @@ export default function CotizadorPage() {
                 </div>
 
                 {items.map((it, idx) => {
-                  const linePrice = itemFinalPrice(it, globalMargin);
+                  const linePrice = itemFinalPrice(it, globalMargin, kits);
+                  const isMop = it.product.id.startsWith('mop_');
+                  const mopDisc = isMop ? mopTier(it.qty * kits) : null;
                   return (
                     <div
                       key={it.product.id}
@@ -470,9 +489,24 @@ export default function CotizadorPage() {
 
                       {/* Nombre */}
                       <div className="min-w-0 pr-3">
-                        <p className="text-sm text-white font-medium truncate">{it.product.nombre}</p>
+                        <div className="flex items-center gap-1.5">
+                          <p className="text-sm text-white font-medium truncate">{it.product.nombre}</p>
+                          {mopDisc && (
+                            <span className="flex-shrink-0 text-[10px] font-bold font-mono bg-amber-500/15 text-amber-400 px-1.5 py-0.5 rounded">
+                              M&O -{mopDisc.discount}%
+                            </span>
+                          )}
+                        </div>
                         <p className="text-[10px] font-mono text-zinc-500">{it.product.modelo}
-                          {it.product.precio != null && <span className="ml-2 text-zinc-600">costo ${fmt(it.product.precio)}</span>}
+                          {it.product.precio != null && (
+                            mopDisc
+                              ? <span className="ml-2 text-zinc-600">
+                                  base ${fmt(it.product.precio)} →{' '}
+                                  <span className="text-amber-500">${fmt(it.product.precio * (1 - mopDisc.discount / 100))}</span>
+                                  {' '}({it.qty * kits} pzas)
+                                </span>
+                              : <span className="ml-2 text-zinc-600">costo ${fmt(it.product.precio)}</span>
+                          )}
                         </p>
                       </div>
 
