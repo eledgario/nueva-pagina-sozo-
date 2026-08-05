@@ -336,6 +336,115 @@ function QuotePreview({ items, kits, globalMargin, cliente, printingOptions }: {
     });
   };
 
+  const handlePrint = () => {
+    const fecha = new Date().toLocaleDateString('es-MX', { day: '2-digit', month: 'long', year: 'numeric' });
+
+    const rows = items.map(it => {
+      const precio = itemFinalPrice(it, globalMargin, kits, printingOptions);
+      const imp    = resolveImpresion(it, kits, printingOptions);
+      const printLabel = it.printingId
+        ? (printingOptions.find(o => o.id === it.printingId)?.tecnica.split('/')[0].trim() ?? '') +
+          ' · ' + (printingOptions.find(o => o.id === it.printingId)?.descripcion ?? '')
+        : null;
+      return `
+        <tr>
+          <td>${it.product.nombre}</td>
+          <td class="mono center">${it.product.modelo}</td>
+          <td class="mono center">${it.qty}</td>
+          <td class="center">${printLabel ? `<span class="tag">${printLabel}</span>` : '<span class="dim">—</span>'}</td>
+          <td class="mono right bold">${precio > 0 ? '$' + fmt(precio) : '<span class="dim">A confirmar</span>'}</td>
+        </tr>`;
+    }).join('');
+
+    const html = `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <title>Cotización SOZO${cliente ? ' — ' + cliente : ''}</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#fff;color:#111;padding:52px 56px;font-size:13px;line-height:1.5}
+    .header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6px}
+    .brand{font-size:32px;font-weight:900;letter-spacing:-1px;color:#111}
+    .brand em{color:#FF007F;font-style:normal}
+    .doc-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#999}
+    .bar{height:3px;background:#FF007F;margin-bottom:32px}
+    .meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:36px}
+    .meta-left{}
+    .meta-right{text-align:right}
+    .label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#aaa;margin-bottom:2px}
+    .value{font-size:15px;font-weight:800;color:#111}
+    .sub{font-size:12px;color:#666;margin-top:2px}
+    table{width:100%;border-collapse:collapse;margin-bottom:28px}
+    thead tr{border-bottom:2px solid #111}
+    th{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#777;padding:0 0 10px;text-align:left}
+    th.center{text-align:center}
+    th.right{text-align:right}
+    tbody tr{border-bottom:1px solid #ebebeb}
+    td{padding:10px 0;vertical-align:middle}
+    td.mono{font-family:'Courier New',monospace;font-size:12px}
+    td.center{text-align:center}
+    td.right{text-align:right}
+    td.bold{font-weight:700}
+    .dim{color:#bbb}
+    .tag{display:inline-block;background:#fff0f6;color:#FF007F;border:1px solid #ffc0d9;border-radius:4px;font-size:10px;font-weight:700;padding:1px 7px;white-space:nowrap}
+    .totals{display:flex;justify-content:flex-end;margin-bottom:40px}
+    .totals-box{min-width:230px}
+    .t-row{display:flex;justify-content:space-between;gap:24px;padding:6px 0;border-bottom:1px solid #ebebeb;color:#555;font-size:13px}
+    .t-row.main{border-bottom:none;border-top:2px solid #111;padding-top:12px;margin-top:6px}
+    .t-row.main .tl{font-weight:900;font-size:14px;color:#111}
+    .t-row.main .tv{font-weight:900;font-size:20px;color:#FF007F;font-family:'Courier New',monospace}
+    .footer{border-top:1px solid #e5e5e5;padding-top:14px;font-size:11px;color:#aaa}
+    @media print{body{padding:24px 28px}@page{margin:16px}}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">SO<em>Z</em>O</div>
+    <div class="doc-tag">Cotización</div>
+  </div>
+  <div class="bar"></div>
+  <div class="meta">
+    <div class="meta-left">
+      ${cliente ? `<div class="label">Cliente</div><div class="value">${cliente}</div>` : ''}
+    </div>
+    <div class="meta-right">
+      <div class="label">Fecha</div>
+      <div class="value">${fecha}</div>
+      <div style="margin-top:14px">
+        <div class="label">Cantidad</div>
+        <div class="value">${kits} kit${kits !== 1 ? 's' : ''}</div>
+        <div class="sub">Contenido por kit:</div>
+      </div>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th class="center">Modelo</th>
+        <th class="center">Qty</th>
+        <th class="center">Impresión</th>
+        <th class="right">Precio / kit</th>
+      </tr>
+    </thead>
+    <tbody>${rows}</tbody>
+  </table>
+  <div class="totals">
+    <div class="totals-box">
+      <div class="t-row"><span class="tl">Precio por kit</span><span class="tv mono" style="font-size:13px;color:#555">$${fmt(perKit)}</span></div>
+      <div class="t-row main"><span class="tl">TOTAL ${kits} KITS</span><span class="tv">$${fmt(total)}</span></div>
+    </div>
+  </div>
+  <div class="footer">Precios sujetos a cambio sin previo aviso · Cotización generada el ${fecha}</div>
+  <script>window.onload=()=>window.print()</script>
+</body>
+</html>`;
+
+    const w = window.open('', '_blank');
+    if (w) { w.document.write(html); w.document.close(); }
+  };
+
   return (
     <div className="bg-zinc-900 border border-zinc-700 rounded-xl overflow-hidden">
       <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
@@ -345,9 +454,9 @@ function QuotePreview({ items, kits, globalMargin, cliente, printingOptions }: {
             {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
             {copied ? 'Copiado' : 'Copiar texto'}
           </button>
-          <button onClick={() => window.print()} className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-xs font-bold text-zinc-300 rounded-lg transition-colors">
+          <button onClick={handlePrint} className="flex items-center gap-1.5 px-3 py-1.5 bg-[#FF007F] hover:bg-[#e0006e] text-xs font-bold text-white rounded-lg transition-colors">
             <Printer className="w-3.5 h-3.5" />
-            Imprimir
+            Descargar PDF
           </button>
         </div>
       </div>
