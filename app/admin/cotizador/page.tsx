@@ -1,11 +1,10 @@
 'use client';
 
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
-import Link from 'next/link';
 import {
-  ArrowLeft, Search, Plus, Trash2, Copy, Check,
+  Search, Plus, Trash2, Copy, Check,
   Package, Calculator, ChevronDown, ChevronUp, X,
-  Printer, AlertCircle,
+  Printer, AlertCircle, ClipboardList, Percent, Zap,
 } from 'lucide-react';
 
 interface ProductRow {
@@ -19,7 +18,9 @@ interface ProductRow {
 
 interface KitItem {
   product: ProductRow;
-  qty: number; // unidades por kit (generalmente 1)
+  qty: number;
+  margenExtra: number;    // % de ganancia adicional sobre este producto
+  costoImpresion: number; // costo fijo de impresión por unidad
 }
 
 // ─── Utilidades ───────────────────────────────────────────────────────────────
@@ -28,24 +29,21 @@ function fmt(n: number) {
   return n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-function kitCost(items: KitItem[]) {
-  return items.reduce((acc, it) => acc + (it.product.precio ?? 0) * it.qty, 0);
+function itemFinalPrice(it: KitItem, globalMargin: number): number {
+  if (it.product.precio == null) return 0;
+  const base = it.product.precio * it.qty;
+  const conMargen = base * (1 + (globalMargin + it.margenExtra) / 100);
+  return conMargen + it.costoImpresion * it.qty;
 }
 
-function totalCost(items: KitItem[], kits: number) {
-  return kitCost(items) * kits;
+function kitTotal(items: KitItem[], globalMargin: number): number {
+  return items.reduce((acc, it) => acc + itemFinalPrice(it, globalMargin), 0);
 }
 
-function withMargin(base: number, pct: number) {
-  return base * (1 + pct / 100);
-}
-
-// ─── Buscador flotante ────────────────────────────────────────────────────────
+// ─── Buscador de productos ────────────────────────────────────────────────────
 
 function ProductSearch({
-  catalog,
-  kitIds,
-  onAdd,
+  catalog, kitIds, onAdd,
 }: {
   catalog: ProductRow[];
   kitIds: Set<string>;
@@ -59,18 +57,12 @@ function ProductSearch({
     if (q.trim().length < 2) return [];
     const lower = q.toLowerCase();
     return catalog
-      .filter(p =>
-        p.modelo.toLowerCase().includes(lower) ||
-        p.nombre.toLowerCase().includes(lower)
-      )
-      .slice(0, 12);
+      .filter(p => p.modelo.toLowerCase().includes(lower) || p.nombre.toLowerCase().includes(lower))
+      .slice(0, 10);
   }, [q, catalog]);
 
-  useEffect(() => {
-    setOpen(results.length > 0 && q.trim().length >= 2);
-  }, [results, q]);
+  useEffect(() => { setOpen(results.length > 0); }, [results]);
 
-  // Cerrar al click fuera
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
@@ -81,14 +73,14 @@ function ProductSearch({
 
   return (
     <div ref={ref} className="relative">
-      <div className="flex items-center gap-2 bg-zinc-800 border border-zinc-700 rounded-xl px-3 py-2.5 focus-within:ring-1 focus-within:ring-[#FF007F] transition-all">
-        <Search className="w-4 h-4 text-zinc-500 flex-shrink-0" />
+      <div className="flex items-center gap-2 bg-zinc-800 border border-zinc-600 rounded-xl px-3 py-3 focus-within:ring-2 focus-within:ring-[#FF007F] transition-all">
+        <Search className="w-4 h-4 text-zinc-400 flex-shrink-0" />
         <input
           type="text"
-          placeholder="Buscar por modelo o nombre (ej. BL-207, Taza, Mouse pad…)"
+          placeholder="Busca por modelo (BL-207) o nombre (Bolígrafo, Taza, Mouse pad…)"
           value={q}
           onChange={e => setQ(e.target.value)}
-          className="flex-1 bg-transparent text-sm text-white placeholder-zinc-500 outline-none font-mono"
+          className="flex-1 bg-transparent text-sm text-white placeholder-zinc-500 outline-none"
         />
         {q && (
           <button onClick={() => { setQ(''); setOpen(false); }} className="text-zinc-600 hover:text-zinc-300">
@@ -98,7 +90,7 @@ function ProductSearch({
       </div>
 
       {open && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-zinc-900 border border-zinc-700 rounded-xl shadow-2xl z-50 overflow-hidden">
+        <div className="absolute top-full left-0 right-0 mt-1 bg-zinc-900 border border-zinc-700 rounded-xl shadow-2xl z-50 overflow-hidden max-h-72 overflow-y-auto">
           {results.map(p => {
             const already = kitIds.has(p.id);
             return (
@@ -106,24 +98,24 @@ function ProductSearch({
                 key={p.id}
                 onClick={() => { if (!already) { onAdd(p); setQ(''); setOpen(false); } }}
                 disabled={already}
-                className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors
-                  ${already ? 'opacity-40 cursor-default' : 'hover:bg-zinc-800 cursor-pointer'}`}
+                className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors border-b border-zinc-800 last:border-0
+                  ${already ? 'opacity-35 cursor-default' : 'hover:bg-zinc-800 cursor-pointer'}`}
               >
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-[11px] text-zinc-500">{p.modelo}</span>
-                    <span className="text-xs text-zinc-200 truncate">{p.nombre}</span>
+                    <span className="font-mono text-[11px] text-zinc-400 flex-shrink-0">{p.modelo}</span>
+                    <span className="text-sm text-white truncate">{p.nombre}</span>
                   </div>
                   <span className="text-[10px] text-zinc-600 capitalize">{p.categoria}</span>
                 </div>
-                <div className="flex-shrink-0 text-right">
+                <div className="flex-shrink-0 flex items-center gap-2">
                   {p.precio != null
                     ? <span className="font-mono text-sm font-bold text-emerald-400">${fmt(p.precio)}</span>
                     : <span className="text-xs text-zinc-600 font-mono">sin precio</span>}
+                  {already
+                    ? <Check className="w-4 h-4 text-zinc-600" />
+                    : <Plus className="w-4 h-4 text-[#FF007F]" />}
                 </div>
-                {already
-                  ? <Check className="w-4 h-4 text-zinc-600" />
-                  : <Plus className="w-4 h-4 text-zinc-500" />}
               </button>
             );
           })}
@@ -133,44 +125,146 @@ function ProductSearch({
   );
 }
 
-// ─── Vista de impresión / copia ───────────────────────────────────────────────
+// ─── Pegar lista de modelos ───────────────────────────────────────────────────
 
-function QuotePreview({
-  items,
-  kits,
-  margin,
-  cliente,
+function PasteList({
+  catalog, kitIds, onAddMany,
 }: {
+  catalog: ProductRow[];
+  kitIds: Set<string>;
+  onAddMany: (ps: ProductRow[]) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [text, setText] = useState('');
+  const [preview, setPreview] = useState<{ found: ProductRow[]; notFound: string[] } | null>(null);
+
+  const parse = () => {
+    const tokens = text
+      .split(/[\n,;]+/)
+      .map(t => t.trim().toUpperCase())
+      .filter(Boolean);
+
+    const found: ProductRow[] = [];
+    const notFound: string[] = [];
+
+    for (const token of tokens) {
+      const match = catalog.find(
+        p => p.modelo.toUpperCase() === token || p.modelo.toUpperCase().replace(/[\s-]/g, '') === token.replace(/[\s-]/g, '')
+      );
+      if (match && !kitIds.has(match.id) && !found.find(f => f.id === match.id)) {
+        found.push(match);
+      } else if (!match) {
+        notFound.push(token);
+      }
+    }
+    setPreview({ found, notFound });
+  };
+
+  const apply = () => {
+    if (preview) {
+      onAddMany(preview.found);
+      setText('');
+      setPreview(null);
+      setOpen(false);
+    }
+  };
+
+  return (
+    <div>
+      <button
+        onClick={() => setOpen(v => !v)}
+        className="flex items-center gap-2 px-3 py-2 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-xl text-xs font-bold text-zinc-300 transition-colors"
+      >
+        <ClipboardList className="w-3.5 h-3.5" />
+        Pegar lista de modelos
+      </button>
+
+      {open && (
+        <div className="mt-2 bg-zinc-900 border border-zinc-700 rounded-xl p-4 space-y-3">
+          <p className="text-xs text-zinc-400">
+            Pega los modelos separados por coma, punto y coma o salto de línea:
+          </p>
+          <textarea
+            value={text}
+            onChange={e => { setText(e.target.value); setPreview(null); }}
+            placeholder={'BL-207, TE-259, DK-067\nHL 2100 A\n3541'}
+            rows={4}
+            className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm font-mono text-white placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#FF007F] resize-none"
+          />
+          <div className="flex gap-2">
+            <button
+              onClick={parse}
+              disabled={!text.trim()}
+              className="px-4 py-2 bg-zinc-700 hover:bg-zinc-600 disabled:opacity-40 text-sm font-bold text-white rounded-lg transition-colors"
+            >
+              Buscar modelos
+            </button>
+            {preview && (
+              <button
+                onClick={apply}
+                disabled={preview.found.length === 0}
+                className="px-4 py-2 bg-[#FF007F] hover:bg-[#e0006e] disabled:opacity-40 text-sm font-bold text-white rounded-lg transition-colors"
+              >
+                Agregar {preview.found.length} producto{preview.found.length !== 1 ? 's' : ''}
+              </button>
+            )}
+          </div>
+
+          {preview && (
+            <div className="space-y-2 text-xs font-mono">
+              {preview.found.map(p => (
+                <div key={p.id} className="flex items-center gap-2 text-emerald-400">
+                  <Check className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>{p.modelo} — {p.nombre}</span>
+                  {p.precio != null && <span className="ml-auto">${fmt(p.precio)}</span>}
+                </div>
+              ))}
+              {preview.notFound.map(m => (
+                <div key={m} className="flex items-center gap-2 text-amber-500">
+                  <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>{m} — no encontrado</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Vista previa de cotización ───────────────────────────────────────────────
+
+function QuotePreview({ items, kits, globalMargin, cliente }: {
   items: KitItem[];
   kits: number;
-  margin: number;
+  globalMargin: number;
   cliente: string;
 }) {
   const [copied, setCopied] = useState(false);
 
-  const perKit   = kitCost(items);
-  const subtotal = totalCost(items, kits);
-  const final    = withMargin(subtotal, margin);
-  const perKitFinal = withMargin(perKit, margin);
+  const perKit = kitTotal(items, globalMargin);
+  const total  = perKit * kits;
 
   const text = [
-    `COTIZACIÓN DE KIT — SOZO`,
+    'COTIZACIÓN DE KIT — SOZO',
     cliente ? `Cliente: ${cliente}` : '',
     `Fecha: ${new Date().toLocaleDateString('es-MX', { day: '2-digit', month: 'long', year: 'numeric' })}`,
-    '',
     `Cantidad de kits: ${kits}`,
     '',
     'ARTÍCULOS POR KIT:',
-    ...items.map((it, i) =>
-      `  ${i + 1}. ${it.product.nombre} (${it.product.modelo})` +
-      (it.product.precio != null ? ` — $${fmt(it.product.precio * it.qty)} c/u` : ' — precio a confirmar')
-    ),
+    ...items.map((it, i) => {
+      const precio = itemFinalPrice(it, globalMargin);
+      return `  ${i + 1}. ${it.product.nombre} (${it.product.modelo})` +
+        (precio > 0 ? ` — $${fmt(precio)}` : ' — precio a confirmar') +
+        (it.costoImpresion > 0 ? ` (incl. impresión $${fmt(it.costoImpresion)}/u)` : '');
+    }),
     '',
-    `Costo por kit:     $${fmt(perKitFinal)}`,
-    `Total ${kits} kits:       $${fmt(final)}`,
+    `Precio por kit:   $${fmt(perKit)}`,
+    `Total ${kits} kits: $${fmt(total)}`,
     '',
-    'Precios sujetos a cambio. No incluyen impresión personalizada.',
-  ].filter(l => l !== null).join('\n');
+    'Precios sujetos a cambio.',
+  ].filter(Boolean).join('\n');
 
   const copy = () => {
     navigator.clipboard.writeText(text).then(() => {
@@ -180,29 +274,21 @@ function QuotePreview({
   };
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden">
+    <div className="bg-zinc-900 border border-zinc-700 rounded-xl overflow-hidden">
       <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
-        <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Vista previa de cotización</span>
+        <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Vista previa</span>
         <div className="flex gap-2">
-          <button
-            onClick={copy}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-xs font-bold text-zinc-300 rounded-lg transition-colors"
-          >
+          <button onClick={copy} className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-xs font-bold text-zinc-300 rounded-lg transition-colors">
             {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-            {copied ? 'Copiado' : 'Copiar'}
+            {copied ? 'Copiado' : 'Copiar texto'}
           </button>
-          <button
-            onClick={() => window.print()}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-xs font-bold text-zinc-300 rounded-lg transition-colors"
-          >
+          <button onClick={() => window.print()} className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-xs font-bold text-zinc-300 rounded-lg transition-colors">
             <Printer className="w-3.5 h-3.5" />
             Imprimir
           </button>
         </div>
       </div>
-      <pre className="px-5 py-4 text-xs font-mono text-zinc-300 whitespace-pre-wrap leading-relaxed">
-        {text}
-      </pre>
+      <pre className="px-5 py-4 text-xs font-mono text-zinc-300 whitespace-pre-wrap leading-relaxed">{text}</pre>
     </div>
   );
 }
@@ -210,12 +296,12 @@ function QuotePreview({
 // ─── Página principal ─────────────────────────────────────────────────────────
 
 export default function CotizadorPage() {
-  const [catalog, setCatalog]   = useState<ProductRow[]>([]);
-  const [loading, setLoading]   = useState(true);
-  const [items, setItems]       = useState<KitItem[]>([]);
-  const [kits, setKits]         = useState(10);
-  const [margin, setMargin]     = useState(35);
-  const [cliente, setCliente]   = useState('');
+  const [catalog, setCatalog] = useState<ProductRow[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [items, setItems]     = useState<KitItem[]>([]);
+  const [kits, setKits]       = useState(10);
+  const [globalMargin, setGlobalMargin] = useState(35);
+  const [cliente, setCliente] = useState('');
   const [showPreview, setShowPreview] = useState(false);
 
   useEffect(() => {
@@ -228,15 +314,23 @@ export default function CotizadorPage() {
   const kitIds = useMemo(() => new Set(items.map(it => it.product.id)), [items]);
 
   const addProduct = useCallback((p: ProductRow) => {
-    setItems(prev => [...prev, { product: p, qty: 1 }]);
+    setItems(prev => [...prev, { product: p, qty: 1, margenExtra: 0, costoImpresion: 0 }]);
+  }, []);
+
+  const addMany = useCallback((ps: ProductRow[]) => {
+    setItems(prev => [
+      ...prev,
+      ...ps.filter(p => !prev.find(it => it.product.id === p.id))
+            .map(p => ({ product: p, qty: 1, margenExtra: 0, costoImpresion: 0 })),
+    ]);
   }, []);
 
   const removeItem = useCallback((id: string) => {
     setItems(prev => prev.filter(it => it.product.id !== id));
   }, []);
 
-  const updateQty = useCallback((id: string, qty: number) => {
-    setItems(prev => prev.map(it => it.product.id === id ? { ...it, qty: Math.max(1, qty) } : it));
+  const updateItem = useCallback((id: string, patch: Partial<Omit<KitItem, 'product'>>) => {
+    setItems(prev => prev.map(it => it.product.id === id ? { ...it, ...patch } : it));
   }, []);
 
   const moveItem = useCallback((idx: number, dir: -1 | 1) => {
@@ -249,195 +343,231 @@ export default function CotizadorPage() {
     });
   }, []);
 
-  const perKit      = kitCost(items);
-  const subtotal    = totalCost(items, kits);
-  const finalTotal  = withMargin(subtotal, margin);
-  const perKitFinal = withMargin(perKit, margin);
-
+  const perKit = kitTotal(items, globalMargin);
+  const total  = perKit * kits;
   const withoutPrice = items.filter(it => it.product.precio == null);
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white print:bg-white print:text-black">
+    <div className="min-h-screen bg-zinc-950 text-white">
+      <div className="max-w-5xl mx-auto px-6 py-8 space-y-8">
 
-      {/* Header */}
-      <div className="sticky top-0 z-20 border-b border-zinc-800 bg-zinc-950/95 backdrop-blur px-6 py-3 flex items-center gap-4 print:hidden">
-        <Link href="/admin" className="text-zinc-500 hover:text-white transition-colors">
-          <ArrowLeft className="w-5 h-5" />
-        </Link>
-        <div className="flex items-center gap-2">
-          <Calculator className="w-5 h-5 text-[#FF007F]" />
-          <h1 className="text-base font-black tracking-tight">Cotizador de Kits</h1>
-        </div>
-        {items.length > 0 && (
-          <button
-            onClick={() => setShowPreview(v => !v)}
-            className="ml-auto flex items-center gap-2 px-4 py-2 bg-[#FF007F] hover:bg-[#e0006e] text-white text-sm font-bold rounded-xl transition-colors"
-          >
-            <Copy className="w-4 h-4" />
-            {showPreview ? 'Ocultar cotización' : 'Ver cotización'}
-          </button>
-        )}
-      </div>
-
-      <div className="max-w-5xl mx-auto px-6 py-6 space-y-6">
-
-        {/* ── Parámetros ── */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="col-span-2 sm:col-span-2">
-            <label className="block text-xs font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">Cliente</label>
-            <input
-              type="text"
-              placeholder="Nombre del cliente (opcional)"
-              value={cliente}
-              onChange={e => setCliente(e.target.value)}
-              className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#FF007F] font-mono"
-            />
+        {/* ── Encabezado ── */}
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <Calculator className="w-5 h-5 text-[#FF007F]" />
+            <h1 className="text-xl font-black tracking-tight">Cotizador de Kits</h1>
           </div>
-          <div>
-            <label className="block text-xs font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">Núm. de kits</label>
-            <input
-              type="number"
-              min={1}
-              value={kits}
-              onChange={e => setKits(Math.max(1, parseInt(e.target.value) || 1))}
-              className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white focus:outline-none focus:ring-1 focus:ring-[#FF007F] font-mono text-center text-lg font-bold"
-            />
-          </div>
-          <div>
-            <label className="block text-xs font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">Margen %</label>
-            <input
-              type="number"
-              min={0}
-              max={200}
-              value={margin}
-              onChange={e => setMargin(Math.max(0, parseInt(e.target.value) || 0))}
-              className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white focus:outline-none focus:ring-1 focus:ring-[#FF007F] font-mono text-center text-lg font-bold"
-            />
-          </div>
+          <p className="text-zinc-500 text-sm">
+            Arma el contenido de <strong className="text-zinc-300">un kit</strong>, define cuántos necesitas y agrega tu margen y costos de impresión.
+          </p>
         </div>
 
-        {/* ── Buscador ── */}
-        {loading ? (
-          <div className="text-zinc-500 font-mono text-sm flex items-center gap-2">
-            <Search className="w-4 h-4 animate-pulse" />
-            Cargando catálogo…
+        {/* ── Paso 1: Datos generales ── */}
+        <section className="space-y-3">
+          <div className="flex items-center gap-2">
+            <span className="w-6 h-6 rounded-full bg-[#FF007F] text-white text-xs font-black flex items-center justify-center flex-shrink-0">1</span>
+            <h2 className="text-sm font-bold text-zinc-200">Datos generales</h2>
           </div>
-        ) : (
-          <ProductSearch catalog={catalog} kitIds={kitIds} onAdd={addProduct} />
-        )}
-
-        {/* ── Items del kit ── */}
-        {items.length === 0 ? (
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-12 text-center">
-            <Package className="w-10 h-10 text-zinc-700 mx-auto mb-3" />
-            <p className="text-zinc-500 font-mono text-sm">El kit está vacío</p>
-            <p className="text-zinc-700 text-xs mt-1">Busca productos arriba para agregarlos</p>
-          </div>
-        ) : (
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden">
-            <div className="px-4 py-3 border-b border-zinc-800 flex items-center justify-between">
-              <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider">
-                Artículos del kit — {items.length} producto{items.length !== 1 ? 's' : ''}
-              </span>
-              {withoutPrice.length > 0 && (
-                <span className="flex items-center gap-1 text-amber-400 text-xs font-mono">
-                  <AlertCircle className="w-3.5 h-3.5" />
-                  {withoutPrice.length} sin precio
-                </span>
-              )}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pl-8">
+            <div className="col-span-2">
+              <label className="block text-[11px] font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">Cliente</label>
+              <input
+                type="text"
+                placeholder="Nombre del cliente"
+                value={cliente}
+                onChange={e => setCliente(e.target.value)}
+                className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#FF007F]"
+              />
             </div>
+            <div>
+              <label className="block text-[11px] font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">Núm. de kits</label>
+              <input
+                type="number" min={1} value={kits}
+                onChange={e => setKits(Math.max(1, parseInt(e.target.value) || 1))}
+                className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white focus:outline-none focus:ring-1 focus:ring-[#FF007F] font-mono text-center text-lg font-bold"
+              />
+            </div>
+            <div>
+              <label className="block text-[11px] font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">Margen global %</label>
+              <input
+                type="number" min={0} max={500} value={globalMargin}
+                onChange={e => setGlobalMargin(Math.max(0, parseInt(e.target.value) || 0))}
+                className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white focus:outline-none focus:ring-1 focus:ring-[#FF007F] font-mono text-center text-lg font-bold"
+              />
+            </div>
+          </div>
+        </section>
 
-            <table className="w-full">
-              <thead>
-                <tr className="text-[11px] font-mono uppercase text-zinc-600 tracking-wider border-b border-zinc-800">
-                  <th className="text-left px-4 py-2">#</th>
-                  <th className="text-left px-4 py-2">Modelo</th>
-                  <th className="text-left px-4 py-2">Nombre</th>
-                  <th className="text-center px-4 py-2">Qty/kit</th>
-                  <th className="text-right px-4 py-2">Precio unit.</th>
-                  <th className="text-right px-4 py-2">× {kits} kits</th>
-                  <th className="px-2 py-2"></th>
-                </tr>
-              </thead>
-              <tbody>
-                {items.map((it, idx) => (
-                  <tr key={it.product.id} className="border-b border-zinc-800/50 hover:bg-zinc-800/20 transition-colors group">
-                    <td className="px-4 py-3">
+        {/* ── Paso 2: Agregar productos al kit ── */}
+        <section className="space-y-3">
+          <div className="flex items-center gap-2">
+            <span className="w-6 h-6 rounded-full bg-[#FF007F] text-white text-xs font-black flex items-center justify-center flex-shrink-0">2</span>
+            <h2 className="text-sm font-bold text-zinc-200">¿Qué va dentro de cada kit?</h2>
+          </div>
+          <div className="pl-8 space-y-2">
+            <p className="text-xs text-zinc-500">Busca y agrega cada artículo que llevará el kit. Puedes ajustar la cantidad, margen extra e impresión por producto.</p>
+            {loading ? (
+              <div className="text-zinc-500 font-mono text-sm flex items-center gap-2 py-2">
+                <Search className="w-4 h-4 animate-pulse" /> Cargando catálogo…
+              </div>
+            ) : (
+              <div className="space-y-2">
+                <ProductSearch catalog={catalog} kitIds={kitIds} onAdd={addProduct} />
+                <PasteList catalog={catalog} kitIds={kitIds} onAddMany={addMany} />
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ── Paso 3: Kit armado ── */}
+        <section className="space-y-3">
+          <div className="flex items-center gap-2">
+            <span className="w-6 h-6 rounded-full bg-[#FF007F] text-white text-xs font-black flex items-center justify-center flex-shrink-0">3</span>
+            <h2 className="text-sm font-bold text-zinc-200">Kit armado</h2>
+            {withoutPrice.length > 0 && (
+              <span className="flex items-center gap-1 text-amber-400 text-xs font-mono ml-auto">
+                <AlertCircle className="w-3.5 h-3.5" />{withoutPrice.length} sin precio
+              </span>
+            )}
+          </div>
+
+          {items.length === 0 ? (
+            <div className="pl-8">
+              <div className="bg-zinc-900 border border-zinc-800 border-dashed rounded-xl p-10 text-center">
+                <Package className="w-10 h-10 text-zinc-700 mx-auto mb-3" />
+                <p className="text-zinc-500 text-sm font-medium">Kit vacío</p>
+                <p className="text-zinc-700 text-xs mt-1">Usa el buscador del paso 2 para agregar productos</p>
+              </div>
+            </div>
+          ) : (
+            <div className="pl-8">
+              <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden">
+                {/* Encabezados */}
+                <div className="grid gap-0 border-b border-zinc-800 bg-zinc-800/30 px-4 py-2 text-[11px] font-mono uppercase text-zinc-600 tracking-wider"
+                  style={{ gridTemplateColumns: '24px 1fr 70px 90px 90px 90px 32px' }}>
+                  <span></span>
+                  <span>Producto</span>
+                  <span className="text-center">Qty</span>
+                  <span className="text-center flex items-center justify-center gap-1"><Percent className="w-3 h-3" />Extra</span>
+                  <span className="text-center flex items-center justify-center gap-1"><Zap className="w-3 h-3" />Impresión</span>
+                  <span className="text-right">Precio/kit</span>
+                  <span></span>
+                </div>
+
+                {items.map((it, idx) => {
+                  const linePrice = itemFinalPrice(it, globalMargin);
+                  return (
+                    <div
+                      key={it.product.id}
+                      className="grid items-center gap-0 px-4 py-3 border-b border-zinc-800/50 hover:bg-zinc-800/20 transition-colors group"
+                      style={{ gridTemplateColumns: '24px 1fr 70px 90px 90px 90px 32px' }}
+                    >
+                      {/* Reordenar */}
                       <div className="flex flex-col gap-0.5">
-                        <button onClick={() => moveItem(idx, -1)} disabled={idx === 0} className="text-zinc-700 hover:text-zinc-400 disabled:opacity-20">
-                          <ChevronUp className="w-3 h-3" />
-                        </button>
-                        <button onClick={() => moveItem(idx, 1)} disabled={idx === items.length - 1} className="text-zinc-700 hover:text-zinc-400 disabled:opacity-20">
-                          <ChevronDown className="w-3 h-3" />
+                        <button onClick={() => moveItem(idx, -1)} disabled={idx === 0} className="text-zinc-700 hover:text-zinc-400 disabled:opacity-20"><ChevronUp className="w-3 h-3" /></button>
+                        <button onClick={() => moveItem(idx, 1)} disabled={idx === items.length - 1} className="text-zinc-700 hover:text-zinc-400 disabled:opacity-20"><ChevronDown className="w-3 h-3" /></button>
+                      </div>
+
+                      {/* Nombre */}
+                      <div className="min-w-0 pr-3">
+                        <p className="text-sm text-white font-medium truncate">{it.product.nombre}</p>
+                        <p className="text-[10px] font-mono text-zinc-500">{it.product.modelo}
+                          {it.product.precio != null && <span className="ml-2 text-zinc-600">costo ${fmt(it.product.precio)}</span>}
+                        </p>
+                      </div>
+
+                      {/* Qty */}
+                      <div className="flex justify-center">
+                        <input
+                          type="number" min={1} value={it.qty}
+                          onChange={e => updateItem(it.product.id, { qty: Math.max(1, parseInt(e.target.value) || 1) })}
+                          className="w-14 bg-zinc-800 border border-zinc-700 text-center text-sm font-mono text-white py-1.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FF007F]"
+                        />
+                      </div>
+
+                      {/* Margen extra */}
+                      <div className="flex justify-center">
+                        <div className="relative">
+                          <input
+                            type="number" min={0} max={500} value={it.margenExtra}
+                            onChange={e => updateItem(it.product.id, { margenExtra: Math.max(0, parseInt(e.target.value) || 0) })}
+                            className="w-16 bg-zinc-800 border border-zinc-700 text-center text-sm font-mono text-white py-1.5 pr-5 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FF007F]"
+                          />
+                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 text-xs pointer-events-none">%</span>
+                        </div>
+                      </div>
+
+                      {/* Costo impresión */}
+                      <div className="flex justify-center">
+                        <div className="relative">
+                          <span className="absolute left-2 top-1/2 -translate-y-1/2 text-zinc-500 text-xs pointer-events-none">$</span>
+                          <input
+                            type="number" min={0} value={it.costoImpresion}
+                            onChange={e => updateItem(it.product.id, { costoImpresion: Math.max(0, parseFloat(e.target.value) || 0) })}
+                            className="w-20 bg-zinc-800 border border-zinc-700 text-center text-sm font-mono text-white py-1.5 pl-5 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FF007F]"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Precio final */}
+                      <div className="text-right">
+                        {linePrice > 0
+                          ? <span className="font-mono font-bold text-sm text-white">${fmt(linePrice)}</span>
+                          : <span className="text-amber-500 text-xs font-mono">sin precio</span>}
+                      </div>
+
+                      {/* Eliminar */}
+                      <div className="flex justify-end">
+                        <button
+                          onClick={() => removeItem(it.product.id)}
+                          className="text-zinc-700 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100"
+                        >
+                          <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
-                    </td>
-                    <td className="px-4 py-3 font-mono text-xs text-zinc-500 whitespace-nowrap">{it.product.modelo}</td>
-                    <td className="px-4 py-3">
-                      <span className="text-sm text-white">{it.product.nombre}</span>
-                      <span className="block text-[10px] text-zinc-600 capitalize mt-0.5">{it.product.categoria}</span>
-                    </td>
-                    <td className="px-4 py-3 text-center">
-                      <input
-                        type="number"
-                        min={1}
-                        value={it.qty}
-                        onChange={e => updateQty(it.product.id, parseInt(e.target.value) || 1)}
-                        className="w-14 bg-zinc-800 border border-zinc-700 text-center text-sm font-mono text-white py-1 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FF007F]"
-                      />
-                    </td>
-                    <td className="px-4 py-3 text-right font-mono text-sm">
-                      {it.product.precio != null
-                        ? <span className="text-zinc-200">${fmt(it.product.precio * it.qty)}</span>
-                        : <span className="text-amber-500 text-xs">sin precio</span>}
-                    </td>
-                    <td className="px-4 py-3 text-right font-mono text-sm">
-                      {it.product.precio != null
-                        ? <span className="font-bold text-white">${fmt(it.product.precio * it.qty * kits)}</span>
-                        : <span className="text-zinc-700">—</span>}
-                    </td>
-                    <td className="px-2 py-3">
-                      <button
-                        onClick={() => removeItem(it.product.id)}
-                        className="text-zinc-700 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                    </div>
+                  );
+                })}
 
-            {/* Totales */}
-            <div className="border-t border-zinc-700 bg-zinc-800/40 px-4 py-4 space-y-2">
-              <div className="flex justify-between text-sm font-mono text-zinc-400">
-                <span>Costo por kit (costo base)</span>
-                <span>${fmt(perKit)}</span>
-              </div>
-              <div className="flex justify-between text-sm font-mono text-zinc-400">
-                <span>Total {kits} kits (costo base)</span>
-                <span>${fmt(subtotal)}</span>
-              </div>
-              <div className="flex justify-between text-sm font-mono text-zinc-500">
-                <span>Margen aplicado ({margin}%)</span>
-                <span>+${fmt(subtotal * margin / 100)}</span>
-              </div>
-              <div className="flex justify-between items-center pt-2 border-t border-zinc-700">
-                <span className="font-black text-base text-white">Total con margen</span>
-                <span className="font-black text-2xl text-[#FF007F]">${fmt(finalTotal)}</span>
-              </div>
-              <div className="flex justify-between text-xs font-mono text-zinc-500">
-                <span>Precio por kit con margen</span>
-                <span className="text-zinc-300 font-bold">${fmt(perKitFinal)}</span>
+                {/* Totales */}
+                <div className="border-t border-zinc-700 bg-zinc-800/30 px-4 py-4 space-y-1.5">
+                  <div className="text-[11px] font-mono text-zinc-600 uppercase tracking-wider mb-2">
+                    Margen global aplicado: {globalMargin}% · Productos: {items.length}
+                  </div>
+                  <div className="flex justify-between text-sm font-mono text-zinc-400">
+                    <span>Precio por kit</span>
+                    <span className="font-bold text-zinc-200">${fmt(perKit)}</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-2 border-t border-zinc-700 mt-2">
+                    <span className="font-black text-base text-white">Total {kits} kits</span>
+                    <span className="font-black text-2xl text-[#FF007F]">${fmt(total)}</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </section>
 
-        {/* ── Vista previa ── */}
-        {showPreview && items.length > 0 && (
-          <QuotePreview items={items} kits={kits} margin={margin} cliente={cliente} />
+        {/* ── Paso 4: Generar cotización ── */}
+        {items.length > 0 && (
+          <section className="space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-[#FF007F] text-white text-xs font-black flex items-center justify-center flex-shrink-0">4</span>
+              <h2 className="text-sm font-bold text-zinc-200">Generar cotización</h2>
+              <button
+                onClick={() => setShowPreview(v => !v)}
+                className="ml-auto flex items-center gap-2 px-4 py-2 bg-[#FF007F] hover:bg-[#e0006e] text-white text-sm font-bold rounded-xl transition-colors"
+              >
+                <Copy className="w-4 h-4" />
+                {showPreview ? 'Ocultar' : 'Ver cotización'}
+              </button>
+            </div>
+            {showPreview && (
+              <div className="pl-8">
+                <QuotePreview items={items} kits={kits} globalMargin={globalMargin} cliente={cliente} />
+              </div>
+            )}
+          </section>
         )}
 
       </div>
