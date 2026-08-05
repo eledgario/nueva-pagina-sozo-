@@ -338,6 +338,7 @@ function QuotePreview({ items, kits, globalMargin, cliente, printingOptions }: {
 
   const handlePrint = () => {
     const fecha = new Date().toLocaleDateString('es-MX', { day: '2-digit', month: 'long', year: 'numeric' });
+    const logoUrl = window.location.origin + '/sozo-logo.png';
 
     const rows = items.map(it => {
       const precio = itemFinalPrice(it, globalMargin, kits, printingOptions);
@@ -363,14 +364,13 @@ function QuotePreview({ items, kits, globalMargin, cliente, printingOptions }: {
   <title>Cotización SOZO${cliente ? ' — ' + cliente : ''}</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#fff;color:#111;padding:52px 56px;font-size:13px;line-height:1.5}
-    .header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6px}
-    .brand{font-size:32px;font-weight:900;letter-spacing:-1px;color:#111}
-    .brand em{color:#FF007F;font-style:normal}
-    .doc-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#999}
-    .bar{height:3px;background:#FF007F;margin-bottom:32px}
+    body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#fff;color:#111;font-size:13px;line-height:1.5}
+    .header{background:#111;padding:20px 48px;display:flex;justify-content:space-between;align-items:center}
+    .header img{height:44px;width:auto}
+    .doc-tag{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#ffffff80}
+    .bar{height:4px;background:#FF007F}
+    .body{padding:36px 48px}
     .meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:36px}
-    .meta-left{}
     .meta-right{text-align:right}
     .label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#aaa;margin-bottom:2px}
     .value{font-size:15px;font-weight:800;color:#111}
@@ -395,49 +395,55 @@ function QuotePreview({ items, kits, globalMargin, cliente, printingOptions }: {
     .t-row.main .tl{font-weight:900;font-size:14px;color:#111}
     .t-row.main .tv{font-weight:900;font-size:20px;color:#FF007F;font-family:'Courier New',monospace}
     .footer{border-top:1px solid #e5e5e5;padding-top:14px;font-size:11px;color:#aaa}
-    @media print{body{padding:24px 28px}@page{margin:16px}}
+    @media print{@page{margin:0}.header{-webkit-print-color-adjust:exact;print-color-adjust:exact}.bar{-webkit-print-color-adjust:exact;print-color-adjust:exact}.body{padding:28px 40px}}
   </style>
 </head>
 <body>
   <div class="header">
-    <div class="brand">SO<em>Z</em>O</div>
+    <img src="${logoUrl}" alt="SOZO" onload="this._loaded=true"/>
     <div class="doc-tag">Cotización</div>
   </div>
   <div class="bar"></div>
-  <div class="meta">
-    <div class="meta-left">
-      ${cliente ? `<div class="label">Cliente</div><div class="value">${cliente}</div>` : ''}
-    </div>
-    <div class="meta-right">
-      <div class="label">Fecha</div>
-      <div class="value">${fecha}</div>
-      <div style="margin-top:14px">
-        <div class="label">Cantidad</div>
-        <div class="value">${kits} kit${kits !== 1 ? 's' : ''}</div>
-        <div class="sub">Contenido por kit:</div>
+  <div class="body">
+    <div class="meta">
+      <div class="meta-left">
+        ${cliente ? `<div class="label">Cliente</div><div class="value">${cliente}</div>` : ''}
+      </div>
+      <div class="meta-right">
+        <div class="label">Fecha</div>
+        <div class="value">${fecha}</div>
+        <div style="margin-top:14px">
+          <div class="label">Cantidad</div>
+          <div class="value">${kits} kit${kits !== 1 ? 's' : ''}</div>
+          <div class="sub">Contenido por kit:</div>
+        </div>
       </div>
     </div>
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th>Producto</th>
-        <th class="center">Modelo</th>
-        <th class="center">Qty</th>
-        <th class="center">Impresión</th>
-        <th class="right">Precio / kit</th>
-      </tr>
-    </thead>
-    <tbody>${rows}</tbody>
-  </table>
-  <div class="totals">
-    <div class="totals-box">
-      <div class="t-row"><span class="tl">Precio por kit</span><span class="tv mono" style="font-size:13px;color:#555">$${fmt(perKit)}</span></div>
-      <div class="t-row main"><span class="tl">TOTAL ${kits} KITS</span><span class="tv">$${fmt(total)}</span></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th class="center">Modelo</th>
+          <th class="center">Qty</th>
+          <th class="center">Impresión</th>
+          <th class="right">Precio / kit</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="totals">
+      <div class="totals-box">
+        <div class="t-row"><span class="tl">Precio por kit</span><span class="mono" style="font-size:13px;color:#555">$${fmt(perKit)}</span></div>
+        <div class="t-row main"><span class="tl">TOTAL ${kits} KITS</span><span class="tv">$${fmt(total)}</span></div>
+      </div>
     </div>
+    <div class="footer">Precios sujetos a cambio sin previo aviso · Cotización generada el ${fecha}</div>
   </div>
-  <div class="footer">Precios sujetos a cambio sin previo aviso · Cotización generada el ${fecha}</div>
-  <script>window.onload=()=>window.print()</script>
+  <script>
+    const img = document.querySelector('img');
+    if (img.complete) { window.print(); }
+    else { img.onload = () => window.print(); img.onerror = () => window.print(); }
+  </script>
 </body>
 </html>`;
 
