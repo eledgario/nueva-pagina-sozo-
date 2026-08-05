@@ -171,22 +171,48 @@ function PasteList({
   const [preview, setPreview] = useState<{ found: ProductRow[]; notFound: string[] } | null>(null);
 
   const parse = () => {
-    const tokens = text
-      .split(/[\n,;]+/)
-      .map(t => t.trim().toUpperCase())
-      .filter(Boolean);
+    const lines = text.split(/[\n;]+/).map(l => l.trim()).filter(Boolean);
 
     const found: ProductRow[] = [];
     const notFound: string[] = [];
 
-    for (const token of tokens) {
-      const match = catalog.find(
-        p => p.modelo.toUpperCase() === token || p.modelo.toUpperCase().replace(/[\s-]/g, '') === token.replace(/[\s-]/g, '')
-      );
-      if (match && !kitIds.has(match.id) && !found.find(f => f.id === match.id)) {
+    const tryMatch = (candidate: string) =>
+      catalog.find(p => {
+        const m = p.modelo.toUpperCase();
+        const c = candidate.toUpperCase();
+        return m === c || m.replace(/[\s-]/g, '') === c.replace(/[\s-]/g, '');
+      });
+
+    for (const line of lines) {
+      // 1. Extraer todos los contenidos entre paréntesis: (BL-207) → 'BL-207'
+      const inParens = [...line.matchAll(/\(([^)]+)\)/g)].map(m => m[1].trim());
+      let match: ProductRow | undefined;
+
+      for (const candidate of inParens) {
+        match = tryMatch(candidate);
+        if (match) break;
+      }
+
+      // 2. Si no encontró en paréntesis, intentar palabra por palabra
+      if (!match) {
+        const words = line.replace(/[*•\-–,]/g, ' ').split(/\s+/).filter(Boolean);
+        for (const word of words) {
+          match = tryMatch(word);
+          if (match) break;
+        }
+      }
+
+      // 3. Intentar la línea completa limpia (caso: lista simple sin adornos)
+      if (!match) {
+        const clean = line.replace(/^[*•\-–\d.)\s]+/, '').replace(/\s*(por kit|x kit|\/kit).*$/i, '').trim();
+        match = tryMatch(clean);
+      }
+
+      if (match && !kitIds.has(match.id) && !found.find(f => f.id === match!.id)) {
         found.push(match);
       } else if (!match) {
-        notFound.push(token);
+        const label = inParens[0] ?? line.replace(/^[*•\-–\s]+/, '').replace(/\s*(por kit|x kit|\/kit).*$/i, '').trim();
+        notFound.push(label);
       }
     }
     setPreview({ found, notFound });
@@ -219,7 +245,7 @@ function PasteList({
           <textarea
             value={text}
             onChange={e => { setText(e.target.value); setPreview(null); }}
-            placeholder={'BL-207, TE-259, DK-067\nHL 2100 A\n3541'}
+            placeholder={'* Bolígrafo Ferentillo (BL-207) por kit\n* Taza Eilean (TE-259) por kit\nBL-207, TE-259, DK-067'}
             rows={4}
             className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-sm font-mono text-white placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#FF007F] resize-none"
           />
