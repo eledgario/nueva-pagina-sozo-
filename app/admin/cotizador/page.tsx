@@ -5,6 +5,7 @@ import {
   Search, Plus, Trash2, Copy, Check,
   Package, Calculator, ChevronDown, ChevronUp, X,
   Printer, AlertCircle, ClipboardList, Percent, Zap,
+  ExternalLink, ShieldCheck, ShieldX, Loader2,
 } from 'lucide-react';
 
 interface ProductRow {
@@ -320,6 +321,8 @@ export default function CotizadorPage() {
   const [globalMargin, setGlobalMargin] = useState(35);
   const [cliente, setCliente] = useState('');
   const [showPreview, setShowPreview] = useState(false);
+  const [stockStatus, setStockStatus] = useState<Record<string, 'idle' | 'loading' | 'ok' | 'out' | 'manual'>>({});
+  const [stockUrl, setStockUrl] = useState<Record<string, string>>({});
 
   useEffect(() => {
     fetch('/api/admin/precios')
@@ -349,6 +352,30 @@ export default function CotizadorPage() {
   const updateItem = useCallback((id: string, patch: Partial<Omit<KitItem, 'product'>>) => {
     setItems(prev => prev.map(it => it.product.id === id ? { ...it, ...patch } : it));
   }, []);
+
+  const checkStock = useCallback(async (it: KitItem) => {
+    setStockStatus(prev => ({ ...prev, [it.product.id]: 'loading' }));
+    try {
+      const res = await fetch('/api/admin/stock', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: it.product.id, modelo: it.product.modelo }),
+      });
+      const data = await res.json() as { available: boolean | null; url: string };
+      setStockUrl(prev => ({ ...prev, [it.product.id]: data.url }));
+      if (data.available === true)  setStockStatus(prev => ({ ...prev, [it.product.id]: 'ok' }));
+      else if (data.available === false) setStockStatus(prev => ({ ...prev, [it.product.id]: 'out' }));
+      else setStockStatus(prev => ({ ...prev, [it.product.id]: 'manual' }));
+    } catch {
+      setStockStatus(prev => ({ ...prev, [it.product.id]: 'idle' }));
+    }
+  }, []);
+
+  const checkAllStock = useCallback(() => {
+    items.forEach(it => {
+      if (stockStatus[it.product.id] !== 'loading') checkStock(it);
+    });
+  }, [items, stockStatus, checkStock]);
 
   const moveItem = useCallback((idx: number, dir: -1 | 1) => {
     setItems(prev => {
@@ -442,9 +469,18 @@ export default function CotizadorPage() {
             <span className="w-6 h-6 rounded-full bg-[#FF007F] text-white text-xs font-black flex items-center justify-center flex-shrink-0">3</span>
             <h2 className="text-sm font-bold text-zinc-200">Kit armado</h2>
             {withoutPrice.length > 0 && (
-              <span className="flex items-center gap-1 text-amber-400 text-xs font-mono ml-auto">
+              <span className="flex items-center gap-1 text-amber-400 text-xs font-mono">
                 <AlertCircle className="w-3.5 h-3.5" />{withoutPrice.length} sin precio
               </span>
+            )}
+            {items.length > 0 && (
+              <button
+                onClick={checkAllStock}
+                className="ml-auto flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-xs font-bold text-zinc-300 rounded-lg transition-colors"
+              >
+                <ShieldCheck className="w-3.5 h-3.5" />
+                Verificar disponibilidad
+              </button>
             )}
           </div>
 
@@ -497,17 +533,53 @@ export default function CotizadorPage() {
                             </span>
                           )}
                         </div>
-                        <p className="text-[10px] font-mono text-zinc-500">{it.product.modelo}
-                          {it.product.precio != null && (
-                            mopDisc
-                              ? <span className="ml-2 text-zinc-600">
-                                  base ${fmt(it.product.precio)} →{' '}
-                                  <span className="text-amber-500">${fmt(it.product.precio * (1 - mopDisc.discount / 100))}</span>
-                                  {' '}({it.qty * kits} pzas)
-                                </span>
-                              : <span className="ml-2 text-zinc-600">costo ${fmt(it.product.precio)}</span>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <p className="text-[10px] font-mono text-zinc-500">{it.product.modelo}
+                            {it.product.precio != null && (
+                              mopDisc
+                                ? <span className="ml-2 text-zinc-600">
+                                    base ${fmt(it.product.precio)} →{' '}
+                                    <span className="text-amber-500">${fmt(it.product.precio * (1 - mopDisc.discount / 100))}</span>
+                                    {' '}({it.qty * kits} pzas)
+                                  </span>
+                                : <span className="ml-2 text-zinc-600">costo ${fmt(it.product.precio)}</span>
+                            )}
+                          </p>
+                          {/* Stock indicator */}
+                          {stockStatus[it.product.id] === 'idle' && (
+                            <button
+                              onClick={() => checkStock(it)}
+                              className="text-[10px] font-mono text-zinc-600 hover:text-zinc-400 underline underline-offset-2 transition-colors"
+                            >
+                              verificar stock
+                            </button>
                           )}
-                        </p>
+                          {stockStatus[it.product.id] === 'loading' && (
+                            <span className="flex items-center gap-1 text-[10px] font-mono text-zinc-500">
+                              <Loader2 className="w-3 h-3 animate-spin" /> verificando…
+                            </span>
+                          )}
+                          {stockStatus[it.product.id] === 'ok' && (
+                            <a href={stockUrl[it.product.id]} target="_blank" rel="noreferrer"
+                              className="flex items-center gap-1 text-[10px] font-mono text-emerald-400 hover:text-emerald-300 transition-colors">
+                              <ShieldCheck className="w-3 h-3" /> En stock
+                              <ExternalLink className="w-2.5 h-2.5 ml-0.5" />
+                            </a>
+                          )}
+                          {stockStatus[it.product.id] === 'out' && (
+                            <a href={stockUrl[it.product.id]} target="_blank" rel="noreferrer"
+                              className="flex items-center gap-1 text-[10px] font-mono text-red-400 hover:text-red-300 transition-colors">
+                              <ShieldX className="w-3 h-3" /> Sin stock
+                              <ExternalLink className="w-2.5 h-2.5 ml-0.5" />
+                            </a>
+                          )}
+                          {stockStatus[it.product.id] === 'manual' && (
+                            <a href={stockUrl[it.product.id]} target="_blank" rel="noreferrer"
+                              className="flex items-center gap-1 text-[10px] font-mono text-zinc-400 hover:text-zinc-200 transition-colors">
+                              <ExternalLink className="w-2.5 h-2.5" /> Ver en proveedor
+                            </a>
+                          )}
+                        </div>
                       </div>
 
                       {/* Qty */}
