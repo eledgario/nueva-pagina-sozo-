@@ -324,6 +324,9 @@ export default function CotizadorPage() {
   const [stockStatus, setStockStatus] = useState<Record<string, 'idle' | 'loading' | 'ok' | 'out' | 'manual'>>({});
   const [stockUrl, setStockUrl] = useState<Record<string, string>>({});
 
+  type ColorsData = { colors: { name: string; available: boolean; url: string }[]; sizes: { title: string; price: string }[] };
+  const [colorsData, setColorsData] = useState<Record<string, ColorsData | 'loading'>>({});
+
   useEffect(() => {
     fetch('/api/admin/precios')
       .then(r => r.json())
@@ -370,6 +373,22 @@ export default function CotizadorPage() {
       setStockStatus(prev => ({ ...prev, [it.product.id]: 'idle' }));
     }
   }, []);
+
+  const loadColors = useCallback(async (it: KitItem) => {
+    const id = it.product.id;
+    if (colorsData[id]) {
+      setColorsData(prev => { const n = { ...prev }; delete n[id]; return n; });
+      return;
+    }
+    setColorsData(prev => ({ ...prev, [id]: 'loading' }));
+    try {
+      const res = await fetch(`/api/admin/stock/mop-variants?modelo=${encodeURIComponent(it.product.modelo)}`);
+      const data = await res.json() as { colors: { name: string; available: boolean; url: string }[]; sizes: { title: string; price: string }[] };
+      setColorsData(prev => ({ ...prev, [id]: data }));
+    } catch {
+      setColorsData(prev => { const n = { ...prev }; delete n[id]; return n; });
+    }
+  }, [colorsData]);
 
   const checkAllStock = useCallback(() => {
     items.forEach(it => {
@@ -511,10 +530,11 @@ export default function CotizadorPage() {
                   const linePrice = itemFinalPrice(it, globalMargin, kits);
                   const isMop = it.product.id.startsWith('mop_');
                   const mopDisc = isMop ? mopTier(it.qty * kits) : null;
+                  const cd = colorsData[it.product.id];
                   return (
+                    <div key={it.product.id} className="border-b border-zinc-800/50">
                     <div
-                      key={it.product.id}
-                      className="grid items-center gap-0 px-4 py-3 border-b border-zinc-800/50 hover:bg-zinc-800/20 transition-colors group"
+                      className="grid items-center gap-0 px-4 py-3 hover:bg-zinc-800/20 transition-colors group"
                       style={{ gridTemplateColumns: '24px 1fr 70px 90px 90px 90px 32px' }}
                     >
                       {/* Reordenar */}
@@ -579,6 +599,14 @@ export default function CotizadorPage() {
                               <ExternalLink className="w-2.5 h-2.5" /> Ver en proveedor
                             </a>
                           )}
+                          {isMop && (
+                            <button
+                              onClick={() => loadColors(it)}
+                              className="text-[10px] font-mono text-zinc-600 hover:text-zinc-400 underline underline-offset-2 transition-colors"
+                            >
+                              {colorsData[it.product.id] ? 'ocultar colores' : 'ver colores/tallas'}
+                            </button>
+                          )}
                         </div>
                       </div>
 
@@ -631,6 +659,70 @@ export default function CotizadorPage() {
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
+                    </div>
+
+                    {/* Panel colores/tallas M&O */}
+                    {isMop && cd && (
+                      <div className="px-10 pb-4 pt-1 bg-zinc-800/20">
+                        {cd === 'loading' ? (
+                          <span className="flex items-center gap-2 text-xs font-mono text-zinc-500">
+                            <Loader2 className="w-3.5 h-3.5 animate-spin" /> Cargando colores…
+                          </span>
+                        ) : (
+                          <div className="space-y-3">
+                            {/* Colores */}
+                            <div>
+                              <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-wider mb-2">
+                                Colores ({cd.colors.length} de este modelo)
+                              </p>
+                              <div className="flex flex-wrap gap-1.5">
+                                {cd.colors.map(c => (
+                                  <a
+                                    key={c.url}
+                                    href={c.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono border transition-colors
+                                      ${c.available
+                                        ? 'border-emerald-800 bg-emerald-950/50 text-emerald-300 hover:bg-emerald-900/50'
+                                        : 'border-zinc-700 bg-zinc-900 text-zinc-600 line-through'
+                                      }`}
+                                  >
+                                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${c.available ? 'bg-emerald-400' : 'bg-zinc-600'}`} />
+                                    {c.name}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Tallas */}
+                            {cd.sizes.length > 0 && (
+                              <div>
+                                <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-wider mb-2">
+                                  Tallas disponibles
+                                </p>
+                                <div className="flex flex-wrap gap-1.5">
+                                  {cd.sizes.map(s => (
+                                    <span
+                                      key={s.title}
+                                      className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-zinc-800 border border-zinc-700 text-zinc-300"
+                                    >
+                                      {s.title}
+                                      {parseFloat(s.price) > (cd.sizes[0] ? parseFloat(cd.sizes[0].price) : 0) && (
+                                        <span className="ml-1 text-zinc-500">+${(parseFloat(s.price) - parseFloat(cd.sizes[0].price)).toFixed(2)}</span>
+                                      )}
+                                    </span>
+                                  ))}
+                                </div>
+                                <p className="text-[10px] font-mono text-zinc-700 mt-2">
+                                  * Disponibilidad por talla no disponible en API pública
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    )}
                     </div>
                   );
                 })}
