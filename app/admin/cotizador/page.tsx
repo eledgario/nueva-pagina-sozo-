@@ -5,7 +5,7 @@ import {
   Search, Plus, Trash2, Copy, Check,
   Package, Calculator, ChevronDown, ChevronUp, X,
   Printer, AlertCircle, ClipboardList, Percent, Zap,
-  ExternalLink, ShieldCheck, ShieldX, Loader2,
+  ExternalLink, ShieldCheck, ShieldX, Loader2, ListCollapse,
 } from 'lucide-react';
 
 interface ProductRow {
@@ -17,11 +17,15 @@ interface ProductRow {
   fuente: 'innovation' | 'promoopcion' | 'moplayeras';
 }
 
+interface PrintingTier { min: number; max: number | null; precio: number; }
+interface PrintingOption { id: string; tecnica: string; descripcion: string; tiers: PrintingTier[]; }
+
 interface KitItem {
   product: ProductRow;
   qty: number;
-  margenExtra: number;    // % de ganancia adicional sobre este producto
-  costoImpresion: number; // costo fijo de impresión por unidad
+  margenExtra: number;
+  costoImpresion: number;   // usado cuando printingId es null (manual)
+  printingId: string | null; // si está definido, el costo se calcula del catálogo
 }
 
 // ─── Utilidades ───────────────────────────────────────────────────────────────
@@ -42,7 +46,16 @@ function mopTier(totalQty: number) {
   return MOP_TIERS.find(t => totalQty >= t.min && totalQty <= t.max) ?? MOP_TIERS[0];
 }
 
-function itemFinalPrice(it: KitItem, globalMargin: number, kits: number): number {
+function resolveImpresion(it: KitItem, kits: number, printingOptions: PrintingOption[]): number {
+  if (!it.printingId) return it.costoImpresion;
+  const opt = printingOptions.find(o => o.id === it.printingId);
+  if (!opt) return it.costoImpresion;
+  const totalQty = it.qty * kits;
+  const tier = opt.tiers.find(t => totalQty >= t.min && (t.max === null || totalQty <= t.max));
+  return tier?.precio ?? 0;
+}
+
+function itemFinalPrice(it: KitItem, globalMargin: number, kits: number, printingOptions: PrintingOption[]): number {
   if (it.product.precio == null) return 0;
   let costo = it.product.precio;
   if (it.product.id.startsWith('mop_')) {
@@ -51,11 +64,12 @@ function itemFinalPrice(it: KitItem, globalMargin: number, kits: number): number
   }
   const base = costo * it.qty;
   const conMargen = base * (1 + (globalMargin + it.margenExtra) / 100);
-  return conMargen + it.costoImpresion * it.qty;
+  const imp = resolveImpresion(it, kits, printingOptions);
+  return conMargen + imp * it.qty;
 }
 
-function kitTotal(items: KitItem[], globalMargin: number, kits: number): number {
-  return items.reduce((acc, it) => acc + itemFinalPrice(it, globalMargin, kits), 0);
+function kitTotal(items: KitItem[], globalMargin: number, kits: number, printingOptions: PrintingOption[]): number {
+  return items.reduce((acc, it) => acc + itemFinalPrice(it, globalMargin, kits, printingOptions), 0);
 }
 
 // ─── Buscador de productos ────────────────────────────────────────────────────
@@ -253,15 +267,16 @@ function PasteList({
 
 // ─── Vista previa de cotización ───────────────────────────────────────────────
 
-function QuotePreview({ items, kits, globalMargin, cliente }: {
+function QuotePreview({ items, kits, globalMargin, cliente, printingOptions }: {
   items: KitItem[];
   kits: number;
   globalMargin: number;
   cliente: string;
+  printingOptions: PrintingOption[];
 }) {
   const [copied, setCopied] = useState(false);
 
-  const perKit = kitTotal(items, globalMargin, kits);
+  const perKit = kitTotal(items, globalMargin, kits, printingOptions);
   const total  = perKit * kits;
 
   const text = [
@@ -272,10 +287,14 @@ function QuotePreview({ items, kits, globalMargin, cliente }: {
     '',
     'ARTÍCULOS POR KIT:',
     ...items.map((it, i) => {
-      const precio = itemFinalPrice(it, globalMargin, kits);
+      const precio = itemFinalPrice(it, globalMargin, kits, printingOptions);
+      const imp = resolveImpresion(it, kits, printingOptions);
+      const printLabel = it.printingId
+        ? printingOptions.find(o => o.id === it.printingId)?.descripcion
+        : null;
       return `  ${i + 1}. ${it.product.nombre} (${it.product.modelo})` +
         (precio > 0 ? ` — $${fmt(precio)}` : ' — precio a confirmar') +
-        (it.costoImpresion > 0 ? ` (incl. impresión $${fmt(it.costoImpresion)}/u)` : '');
+        (imp > 0 ? ` (incl. impresión${printLabel ? ` ${printLabel}` : ''} $${fmt(imp)}/u)` : '');
     }),
     '',
     `Precio por kit:   $${fmt(perKit)}`,
@@ -315,6 +334,7 @@ function QuotePreview({ items, kits, globalMargin, cliente }: {
 
 export default function CotizadorPage() {
   const [catalog, setCatalog] = useState<ProductRow[]>([]);
+  const [printingOptions, setPrintingOptions] = useState<PrintingOption[]>([]);
   const [loading, setLoading] = useState(true);
   const [items, setItems]     = useState<KitItem[]>([]);
   const [kits, setKits]       = useState(10);
@@ -328,23 +348,27 @@ export default function CotizadorPage() {
   const [colorsData, setColorsData] = useState<Record<string, ColorsData | 'loading'>>({});
 
   useEffect(() => {
-    fetch('/api/admin/precios')
-      .then(r => r.json())
-      .then(d => { setCatalog(d.productos ?? []); setLoading(false); })
-      .catch(() => setLoading(false));
+    Promise.all([
+      fetch('/api/admin/precios').then(r => r.json()),
+      fetch('/api/admin/impresion').then(r => r.json()),
+    ]).then(([precios, impr]) => {
+      setCatalog(precios.productos ?? []);
+      setPrintingOptions(impr ?? []);
+      setLoading(false);
+    }).catch(() => setLoading(false));
   }, []);
 
   const kitIds = useMemo(() => new Set(items.map(it => it.product.id)), [items]);
 
   const addProduct = useCallback((p: ProductRow) => {
-    setItems(prev => [...prev, { product: p, qty: 1, margenExtra: 0, costoImpresion: 0 }]);
+    setItems(prev => [...prev, { product: p, qty: 1, margenExtra: 0, costoImpresion: 0, printingId: null }]);
   }, []);
 
   const addMany = useCallback((ps: ProductRow[]) => {
     setItems(prev => [
       ...prev,
       ...ps.filter(p => !prev.find(it => it.product.id === p.id))
-            .map(p => ({ product: p, qty: 1, margenExtra: 0, costoImpresion: 0 })),
+            .map(p => ({ product: p, qty: 1, margenExtra: 0, costoImpresion: 0, printingId: null })),
     ]);
   }, []);
 
@@ -406,7 +430,7 @@ export default function CotizadorPage() {
     });
   }, []);
 
-  const perKit = kitTotal(items, globalMargin, kits);
+  const perKit = kitTotal(items, globalMargin, kits, printingOptions);
   const total  = perKit * kits;
   const withoutPrice = items.filter(it => it.product.precio == null);
 
@@ -521,13 +545,14 @@ export default function CotizadorPage() {
                   <span>Producto</span>
                   <span className="text-center">Qty</span>
                   <span className="text-center flex items-center justify-center gap-1"><Percent className="w-3 h-3" />Extra</span>
-                  <span className="text-center flex items-center justify-center gap-1"><Zap className="w-3 h-3" />Impresión</span>
+                  <span className="text-center flex items-center justify-center gap-1"><Printer className="w-3 h-3" />Impresión</span>
                   <span className="text-right">Precio/kit</span>
                   <span></span>
                 </div>
 
                 {items.map((it, idx) => {
-                  const linePrice = itemFinalPrice(it, globalMargin, kits);
+                  const linePrice = itemFinalPrice(it, globalMargin, kits, printingOptions);
+                  const impCosto = resolveImpresion(it, kits, printingOptions);
                   const isMop = it.product.id.startsWith('mop_');
                   const mopDisc = isMop ? mopTier(it.qty * kits) : null;
                   const cd = colorsData[it.product.id];
@@ -599,6 +624,15 @@ export default function CotizadorPage() {
                               <ExternalLink className="w-2.5 h-2.5" /> Ver en proveedor
                             </a>
                           )}
+                          {it.printingId && (() => {
+                            const opt = printingOptions.find(o => o.id === it.printingId);
+                            return opt ? (
+                              <span className="flex items-center gap-1 text-[10px] font-mono text-violet-400">
+                                <Printer className="w-2.5 h-2.5" />
+                                {opt.tecnica.split('/')[0].trim()} · {opt.descripcion} · ${fmt(impCosto)}/u
+                              </span>
+                            ) : null;
+                          })()}
                           {isMop && (
                             <button
                               onClick={() => loadColors(it)}
@@ -633,14 +667,40 @@ export default function CotizadorPage() {
 
                       {/* Costo impresión */}
                       <div className="flex justify-center">
-                        <div className="relative">
-                          <span className="absolute left-2 top-1/2 -translate-y-1/2 text-zinc-500 text-xs pointer-events-none">$</span>
-                          <input
-                            type="number" min={0} value={it.costoImpresion}
-                            onChange={e => updateItem(it.product.id, { costoImpresion: Math.max(0, parseFloat(e.target.value) || 0) })}
-                            className="w-20 bg-zinc-800 border border-zinc-700 text-center text-sm font-mono text-white py-1.5 pl-5 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FF007F]"
-                          />
-                        </div>
+                        {it.printingId ? (
+                          // Precio auto desde catálogo
+                          <div className="flex flex-col items-center gap-0.5">
+                            <span className="font-mono text-sm font-bold text-violet-300">${fmt(impCosto)}</span>
+                            <button
+                              onClick={() => updateItem(it.product.id, { printingId: null, costoImpresion: 0 })}
+                              className="text-[10px] font-mono text-zinc-600 hover:text-red-400 transition-colors underline underline-offset-1"
+                            >quitar</button>
+                          </div>
+                        ) : (
+                          // Selector manual o desde catálogo
+                          <div className="flex flex-col items-center gap-0.5">
+                            <div className="relative">
+                              <span className="absolute left-2 top-1/2 -translate-y-1/2 text-zinc-500 text-xs pointer-events-none">$</span>
+                              <input
+                                type="number" min={0} value={it.costoImpresion}
+                                onChange={e => updateItem(it.product.id, { costoImpresion: Math.max(0, parseFloat(e.target.value) || 0) })}
+                                className="w-20 bg-zinc-800 border border-zinc-700 text-center text-sm font-mono text-white py-1.5 pl-5 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#FF007F]"
+                              />
+                            </div>
+                            {printingOptions.length > 0 && (
+                              <select
+                                value=""
+                                onChange={e => { if (e.target.value) updateItem(it.product.id, { printingId: e.target.value, costoImpresion: 0 }); }}
+                                className="w-20 bg-zinc-900 border border-zinc-700 text-[10px] font-mono text-zinc-500 py-0.5 px-1 rounded focus:outline-none"
+                              >
+                                <option value="">catálogo…</option>
+                                {printingOptions.map(o => (
+                                  <option key={o.id} value={o.id}>{o.tecnica.split('/')[0].trim()} · {o.descripcion}</option>
+                                ))}
+                              </select>
+                            )}
+                          </div>
+                        )}
                       </div>
 
                       {/* Precio final */}
@@ -762,7 +822,7 @@ export default function CotizadorPage() {
             </div>
             {showPreview && (
               <div className="pl-8">
-                <QuotePreview items={items} kits={kits} globalMargin={globalMargin} cliente={cliente} />
+                <QuotePreview items={items} kits={kits} globalMargin={globalMargin} cliente={cliente} printingOptions={printingOptions} />
               </div>
             )}
           </section>

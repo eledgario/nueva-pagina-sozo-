@@ -2,13 +2,14 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { LogOut, LayoutDashboard, Tag, Calculator, Package } from 'lucide-react';
+import { LogOut, LayoutDashboard, Tag, Calculator, Package, Printer } from 'lucide-react';
 
 const NAV = [
-  { href: '/admin',           label: 'Dashboard',  icon: LayoutDashboard },
-  { href: '/admin/precios',   label: 'Precios',     icon: Tag },
-  { href: '/admin/cotizador', label: 'Cotizador',   icon: Calculator },
-  { href: '/admin/inventory', label: 'Inventario',  icon: Package },
+  { href: '/admin',             label: 'Dashboard',  icon: LayoutDashboard },
+  { href: '/admin/precios',     label: 'Precios',     icon: Tag },
+  { href: '/admin/cotizador',   label: 'Cotizador',   icon: Calculator },
+  { href: '/admin/impresion',   label: 'Impresión',   icon: Printer },
+  { href: '/admin/inventory',   label: 'Inventario',  icon: Package },
 ];
 
 export default function AdminShell({ children }: { children: React.ReactNode }) {
