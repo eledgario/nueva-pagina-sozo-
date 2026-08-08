@@ -34,6 +34,49 @@ export async function GET() {
   }
 }
 
+// POST - Create order from cotizador
+export async function POST(request: NextRequest) {
+  if (!isSupabaseConfigured || !supabase) {
+    return NextResponse.json({ error: 'Database not configured' }, { status: 500 });
+  }
+
+  try {
+    const body = await request.json();
+    const { name, company, whatsapp, comments, flow, quantity, details } = body;
+
+    if (!name || !quantity) {
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    }
+
+    const { data, error } = await supabase
+      .from('orders')
+      .insert({
+        name,
+        company: company ?? '',
+        whatsapp: whatsapp ?? '',
+        comments: comments ?? null,
+        flow: flow ?? 'kits',
+        quantity,
+        details,
+        status: 'quoted',
+        logo_url: null,
+        logo_filename: null,
+      })
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Supabase error:', error);
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ order: data }, { status: 201 });
+  } catch (err) {
+    console.error('API error:', err);
+    return NextResponse.json({ error: 'Failed to create order' }, { status: 500 });
+  }
+}
+
 // PATCH - Update order status
 export async function PATCH(request: NextRequest) {
   if (!isSupabaseConfigured || !supabase) {

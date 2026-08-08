@@ -96,14 +96,14 @@ async function extractPricePromo(page: Page): Promise<number | null> {
       // data.base = precio del grupo del cliente logueado (preferido)
       if (data.base) {
         const n = parseFloat(String(data.base).replace(/[^0-9.]/g, ''));
-        if (n >= 10 && n <= 50000) return n;
+        if (n >= 1 && n <= 50000) return n;
       }
 
       // data.all = JSON string con precio de catálogo como fallback
       if (data.all) {
         const all = JSON.parse(data.all);
         const n = parseFloat(String(all.price ?? '').replace(/[^0-9.]/g, ''));
-        if (n >= 10 && n <= 50000) return n;
+        if (n >= 1 && n <= 50000) return n;
       }
 
       return null;

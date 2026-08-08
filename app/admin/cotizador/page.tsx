@@ -5,7 +5,7 @@ import {
   Search, Plus, Trash2, Copy, Check,
   Package, Calculator, ChevronDown, ChevronUp, X,
   Printer, AlertCircle, ClipboardList, Percent, Zap,
-  ExternalLink, ShieldCheck, ShieldX, Loader2, ListCollapse,
+  ExternalLink, ShieldCheck, ShieldX, Loader2, ListCollapse, Save, CheckCircle2,
 } from 'lucide-react';
 
 interface ProductRow {
@@ -481,6 +481,12 @@ export default function CotizadorPage() {
   const [kits, setKits]       = useState(10);
   const [globalMargin, setGlobalMargin] = useState(35);
   const [cliente, setCliente] = useState('');
+  const [empresa, setEmpresa] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
+  const [notas, setNotas] = useState('');
+  const [saving, setSaving] = useState(false);
+  const [savedId, setSavedId] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState('');
   const [showPreview, setShowPreview] = useState(false);
   const [stockStatus, setStockStatus] = useState<Record<string, 'idle' | 'loading' | 'ok' | 'out' | 'manual'>>({});
   const [stockUrl, setStockUrl] = useState<Record<string, string>>({});
@@ -575,6 +581,49 @@ export default function CotizadorPage() {
   const total  = perKit * kits;
   const withoutPrice = items.filter(it => it.product.precio == null);
 
+  const saveQuote = useCallback(async () => {
+    if (!cliente.trim() || items.length === 0) return;
+    setSaving(true);
+    setSaveError('');
+    setSavedId(null);
+    try {
+      const res = await fetch('/api/admin/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: cliente.trim(),
+          company: empresa.trim(),
+          whatsapp: whatsapp.trim(),
+          comments: notas.trim() || null,
+          flow: 'kits',
+          quantity: kits,
+          details: {
+            items: items.map(it => ({
+              product: it.product.modelo,
+              productId: it.product.id,
+              nombre: it.product.nombre,
+              quantity: it.qty,
+              precio: it.product.precio,
+              margenExtra: it.margenExtra,
+              costoImpresion: resolveImpresion(it, kits, printingOptions),
+              printingId: it.printingId,
+            })),
+            globalMargin,
+            perKit,
+            total,
+          },
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error ?? 'Error al guardar');
+      setSavedId(data.order.id);
+    } catch (e) {
+      setSaveError(e instanceof Error ? e.message : 'Error desconocido');
+    } finally {
+      setSaving(false);
+    }
+  }, [cliente, empresa, whatsapp, notas, items, kits, globalMargin, perKit, total, printingOptions]);
+
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
       <div className="max-w-5xl mx-auto px-6 py-8 space-y-8">
@@ -603,15 +652,35 @@ export default function CotizadorPage() {
                 type="text"
                 placeholder="Nombre del cliente"
                 value={cliente}
-                onChange={e => setCliente(e.target.value)}
+                onChange={e => { setCliente(e.target.value); setSavedId(null); }}
                 className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#FF007F]"
+              />
+            </div>
+            <div className="col-span-2">
+              <label className="block text-[11px] font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">Empresa</label>
+              <input
+                type="text"
+                placeholder="Nombre de la empresa"
+                value={empresa}
+                onChange={e => { setEmpresa(e.target.value); setSavedId(null); }}
+                className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#FF007F]"
+              />
+            </div>
+            <div className="col-span-2">
+              <label className="block text-[11px] font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">WhatsApp</label>
+              <input
+                type="tel"
+                placeholder="55 1234 5678"
+                value={whatsapp}
+                onChange={e => { setWhatsapp(e.target.value); setSavedId(null); }}
+                className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#FF007F] font-mono"
               />
             </div>
             <div>
               <label className="block text-[11px] font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">Núm. de kits</label>
               <input
                 type="number" min={1} value={kits}
-                onChange={e => setKits(Math.max(1, parseInt(e.target.value) || 1))}
+                onChange={e => { setKits(Math.max(1, parseInt(e.target.value) || 1)); setSavedId(null); }}
                 className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white focus:outline-none focus:ring-1 focus:ring-[#FF007F] font-mono text-center text-lg font-bold"
               />
             </div>
@@ -619,8 +688,18 @@ export default function CotizadorPage() {
               <label className="block text-[11px] font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">Margen global %</label>
               <input
                 type="number" min={0} max={500} value={globalMargin}
-                onChange={e => setGlobalMargin(Math.max(0, parseInt(e.target.value) || 0))}
+                onChange={e => { setGlobalMargin(Math.max(0, parseInt(e.target.value) || 0)); setSavedId(null); }}
                 className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white focus:outline-none focus:ring-1 focus:ring-[#FF007F] font-mono text-center text-lg font-bold"
+              />
+            </div>
+            <div className="col-span-4">
+              <label className="block text-[11px] font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">Notas</label>
+              <input
+                type="text"
+                placeholder="Urgencia, observaciones, fecha de entrega…"
+                value={notas}
+                onChange={e => { setNotas(e.target.value); setSavedId(null); }}
+                className="w-full bg-zinc-900 border border-zinc-700 text-sm px-3 py-2.5 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#FF007F]"
               />
             </div>
           </div>
@@ -950,17 +1029,55 @@ export default function CotizadorPage() {
         {/* ── Paso 4: Generar cotización ── */}
         {items.length > 0 && (
           <section className="space-y-3">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <span className="w-6 h-6 rounded-full bg-[#FF007F] text-white text-xs font-black flex items-center justify-center flex-shrink-0">4</span>
               <h2 className="text-sm font-bold text-zinc-200">Generar cotización</h2>
-              <button
-                onClick={() => setShowPreview(v => !v)}
-                className="ml-auto flex items-center gap-2 px-4 py-2 bg-[#FF007F] hover:bg-[#e0006e] text-white text-sm font-bold rounded-xl transition-colors"
-              >
-                <Copy className="w-4 h-4" />
-                {showPreview ? 'Ocultar' : 'Ver cotización'}
-              </button>
+              <div className="ml-auto flex items-center gap-2">
+                <button
+                  onClick={saveQuote}
+                  disabled={saving || !cliente.trim() || !!savedId}
+                  className="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed border border-zinc-600 text-white text-sm font-bold rounded-xl transition-colors"
+                >
+                  {saving ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : savedId ? (
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  ) : (
+                    <Save className="w-4 h-4" />
+                  )}
+                  {saving ? 'Guardando…' : savedId ? 'Guardada' : 'Guardar cotización'}
+                </button>
+                <button
+                  onClick={() => setShowPreview(v => !v)}
+                  className="flex items-center gap-2 px-4 py-2 bg-[#FF007F] hover:bg-[#e0006e] text-white text-sm font-bold rounded-xl transition-colors"
+                >
+                  <Copy className="w-4 h-4" />
+                  {showPreview ? 'Ocultar' : 'Ver cotización'}
+                </button>
+              </div>
             </div>
+            {savedId && (
+              <div className="pl-8">
+                <div className="flex items-center gap-3 bg-emerald-950/50 border border-emerald-800 rounded-xl px-4 py-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <span className="text-sm text-emerald-300 font-medium">Cotización guardada en el sistema</span>
+                  <a
+                    href="/admin"
+                    className="ml-auto text-xs font-mono text-emerald-400 hover:text-emerald-300 underline underline-offset-2"
+                  >
+                    Ver en dashboard →
+                  </a>
+                </div>
+              </div>
+            )}
+            {saveError && (
+              <div className="pl-8">
+                <div className="flex items-center gap-2 bg-red-950/50 border border-red-800 rounded-xl px-4 py-3">
+                  <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+                  <span className="text-sm text-red-300">{saveError}</span>
+                </div>
+              </div>
+            )}
             {showPreview && (
               <div className="pl-8">
                 <QuotePreview items={items} kits={kits} globalMargin={globalMargin} cliente={cliente} printingOptions={printingOptions} />
