@@ -54,7 +54,7 @@ const STATUS_STEPS = [
 ];
 
 function AgentCard({ agent }: { agent: Agent }) {
-  const whatsappUrl = `https://wa.me/5637929344?text=${encodeURIComponent('Hola! Tengo una pregunta sobre mi pedido.')}`;
+  const whatsappUrl = `https://wa.me/5588060340?text=${encodeURIComponent('Hola! Tengo una pregunta sobre mi pedido.')}`;
 
   return (
     <motion.div
@@ -480,7 +480,7 @@ export default function ClientPortalPage() {
                 Nuestro equipo esta disponible para responder tus preguntas.
               </p>
               <a
-                href="https://wa.me/5637929344"
+                href="https://wa.me/5588060340"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 font-bold rounded-xl transition-colors"

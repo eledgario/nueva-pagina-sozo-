@@ -383,7 +383,7 @@ function generateOrderConfirmationEmail(
           <div class="agent-title">TU PRODUCER ASIGNADO</div>
           <div class="agent-name">${agent.full_name}</div>
           <p style="margin: 8px 0 0; opacity: 0.9;">Te contactara en las proximas 24 horas para revisar el diseno de tu kit.</p>
-          <a href="https://wa.me/5637929344" class="whatsapp-btn">Contactar por WhatsApp</a>
+          <a href="https://wa.me/5588060340" class="whatsapp-btn">Contactar por WhatsApp</a>
         </div>
         `
             : `

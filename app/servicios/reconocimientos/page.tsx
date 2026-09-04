@@ -35,7 +35,7 @@ export default function ReconocimientosPage() {
             Medallas, trofeos, placas y monedas que comunican el valor de un logro. Producción propia, sin intermediarios, desde una pieza hasta miles.
           </p>
           <a
-            href="https://wa.me/5637929344?text=Hola!%20Quiero%20cotizar%20reconocimientos%20o%20premios%20corporativos"
+            href="https://wa.me/5588060340?text=Hola!%20Quiero%20cotizar%20reconocimientos%20o%20premios%20corporativos"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 text-white font-bold uppercase tracking-wider transition-opacity hover:opacity-90"
@@ -98,7 +98,7 @@ export default function ReconocimientosPage() {
           <h2 className="text-4xl font-black mb-4">¿Tienes una premiación próxima?</h2>
           <p className="text-zinc-400 mb-8">Cuéntanos el evento, la cantidad y el material que buscas. Te enviamos una propuesta en el día.</p>
           <a
-            href="https://wa.me/5637929344?text=Hola!%20Necesito%20cotizar%20reconocimientos%20para%20una%20premiaci%C3%B3n.%20%C2%BFpueden%20ayudarme%3F"
+            href="https://wa.me/5588060340?text=Hola!%20Necesito%20cotizar%20reconocimientos%20para%20una%20premiaci%C3%B3n.%20%C2%BFpueden%20ayudarme%3F"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 font-bold uppercase tracking-wider text-white hover:opacity-90 transition-opacity"

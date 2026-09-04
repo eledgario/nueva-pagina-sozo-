@@ -186,8 +186,8 @@ export default function KioskoPage() {
 
   const buildWhatsApp = (toAdvisor = false) => {
     const phone = toAdvisor
-      ? '5637929344'
-      : (customerPhone.replace(/\D/g, '') || '5637929344');
+      ? '5588060340'
+      : (customerPhone.replace(/\D/g, '') || '5588060340');
     const list = selected.map(p => `  • ${p.nombre} (${p.modelo})`).join('\n');
     const msg = toAdvisor
       ? `Cliente en tienda interesado en:\n\n${list}`

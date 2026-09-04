@@ -35,7 +35,7 @@ export default function SenalizacionPage() {
             Desde un banner roll-up para mañana hasta un stand completo para tu próxima expo. Producción rápida, impresión de alta calidad, entrega en CDMX.
           </p>
           <a
-            href="https://wa.me/5637929344?text=Hola!%20Quiero%20cotizar%20se%C3%B1alizaci%C3%B3n%20para%20un%20evento"
+            href="https://wa.me/5588060340?text=Hola!%20Quiero%20cotizar%20se%C3%B1alizaci%C3%B3n%20para%20un%20evento"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 text-white font-bold uppercase tracking-wider transition-colors"
@@ -92,7 +92,7 @@ export default function SenalizacionPage() {
           <h2 className="text-4xl font-black mb-4">¿Tienes un evento próximo?</h2>
           <p className="text-zinc-400 mb-8">Mándanos las medidas y el diseño — o lo hacemos nosotros — y te cotizamos en menos de 2 horas.</p>
           <a
-            href="https://wa.me/5637929344?text=Hola!%20Necesito%20cotizar%20se%C3%B1alizaci%C3%B3n%20y%20displays%20para%20un%20evento.%20%C2%BFme%20pueden%20ayudar%3F"
+            href="https://wa.me/5588060340?text=Hola!%20Necesito%20cotizar%20se%C3%B1alizaci%C3%B3n%20y%20displays%20para%20un%20evento.%20%C2%BFme%20pueden%20ayudar%3F"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 font-bold uppercase tracking-wider transition-colors text-white"
