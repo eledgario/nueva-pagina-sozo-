@@ -132396,6 +132396,3294 @@
       "colores": [
         "Espejo De Bolsillo"
       ]
+    },
+    {
+      "id": "multi_costurero",
+      "modelo": "MI-COSTURERO",
+      "nombre": "Costurero",
+      "desc": "Costurero para sublimación\nDesde $12 MXN · Mínimo 12 piezas",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684190989-costurerpo.webp"
+      ],
+      "colores": [
+        "Costurero"
+      ]
+    },
+    {
+      "id": "multi_casco-",
+      "modelo": "MI-CASCO",
+      "nombre": "Casco ",
+      "desc": "Llavero de casco \nDesde $8 MXN · Mínimo 12 piezas",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684155872-casco.webp"
+      ],
+      "colores": [
+        "Casco"
+      ]
+    },
+    {
+      "id": "multi_corcholata-",
+      "modelo": "MI-CORCHOLATA",
+      "nombre": "Corcholata ",
+      "desc": "Corcholata para serigrafía\nDesde $7 MXN · Mínimo 12 piezas",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684083392-co.webp"
+      ],
+      "colores": [
+        "$9"
+      ]
+    },
+    {
+      "id": "multi_encendedor-",
+      "modelo": "MI-ENCENDEDOR",
+      "nombre": "Encendedor ",
+      "desc": "Encendedor para serigrafía \nDesde $8 MXN · Mínimo 12 piezas",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684049630-encendedor.jpg"
+      ],
+      "colores": [
+        "Encendedor"
+      ]
+    },
+    {
+      "id": "multi_pluma-economica",
+      "modelo": "MI-PLUMAECONOMICA",
+      "nombre": "Pluma económica",
+      "desc": "Pluma para serigrafía\nDesde $5 MXN · Mínimo 12 piezas · Pluma",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684020869-pluma.webp"
+      ],
+      "colores": [
+        "Pluma Económica"
+      ]
+    },
+    {
+      "id": "multi_pantunfla-economica",
+      "modelo": "MI-PANTUNFLAECONO",
+      "nombre": "Pantunfla económica",
+      "desc": "Pantunfla para serigrafía\nDesde $13 MXN · Mínimo 12 piezas · Pantunfla",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744683978956-pantunfla.webp"
+      ],
+      "colores": [
+        "Pantunfla Económica"
+      ]
+    },
+    {
+      "id": "multi_sandalia-066d",
+      "modelo": "MI-SANDALIA066D",
+      "nombre": "Sandalia",
+      "desc": "Sandalia para serigrafia\nDesde $28 MXN · Mínimo 12 piezas · Sandalia",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744683940746-sandalia.jpg"
+      ],
+      "colores": [
+        "Sandalia"
+      ]
+    },
+    {
+      "id": "multi_taza-base-de-corcho--367b",
+      "modelo": "MI-TAZABASEDECO",
+      "nombre": "Taza base de corcho ",
+      "desc": "Taza base corcho para serigrafía \nDesde $85 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744683897625-corcho.jpg"
+      ],
+      "colores": [
+        "Taza Base De Corcho"
+      ]
+    },
+    {
+      "id": "multi_taza-para-serigrafia",
+      "modelo": "MI-TAZAPARASERIG",
+      "nombre": "Taza para serigrafía 11 oz",
+      "desc": "Taza de varios colos para serigrafía\nDesde $36 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1745351742764-tz001-cat2.jpg"
+      ],
+      "colores": [
+        "Rojo",
+        "Azul Cobalto",
+        "Negra",
+        "Rosa",
+        "Vino",
+        "Verde",
+        "Naranja",
+        "Amarillo",
+        "Blanca"
+      ]
+    },
+    {
+      "id": "multi_picaporte-",
+      "modelo": "MI-PICAPORTE",
+      "nombre": "Picaporte ",
+      "desc": "Picaporte blanco para sublimar\nDesde $25 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744682894169-picaporte.webp"
+      ],
+      "colores": [
+        "Picaporte"
+      ]
+    },
+    {
+      "id": "multi_laminadora",
+      "modelo": "MI-LAMINADORA",
+      "nombre": "Laminadora",
+      "desc": "Laminadora para credencial de PVC\nDesde $1200 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744682868794-laminadora.webp"
+      ],
+      "colores": [
+        "Laminadora"
+      ]
+    },
+    {
+      "id": "multi_paquete-para-credencial-de-pvc",
+      "modelo": "MI-PAQUETEPARACR",
+      "nombre": "Paquete para credencial de PVC",
+      "desc": "500 hojas \nDesde $550 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744682832518-pvc.jpg"
+      ],
+      "colores": [
+        "Paquete Para Credencial De Pvc"
+      ]
+    },
+    {
+      "id": "multi_suajadora-de-pvc",
+      "modelo": "MI-SUAJADORADEPV",
+      "nombre": "Suajadora de PVC",
+      "desc": "Suajadora para credencial de PVC\nDesde $700 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744682772149-suajadora.webp"
+      ],
+      "colores": [
+        "Suajadora De Pvc"
+      ]
+    },
+    {
+      "id": "multi_pegamento-sk100",
+      "modelo": "MI-PEGAMENTOSK100",
+      "nombre": "Pegamento SK100",
+      "desc": "Pegamento SK100 \nDesde $90 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744682725084-pegamento.jpg"
+      ],
+      "colores": [
+        "Pegamento Sk100"
+      ]
+    },
+    {
+      "id": "multi_base-o-soporte-de-plastico",
+      "modelo": "MI-BASEOSOPORTE",
+      "nombre": "Base o soporte de plastico",
+      "desc": "Base o soporte de plastico \nDesde $6 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744691698688-base.jpg"
+      ],
+      "colores": [
+        "$8, $10, $12"
+      ]
+    },
+    {
+      "id": "multi_despachador-para-cinta",
+      "modelo": "MI-DESPACHADORPAR",
+      "nombre": "Despachador para cinta",
+      "desc": "Despachador para cinta termica\nDesde $150 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744682386264-cii.webp"
+      ],
+      "colores": [
+        "Despachador Para Cinta"
+      ]
+    },
+    {
+      "id": "multi_perforadora",
+      "modelo": "MI-PERFORADORA",
+      "nombre": "Perforadora",
+      "desc": "Perforadora para tarjetas \nDesde $150 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744682330673-cxort.jpg"
+      ],
+      "colores": [
+        "Perforadora"
+      ]
+    },
+    {
+      "id": "multi_credencial-para-sublimar",
+      "modelo": "MI-CREDENCIALPARA",
+      "nombre": "Credencial para sublimar",
+      "desc": "Credencial blanca para sublimar\nDesde $7 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744758111911-credencuia.png"
+      ],
+      "colores": [
+        "Credencial Para Sublimar"
+      ]
+    },
+    {
+      "id": "multi_papel-chino-para-sublimar",
+      "modelo": "MI-PAPELCHINOPAR",
+      "nombre": "Papel chino para sublimar",
+      "desc": "Papel chino para sublimar 100 hojas\nDesde $100 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744682217879-chino.jpg"
+      ],
+      "colores": [
+        "Papel Chino Para Sublimar"
+      ]
+    },
+    {
+      "id": "multi_papel-quaff-para-sublimar",
+      "modelo": "MI-PAPELQUAFFPAR",
+      "nombre": "Papel Quaff para sublimar",
+      "desc": "Papel Quaff para sublimar 100 hojas\nDesde $110 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744682171963-papelquaff.webp"
+      ],
+      "colores": [
+        "Papel Quaff Para Sublimar"
+      ]
+    },
+    {
+      "id": "multi_papel-kronaline-para-sublimar",
+      "modelo": "MI-PAPELKRONALINE",
+      "nombre": "Papel Kronaline para sublimar",
+      "desc": "Papel Kronaline par sublimar 100 hojas\nDesde $155 MXN · Mínimo 12 piezas · Papel",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744682081254-papel.jpg"
+      ],
+      "colores": [
+        "Papel Kronaline Para Sublimar"
+      ]
+    },
+    {
+      "id": "multi_cinta-termica-verde",
+      "modelo": "MI-CINTATERMICAV",
+      "nombre": "Cinta térmica verde",
+      "desc": "Cinta térmica verde\nDesde $50 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744682009044-imagen3.jpg"
+      ],
+      "colores": [
+        "Cinta Térmica Verde"
+      ]
+    },
+    {
+      "id": "multi_cinta-termica-cafe-",
+      "modelo": "MI-CINTATERMICAC",
+      "nombre": "Cinta térmica café ",
+      "desc": "Cinta térmica café para sublimar\nDesde $35 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744758068554-cinta.webp"
+      ],
+      "colores": [
+        "Cinta Térmica Café"
+      ]
+    },
+    {
+      "id": "multi_estuche",
+      "modelo": "MI-ESTUCHE",
+      "nombre": "Estuche",
+      "desc": "Estuche blanco para ipad para sublimar\nDesde $80 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744681392909-ipad.webp"
+      ],
+      "colores": [
+        "Estuche"
+      ]
+    },
+    {
+      "id": "multi_lanyard-basico",
+      "modelo": "MI-LANYARDBASICO",
+      "nombre": "Lanyard basico",
+      "desc": "Lanyard basico blanco para sublimar\nDesde $12 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744681326523-simple.jpg"
+      ],
+      "colores": [
+        "Lanyard Basico"
+      ]
+    },
+    {
+      "id": "multi_lanyard-doble-broche",
+      "modelo": "MI-LANYARDDOBLEB",
+      "nombre": "Lanyard doble broche",
+      "desc": "Lanyars blanco para sublimar doble broche\nDesde $15 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744681227062-lanyard.webp"
+      ],
+      "colores": [
+        "Lanyard Doble Broche"
+      ]
+    },
+    {
+      "id": "multi_banda-de-edecan",
+      "modelo": "MI-BANDADEEDECAN",
+      "nombre": "Banda de edecán",
+      "desc": "Banda de edecán para sublimar\nDesde $85 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744691742387-dsdss.webp"
+      ],
+      "colores": [
+        "Banda De Edecán"
+      ]
+    },
+    {
+      "id": "multi_lapicera",
+      "modelo": "MI-LAPICERA",
+      "nombre": "Lapicera",
+      "desc": "Lapicera para sublimar\nDesde $16 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744681047452-lapicera.webp"
+      ],
+      "colores": [
+        "Lapicera"
+      ]
+    },
+    {
+      "id": "multi_correa-para-perro",
+      "modelo": "MI-CORREAPARAPER",
+      "nombre": "Correa para perro",
+      "desc": "Correo para perro para sublimar\nDesde $30 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744680941500-correa.webp"
+      ],
+      "colores": [
+        "Correa Para Perro"
+      ]
+    },
+    {
+      "id": "multi_gorra-",
+      "modelo": "MI-GORRA",
+      "nombre": "Gorra ",
+      "desc": "Gorra para sublimar \nDesde $27 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744680841092-gorra.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Rojo",
+        "Azul",
+        "Morado",
+        "Azul Cielo",
+        "Negro",
+        "Amarillo",
+        "Amarillo Neon",
+        "Azul Marino",
+        "Rosa Neon",
+        "Naranja",
+        "Naranja Neon"
+      ]
+    },
+    {
+      "id": "multi_pulsera-15-cm",
+      "modelo": "MI-PULSERA15CM",
+      "nombre": "Pulsera 1.5 cm",
+      "desc": "Pulsera 1.5 cm para sublimar, se vende ya sublimada\nDesde $120 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744680726675-pulsera.webp"
+      ],
+      "colores": [
+        "Pulsera 1.5 Cm"
+      ]
+    },
+    {
+      "id": "multi_frasada-para-bebe",
+      "modelo": "MI-FRASADAPARABE",
+      "nombre": "Frasada para bebé",
+      "desc": "Frasada para bebé blanca para sublimar\nDesde $80 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744680549537-bebe.jpg"
+      ],
+      "colores": [
+        "$145"
+      ]
+    },
+    {
+      "id": "multi_bandera-22-x-165-cm",
+      "modelo": "MI-BANDERA22X16",
+      "nombre": "Bandera 22 x 16.5 cm",
+      "desc": "Bandera blanca para sublimar\nDesde $25 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744680468027-bandera.jpg"
+      ],
+      "colores": [
+        "Bandera 22 X 16.5 Cm"
+      ]
+    },
+    {
+      "id": "multi_bufanda-para-nino",
+      "modelo": "MI-BUFANDAPARANI",
+      "nombre": "Bufanda para niño",
+      "desc": "Bufanda blanca para niños para sublimar\nDesde $12 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744680397058-bufanda.jpeg"
+      ],
+      "colores": [
+        "Bufanda Para Niño"
+      ]
+    },
+    {
+      "id": "multi_antifaz-franel",
+      "modelo": "MI-ANTIFAZFRANEL",
+      "nombre": "Antifaz Franel",
+      "desc": "Antifaz franel para sublimar\nDesde $19 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744680318529-antifaz.webp"
+      ],
+      "colores": [
+        "Antifaz Franel"
+      ]
+    },
+    {
+      "id": "multi_buff",
+      "modelo": "MI-BUFF",
+      "nombre": "Buff",
+      "desc": "Buff blanco para sublimar\nDesde $15 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744680258712-ma.webp"
+      ],
+      "colores": [
+        "Buff"
+      ]
+    },
+    {
+      "id": "multi_funda-abanico",
+      "modelo": "MI-FUNDAABANICO",
+      "nombre": "Funda abanico",
+      "desc": "Funda abanico para sublimar\nDesde $10 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744680152414-funda.jpg"
+      ],
+      "colores": [
+        "Funda Abanico"
+      ]
+    },
+    {
+      "id": "multi_abanico-",
+      "modelo": "MI-ABANICO",
+      "nombre": "Abanico ",
+      "desc": "Abanico para sublimar\nDesde $35 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744680079904-abanicop.jpg"
+      ],
+      "colores": [
+        "Abanico"
+      ]
+    },
+    {
+      "id": "multi_pano-para-lentes",
+      "modelo": "MI-PANOPARALENTE",
+      "nombre": "Paño para lentes",
+      "desc": "Paño para lentes para sublimar\nDesde $15 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744679992998-lentes.webp"
+      ],
+      "colores": [
+        "Paño Para Lentes"
+      ]
+    },
+    {
+      "id": "multi_bata-satin",
+      "modelo": "MI-BATASATIN",
+      "nombre": "Bata satín",
+      "desc": "Bata satín para sublimar\nDesde $180 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744679667198-spa1q.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Vino",
+        "Dorado",
+        "Verde Bandera",
+        "Azul Cielo"
+      ]
+    },
+    {
+      "id": "multi_banda-spa-toallin",
+      "modelo": "MI-BANDASPATOALL",
+      "nombre": "Banda SPA toallin",
+      "desc": "Banda SPA toallin para sublimar\nDesde $11 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744679526942-banda.webp"
+      ],
+      "colores": [
+        "Banda Spa Toallin"
+      ]
+    },
+    {
+      "id": "multi_toalla-",
+      "modelo": "MI-TOALLA",
+      "nombre": "Toalla ",
+      "desc": "Toalla diferentes medidas para sublimar\nDesde $18 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744679399550-talla.webp"
+      ],
+      "colores": [
+        "$16, $12, $11"
+      ]
+    },
+    {
+      "id": "multi_morral-",
+      "modelo": "MI-MORRAL",
+      "nombre": "Morral ",
+      "desc": "Morral para sublimar\nDesde $55 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744679294536-mnorral.webp"
+      ],
+      "colores": [
+        "Morral"
+      ]
+    },
+    {
+      "id": "multi_pantunfla-spa-toallin-",
+      "modelo": "MI-PANTUNFLASPAT",
+      "nombre": "Pantunfla SPA toallin ",
+      "desc": "Pantunfla SPA toallin unitalla para sublimar\nDesde $20 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744679150239-pantunfla.webp"
+      ],
+      "colores": [
+        "Pantunfla Spa Toallin"
+      ]
+    },
+    {
+      "id": "multi_pantunfla-de-mono",
+      "modelo": "MI-PANTUNFLADEMO",
+      "nombre": "Pantunfla de moño",
+      "desc": "Pantunfla de moño unitalla para sublimar\nDesde $40 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744679006053-moo.webp"
+      ],
+      "colores": [
+        "Pantunfla De Moño"
+      ]
+    },
+    {
+      "id": "multi_pantunfla-basica",
+      "modelo": "MI-PANTUNFLABASIC",
+      "nombre": "Pantunfla basica",
+      "desc": "Pantunfla basica unitalla para sublimar\nDesde $40 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744678898898-pantunfla.webp"
+      ],
+      "colores": [
+        "Pantunfla Basica"
+      ]
+    },
+    {
+      "id": "multi_sandalia",
+      "modelo": "MI-SANDALIA",
+      "nombre": "Sandalia",
+      "desc": "Sandalia unitalla para sublimar\nDesde $42 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744678784270-sandalia.jpg"
+      ],
+      "colores": [
+        "Sandalia"
+      ]
+    },
+    {
+      "id": "multi_cojin-de-lentajuela",
+      "modelo": "MI-COJINDELENTAJ",
+      "nombre": "Cojin de lentajuela",
+      "desc": "Cojin de lentejuela para sublimar \nDesde $110 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744678059098-lentehjuakla.jpg"
+      ],
+      "colores": [
+        "Cojin De Lentajuela"
+      ]
+    },
+    {
+      "id": "multi_cojin",
+      "modelo": "MI-COJIN",
+      "nombre": "Cojin",
+      "desc": "Cojin para sublimar\nDesde $35 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744677954254-cojin.jpg"
+      ],
+      "colores": [
+        "$45"
+      ]
+    },
+    {
+      "id": "multi_fundas-para-almohada-",
+      "modelo": "MI-FUNDASPARAALM",
+      "nombre": "Fundas para almohada ",
+      "desc": "Fundas para almohada para sublimar\nDesde $25 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744677843869-d_nq_np_776846-mlu72636825699_112023-o.webp"
+      ],
+      "colores": [
+        "$75"
+      ]
+    },
+    {
+      "id": "multi_paraguas-para-sublimar",
+      "modelo": "MI-PARAGUASPARAS",
+      "nombre": "Paraguas para sublimar",
+      "desc": "Paraguas de mano y asa de mando para sublimar\nDesde $50 MXN · Mínimo 12 piezas · Accesorio",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744677646719-paraguas.jpg"
+      ]
+    },
+    {
+      "id": "multi_morral-16-x-23-cm",
+      "modelo": "MI-MORRAL16X23",
+      "nombre": "Morral 16 x 23 cm",
+      "desc": "Morral para sublimar\nDesde $15 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744677550244-morral.webp"
+      ],
+      "colores": [
+        "Morral 16 X 23 Cm"
+      ]
+    },
+    {
+      "id": "multi_bolsa-dulcero",
+      "modelo": "MI-BOLSADULCERO",
+      "nombre": "Bolsa dulcero",
+      "desc": "Bolsa dulcero para sublimar\nDesde $7 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744677387410-dulceri.webp"
+      ],
+      "colores": [
+        "$10"
+      ]
+    },
+    {
+      "id": "multi_servilleta",
+      "modelo": "MI-SERVILLETA",
+      "nombre": "Servilleta",
+      "desc": "Servilleta para sublimar\nDesde $15 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744677292901-ser.webp"
+      ],
+      "colores": [
+        "Servilleta"
+      ]
+    },
+    {
+      "id": "multi_guante-de-cocina",
+      "modelo": "MI-GUANTEDECOCIN",
+      "nombre": "Guante de cocina",
+      "desc": "Guante de cocina para sublimar\nDesde $16 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744676997413-guanrte.jpg"
+      ],
+      "colores": [
+        "Guante De Cocina"
+      ]
+    },
+    {
+      "id": "multi_tortillero-",
+      "modelo": "MI-TORTILLERO",
+      "nombre": "Tortillero ",
+      "desc": "Tortillero para sublimar\nDesde $12 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744676908998-tortin.webp"
+      ],
+      "colores": [
+        "Tortillero"
+      ]
+    },
+    {
+      "id": "multi_mandil-con-y-sin-bolsa",
+      "modelo": "MI-MANDILCONYSI",
+      "nombre": "Mandil ",
+      "desc": "Mandil para sublimar con y sin bolsa\nDesde $27 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744676811723-mandil.jpg"
+      ],
+      "colores": [
+        "Mandil"
+      ]
+    },
+    {
+      "id": "multi_boxer",
+      "modelo": "MI-BOXER",
+      "nombre": "Boxer",
+      "desc": "Boxer para sublimar\nDesde $42 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744676652043-boxer.webp"
+      ],
+      "colores": [
+        "Boxer"
+      ]
+    },
+    {
+      "id": "multi_calceta-",
+      "modelo": "MI-CALCETA",
+      "nombre": "Calceta ",
+      "desc": "Calceta para sublimar 2 tamaños\nDesde $20 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744676484908-calceta.webp"
+      ],
+      "colores": [
+        "$13"
+      ]
+    },
+    {
+      "id": "multi_panalero-para-bebe",
+      "modelo": "MI-PANALEROPARAB",
+      "nombre": "Pañalero para bebé",
+      "desc": "Pañalero para sublimar\nDesde $48 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744676311636-paalero.webp"
+      ],
+      "colores": [
+        "$53"
+      ]
+    },
+    {
+      "id": "multi_babero-infantil",
+      "modelo": "MI-BABEROINFANTIL",
+      "nombre": "Babero infantil",
+      "desc": "Babero infantil para sublimar\nDesde $15 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744676150144-baberopp.webp"
+      ],
+      "colores": [
+        "Babero Infantil"
+      ]
+    },
+    {
+      "id": "multi_mascada-",
+      "modelo": "MI-MASCADA",
+      "nombre": "Mascada ",
+      "desc": "Mascada para sublimar\nDesde $35 MXN · Mínimo 12 piezas · Textil",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744676021655-mascada.jpg"
+      ],
+      "colores": [
+        "$45"
+      ]
+    },
+    {
+      "id": "multi_playera-bombay",
+      "modelo": "MI-PLAYERABOMBAY",
+      "nombre": "Playera Bombay",
+      "desc": "Playera bombay para sublimar\nDesde $28 MXN · Mínimo 12 piezas · Playera",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744675892239-bombay.webp"
+      ]
+    },
+    {
+      "id": "multi_playera-brush",
+      "modelo": "MI-PLAYERABRUSH",
+      "nombre": "Playera Brush",
+      "desc": "Playera brush diferentes tamaños para sublimar\nDesde $38 MXN · Mínimo 12 piezas · Playera",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744675815400-bombay.webp"
+      ]
+    },
+    {
+      "id": "multi_playera-algodon",
+      "modelo": "MI-PLAYERAALGODON",
+      "nombre": "Playera algodón",
+      "desc": "Playera algodón para sublimar\nDesde $48 MXN · Mínimo 12 piezas · Playera",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744675708497-alghohodon.jpg"
+      ]
+    },
+    {
+      "id": "multi_rompecabezas-redondo-en-blanco",
+      "modelo": "MI-ROMPECABEZASRE",
+      "nombre": "Rompecabezas Redondo en Blanco",
+      "desc": "Rompecabezas circular para sublimar\nDesde $10 MXN · Mínimo 12 piezas · Rompecabezas",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744672248411-circulo.webp"
+      ],
+      "colores": [
+        "Rompecabezas Redondo En Blanco"
+      ]
+    },
+    {
+      "id": "multi_rompecabezas-en-forma-de-corazon",
+      "modelo": "MI-ROMPECABEZASEN",
+      "nombre": "Rompecabezas en forma de corazón",
+      "desc": "Rompecabezas de forma de corazon para sublimar\nDesde $17 MXN · Mínimo 12 piezas · Rompecabezas",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744672171973-corazonrom.webp"
+      ],
+      "colores": [
+        "Rompecabezas En Forma De Corazón"
+      ]
+    },
+    {
+      "id": "multi_rompecabezas-en-blanco",
+      "modelo": "MI-ROMPECABEZASEN",
+      "nombre": "Rompecabezas en blanco",
+      "desc": "Rompecabezas para sublimar\nDesde $16 MXN · Mínimo 12 piezas · Rompecabezas",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744672060292-rompe.png"
+      ],
+      "colores": [
+        "$25, $30, $35"
+      ]
+    },
+    {
+      "id": "multi_espejo-compacto-en-forma-de-corazon",
+      "modelo": "MI-ESPEJOCOMPACTO",
+      "nombre": "Espejo compacto",
+      "desc": "Espejo para sublimar\nDesde $45 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744671912738-espejo.jpg"
+      ],
+      "colores": [
+        "Corazón",
+        "Cuadrado",
+        "Ovalado",
+        "Circular"
+      ]
+    },
+    {
+      "id": "multi_sujetador-para-bolsa",
+      "modelo": "MI-SUJETADORPARA",
+      "nombre": "Sujetador para bolsa",
+      "desc": "Sujetador para bolsa para subllimacion\nDesde $50 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744671834331-bolsa.jpg"
+      ],
+      "colores": [
+        "Sujetador Para Bolsa"
+      ]
+    },
+    {
+      "id": "multi_llaveros-de-metal",
+      "modelo": "MI-LLAVEROSDEMET",
+      "nombre": "Llaveros de metal",
+      "desc": "Llavero de metal para sublimar\nDesde $32 MXN · Mínimo 12 piezas · Llavero",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744671720363-etal.png"
+      ],
+      "colores": [
+        "Llaveros De Metal"
+      ]
+    },
+    {
+      "id": "multi_destapador-cuadrado",
+      "modelo": "MI-DESTAPADORCUAD",
+      "nombre": "Destapador cuadrado",
+      "desc": "Destapador cuadrado para sublimar\nDesde $25 MXN · Mínimo 12 piezas · Destador",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744671656228-desta.jpeg"
+      ],
+      "colores": [
+        "Destapador Cuadrado"
+      ]
+    },
+    {
+      "id": "multi_destapador-",
+      "modelo": "MI-DESTAPADOR",
+      "nombre": "Destapador ",
+      "desc": "Destapador para sublimar\nDesde $22 MXN · Mínimo 12 piezas · Destapador",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744671547859-botella.jpeg"
+      ],
+      "colores": [
+        "Destapador"
+      ]
+    },
+    {
+      "id": "multi_placa-para-sublimar1",
+      "modelo": "MI-PLACAPARASUBL",
+      "nombre": "Placa para sublimar",
+      "desc": "Placa para sublimar\nDesde $40 MXN · Mínimo 12 piezas · Placa",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744671028496-placa.webp"
+      ],
+      "colores": [
+        "$95, $27, $40"
+      ]
+    },
+    {
+      "id": "multi_placa-para-sublimar",
+      "modelo": "MI-PLACAPARASUBL",
+      "nombre": "Placa para sublimar",
+      "desc": "Placa de diferentes modelos para sublimar\nDesde $150 MXN · Mínimo 12 piezas · Placa",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744669450549-gato.png"
+      ],
+      "colores": [
+        "Placa Para Sublimar"
+      ]
+    },
+    {
+      "id": "multi_piedra-",
+      "modelo": "MI-PIEDRA",
+      "nombre": "Piedra ",
+      "desc": "Piedra decorativa para sublimar\nDesde $85 MXN · Mínimo 12 piezas · Piedra",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744669033101-piedra.jpeg"
+      ],
+      "colores": [
+        "$130, $90, $138, $100"
+      ]
+    },
+    {
+      "id": "multi_llavero-mdf",
+      "modelo": "MI-LLAVEROMDF",
+      "nombre": "Llavero MDF",
+      "desc": "Llavero MDF para sublimar\nDesde $15 MXN · Mínimo 12 piezas · MDF",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744668698538-llaveromdf.jpg"
+      ],
+      "colores": [
+        "Llavero Mdf"
+      ]
+    },
+    {
+      "id": "multi_soporte-para-dispositivos",
+      "modelo": "MI-SOPORTEPARADI",
+      "nombre": "Soporte para dispositivos",
+      "desc": "Soporte para teléfonos de MDF para sublimar\nDesde $30 MXN · Mínimo 12 piezas · MDF",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744667155582-portacelmdf.webp"
+      ],
+      "colores": [
+        "Soporte Para Dispositivos"
+      ]
+    },
+    {
+      "id": "multi_identificador-de-maleta",
+      "modelo": "MI-IDENTIFICADORD",
+      "nombre": "Identificador de maleta",
+      "desc": "Identificador de maleta para sublimar\nDesde $28 MXN · Mínimo 12 piezas · MDF",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744667054516-maleta.webp"
+      ],
+      "colores": [
+        "Identificador De Maleta"
+      ]
+    },
+    {
+      "id": "multi_portaretrato-mdf",
+      "modelo": "MI-PORTARETRATOMD",
+      "nombre": "Portaretrato MDF",
+      "desc": "Portaretrato MDF para sublimar\nDesde $32 MXN · Mínimo 12 piezas · Portaretrato",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744666883175-portamdf.webp"
+      ],
+      "colores": [
+        "$25, $25"
+      ]
+    },
+    {
+      "id": "multi_portavaso-mdf",
+      "modelo": "MI-PORTAVASOMDF",
+      "nombre": "Portavaso MDF",
+      "desc": "Portavaso MDF para sublimar\nDesde $20 MXN · Mínimo 12 piezas · Portavaso",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744666723283-mdf.webp"
+      ],
+      "colores": [
+        "Portavaso Mdf"
+      ]
+    },
+    {
+      "id": "multi_portavaso-neopreno-",
+      "modelo": "MI-PORTAVASONEOPR",
+      "nombre": "Portavaso neopreno ",
+      "desc": "Portavaso neopreno para sublimar\nDesde $12 MXN · Mínimo 12 piezas · Neopreno",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744666451847-rect.jpg"
+      ],
+      "colores": [
+        "$12"
+      ]
+    },
+    {
+      "id": "multi_mouse-pad-rectangulo",
+      "modelo": "MI-MOUSEPADRECTA",
+      "nombre": "Mouse pad rectangúlar",
+      "desc": "Mouse pad rectangúlar para sublimar\nDesde $17 MXN · Mínimo 12 piezas · Mouse pad",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744666257496-pad2.jpg"
+      ],
+      "colores": [
+        "$15, $15, $80"
+      ]
+    },
+    {
+      "id": "multi_mouse-pad-circular",
+      "modelo": "MI-MOUSEPADCIRCU",
+      "nombre": "Mouse pad circular",
+      "desc": "Mouse pad circular para sublimar\nDesde $17 MXN · Mínimo 12 piezas · Mouse pad",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744665306022-pad.webp"
+      ],
+      "colores": [
+        "17, 15"
+      ]
+    },
+    {
+      "id": "multi_plato-para-perro",
+      "modelo": "MI-PLATOPARAPERR",
+      "nombre": "Plato para perro",
+      "desc": "Plato para perro para sublimar\nDesde $200 MXN · Mínimo 12 piezas · Plato",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744663944102-perro.webp"
+      ],
+      "colores": [
+        "Plato Para Perro"
+      ]
+    },
+    {
+      "id": "multi_plato-blanco-con-filo-dorado",
+      "modelo": "MI-PLATOBLANCOCO",
+      "nombre": "Plato blanco con filo dorado 30 cm",
+      "desc": "Plato blanco con filo dorado para sublimar\nDesde $110 MXN · Mínimo 12 piezas · Plato",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744663864811-platoro.jpg"
+      ]
+    },
+    {
+      "id": "multi_plato-blanco",
+      "modelo": "MI-PLATOBLANCO",
+      "nombre": "Plato Blanco",
+      "desc": "Plato blanco para sublimar\nDesde $78 MXN · Mínimo 12 piezas · Plato",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744663730191-platosublimar.webp"
+      ],
+      "colores": [
+        "$68, $100"
+      ]
+    },
+    {
+      "id": "multi_termo-huevito-con-glitter",
+      "modelo": "MI-TERMOHUEVITOC",
+      "nombre": "Termo huevito con glitter 250 ml",
+      "desc": "Termo con glitter para sublimar \nDesde $155 MXN · Mínimo 12 piezas · Glitter",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744663636800-glitterw.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Azul",
+        "Dorado"
+      ]
+    },
+    {
+      "id": "multi_termo-huevito",
+      "modelo": "MI-TERMOHUEVITO",
+      "nombre": "Termo huevito 250 ml",
+      "desc": "Termo huevito para sublimar \nDesde $140 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744663538536-whiskjero.webp"
+      ],
+      "colores": [
+        "Termo Huevito 250 Ml"
+      ]
+    },
+    {
+      "id": "multi_termo-lechero-",
+      "modelo": "MI-TERMOLECHERO",
+      "nombre": "Termo lechero 600 ml",
+      "desc": "Termo lechero para sublimar de acero inoxidable\nDesde $90 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744663468215-lecherotermo.jpg"
+      ],
+      "colores": [
+        "Termo Lechero 600 Ml"
+      ]
+    },
+    {
+      "id": "multi_termo-bala-1",
+      "modelo": "MI-TERMOBALA1",
+      "nombre": "Termo bala",
+      "desc": "Termo bala de acero inoxidable para sublimar\nDesde $150 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744663371977-temobala.jpg"
+      ],
+      "colores": [
+        "$175"
+      ]
+    },
+    {
+      "id": "multi_termo-bala-",
+      "modelo": "MI-TERMOBALA",
+      "nombre": "Termo bala 600 ml",
+      "desc": "Termo bala de acero inoxidable para sublimar\nDesde $130 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744663258650-bala.jpg"
+      ],
+      "colores": [
+        "Termo Bala 600 Ml"
+      ]
+    },
+    {
+      "id": "multi_termos-termicos",
+      "modelo": "MI-TERMOSTERMICOS",
+      "nombre": "Termos cónico",
+      "desc": "Termos cónico de acero inoxidable para sublimar\nDesde $150 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744663181905-vaso.jpg"
+      ],
+      "colores": [
+        "Termos Cónico"
+      ]
+    },
+    {
+      "id": "multi_termo-tumber-magico-20-oz",
+      "modelo": "MI-TERMOTUMBERMA",
+      "nombre": "Termo tumber mágico 20 oz",
+      "desc": "Termo tumber mágico 20 oz para sublimar acero inoxidable\nDesde $150 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744663098449-termo.jpeg"
+      ],
+      "colores": [
+        "Rosa",
+        "Azul",
+        "Lila"
+      ]
+    },
+    {
+      "id": "multi_termo-tumber-20-oz",
+      "modelo": "MI-TERMOTUMBER20",
+      "nombre": "Termo Tumber 20 oz",
+      "desc": "Termo Tumber 20 oz para sublimar de acero inoxidable\nDesde $150 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744663024880-tumber.webp"
+      ],
+      "colores": [
+        "Termo Tumber 20 Oz"
+      ]
+    },
+    {
+      "id": "multi_vasos-termicos-de-acero-inoxidable",
+      "modelo": "MI-VASOSTERMICOS",
+      "nombre": "Vasos Térmicos de Acero Inoxidable",
+      "desc": "Vasos Térmicos de Acero Inoxidable para sublimar\nDesde $150 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744662950553-premium.jpg"
+      ],
+      "colores": [
+        "Vasos Térmicos De Acero Inoxidable"
+      ]
+    },
+    {
+      "id": "multi_botellas-de-agua-de-colores-degradados",
+      "modelo": "MI-BOTELLASDEAGU",
+      "nombre": "Botellas de agua de colores degradados 600 ml",
+      "desc": "Botellas de agua de colores degradados para sublimar\nDesde $170 MXN · Mínimo 12 piezas · Botella de acero",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744662824189-botellacolor.webp"
+      ],
+      "colores": [
+        "Verde",
+        "Azul",
+        "Rosa",
+        "Morado"
+      ]
+    },
+    {
+      "id": "multi_botellas-termicas",
+      "modelo": "MI-BOTELLASTERMIC",
+      "nombre": "Botellas Térmicas 600 ml",
+      "desc": "Botella térmica de acero inoxidable para sublimar \nDesde $110 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744662747016-botella.jpg"
+      ],
+      "colores": [
+        "Botellas Térmicas 600 Ml"
+      ]
+    },
+    {
+      "id": "multi_termo-tulum-fluorescente",
+      "modelo": "MI-TERMOTULUMFLU",
+      "nombre": "Termo tulum fluorescente",
+      "desc": "Termo tulum fluorescente para sublimar 600 ml\nDesde $140 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744662599496-fluorescente.jpg"
+      ],
+      "colores": [
+        "Termo Tulum Fluorescente"
+      ]
+    },
+    {
+      "id": "multi_termo-tulum",
+      "modelo": "MI-TERMOTULUM",
+      "nombre": "Termo Tulum",
+      "desc": "Termo tulum 600 ml para sublimar acero inoxidable \nDesde $135 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744662424847-tulum.jpg"
+      ],
+      "colores": [
+        "Termo Tulum"
+      ]
+    },
+    {
+      "id": "multi_termo-para-auto",
+      "modelo": "MI-TERMOPARAAUTO",
+      "nombre": "Termo para auto ",
+      "desc": "Termo para auto para sublimar\nDesde $130 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744662289002-carro.jpg"
+      ],
+      "colores": [
+        "Termo Para Auto"
+      ]
+    },
+    {
+      "id": "multi_termo-lata-",
+      "modelo": "MI-TERMOLATA",
+      "nombre": "Termo lata ",
+      "desc": "Termo lata para sublimar\nDesde $110 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744662158807-aa2.jpg"
+      ],
+      "colores": [
+        "$155"
+      ]
+    },
+    {
+      "id": "multi_cilindro-cancun-",
+      "modelo": "MI-CILINDROCANCUN",
+      "nombre": "Cilindro Cancún 750 ml colores",
+      "desc": "Cilindro cancún 750 ml para sublimar\nDesde $150 MXN · Mínimo 12 piezas · Cilindro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744661672567-color.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Verde",
+        "Azul Cielo"
+      ]
+    },
+    {
+      "id": "multi_latas-de-aluminio-",
+      "modelo": "MI-LATASDEALUMIN",
+      "nombre": "Latas de aluminio ",
+      "desc": "Lata de aluminio para sublimar, dos tamaños, dos colores\nDesde $48 MXN · Mínimo 12 piezas · Cilindro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744661574354-lata.png"
+      ],
+      "colores": [
+        "$60"
+      ]
+    },
+    {
+      "id": "multi_cilindro-cordoba-",
+      "modelo": "MI-CILINDROCORDOB",
+      "nombre": "Cilindro Cancún 750 ml",
+      "desc": "Cilindro cancún de 750 ml para sublimar\nDesde $78 MXN · Mínimo 12 piezas · Cilindro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744661355711-colima.jpg"
+      ],
+      "colores": [
+        "Cilindro Cancún 750 Ml"
+      ]
+    },
+    {
+      "id": "multi_cilindro-california-",
+      "modelo": "MI-CILINDROCALIFO",
+      "nombre": "Cilindro California 750 ml",
+      "desc": "Cilindro California con tapa de color para sublimar\nDesde $78 MXN · Mínimo 12 piezas · Cilindro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744661301989-clifornia.jpg"
+      ],
+      "colores": [
+        "Cilindro California 750 Ml"
+      ]
+    },
+    {
+      "id": "multi_cilindro-tukson",
+      "modelo": "MI-CILINDROTUKSON",
+      "nombre": "Cilindro Tukson",
+      "desc": "Cilindro Tukson para sublimacion 2 tamaños 2 colores\nDesde $75 MXN · Mínimo 12 piezas · Cilindro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744661458906-grande.jpg"
+      ],
+      "colores": [
+        "$80"
+      ]
+    },
+    {
+      "id": "multi_cilindro-colores-pastel",
+      "modelo": "MI-CILINDROCOLORE",
+      "nombre": "Cilindro colores pastel",
+      "desc": "Cilindro de 600ml para sublimar de colores pastel \nDesde $60 MXN · Mínimo 12 piezas · Cilindro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744661513778-cilindropastell.webp"
+      ],
+      "colores": [
+        "Azul",
+        "Rosa",
+        "Amarillo",
+        "Verde"
+      ]
+    },
+    {
+      "id": "multi_botellas-de-agua-de-aluminio",
+      "modelo": "MI-BOTELLASDEAGU",
+      "nombre": "Botellas de agua de aluminio",
+      "desc": "Cilindro para agua para sublimar \nDesde $47 MXN · Mínimo 12 piezas · Cilindro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744661616985-600.jpg"
+      ],
+      "colores": [
+        "$49, $55, $60, $85"
+      ]
+    },
+    {
+      "id": "multi_pocillo-filo-de-color-14-oz",
+      "modelo": "MI-POCILLOFILODE",
+      "nombre": "Pocillo filo de color 14 oz",
+      "desc": "Pocillo filo de color 14 oz para sublimar \nDesde $80 MXN · Mínimo 12 piezas · Peltre",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751419707215-dsc0131.jpg"
+      ],
+      "colores": [
+        "Azul",
+        "Rojo",
+        "Café"
+      ]
+    },
+    {
+      "id": "multi_pocillo-acero-14-oz",
+      "modelo": "MI-POCILLOACERO1",
+      "nombre": "Pocillo acero 14 oz",
+      "desc": "Pocillo acero con filo metalico 14 oz para sublimar\nDesde $85 MXN · Mínimo 12 piezas · Peltre",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751398084347-elongated_mug_white_bg.png"
+      ],
+      "colores": [
+        "Pocillo Acero 14 Oz"
+      ]
+    },
+    {
+      "id": "multi_pocillo-magico-con-glitter-10-oz",
+      "modelo": "MI-POCILLOMAGICO",
+      "nombre": "Pocillo magico con glitter 10 oz",
+      "desc": "Pocillo magico con glitter 10 oz para sublimar \nDesde $48 MXN · Mínimo 12 piezas · Glitter",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744661052239-magico.webp"
+      ],
+      "colores": [
+        "Pocillo Magico Con Glitter 10 Oz"
+      ]
+    },
+    {
+      "id": "multi_pocillo-filo-de-color",
+      "modelo": "MI-POCILLOFILODE",
+      "nombre": "Pocillo filo de color",
+      "desc": "Pocillo filo de color para sublimar 10 oz\nDesde $47 MXN · Mínimo 12 piezas · Peltre",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744488465157-screenshot2025-04-12140515.png"
+      ],
+      "colores": [
+        "Azul",
+        "Rojo",
+        "Café"
+      ]
+    },
+    {
+      "id": "multi_pocillo-magico-10-oz",
+      "modelo": "MI-POCILLOMAGICO",
+      "nombre": "Pocillo mágico 10 oz",
+      "desc": "Pocillo mágico 10 oz para sublimar \nDesde $45 MXN · Mínimo 12 piezas · Peltre",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744488368461-screenshot2025-04-12140512.png"
+      ],
+      "colores": [
+        "Pocillo Mágico 10 Oz"
+      ]
+    },
+    {
+      "id": "multi_taza-de-acero-inoxidable",
+      "modelo": "MI-TAZADEACEROI",
+      "nombre": "Peltre acero inoxidable ",
+      "desc": "Duradera y elegante\nDesde $70 MXN · Mínimo 12 piezas · Metal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751419569515-tazapeltre.webp"
+      ],
+      "colores": [
+        "Peltre Acero Inoxidable"
+      ]
+    },
+    {
+      "id": "multi_llaveros-de-cristal-",
+      "modelo": "MI-LLAVEROSDECRI",
+      "nombre": "Llaveros de cristal ",
+      "desc": "LLaveros de cristal para subllimar diferentes modelos\nDesde $15 MXN · Mínimo 12 piezas · LLavero",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660950121-llaverocristal.jpeg"
+      ],
+      "colores": [
+        "Llaveros De Cristal"
+      ]
+    },
+    {
+      "id": "multi_portaretrato-cristal-15-x-23-cm-",
+      "modelo": "MI-PORTARETRATOCR",
+      "nombre": "Portaretrato cristal 15 x 23 cm ",
+      "desc": "Portaretrato cristal 15 x 23 cm para sublimar con base\nDesde $60 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660686523-1.jpg"
+      ],
+      "colores": [
+        "Portaretrato Cristal 15 X 23 Cm"
+      ]
+    },
+    {
+      "id": "multi_portaretrato-18-x-23-cm-",
+      "modelo": "MI-PORTARETRATO18",
+      "nombre": "Portaretrato 18 x 23 cm ",
+      "desc": "Portaretrato rectangular 18 x 23 cm para sublimar con base\nDesde $60 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660668104-porta.jpg"
+      ],
+      "colores": [
+        "Portaretrato 18 X 23 Cm"
+      ]
+    },
+    {
+      "id": "multi_reloj-portaretrato-",
+      "modelo": "MI-RELOJPORTARETR",
+      "nombre": "Reloj portaretrato ",
+      "desc": "Reloj portaretrato para sublimar \nDesde $110 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660576196-ll.webp"
+      ],
+      "colores": [
+        "Reloj Portaretrato"
+      ]
+    },
+    {
+      "id": "multi_reloj-cuadrado-20-x-20",
+      "modelo": "MI-RELOJCUADRADO",
+      "nombre": "Reloj cuadrado 20 x 20",
+      "desc": "Reloj cuadrado con base 20 x 20 para sublimar \nDesde $85 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660558176-re.webp"
+      ],
+      "colores": [
+        "Reloj Cuadrado 20 X 20"
+      ]
+    },
+    {
+      "id": "multi_reloj-circular-",
+      "modelo": "MI-RELOJCIRCULAR",
+      "nombre": "Reloj circular ",
+      "desc": "Reloj circular para sublimar \nDesde $85 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660541593-reloj.jpg"
+      ]
+    },
+    {
+      "id": "multi_portavaso-circular-de-cristal-",
+      "modelo": "MI-PORTAVASOCIRCU",
+      "nombre": "Portavaso  de cristal ",
+      "desc": "Portavaso para sublimar para sublimar \nDesde $25 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660459055-portavasoc.jpg"
+      ],
+      "colores": [
+        "Portavaso  De Cristal"
+      ]
+    },
+    {
+      "id": "multi_vaso-grande-opaco-tapa-bamboo-",
+      "modelo": "MI-VASOGRANDEOPA",
+      "nombre": "Vaso grande opaco tapa bamboo ",
+      "desc": "Vaso grande opaco para sublimar fondo color con tapa de bamboo y popote\nDesde $110 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660383810-vasosbambooghrande.webp"
+      ],
+      "colores": [
+        "Rojo, $110, $90",
+        "Rosa, $110, $90",
+        "Verde, $110, $90",
+        "Amarillo, $110, $90",
+        "Naranja, $110, $90",
+        "Azul, $110, $90",
+        "Opaco, $110, $90"
+      ]
+    },
+    {
+      "id": "multi_vaso-opaco-con-fondo-de-color-para-subli",
+      "modelo": "MI-VASOOPACOCON",
+      "nombre": "Vaso opaco con fondo de color para sublimar 500 ml",
+      "desc": "Vaso opaco con fondo de color para sublimar con tapa de bamboo y popote \nDesde $80 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660319442-vasobamboo.webp"
+      ],
+      "colores": [
+        "Naranja",
+        "Amarillo",
+        "Rosa",
+        "Rojo",
+        "Azul",
+        "Opaco"
+      ]
+    },
+    {
+      "id": "multi_botella-de-cristal-opaco-",
+      "modelo": "MI-BOTELLADECRIS",
+      "nombre": "Botella de cristal opaco ",
+      "desc": "Botella de cristal opaco de 500 ml\nDesde $82 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1745351566630-d_nq_np_911060-mlm50926388815_072022-o.webp"
+      ],
+      "colores": [
+        "Verde",
+        "Naranja",
+        "Amarillo",
+        "Morado",
+        "Azul"
+      ]
+    },
+    {
+      "id": "multi_mason-opaco-para-sublimar",
+      "modelo": "MI-MASONOPACOPAR",
+      "nombre": "Mason opaco para sublimar",
+      "desc": "Mason opaco para sublimar 500 ml\nDesde $45 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660236903-maiu.jpg"
+      ],
+      "colores": [
+        "Mason Opaco Para Sublimar"
+      ]
+    },
+    {
+      "id": "multi_tarro-magico-para-sublimar-16-oz",
+      "modelo": "MI-TARROMAGICOPA",
+      "nombre": "Tarro mágico para sublimar 16 oz",
+      "desc": "Tarro mágico para sublilmar varios colores\nDesde $100 MXN · Mínimo 12 piezas · Tarro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660171696-mag.png"
+      ],
+      "colores": [
+        "Azul",
+        "Verde",
+        "Rosa",
+        "Negro"
+      ]
+    },
+    {
+      "id": "multi_tarro-opaco-para-sublimar",
+      "modelo": "MI-TARROOPACOPAR",
+      "nombre": "Tarro opaco para sublimar ",
+      "desc": "Tarro opaco para sublimar\nDesde $62 MXN · Mínimo 12 piezas · Tarro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660035258-tarroopaco.webp"
+      ],
+      "colores": [
+        "$110, $200, $60"
+      ]
+    },
+    {
+      "id": "multi_tarro-opaco-de-fondo-de-color",
+      "modelo": "MI-TARROOPACODE",
+      "nombre": "Tarro opaco de fondo de color 16 oz",
+      "desc": "Tarro oppaco con fondo de color 16 oz para sublimar\nDesde $65 MXN · Mínimo 12 piezas · Tarro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660116650-ro.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Azul",
+        "Rojo",
+        "Verde",
+        "Amarillo",
+        "Negro",
+        "Naranja"
+      ]
+    },
+    {
+      "id": "multi_tarro-transparente-16-oz",
+      "modelo": "MI-TARROTRANSPARE",
+      "nombre": "Tarro transparente ",
+      "desc": "Tarro transparente para sublimar \nDesde $60 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744660014686-trans.webp"
+      ]
+    },
+    {
+      "id": "multi_tequilero-opaco-con-fondo-de-color",
+      "modelo": "MI-TEQUILEROOPACO",
+      "nombre": "Tequilero opaco con fondo de color 30 oz",
+      "desc": "Tequilero opaco con fondo de color para sublimar\nDesde $21 MXN · Mínimo 12 piezas · Tequilero",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659944166-tequilero1.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Azul",
+        "Verde",
+        "Rojo",
+        "Negro",
+        "Amarillo"
+      ]
+    },
+    {
+      "id": "multi_tequilero-opaco-30-oz",
+      "modelo": "MI-TEQUILEROOPACO",
+      "nombre": "Tequilero opaco 30 oz",
+      "desc": "Tequilero opaco de 30 oz para sublimar\nDesde $21 MXN · Mínimo 12 piezas · Tequilero",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659894725-tequilero.webp"
+      ],
+      "colores": [
+        "Tequilero Opaco 30 Oz"
+      ]
+    },
+    {
+      "id": "multi_taza-nariz-decorada-",
+      "modelo": "MI-TAZANARIZDECO",
+      "nombre": "Taza nariz decorada 11 oz",
+      "desc": "Taza nariz decorada diferentes modelos para sublimar\nDesde $55 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659782787-nariz.webp"
+      ],
+      "colores": [
+        "Perro",
+        "Mono",
+        "Cerdo"
+      ]
+    },
+    {
+      "id": "multi_taza-canasta",
+      "modelo": "MI-TAZACANASTA",
+      "nombre": "Taza canasta 11 oz",
+      "desc": "Taza canasta para sublimar varios colores\nDesde $28 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744483061391-screenshot2025-04-12123732.png"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Azul",
+        "Negro",
+        "Amarillo"
+      ]
+    },
+    {
+      "id": "multi_juego-de-te-base-de-madera",
+      "modelo": "MI-JUEGODETEBAS",
+      "nombre": "Juego de té base de madera",
+      "desc": "Juego de té para sublimar con base de madera\nDesde $110 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659685220-base.jpg"
+      ],
+      "colores": [
+        "Juego De Té Base De Madera"
+      ]
+    },
+    {
+      "id": "multi_taza-termica-con-tapa-",
+      "modelo": "MI-TAZATERMICACO",
+      "nombre": "Taza térmica con tapa ",
+      "desc": "Taza térmica para sublimar con tapa \nDesde $115 MXN · Mínimo 12 piezas · Térmica",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659646799-tazatermo.webp"
+      ],
+      "colores": [
+        "Taza Térmica Con Tapa"
+      ]
+    },
+    {
+      "id": "multi_taza-base-de-corcho-",
+      "modelo": "MI-TAZABASEDECO",
+      "nombre": "Taza base de corcho ",
+      "desc": "Taza para sublimar con base de corcho \nDesde $85 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659611023-tapacorcho.webp"
+      ],
+      "colores": [
+        "Taza Base De Corcho"
+      ]
+    },
+    {
+      "id": "multi_termo-son-tapa-de-silicon-",
+      "modelo": "MI-TERMOSONTAPA",
+      "nombre": "Termo son tapa de silicón ",
+      "desc": "Termo para sublimar con tapa de silicón varios colores\nDesde $50 MXN · Mínimo 12 piezas · Silicón",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659548158-tapa.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Verde",
+        "Azul Cielo",
+        "Rosa",
+        "Amarillo"
+      ]
+    },
+    {
+      "id": "multi_taza-lechero",
+      "modelo": "MI-TAZALECHERO",
+      "nombre": "Taza lechero",
+      "desc": "Taza lechero para sublimar\nDesde $50 MXN · Mínimo 12 piezas · Nuevo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659468979-lechero.jpg"
+      ],
+      "colores": [
+        "Taza Lechero"
+      ]
+    },
+    {
+      "id": "multi_taza-neon-",
+      "modelo": "MI-TAZANEON",
+      "nombre": "Taza neon ",
+      "desc": "Taza neon para sublimar 11 oz \nDesde $25 MXN · Mínimo 12 piezas · Neon",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659383702-tazaneon.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Verde",
+        "Naranja",
+        "Amarilla"
+      ]
+    },
+    {
+      "id": "multi_taza-blanca-20-oz",
+      "modelo": "MI-TAZABLANCA20",
+      "nombre": "Taza blanca 20 oz",
+      "desc": "Taza blanca 20 oz para sublimar\nDesde $100 MXN · Mínimo 12 piezas · Grande",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659369780-20oz.webp"
+      ],
+      "colores": [
+        "Taza Blanca 20 Oz"
+      ]
+    },
+    {
+      "id": "multi_juego-de-tazas-4oz",
+      "modelo": "MI-JUEGODETAZAS",
+      "nombre": "Juego de tazas 4oz",
+      "desc": "Set de tazas de 4 oz para sublimar \nDesde $150 MXN · Mínimo 12 piezas · Set de tazas",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744481861305-screenshot2025-04-12121727.png"
+      ],
+      "colores": [
+        "Juego De Tazas 4Oz"
+      ]
+    },
+    {
+      "id": "multi_taza-de-4-oz",
+      "modelo": "MI-TAZADE4OZ",
+      "nombre": "Taza de 4 oz",
+      "desc": "Taza blanca de 4 oz para sublimar \nDesde $16 MXN · Mínimo 12 piezas · Pequeña",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659331911-taza-6-oz.jpg"
+      ],
+      "colores": [
+        "Taza De 4 Oz"
+      ]
+    },
+    {
+      "id": "multi_taza-blanca-de-6oz",
+      "modelo": "MI-TAZABLANCADE",
+      "nombre": "Taza blanca de 6oz",
+      "desc": "Taza blanca de 6oz para sublimar\nDesde $21 MXN · Mínimo 12 piezas · Pequeña",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659315249-taza-6-oz.jpg"
+      ],
+      "colores": [
+        "Taza Blanca De 6Oz"
+      ]
+    },
+    {
+      "id": "multi_taza-magica-de-pareja",
+      "modelo": "MI-TAZAMAGICADE",
+      "nombre": "Taza mágica de pareja",
+      "desc": "Taza mágica de pareja asa de corazón para sublimar 11 oz\nDesde $90 MXN · Mínimo 12 piezas · Asa de corazón",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659293119-pareja.webp"
+      ],
+      "colores": [
+        "Taza Mágica De Pareja"
+      ]
+    },
+    {
+      "id": "multi_taza-pareja-blanca-asa-corazon",
+      "modelo": "MI-TAZAPAREJABLA",
+      "nombre": "Taza pareja blanca asa corazón",
+      "desc": "Taza pareja blanca para sublimar 11oz\nDesde $65 MXN · Mínimo 12 piezas · Asa de corazón",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659254288-pareeja2.jpg"
+      ],
+      "colores": [
+        "Taza Pareja Blanca Asa Corazón"
+      ]
+    },
+    {
+      "id": "multi_taza-magica-conica-de-17oz",
+      "modelo": "MI-TAZAMAGICACON",
+      "nombre": "Taza mágica cónica de 17oz",
+      "desc": "Taza mágica cónica de 17 oz negra para sublimar\nDesde $55 MXN · Mínimo 12 piezas · Cónica",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659221003-magica17.jpg"
+      ],
+      "colores": [
+        "Taza Mágica Cónica De 17Oz"
+      ]
+    },
+    {
+      "id": "multi_taza-conica-17oz",
+      "modelo": "MI-TAZACONICA17O",
+      "nombre": "Taza cónica 17oz",
+      "desc": "Taza cónica de 17 oz para sublimar \nDesde $44 MXN · Mínimo 12 piezas · Cónica",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659206362-conica17oz.jpg"
+      ],
+      "colores": [
+        "Taza Cónica 17Oz"
+      ]
+    },
+    {
+      "id": "multi_taza-magica-conica-",
+      "modelo": "MI-TAZAMAGICACON",
+      "nombre": "Taza mágica cónica ",
+      "desc": "Taza mágica cónica 12 oz para suiblimar \nDesde $38 MXN · Mínimo 12 piezas · Cónica",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659191659-magicacon.png"
+      ],
+      "colores": [
+        "Azul",
+        "Roja"
+      ]
+    },
+    {
+      "id": "multi_taza-conica-asa-y-fondo-de-color",
+      "modelo": "MI-TAZACONICAASA",
+      "nombre": "Taza cónica asa y fondo de color",
+      "desc": "Taza cónica fondo y asa de color para sublimar 12 oz\nDesde $34 MXN · Mínimo 12 piezas · Cónica",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659126189-conicacolor.jpg"
+      ],
+      "colores": [
+        "Roja",
+        "Rosa",
+        "Verde",
+        "Azul Cobalto"
+      ]
+    },
+    {
+      "id": "multi_taza-conica-12-oz",
+      "modelo": "MI-TAZACONICA12",
+      "nombre": "Taza cónica 12 oz",
+      "desc": "Taza cónica para sublimar 12 oz para sublimar\nDesde $28 MXN · Mínimo 12 piezas · Cónica",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659080805-tazaconica.jpg"
+      ],
+      "colores": [
+        "Taza Cónica 12 Oz"
+      ]
+    },
+    {
+      "id": "multi_taza-con-fondo-decorado-",
+      "modelo": "MI-TAZACONFONDO",
+      "nombre": "Taza con fondo decorado ",
+      "desc": "Taza fondo decorado para subllimar 11oz\nDesde $55 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744659037130-tazadecorada.jpg"
+      ],
+      "colores": [
+        "I Love U",
+        "Love",
+        "Happy Birthay"
+      ]
+    },
+    {
+      "id": "multi_taza-de-glitter-doble-color",
+      "modelo": "MI-TAZADEGLITTER",
+      "nombre": "Taza de glitter doble color 11 oz",
+      "desc": "Taza con glitter doble color para sublimar\nDesde $45 MXN · Mínimo 12 piezas · Glitter",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751423054082-taza-sublimacion-11oz-glitter-doble-color-gradual-varias-combinaciones-.jpg"
+      ],
+      "colores": [
+        "Azul Y Plateado",
+        "Rosa Y Plateado",
+        "Morado Y Oro"
+      ]
+    },
+    {
+      "id": "multi_taza-con-glitter",
+      "modelo": "MI-TAZACONGLITTE",
+      "nombre": "Taza con glitter",
+      "desc": "Taza con glitter 11oz para sublimar\nDesde $44 MXN · Mínimo 12 piezas · Glitter",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744658907861-glitter.png"
+      ],
+      "colores": [
+        "Rosa",
+        "Morado",
+        "Azul",
+        "Oro",
+        "Plateada"
+      ]
+    },
+    {
+      "id": "multi_taza-espejo-doble-color",
+      "modelo": "MI-TAZAESPEJODOB",
+      "nombre": "Taza espejo doble color",
+      "desc": "Taza espejo con fondo de color para sublimar 11 oz\nDesde $45 MXN · Mínimo 12 piezas · Espejo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744658838201-metalicafondo.webp"
+      ],
+      "colores": [
+        "Roja",
+        "Rosa",
+        "Verde",
+        "Azul",
+        "Amarillo"
+      ]
+    },
+    {
+      "id": "multi_taza-tornasol-",
+      "modelo": "MI-TAZATORNASOL",
+      "nombre": "Taza tornasol ",
+      "desc": "Taza tornasol para sublimar 11oz\nDesde $45 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744658702469-tornasol.webp"
+      ],
+      "colores": [
+        "Taza Tornasol"
+      ]
+    },
+    {
+      "id": "multi_taza-con-fondo-metalico",
+      "modelo": "MI-TAZACONFONDO",
+      "nombre": "Taza con fondo metálico",
+      "desc": "Taza para sublimar con fondo metálico 11oz\nDesde $55 MXN · Mínimo 12 piezas · Espejo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744834175710-screenshot2025-04-12113606.png"
+      ],
+      "colores": [
+        "Rojo",
+        "Verde",
+        "Amarillo",
+        "Rosa",
+        "Azul",
+        "Plata"
+      ]
+    },
+    {
+      "id": "multi_tazas-de-colores-metalicos",
+      "modelo": "MI-TAZASDECOLORE",
+      "nombre": "Tazas de colores metálicos",
+      "desc": "Taza metálica para sublimar \nDesde $45 MXN · Mínimo 12 piezas · Espejo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744658658160-metalica.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Verde",
+        "Azul",
+        "Plata",
+        "Oro",
+        "Rojo"
+      ]
+    },
+    {
+      "id": "multi_tazas-de-cristal-con-fondo-de-color",
+      "modelo": "MI-TAZASDECRISTA",
+      "nombre": "Tazas de cristal con fondo de color",
+      "desc": "Tazas fondo de color cristal opaco para sublimar\nDesde $26 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744658571692-cristalcolor.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Azul",
+        "Amarillo",
+        "Verde",
+        "Rojo"
+      ]
+    },
+    {
+      "id": "multi_taza-de-cristal-opaco-con-asa-de-color-",
+      "modelo": "MI-TAZADECRISTAL",
+      "nombre": "Taza de cristal opaco con asa de color ",
+      "desc": "Taza de cristal opaca con asa de color para sublimar\nDesde $50 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744658468635-cristalopaca.webp"
+      ],
+      "colores": [
+        "Verde",
+        "Cafe",
+        "Rojo",
+        "Rosa"
+      ]
+    },
+    {
+      "id": "multi_taza-de-cristal-con-asa-de-corazon-",
+      "modelo": "MI-TAZADECRISTAL",
+      "nombre": "Taza de cristal con asa de corazón ",
+      "desc": "Taza de cristal con asa de corazón varios colores para sublimar\nDesde $45 MXN · Mínimo 12 piezas · asa de corazón",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744410347400-screenshot2025-04-11162529.png"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Amarillo",
+        "Azul",
+        "Verde"
+      ]
+    },
+    {
+      "id": "multi_tazas-de-cristal-con-glitter",
+      "modelo": "MI-TAZASDECRISTA",
+      "nombre": "Tazas de cristal con glitter",
+      "desc": "Taza de cristal con glitter para sublimar \nDesde $52 MXN · Mínimo 12 piezas · Glitter",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744658124760-cristalglitter.jpg"
+      ],
+      "colores": [
+        "Oro",
+        "Plata"
+      ]
+    },
+    {
+      "id": "multi_taza-de-cristal-magica",
+      "modelo": "MI-TAZADECRISTAL",
+      "nombre": "Taza de cristal mágica",
+      "desc": "Taza mágica de cirstal para sublimar\nDesde $50 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744658056367-tazamagica.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Verde",
+        "Azul",
+        "Negro"
+      ]
+    },
+    {
+      "id": "multi_taza-de-vidrio-opaco",
+      "modelo": "MI-TAZADEVIDRIO",
+      "nombre": "Taza de vidrio opaco",
+      "desc": "Taza de cristal opaca para sublimar 11 oz\nDesde $25 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744657983477-tazaopaca.webp"
+      ],
+      "colores": [
+        "Taza De Vidrio Opaco"
+      ]
+    },
+    {
+      "id": "multi_taza-de-cristal",
+      "modelo": "MI-TAZADECRISTAL",
+      "nombre": "Taza de cristal",
+      "desc": "Taza transparente para subliamar 11 oz\nDesde $23 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744657939621-tazacristal.jpg"
+      ],
+      "colores": [
+        "Taza De Cristal"
+      ]
+    },
+    {
+      "id": "multi_taza-con-tapa-y-base-de-silicon-y-asa-de",
+      "modelo": "MI-TAZACONTAPAY",
+      "nombre": "Taza con tapa y base de silicon y asa de corazón",
+      "desc": "Tazas tapa y base de silicón con asa de corazón varios colores\nDesde $62 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744657890858-silicon2.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Azul",
+        "Amarillo",
+        "Negro"
+      ]
+    },
+    {
+      "id": "multi_taza-de-fondo-y-asa-de-color-con-asa-de-",
+      "modelo": "MI-TAZADEFONDOY",
+      "nombre": "Taza asa de corazón ",
+      "desc": "Taza de asa de corazón con fondo de color para sublimar\nDesde $45 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744657767069-asacolor.jpeg"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Amarillo",
+        "Negro",
+        "Azul Cielo"
+      ]
+    },
+    {
+      "id": "multi_taza-magica-con-asa-de-corazon-3d",
+      "modelo": "MI-TAZAMAGICACON",
+      "nombre": "Taza magica con asa de corazón 3D",
+      "desc": "Taza magica con asa de corazón 3D para subliamr\nDesde $42 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744657728320-magica3d.jpg"
+      ],
+      "colores": [
+        "Taza Magica Con Asa De Corazón 3D"
+      ]
+    },
+    {
+      "id": "multi_taza-blanca-con-asa-en-forma-de-corazon-",
+      "modelo": "MI-TAZABLANCACON",
+      "nombre": "Taza blanca con asa en forma de corazón 3D",
+      "desc": "Descubre nuestra encantadora taza blanza con asa de corazón en 3D, perfecta para cualquier ocasión. Esta taza no solo es\nDesde $34 MXN · Mínimo 12 piezas · asa de corazón",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744408122493-screenshot2025-04-11150448.png"
+      ],
+      "colores": [
+        "Taza Blanca Con Asa En Forma De Corazón 3D"
+      ]
+    },
+    {
+      "id": "multi_taza-magica-con-asa-de-corazon-",
+      "modelo": "MI-TAZAMAGICACON",
+      "nombre": "Taza mágica con asa de corazón ",
+      "desc": "Taza mágica negra para sublimar\nDesde $35 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744657669033-magica.png"
+      ],
+      "colores": [
+        "Taza Mágica Con Asa De Corazón"
+      ]
+    },
+    {
+      "id": "multi_taza-blanca-con-asa-de-corazon-",
+      "modelo": "MI-TAZABLANCACON",
+      "nombre": "Taza blanca con asa de corazón ",
+      "desc": "Taza blanca con asa de corazón 11oz para sublimar\nDesde $27 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744657631127-asacorazon.jpg"
+      ],
+      "colores": [
+        "Taza Blanca Con Asa De Corazón"
+      ]
+    },
+    {
+      "id": "multi_taza-fondo-de-color-y-con-cuchara",
+      "modelo": "MI-TAZAFONDODEC",
+      "nombre": "Taza fondo de color y con cuchara",
+      "desc": "Taza con cuchara mágica 11oz\nDesde $65 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744657463334-cuchara2.png"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Amarillo",
+        "Verde",
+        "Negro",
+        "Azul Cielo",
+        "Azul Cobalto",
+        "Naranja"
+      ]
+    },
+    {
+      "id": "multi_taza-magica-con-cuchara-",
+      "modelo": "MI-TAZAMAGICACON",
+      "nombre": "Taza mágica con cuchara ",
+      "desc": "Taza de cuchara semi conica con fondo de color para sublimar\nDesde $65 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744657287883-tazamagicacuchara.png"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Amarillo",
+        "Verde",
+        "Azul Cielo",
+        "Azul Cobalto",
+        "Naranja",
+        "Negro"
+      ]
+    },
+    {
+      "id": "multi_tazas-de-cuchara-fondo-y-asa-de-color-11",
+      "modelo": "MI-TAZASDECUCHAR",
+      "nombre": "Tazas de cuchara fondo y asa de color 11oz",
+      "desc": "Taza cuchara recta \nDesde $45 MXN · Mínimo 12 piezas · cuchara",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744400031876-screenshot2025-04-11133341.png"
+      ],
+      "colores": [
+        "Rosa",
+        "Rojo",
+        "Amarillo",
+        "Verde",
+        "Naranja",
+        "Negro",
+        "Azul Cielo",
+        "Azul Cobalto"
+      ]
+    },
+    {
+      "id": "multi_taza-de-cuchara-semi-conica",
+      "modelo": "MI-TAZADECUCHARA",
+      "nombre": "Taza de cuchara semi conica",
+      "desc": "Taza semiconica con cuchara para sublimar\nDesde $55 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744657070799-tazaconcuchara.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Rojo",
+        "Amarillo",
+        "Verde",
+        "Azul Cielo",
+        "Azul Cobalto",
+        "Negro",
+        "Naranja"
+      ]
+    },
+    {
+      "id": "multi_tazas-con-base-de-silicon-15oz",
+      "modelo": "MI-TAZASCONBASE",
+      "nombre": "Tazas con base de silicón ",
+      "desc": "Tazas silicón de 15 oz varios colores para sublimar\nDesde $95 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744657024272-silicon.jpg"
+      ],
+      "colores": [
+        "Rojo",
+        "Azul",
+        "Negro",
+        "Rosa"
+      ]
+    },
+    {
+      "id": "multi_taza-de-15-oz-fondo-y-asa-de-color",
+      "modelo": "MI-TAZADE15OZF",
+      "nombre": "Taza de 15 oz fondo y asa de color",
+      "desc": "Taza color fondo y asa de color para sublimar\nDesde $42 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744656630892-taza15ozcolor.jpg"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Azul Cielo",
+        "Azul Cobalto",
+        "Amarillo",
+        "Verde"
+      ]
+    },
+    {
+      "id": "multi_taza-de-15oz-filo-y-asa-de-color",
+      "modelo": "MI-TAZADE15OZFI",
+      "nombre": "Taza de 15oz  filo y asa de color",
+      "desc": "Tazas con asas de colores variados\nDesde $42 MXN · Mínimo 12 piezas · 15 oz",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1752514981446-d_nq_np_770016-mlm70890031275_082023-o.webp"
+      ],
+      "colores": [
+        "Taza De 15Oz  Filo Y Asa De Color"
+      ]
+    },
+    {
+      "id": "multi_taza-blanca-15oz",
+      "modelo": "MI-TAZABLANCA15O",
+      "nombre": "Taza blanca 15oz",
+      "desc": "Taza blanca 15oz para sublimar\nDesde $35 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744656500349-15oz.webp"
+      ],
+      "colores": [
+        "Taza Blanca 15Oz"
+      ]
+    },
+    {
+      "id": "multi_taza-de-ventana-fluorescente",
+      "modelo": "MI-TAZADEVENTANA",
+      "nombre": "Taza de ventana fluorescente",
+      "desc": "Taza de ventana fluorescente para sublimar 11oz\nDesde $52 MXN · Mínimo 12 piezas · ventana",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744656236254-ventanafluorescente.jpg"
+      ],
+      "colores": [
+        "Taza De Ventana Fluorescente"
+      ]
+    },
+    {
+      "id": "multi_taza-magica-de-ventana",
+      "modelo": "MI-TAZAMAGICADE",
+      "nombre": "Taza mágica de ventana",
+      "desc": "Taza de ventana magica para subliamar\nDesde $50 MXN · Mínimo 12 piezas · Ventana",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744398492357-screenshot2025-04-11130800.png"
+      ],
+      "colores": [
+        "Taza Mágica De Ventana"
+      ]
+    },
+    {
+      "id": "multi_taza-de-ventana",
+      "modelo": "MI-TAZADEVENTANA",
+      "nombre": "Taza de ventana 11 oz",
+      "desc": "Taza de ventana 11 oz brillante\nDesde $45 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744656007842-tazaventana1.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Negra",
+        "Roja",
+        "Verde",
+        "Amarilla",
+        "Azul Cielo"
+      ]
+    },
+    {
+      "id": "multi_taza-con-diseno-de-pelicula",
+      "modelo": "MI-TAZACONDISENO",
+      "nombre": "Taza con diseño de película",
+      "desc": "Taza de cerámica con motivo cinematográfico\nDesde $45 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744398210785-screenshot2025-04-11130321.png"
+      ],
+      "colores": [
+        "Taza Con Diseño De Película"
+      ]
+    },
+    {
+      "id": "multi_taza-de-color-pastel-para-sublimar",
+      "modelo": "MI-TAZADECOLORP",
+      "nombre": "Taza de color pastel para sublimar",
+      "desc": "Taza de color pastel para sublimar \nDesde $45 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744656758151-pastel.jpeg"
+      ],
+      "colores": [
+        "Rosa",
+        "Amarillo",
+        "Azul",
+        "Gris",
+        "Verde",
+        "Nude"
+      ]
+    },
+    {
+      "id": "multi_tazas-magica-con-fondo-de-color",
+      "modelo": "MI-TAZASMAGICACO",
+      "nombre": "Tazas mágica con fondo de color",
+      "desc": "Tazas mágicas con fondo de color mate 11 oz\nDesde $55 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744655847037-magicafondodecolor.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Naranja",
+        "Verde",
+        "Azul Cielo",
+        "Azul Cobalto",
+        "Rosa",
+        "Amarillo"
+      ]
+    },
+    {
+      "id": "multi_taza-magica-mate",
+      "modelo": "MI-TAZAMAGICAMAT",
+      "nombre": "Taza mágica mate 11 oz ",
+      "desc": "Taza color azul y roja\nDesde $35 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744397592597-screenshot2025-04-11125301.png"
+      ],
+      "colores": [
+        "Taza Mágica Mate 11 Oz"
+      ]
+    },
+    {
+      "id": "multi_taza-magica-negra-brillante",
+      "modelo": "MI-TAZAMAGICANEG",
+      "nombre": "Taza Mágica negra mate",
+      "desc": "Taza magica negra para sublimar\nDesde $30 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744655773663-tazamagicanegra.webp"
+      ],
+      "colores": [
+        "Taza Mágica Negra Mate"
+      ]
+    },
+    {
+      "id": "multi_tazas-con-filo-y-asa-de-colo-y-asas-de-c",
+      "modelo": "MI-TAZASCONFILO",
+      "nombre": "Taza filo y asa de corazón ",
+      "desc": "Taza filo y asa de color y corazón para sublimar\nDesde $30 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744655723538-asacolor.jpeg"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Verde",
+        "Azul",
+        "Amarillo"
+      ]
+    },
+    {
+      "id": "multi_tazas-fondo-de-color-para-sublimar",
+      "modelo": "MI-TAZASFONDODE",
+      "nombre": "Tazas fondo de color para sublimar 11 oz",
+      "desc": "Tazas fondo de color\nDesde $30 MXN · Mínimo 12 piezas · Tazas",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744692398717-fff.jpg"
+      ],
+      "colores": [
+        "Tazas Fondo De Color Para Sublimar 11 Oz"
+      ]
+    },
+    {
+      "id": "multi_taza-fondo-y-asa-de-color-para-sublimar-",
+      "modelo": "MI-TAZAFONDOYAS",
+      "nombre": "Taza fondo y asa de color para sublimar ",
+      "desc": "Taza de fondo y asa de color 11 oz\nDesde $30 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744692228220-fondo.jpg"
+      ],
+      "colores": [
+        "Rojo",
+        "Verde",
+        "Amarillo",
+        "Rosa",
+        "Azul Marino",
+        "Verde Limon",
+        "Negro",
+        "Menta",
+        "Gris",
+        "Naranja"
+      ]
+    },
+    {
+      "id": "multi_taza-fondo-y-asa-de-color-para-sublimar-",
+      "modelo": "MI-TAZAFONDOYAS",
+      "nombre": "Taza filo y asa de color  11 oz",
+      "desc": "Taza filo y asa de color para sublimar \nDesde $30 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744692155885-filo.jpg"
+      ],
+      "colores": [
+        "Rojo",
+        "Verde",
+        "Amarillo",
+        "Rosa",
+        "Azul Cielo",
+        "Naranja",
+        "Menta",
+        "Gris"
+      ]
+    },
+    {
+      "id": "multi_taza-de-blanca-mate-",
+      "modelo": "MI-TAZADEBLANCA",
+      "nombre": "Taza blanca mate",
+      "desc": "Taza blanca AAA mate para sublimar\nDesde $15 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744655412814-tazamate.jpeg"
+      ],
+      "colores": [
+        "Taza Blanca Mate"
+      ]
+    },
+    {
+      "id": "multi_taza-de-blanca-para-sublimar",
+      "modelo": "MI-TAZADEBLANCA",
+      "nombre": "Taza de blanca ",
+      "desc": "Taza blanca para sublimar AAA\nDesde $14 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744655244156-tazablanca.jpg"
+      ],
+      "colores": [
+        "Taza De Blanca"
+      ]
+    },
+    {
+      "id": "multi_azulejo-de-ceramica-blanco",
+      "modelo": "MI-AZULEJODECERA",
+      "nombre": "Azulejo de cerámica blanco",
+      "desc": "Azulejo para sublimar \nDesde $22 MXN · Mínimo 12 piezas · Azulejo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744656857530-azulejo.jpg"
+      ],
+      "colores": [
+        "$57.00 ,  $37.00 ,  $47.00"
+      ]
     }
   ]
 }
