@@ -124,6 +124,7 @@ const CAT_LABEL: Record<string, string> = {
   ejecutiva: 'Ejecutiva', hogar: 'Hogar', hieleras: 'Hieleras',
   mochilas: 'Mochilas & Bolsas', tecnologia: 'Tecnología',
   textiles: 'Textiles', varios: 'Varios', kits: 'Kits & Sets',
+  sublimacion: 'Artículos Sublimables',
 };
 
 // Tiempos de producción estimados por técnica (días hábiles)

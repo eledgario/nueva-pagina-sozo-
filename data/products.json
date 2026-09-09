@@ -86,6 +86,10 @@
       "id": "textiles",
       "nombre": "Textiles",
       "count": 310
+    },
+    {
+      "id": "sublimacion",
+      "nombre": "Artículos Sublimables"
     }
   ],
   "productos": [
@@ -130472,6 +130476,1925 @@
         "https://eiwyitsqbfseaxutnyos.supabase.co/storage/v1/object/public/product-images/SIN_570/4.jpg",
         "https://eiwyitsqbfseaxutnyos.supabase.co/storage/v1/object/public/product-images/SIN_570/5.jpg",
         "https://eiwyitsqbfseaxutnyos.supabase.co/storage/v1/object/public/product-images/SIN_570/6.jpg"
+      ]
+    },
+    {
+      "id": "multi_vaso-glitter-450-ml",
+      "modelo": "MI-VASOGLITTER45",
+      "nombre": "Vaso Glitter 450 ml",
+      "desc": "Vaso glitter 450 ml con tapa y popote\nDesde $17 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1752518501372-screenshot2025-07-14120216.png"
+      ],
+      "colores": [
+        "Verde Neon",
+        "Lila",
+        "Morado",
+        "Azul Rey",
+        "Plata",
+        "Dorado",
+        "Rojo"
+      ]
+    },
+    {
+      "id": "multi_vaso-chelero-950-ml",
+      "modelo": "MI-VASOCHELERO95",
+      "nombre": "Vaso Chelero 950 ml",
+      "desc": "Vaso Chelero de plástico \nDesde $25 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1752515557114-ll.png"
+      ],
+      "colores": [
+        "Verde Neon",
+        "Amarillo Neon",
+        "Morado",
+        "Azul Rey",
+        "Rosa Neon",
+        "Negro",
+        "Blanco",
+        "Rojo"
+      ]
+    },
+    {
+      "id": "multi_botella-termica-blanca",
+      "modelo": "MI-BOTELLATERMICA",
+      "nombre": "Botella térmica blanca",
+      "desc": "Mantén tus bebidas a la temperatura ideal\nDesde $130 MXN · Mínimo 12 piezas · Nuevo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1752515132776-termo-sublimable-picasso.jpg"
+      ],
+      "colores": [
+        "Botella Térmica Blanca"
+      ]
+    },
+    {
+      "id": "multi_termo-aluminio-con-tapa-de-taza",
+      "modelo": "MI-TERMOALUMINIO",
+      "nombre": "Termo Aluminio con tapa de taza",
+      "desc": "Termo aluminio para sublimar con tapa de taza\nDesde $180 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751423775841-termo-acero-inox-tapon-taza-350ml-sublimable.jpg"
+      ],
+      "colores": [
+        "Termo Aluminio Con Tapa De Taza"
+      ]
+    },
+    {
+      "id": "multi_termo-cabo-fluorescente-20-oz",
+      "modelo": "MI-TERMOCABOFLUO",
+      "nombre": "Termo Cabo fluorescente 20 oz",
+      "desc": "Termo Cabo fluorescente para sublimar 20 oz\nDesde $165 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751423463518-1748639238-termoaceroinoxidablecabosfotoluminiscente20ozsublimable.jpg"
+      ],
+      "colores": [
+        "Termo Cabo Fluorescente 20 Oz"
+      ]
+    },
+    {
+      "id": "multi_termo-cabo-20-oz",
+      "modelo": "MI-TERMOCABO20O",
+      "nombre": "Termo Cabo 20 oz",
+      "desc": "Termo Cabo para sublimar\nDesde $165 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751423340756-d_nq_np_829844-mlm69444491951_052023-o-2-pz-termo-cabo-blanco-450ml-acero-sublimar-sublimacion.webp"
+      ],
+      "colores": [
+        "Azul",
+        "Rosa"
+      ]
+    },
+    {
+      "id": "multi_taza-16-oz-colores-pastel",
+      "modelo": "MI-TAZA16OZCOLO",
+      "nombre": "Taza 16 oz colores pastel",
+      "desc": "Taza 15 oz colores pastel para sublimar\nDesde $65 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751422109720-capturadepantalla2025-07-01alas8.08.20p.m..png"
+      ],
+      "colores": [
+        "Azul",
+        "Naranja",
+        "Nude",
+        "Amarillo",
+        "Verde",
+        "Rosa"
+      ]
+    },
+    {
+      "id": "multi_taza-17-oz-fondo-y-asa-de-color",
+      "modelo": "MI-TAZA17OZFOND",
+      "nombre": "Taza 17 oz fondo y asa de color",
+      "desc": "Taza chocolatera con asa y fondo de color\nDesde $60 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751421767030-capturadepantalla2025-07-01alas8.02.36p.m..png"
+      ],
+      "colores": [
+        "Negra",
+        "Verde Limón",
+        "Rojo",
+        "Naranja",
+        "Azul Cielo",
+        "Azul Cobalto"
+      ]
+    },
+    {
+      "id": "multi_taza-ventana-de-cristal",
+      "modelo": "MI-TAZAVENTANADE",
+      "nombre": "Taza ventana de cristal",
+      "desc": "Taza de cristal con ventana para sublimar\nDesde $25 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751421409724-capturadepantalla2025-07-01alas7.56.38p.m..png"
+      ],
+      "colores": [
+        "Taza Ventana De Cristal"
+      ]
+    },
+    {
+      "id": "multi_taza-ventana-15-oz",
+      "modelo": "MI-TAZAVENTANA15",
+      "nombre": "Taza ventana 15 oz",
+      "desc": "Taza ventana 15 oz para sublimar\nDesde $55 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751421059779-taza-con-ventana.png.webp"
+      ],
+      "colores": [
+        "Negra"
+      ]
+    },
+    {
+      "id": "multi_taza-fondo-color-matte-15-oz",
+      "modelo": "MI-TAZAFONDOCOLO",
+      "nombre": "Taza Fondo color matte 15 oz",
+      "desc": "Taza para sublimar matte 15 oz\nDesde $42 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751420444707-capturadepantalla2025-07-01alas7.40.39p.m..png"
+      ],
+      "colores": [
+        "Rojo",
+        "Verde Limón",
+        "Negro",
+        "Amarillo",
+        "Rosa",
+        "Azul Cielo",
+        "Azul Cobalto"
+      ]
+    },
+    {
+      "id": "multi_piedra-edge-",
+      "modelo": "MI-PIEDRAEDGE",
+      "nombre": "Piedra Edge ",
+      "desc": "Piedra edge para sublimar \nDesde $85 MXN · Mínimo 12 piezas · Piedra",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751420131320-d_897908-mlm50453077149_062022-o.jpg"
+      ],
+      "colores": [
+        "Piedra Edge"
+      ]
+    },
+    {
+      "id": "multi_piedra-en-forma-de-corazon-",
+      "modelo": "MI-PIEDRAENFORMA",
+      "nombre": "Piedra en forma de corazón ",
+      "desc": "Piedra para sublimar \nDesde $85 MXN · Mínimo 12 piezas · Piedra",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751419880855-d_nq_np_700248-mlc71573742677_092023-o-roca-blanco-sublimacion-78-x-78-marco-conmemorativ.webp.jpeg"
+      ],
+      "colores": [
+        "Piedra En Forma De Corazón"
+      ]
+    },
+    {
+      "id": "multi_vaso-star-470-ml",
+      "modelo": "MI-VASOSTAR470M",
+      "nombre": "Vaso Star 470 ml",
+      "desc": "Ideal para bebidas frías en cualquier momento\nDesde $19 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751414974809-screenshot2025-07-01180922.png"
+      ],
+      "colores": [
+        "Azul Metalico",
+        "Azul Pastel",
+        "Blanco",
+        "Rosa Pastel",
+        "Lila",
+        "Negro",
+        "Menta"
+      ]
+    },
+    {
+      "id": "multi_vasos-glitter-750-ml",
+      "modelo": "MI-VASOSGLITTER7",
+      "nombre": "Vasos Glitter 750 ml",
+      "desc": "Vasos de diferentes colores reutilizables\nDesde $26 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751414592267-screenshot2025-07-01175639.png"
+      ],
+      "colores": [
+        "Rosa Gold",
+        "Plateado",
+        "Dorado",
+        "Menta",
+        "Lila",
+        "Morado",
+        "Amarillo Neon"
+      ]
+    },
+    {
+      "id": "multi_vaso-fiesta-500-ml",
+      "modelo": "MI-VASOFIESTA500",
+      "nombre": "Vaso Fiesta Glitter 500 ml",
+      "desc": "Perfecto para tu evento\nDesde $22 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751413581476-screenshot2025-07-01174143.png"
+      ],
+      "colores": [
+        "Rosa Neon",
+        "Menta",
+        "Rojo",
+        "Rosa Gold",
+        "Azul",
+        "Morado",
+        "Negro"
+      ]
+    },
+    {
+      "id": "multi_vaso-plastico-rojo-con-popote",
+      "modelo": "MI-VASOPLASTICOR",
+      "nombre": "Vaso Estadio 900 ml ",
+      "desc": "Vaso reutilizable ideal para bebidas frías\nDesde $25 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751413098225-screenshot2025-07-01173741.png"
+      ],
+      "colores": [
+        "Verde Neon",
+        "Rosa Neon",
+        "Azul Neon",
+        "Morado",
+        "Naranja Neon",
+        "Amarillo Neon"
+      ]
+    },
+    {
+      "id": "multi_mouse-pad-rectangular-",
+      "modelo": "MI-MOUSEPADRECTA",
+      "nombre": "Mouse pad rectangular ",
+      "desc": "Mouse pad para sublimar forma rectangular \nDesde $17 MXN · Mínimo 12 piezas · Neopreno",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751397061851-25289.jpg"
+      ],
+      "colores": [
+        "$15"
+      ]
+    },
+    {
+      "id": "multi_termo-bocina-20-oz",
+      "modelo": "MI-TERMOBOCINA20",
+      "nombre": "Termo Bocina 20 oz",
+      "desc": "Termo bocina de 20 oz diferentes colores\nDesde $280 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751396768523-whatsapp-image-2024-02-27-at-20.39.02.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Negro",
+        "Naranja",
+        "Azul Cobalto",
+        "Morado",
+        "Menta",
+        "Blanco",
+        "Gris"
+      ]
+    },
+    {
+      "id": "multi_porta-caguama-",
+      "modelo": "MI-PORTACAGUAMA",
+      "nombre": "Porta Caguama ",
+      "desc": "Porta Caguama 1.2 L\nDesde $650 MXN · Mínimo 12 piezas · Metal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751396561149-1000_1000_70d077e5-178773b142d--7f9b7813625838497701278.upload.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Azul",
+        "Plata",
+        "Negro"
+      ]
+    },
+    {
+      "id": "multi_taza-bicolor-11-oz-",
+      "modelo": "MI-TAZABICOLOR11",
+      "nombre": "Taza Bicolor 11 oz ",
+      "desc": "Taza Bicolor para sublimar 11 oz · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751329398285-chatgptimagejun30202506_21_45pm.png"
+      ],
+      "colores": [
+        "Verde",
+        "Rojo",
+        "Azul",
+        "Negro",
+        "Gris"
+      ]
+    },
+    {
+      "id": "multi_taza-metalica-fondo-y-asa-11-oz",
+      "modelo": "MI-TAZAMETALICAF",
+      "nombre": "Taza Metalica fondo y asa 11 oz",
+      "desc": "Taza para sublimar metalica fondo y asa\nDesde $95 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751143792269-screenshot2025-06-28144944.png"
+      ],
+      "colores": [
+        "Verde",
+        "Oro",
+        "Plateado",
+        "Rosa",
+        "Azul",
+        "Roja"
+      ]
+    },
+    {
+      "id": "multi_taza-marmol-11-oz",
+      "modelo": "MI-TAZAMARMOL11",
+      "nombre": "Taza Marmol 11 oz",
+      "desc": "Taza para sublimar marmol 11 oz\nDesde $55 MXN · Mínimo 12 piezas · Taza",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751143029122-tazamaremol.webp"
+      ],
+      "colores": [
+        "Azul",
+        "Gris",
+        "Rosa",
+        "Verde",
+        "Nude"
+      ]
+    },
+    {
+      "id": "multi_cilindro-duo-color-600-ml",
+      "modelo": "MI-CILINDRODUOCO",
+      "nombre": "Cilindro Duo color 600 ml",
+      "desc": "Cilindro Duo color 600 ml \nDesde $68 MXN · Mínimo 12 piezas · Cilindro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751142703316-d9460e6d-97ca-4767-ab0b-127e7b37d177.png"
+      ],
+      "colores": [
+        "Rosa",
+        "Verde",
+        "Azul",
+        "Rojo",
+        "Amarillo",
+        "Morado"
+      ]
+    },
+    {
+      "id": "multi_cilindro-caribe-750-ml",
+      "modelo": "MI-CILINDROCARIBE",
+      "nombre": "Cilindro Caribe 750 ml",
+      "desc": "Cilindro caribe con tapa de color \nDesde $60 MXN · Mínimo 12 piezas · Cilindro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1751142549888-caribe.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Gris",
+        "Amarillo",
+        "Verde",
+        "Azul",
+        "Rojo"
+      ]
+    },
+    {
+      "id": "multi_dulcero-crayola",
+      "modelo": "MI-DULCEROCRAYOLA",
+      "nombre": "Dulcero crayola",
+      "desc": "Dulcero crayola dos tamaño varios colores\nDesde $30 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1745620996542-12.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Morado",
+        "Verde",
+        "Amarillo",
+        "Rojo",
+        "Negro",
+        "Naranja",
+        "Plata",
+        "Oro",
+        "Azul"
+      ]
+    },
+    {
+      "id": "multi_cilindro-cordoba-750ml",
+      "modelo": "MI-CILINDROCORDOB",
+      "nombre": "Cilindro Córdoba 750ml",
+      "desc": "Cilindro Córdoba 750 ml para sublimar\nDesde $80 MXN · Mínimo 12 piezas · Cilindro",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1745368555016-xalapa.jpg"
+      ],
+      "colores": [
+        "Cilindro Córdoba 750Ml"
+      ]
+    },
+    {
+      "id": "multi_dulcero-de-control",
+      "modelo": "MI-DULCERODECONT",
+      "nombre": "Dulcero de control",
+      "desc": "Dulcero de control diferentes colores\nDesde $110 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1745352080176-d_nq_np_821829-mlm82941452391_032025-o.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Negro",
+        "Blanco",
+        "Rosa"
+      ]
+    },
+    {
+      "id": "multi_vasos-de-plastico-750-ml",
+      "modelo": "MI-VASOSDEPLASTI",
+      "nombre": "Vasos Liver 750 ml",
+      "desc": "Vasos de plastico con popote 750 ml varios colores\nDesde $20 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1745350705186-liver.webp"
+      ],
+      "colores": [
+        "Lila",
+        "Rosa",
+        "Rosa Neon",
+        "Amarillo Neon",
+        "Verde Bandera",
+        "Verde Neon",
+        "Azul Cielo",
+        "Azul Cobalto",
+        "Rojo",
+        "Negro",
+        "Blanco",
+        "Morado"
+      ]
+    },
+    {
+      "id": "multi_vaso-de-capibara",
+      "modelo": "MI-VASODECAPIBAR",
+      "nombre": "Vaso de capibara",
+      "desc": "Vaso de capibara con popote 250 ml, diferentes colores\nDesde $30 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1745350127875-d_nq_np_768298-mlm83185447234_042025-o.webp"
+      ]
+    },
+    {
+      "id": "multi_dulcero-de-play-doh",
+      "modelo": "MI-DULCERODEPLAY",
+      "nombre": "Dulcero de Play-Doh",
+      "desc": "Dulcero de Play-Doh con tapa diferentes colores\nDesde $50 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1745348969769-playdo.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Verde",
+        "Azul",
+        "Morado",
+        "Rojo"
+      ]
+    },
+    {
+      "id": "multi_plantillas-uv",
+      "modelo": "MI-PLANTILLASUV",
+      "nombre": "Plantillas UV",
+      "desc": "58 x 30 cm \nDesde $270 MXN · Mínimo 12 piezas · Plantilla",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744851704582-uv.jpg"
+      ],
+      "colores": [
+        "Plantillas Uv"
+      ]
+    },
+    {
+      "id": "multi_accesorios-para-popote",
+      "modelo": "MI-ACCESORIOSPARA",
+      "nombre": "Accesorios para popote",
+      "desc": "Decora tu popote de manera única y divertida utilizando nuestras diversas figuras. Desde coloridos animales hasta encant\nDesde $15 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744851659368-po.jpg"
+      ],
+      "colores": [
+        "Accesorios Para Popote"
+      ]
+    },
+    {
+      "id": "multi_hielo-magico",
+      "modelo": "MI-HIELOMAGICO",
+      "nombre": "Hielo mágico",
+      "desc": "Hielo que al contacto con el liquido prende de colores\nDesde $15 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744851542914-hiuelo.webp"
+      ],
+      "colores": [
+        "Hielo Mágico"
+      ]
+    },
+    {
+      "id": "multi_luz-magica",
+      "modelo": "MI-LUZMAGICA",
+      "nombre": "Luz mágica",
+      "desc": "Luz para iluminar el vaso\nDesde $20 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744851372064-d.jpg"
+      ],
+      "colores": [
+        "Luz Mágica"
+      ]
+    },
+    {
+      "id": "multi_dulcero-paleta-payaso",
+      "modelo": "MI-DULCEROPALETA",
+      "nombre": "Dulcero paleta payaso",
+      "desc": "Dulcero paleta payaso con olor a chocolate\nDesde $50 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850983330-plastiico.webp"
+      ],
+      "colores": [
+        "Dulcero Paleta Payaso"
+      ]
+    },
+    {
+      "id": "multi_dulcero-chocolate",
+      "modelo": "MI-DULCEROCHOCOLA",
+      "nombre": "Dulcero chocolate",
+      "desc": "Desde $45 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850944251-ferrero.webp"
+      ],
+      "colores": [
+        "Dulcero Chocolate"
+      ]
+    },
+    {
+      "id": "multi_dulcero-manzana",
+      "modelo": "MI-DULCEROMANZANA",
+      "nombre": "Dulcero manzana",
+      "desc": "Desde $25 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850904231-manza.jpg"
+      ],
+      "colores": [
+        "Dulcero Manzana"
+      ]
+    },
+    {
+      "id": "multi_dulcero-de-caja",
+      "modelo": "MI-DULCERODECAJA",
+      "nombre": "Dulcero de caja",
+      "desc": "Un dulcero de cajita es la opción ideal para quienes buscan un detalle único y encantador para sus fiestas. Estas cajita\nDesde $30 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850827529-cajita.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Amarillo",
+        "Verde",
+        "Azul"
+      ]
+    },
+    {
+      "id": "multi_vaso-de-balon-con-chupon",
+      "modelo": "MI-VASODEBALONC",
+      "nombre": "Vaso de balón con chupón",
+      "desc": "El vaso de balón con chupón es una bebida divertida y creativa que seguramente encantará a los niños. Este original dise\nDesde $35 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850753479-iejhfiwjf.jpg"
+      ],
+      "colores": [
+        "Vaso De Balón Con Chupón"
+      ]
+    },
+    {
+      "id": "multi_vaso-frutsi-con-popote",
+      "modelo": "MI-VASOFRUTSICON",
+      "nombre": "Frutsi con popote",
+      "desc": "Vaso frutsi con popote varios colores y tamaños\nDesde $22 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850664595-ygerfliuhgif.webp"
+      ],
+      "colores": [
+        "$22"
+      ]
+    },
+    {
+      "id": "multi_vaso-licuadora",
+      "modelo": "MI-VASOLICUADORA",
+      "nombre": "Vaso licuadora",
+      "desc": "Vaso liacuadora, dos tamaños, varios colores\nDesde $45 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850585581-0o0909.jpg"
+      ]
+    },
+    {
+      "id": "multi_dulcero-pelon-",
+      "modelo": "MI-DULCEROPELON",
+      "nombre": "Dulcero Pelon ",
+      "desc": "El dulcero pelón es una opción ideal para añadir un toque divertido a cualquier evento. Su diseño colorido y alegre lo c\nDesde $35 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850516465-d_nq_np_930516-mlm54667977986_032023-o-pelon-pelonchela-dulcero-pelonrico-dulcero-3-pzs.webp"
+      ],
+      "colores": [
+        "45"
+      ]
+    },
+    {
+      "id": "multi_dulcero-lapiz",
+      "modelo": "MI-DULCEROLAPIZ",
+      "nombre": "Dulcero lapiz",
+      "desc": "Desde $25 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850443765-9999.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Morado",
+        "Verde"
+      ]
+    },
+    {
+      "id": "multi_vaso-extintor",
+      "modelo": "MI-VASOEXTINTOR",
+      "nombre": "Vaso extintor",
+      "desc": "Vaso extirtor 500 ml\nDesde $150 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850376799-777.jpg"
+      ],
+      "colores": [
+        "Vaso Extintor"
+      ]
+    },
+    {
+      "id": "multi_vaso-tequila-don-julio",
+      "modelo": "MI-VASOTEQUILADO",
+      "nombre": "Botella tequila Don Julio",
+      "desc": "Botella tequila Don Julio con popote\nDesde $35 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850169576-6666.webp"
+      ]
+    },
+    {
+      "id": "multi_dulcero-cara-de-lego",
+      "modelo": "MI-DULCEROCARADE",
+      "nombre": "Dulcero cara de LEGO",
+      "desc": "Dulcero cara de LEGO diferentes caras\nDesde $45 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850081721-5555.webp"
+      ],
+      "colores": [
+        "Dulcero Cara De Lego"
+      ]
+    },
+    {
+      "id": "multi_vaso-copa-mundial",
+      "modelo": "MI-VASOCOPAMUNDI",
+      "nombre": "Vaso copa mundial",
+      "desc": "Celebra tu evento deportivo con el vaso de la copa mundial, un complemento perfecto para disfrutar de tus bebidas favori\nDesde $38 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744850012306-44444.webp"
+      ],
+      "colores": [
+        "Vaso Copa Mundial"
+      ]
+    },
+    {
+      "id": "multi_lata-de-plastico",
+      "modelo": "MI-LATADEPLASTIC",
+      "nombre": "Lata de plastico",
+      "desc": "Lata de plastico diferentes tamaños y colores \nDesde $25 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744849935257-33333.webp"
+      ]
+    },
+    {
+      "id": "multi_dulcero-huevo-kinder",
+      "modelo": "MI-DULCEROHUEVOK",
+      "nombre": "Dulcero huevo kinder",
+      "desc": "Dulcero huevo kinder varios colores\nDesde $65 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744849865797-2222.webp"
+      ],
+      "colores": [
+        "Dulcero Huevo Kinder"
+      ]
+    },
+    {
+      "id": "multi_boing-con-popote",
+      "modelo": "MI-BOINGCONPOPOT",
+      "nombre": "Boing con popote",
+      "desc": "Caja de boing con popote\nDesde $30 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744849809487-1111.webp"
+      ],
+      "colores": [
+        "Boing Con Popote"
+      ]
+    },
+    {
+      "id": "multi_simi-con-popote",
+      "modelo": "MI-SIMICONPOPOTE",
+      "nombre": "Simi con popote",
+      "desc": "Simi\nDesde $35 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744849745386-000000.webp"
+      ],
+      "colores": [
+        "Simi Con Popote"
+      ]
+    },
+    {
+      "id": "multi_vaso-de-pato-con-popote",
+      "modelo": "MI-VASODEPATOCO",
+      "nombre": "Vaso de pato con popote",
+      "desc": "Vaso de pato con popote\nDesde $35 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744849639627-00.jpg"
+      ],
+      "colores": [
+        "Vaso De Pato Con Popote"
+      ]
+    },
+    {
+      "id": "multi_icee-con-popote-",
+      "modelo": "MI-ICEECONPOPOTE",
+      "nombre": "Icee con popote ",
+      "desc": "Icee con popote de diferentes colores\nDesde $30 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744849115940-file.png"
+      ]
+    },
+    {
+      "id": "multi_dulcero-paleta-",
+      "modelo": "MI-DULCEROPALETA",
+      "nombre": "Dulcero paleta ",
+      "desc": "Dulcero paleta varios colores\nDesde $35 MXN · Mínimo 12 piezas · Dulcero",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744849004644-d_670289-mlm75379650397_032024-c.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Rojo",
+        "Azul",
+        "Verde",
+        "Amarillo",
+        "Transparente"
+      ]
+    },
+    {
+      "id": "multi_dulcero-de-oso",
+      "modelo": "MI-DULCERODEOSO",
+      "nombre": "Dulcero de Oso",
+      "desc": "Dulcero de Oso diferentes colores\nDesde $50 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744848826452-d_nq_np_899031-mlm76418768369_052024-o-dulcero-plastico-oso-panda-colores-fiesta-recipiente-26x15cm.webp"
+      ]
+    },
+    {
+      "id": "multi_vaso-doble-pared-acero-inoxidable-750-ml",
+      "modelo": "MI-VASODOBLEPARE",
+      "nombre": "Vaso doble pared acero inoxidable 750 ml",
+      "desc": "Vaso doble pared acero inoxible 750 ml con popote de acero\nDesde $170 MXN · Mínimo 12 piezas · Laser",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744764864788-d_nq_np_812509-mlm54136590999_032023-o-vaso-termo-popote-acero750ml-inoxidable-hermetico.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Plateado",
+        "Vino",
+        "Azul"
+      ]
+    },
+    {
+      "id": "multi_vaso-doble-pared-con-popote",
+      "modelo": "MI-VASODOBLEPARE",
+      "nombre": "Vaso doble pared con  popote",
+      "desc": "Vaso cdoble pared con popote 750 ml\nDesde $100 MXN · Mínimo 12 piezas · Acrilico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744764731095-d_733275-mlm83103421461_032025-c.jpg"
+      ],
+      "colores": [
+        "Lila",
+        "Rosa",
+        "Rosa Neon",
+        "Verde Neon",
+        "Blanco",
+        "Negro",
+        "Azul"
+      ]
+    },
+    {
+      "id": "multi_vasos-de-acrilico-con-popote",
+      "modelo": "MI-VASOSDEACRILI",
+      "nombre": "Vasos de acrilico con popote",
+      "desc": "Vasos de acrilico con popote varios colores 19 oz\nDesde $120 MXN · Mínimo 12 piezas · Acrilico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744764497418-4d980fba4f30548fa187ee393cdfe58e_c5aa36bc-bb02-49fe-8eeb-8481769aa318.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Negro",
+        "Gris",
+        "Verde",
+        "Rojo",
+        "Naranja"
+      ]
+    },
+    {
+      "id": "multi_vasos-brillantes-con-popote",
+      "modelo": "MI-VASOSBRILLANTE",
+      "nombre": "Vasos Brillantes con popote",
+      "desc": "Vasos de colores vibrantes decorados con cristales\nDesde $300 MXN · Mínimo 12 piezas · Acrilico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744764424546-72ce79c39ff61482902b6dd721a53277_083f5dd1-2412-44d8-8096-d8375115d5e9.webp"
+      ],
+      "colores": [
+        "Amarillo",
+        "Rosa",
+        "Blanco",
+        "Morado"
+      ]
+    },
+    {
+      "id": "multi_vasos-tumbler-",
+      "modelo": "MI-VASOSTUMBLER",
+      "nombre": "Vasos Tumbler ",
+      "desc": "Vaso tumbler 750 ml\nDesde $150 MXN · Mínimo 12 piezas · Acrilico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744764198570-33fb22ef242c6eca83198de7c6ff1bdd_97a5a288-a380-4d26-869a-ea58ed6a2ca1.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Morado",
+        "Negro",
+        "Cafe",
+        "Blanco",
+        "Azul",
+        "Amarillo"
+      ]
+    },
+    {
+      "id": "multi_vasos-con-tapa-bamboo-y-popote-",
+      "modelo": "MI-VASOSCONTAPA",
+      "nombre": "Vasos con tapa bamboo y popote ",
+      "desc": "Vaso con ta de bamboo y popote\nDesde $150 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744763672453-f006b1073594a06658257ccf1d7826b8_59a1a5b3-0d16-4b1c-9093-911b52498d52.webp"
+      ],
+      "colores": [
+        "Negro",
+        "Rosa"
+      ]
+    },
+    {
+      "id": "multi_vaso-con-tapa-bamboo-y-popote-de-cristal",
+      "modelo": "MI-VASOCONTAPAB",
+      "nombre": "Vaso con tapa bamboo y popote de cristal ",
+      "desc": "Vaso de vidrio con tapa de bambú\nDesde $130 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744763527865-ci.webp"
+      ],
+      "colores": [
+        "Vaso Con Tapa Bamboo Y Popote De Cristal"
+      ]
+    },
+    {
+      "id": "multi_vaso-eco-cristal-500-ml",
+      "modelo": "MI-VASOECOCRISTA",
+      "nombre": "Vaso Eco cristal 500 ml",
+      "desc": "Vaso Eco cristal varios colores\nDesde $130 MXN · Mínimo 12 piezas · Cristal",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744763409642-3_714f3bf1-29a2-497c-b356-a19f7e920f3e.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Azul",
+        "Rosa",
+        "Blanco",
+        "Negro",
+        "Rosa Neon",
+        "Lila"
+      ]
+    },
+    {
+      "id": "multi_cilindro-parvo-750-ml",
+      "modelo": "MI-CILINDROPARVO",
+      "nombre": "Cilindro Parvo 750 ml",
+      "desc": "Cilindro Parvo varios colores\nDesde $65 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744763043402-anf_072.jpg"
+      ],
+      "colores": [
+        "Azul",
+        "Rosa",
+        "Blanco",
+        "Morado",
+        "Verde",
+        "Amarillo",
+        "Azul Marino",
+        "Rojo",
+        "Negro",
+        "Vino"
+      ]
+    },
+    {
+      "id": "multi_cilindro-odesa",
+      "modelo": "MI-CILINDROODESA",
+      "nombre": "Cilindro Odesa",
+      "desc": "Cilindro Odesa 500 ml  varios colores\nDesde $25 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744762907158-anf-041_2.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Roja",
+        "Azul",
+        "Verde",
+        "Humo",
+        "Transparente",
+        "Morado",
+        "Naranja"
+      ]
+    },
+    {
+      "id": "multi_cilindro-tribec",
+      "modelo": "MI-CILINDROTRIBEC",
+      "nombre": "Cilindro TRIBEC",
+      "desc": "Cilindro TRIBEC en varios colores 900 ml \nDesde $35 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744762382593-mkm0170088_825010c6-1ee1-4ad4-8280-f6a540b2e24c_1200x.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Azul",
+        "Amarillo",
+        "Verde",
+        "Naranja",
+        "Humo",
+        "Transparente"
+      ]
+    },
+    {
+      "id": "multi_cilindro-lake",
+      "modelo": "MI-CILINDROLAKE",
+      "nombre": "Cilindro Lake",
+      "desc": "Disponible en varios colores\nDesde $32 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744762055360-lake.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Rojo",
+        "Amarillo",
+        "Morado",
+        "Verde",
+        "Trasnparente",
+        "Humo",
+        "Negro"
+      ]
+    },
+    {
+      "id": "multi_botella-de-plastico-",
+      "modelo": "MI-BOTELLADEPLAS",
+      "nombre": "Botella de plastico ",
+      "desc": "Botella de plastico varios colores 750 ml\nDesde $100 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744761922083-a16059m-19.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Azul Cielo",
+        "Amarillo",
+        "Morado",
+        "Lila",
+        "Naranja",
+        "Verde Pastel",
+        "Blanco",
+        "Negro"
+      ]
+    },
+    {
+      "id": "multi_vaso-de-chupon-con-popote-250-ml",
+      "modelo": "MI-VASODECHUPON",
+      "nombre": "Vaso de chupon con popote 250 ml",
+      "desc": "Vaso de chupon con popote varios colores 250 ml\nDesde $14 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744761605730-popote.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Azul",
+        "Amarillo",
+        "Verde",
+        "Rojo",
+        "Negro",
+        "Blanco",
+        "Morado"
+      ]
+    },
+    {
+      "id": "multi_vaso-de-chupon-250-ml",
+      "modelo": "MI-VASODECHUPON",
+      "nombre": "Vaso de chupon 250 ml",
+      "desc": "Vaso de chupon 250 ml diferentes colores\nDesde $8 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744761267231-chupon.webp"
+      ],
+      "colores": [
+        "Rosa Pastel",
+        "Azul Cielo",
+        "Amarillo",
+        "Morado",
+        "Lila",
+        "Naranja",
+        "Verde Pastel",
+        "Verde Limon",
+        "Negro",
+        "Dorado",
+        "Plateado",
+        "Rojo"
+      ]
+    },
+    {
+      "id": "multi_vaso-doble-pared-600-ml",
+      "modelo": "MI-VASODOBLEPARE",
+      "nombre": "Vaso doble pared 600 ml",
+      "desc": "Vaso doble pared con y sin glitte con popote 600 ml \nDesde $65 MXN · Mínimo 12 piezas · Glitter",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744761092298-doblepared.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Morado",
+        "Verde",
+        "Azul Cielo",
+        "Rosa Mexicano",
+        "Dorado",
+        "Plateado",
+        "Sin Glitter",
+        "Naranja"
+      ]
+    },
+    {
+      "id": "multi_vaso-batucada-450-ml-",
+      "modelo": "MI-VASOBATUCADA4",
+      "nombre": "Vaso batucada 450 ml ",
+      "desc": "Vaso batucada 450 ml con popote\nDesde $19 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744760964683-batucada.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Verde",
+        "Naranja",
+        "Morado",
+        "Transparente",
+        "Azul"
+      ]
+    },
+    {
+      "id": "multi_vasos-de-plastico-reutilizables",
+      "modelo": "MI-VASOSDEPLASTI",
+      "nombre": "Vasos Fiesta 500 ml ",
+      "desc": "Vasos de plastico con popote \nDesde $25 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744693835716-10.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Morado",
+        "Negro"
+      ]
+    },
+    {
+      "id": "multi_vasos-de-colores-con-popote",
+      "modelo": "MI-VASOSDECOLORE",
+      "nombre": "Vasos de colores con popote",
+      "desc": "Vasos magicos 750 ml\nDesde $35 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744693708899-6.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Rojo",
+        "Negro",
+        "Morado",
+        "Amarillo",
+        "Naranja"
+      ]
+    },
+    {
+      "id": "multi_vaso-magico",
+      "modelo": "MI-VASOMAGICO",
+      "nombre": "Vaso mágico",
+      "desc": "Vaso magico moshy de 450 ml \nDesde $25 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744693606642-8.webp"
+      ],
+      "colores": [
+        "Rosa",
+        "Verde",
+        "Morado",
+        "Amarillo",
+        "Azul"
+      ]
+    },
+    {
+      "id": "multi_vasos-de-plastico",
+      "modelo": "MI-VASOSDEPLASTI",
+      "nombre": "Vasos Moshy 450 ml",
+      "desc": "Vasos de plastico con popote o cafeteros\nDesde $15 MXN · Mínimo 12 piezas · Plástico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744693360796-1333.webp"
+      ],
+      "colores": [
+        "Lila",
+        "Rosa",
+        "Rosa Neon",
+        "Amarillo Neon",
+        "Verde Bandera",
+        "Verde Neon",
+        "Azul Cielo",
+        "Azul Cobalto",
+        "Rojo",
+        "Negro",
+        "Blanco",
+        "Morado"
+      ]
+    },
+    {
+      "id": "multi_vaso-mini-con-popote",
+      "modelo": "MI-VASOMINICONP",
+      "nombre": "Vaso mini con popote",
+      "desc": "Vaso mini con popote 225 ml\nDesde $25 MXN · Mínimo 12 piezas · Plastico",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744692627717-1.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Menta",
+        "Lila",
+        "Rosa",
+        "Azul",
+        "Blanco",
+        "Glitter Rojo",
+        "Glitter Rosa"
+      ]
+    },
+    {
+      "id": "multi_libreta-para-laser",
+      "modelo": "MI-LIBRETAPARALA",
+      "nombre": "Libreta para laser",
+      "desc": "Libreta 50 hojas para laser\nDesde $65 MXN · Mínimo 12 piezas · Libreta",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744691462173-libreta.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Verde",
+        "Azul",
+        "Rosa",
+        "Naranja",
+        "Amarillo",
+        "Blanco"
+      ]
+    },
+    {
+      "id": "multi_boligrafos-de-colores-surtidos",
+      "modelo": "MI-BOLIGRAFOSDEC",
+      "nombre": "Bolígrafos de colores surtidos",
+      "desc": "Descubre nuestros excepcionales bolígrafos metálicos de colores surtidos, ideales tanto para el uso diario en la oficina\nDesde $15 MXN · Mínimo 12 piezas · Pluma",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744692529502-pppp.webp"
+      ],
+      "colores": [
+        "Bolígrafos De Colores Surtidos"
+      ]
+    },
+    {
+      "id": "multi_taza-termica-de-acero-inoxidable",
+      "modelo": "MI-TAZATERMICADE",
+      "nombre": "Taza térmica de acero inoxidable",
+      "desc": "Mantén tus bebidas calientes o frías por más tiempo\nDesde $150 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744691298994-termotarro.jpeg"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Azul",
+        "Morado",
+        "Azul Marino",
+        "Negro",
+        "Amarillo Neon",
+        "Naranja",
+        "Verde"
+      ]
+    },
+    {
+      "id": "multi_termo-stanley",
+      "modelo": "MI-TERMOSTANLEY",
+      "nombre": "Termo Stanley",
+      "desc": "Termo Stanley de acero inoxidable\nDesde $230 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744691143255-syable.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Negro",
+        "Lila",
+        "Azul Cielo",
+        "Verde",
+        "Blanco"
+      ]
+    },
+    {
+      "id": "multi_termo-con-popote",
+      "modelo": "MI-TERMOCONPOPOT",
+      "nombre": "Termo con popote",
+      "desc": "Termo con popote y acero inoxidable\nDesde $180 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744691014259-stanely.jpg"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Lila",
+        "Azul Cielo",
+        "Verde",
+        "Blanco",
+        "Melon"
+      ]
+    },
+    {
+      "id": "multi_termos-plano",
+      "modelo": "MI-TERMOSPLANO",
+      "nombre": "Termos plano",
+      "desc": "Termo plano de 550 ml\nDesde $160 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744690895153-planmo.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Rosa Neon",
+        "Azul Rey",
+        "Amarillo",
+        "Negro",
+        "Blanco",
+        "Azul Marino",
+        "Verde Bandera",
+        "Menta",
+        "Naranja",
+        "Morado"
+      ]
+    },
+    {
+      "id": "multi_termo-20-oz1",
+      "modelo": "MI-TERMO20OZ1",
+      "nombre": "Termo 20 oz",
+      "desc": "Termo 20 oz con marca\nDesde $180 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744690710032-20oc.png"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Rosa Neon",
+        "Azul Rey",
+        "Azul Marino",
+        "Amarillo",
+        "Amarillo Neon",
+        "Blanco",
+        "Negro",
+        "Naranja",
+        "Morado",
+        "Purpura"
+      ]
+    },
+    {
+      "id": "multi_termo-20-oz",
+      "modelo": "MI-TERMO20OZ",
+      "nombre": "Termo 20 oz",
+      "desc": "Termo 20 oz sin marca\nDesde $150 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744690555746-1100.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Azul",
+        "Azul Rey",
+        "Azul Marino",
+        "Amarillo",
+        "Amarillo Neon",
+        "Blanco",
+        "Negro",
+        "Naranja",
+        "Morado",
+        "Purpura"
+      ]
+    },
+    {
+      "id": "multi_termo-30-oz-",
+      "modelo": "MI-TERMO30OZ",
+      "nombre": "Termo 30 oz ",
+      "desc": "Termo 30 oz con marca\nDesde $280 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744690359703-30ox.webp"
+      ],
+      "colores": [
+        "Rojo",
+        "Rosa",
+        "Rosa Neon",
+        "Azul Rey",
+        "Azul Marino",
+        "Amarillo",
+        "Amarillo Neon",
+        "Blanco",
+        "Negro",
+        "Naranja",
+        "Morado",
+        "Purpura"
+      ]
+    },
+    {
+      "id": "multi_vaso-termico-",
+      "modelo": "MI-VASOTERMICO",
+      "nombre": "Vaso térmico 30 oz",
+      "desc": "Vaso termico 30 oz\nDesde $250 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744690166373-300.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Rosa Neon",
+        "Rojo",
+        "Negro",
+        "Verde Bandera",
+        "Verde Limon",
+        "Amarillo",
+        "Amarillo Neon",
+        "Azul Marino",
+        "Azul Rey",
+        "Naranja",
+        "Morado"
+      ]
+    },
+    {
+      "id": "multi_vasos-termicos-reutilizables",
+      "modelo": "MI-VASOSTERMICOS",
+      "nombre": "Mini vaso térmico reutilizables",
+      "desc": "Vasos mini acero inoxidable\nDesde $55 MXN · Mínimo 12 piezas · Termo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744690032126-ye.jpg"
+      ],
+      "colores": [
+        "Rosa",
+        "Rojo",
+        "Azul",
+        "Morado",
+        "Verde",
+        "Negro",
+        "Blanco"
+      ]
+    },
+    {
+      "id": "multi_pulsera-tybek",
+      "modelo": "MI-PULSERATYBEK",
+      "nombre": "Pulsera TYBEK",
+      "desc": "Pulsera de papel 100 piezas\nDesde $230 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684856881-inek.jpg"
+      ],
+      "colores": [
+        "Dorado",
+        "Rosa",
+        "Rojo",
+        "Negro",
+        "Verde",
+        "Morado",
+        "Gris",
+        "Naranja"
+      ]
+    },
+    {
+      "id": "multi_ojillo-para-lona-3",
+      "modelo": "MI-OJILLOPARALON",
+      "nombre": "Ojillo para lona #3",
+      "desc": "Ojillo para lona #3 bolsa por millar\nDesde $200 MXN · Mínimo 12 piezas · Insumo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684799612-ojillo.jpg"
+      ]
+    },
+    {
+      "id": "multi_depilador-economico",
+      "modelo": "MI-DEPILADORECONO",
+      "nombre": "Depilador económico",
+      "desc": "Depilador de plastico económico \nDesde $10 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684756884-depil.jpg"
+      ],
+      "colores": [
+        "Depilador Económico"
+      ]
+    },
+    {
+      "id": "multi_folder",
+      "modelo": "MI-FOLDER",
+      "nombre": "Folder",
+      "desc": "Folder para sublimar\nDesde $12 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684675594-folder.webp"
+      ],
+      "colores": [
+        "Folder"
+      ]
+    },
+    {
+      "id": "multi_caja-de-ventana-para-taza",
+      "modelo": "MI-CAJADEVENTANA",
+      "nombre": "Caja de ventana para taza",
+      "desc": "Caja de ventana para taza\nDesde $8 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684635475-caja.webp"
+      ],
+      "colores": [
+        "Caja De Ventana Para Taza"
+      ]
+    },
+    {
+      "id": "multi_blister-para-taza",
+      "modelo": "MI-BLISTERPARATA",
+      "nombre": "Blister para taza",
+      "desc": "Blister para sublimar\nDesde $8 MXN · Mínimo 12 piezas · Accesorios",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684539210-blisterc.jpg"
+      ],
+      "colores": [
+        "Blister Para Taza"
+      ]
+    },
+    {
+      "id": "multi_maquina-de-corte-de-pulsera-",
+      "modelo": "MI-MAQUINADECORT",
+      "nombre": "Máquina de corte de pulsera ",
+      "desc": "Maquina de corte para pulsera \nDesde $900 MXN · Mínimo 12 piezas · Tela",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684458896-imagen6.png"
+      ],
+      "colores": [
+        "Máquina De Corte De Pulsera"
+      ]
+    },
+    {
+      "id": "multi_botellas-de-tinta-para-impresora",
+      "modelo": "MI-BOTELLASDETIN",
+      "nombre": "Botellas de tinta para impresora",
+      "desc": "CMYK \nDesde $145 MXN · Mínimo 12 piezas · Tinta",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684355088-tinta.jpeg"
+      ],
+      "colores": [
+        "Botellas De Tinta Para Impresora"
+      ]
+    },
+    {
+      "id": "multi_abanicos-coloridos",
+      "modelo": "MI-ABANICOSCOLORI",
+      "nombre": "Abanicos coloridos",
+      "desc": "Abanicos varios colores dos tamaños\nDesde $35 MXN · Mínimo 12 piezas · Serigrafía",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684309534-colores.webp"
+      ]
+    },
+    {
+      "id": "multi_regla-de-30-cm",
+      "modelo": "MI-REGLADE30CM",
+      "nombre": "Regla de 30 cm",
+      "desc": "Regla escolar de plástico transparente\nDesde $8 MXN · Mínimo 12 piezas · Serigrafía",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684275850-regla.jpg"
+      ],
+      "colores": [
+        "Regla De 30 Cm"
+      ]
+    },
+    {
+      "id": "multi_espejo-de-bolsillo",
+      "modelo": "MI-ESPEJODEBOLSI",
+      "nombre": "Espejo de bolsillo",
+      "desc": "Espejo portátil y compacto\nDesde $20 MXN · Mínimo 12 piezas · nuevo",
+      "categoria": "sublimacion",
+      "tecnicas": [
+        "sublimacion"
+      ],
+      "imagenes": [
+        "https://cdn.zyrosite.com/cdn-ecommerce/store_01JMQEZY698XXR10933EEZ8DCE%2Fassets%2F1744684235528-sjo.jpg"
+      ],
+      "colores": [
+        "Espejo De Bolsillo"
       ]
     }
   ]
