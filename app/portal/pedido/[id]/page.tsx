@@ -33,7 +33,7 @@ interface Artwork {
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const WA = '5588060340';
+const WA = '525620115192';
 
 const STEPS = [
   { key: 'paid',          label: 'Confirmado',    icon: CheckCircle2 },

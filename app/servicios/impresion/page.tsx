@@ -35,7 +35,7 @@ export default function ImpresionPage() {
             Tarjetas, flyers, carpetas y papelería corporativa. Impresión offset y digital de alta resolución. Todo lo que tu empresa necesita para presentarse bien en papel.
           </p>
           <a
-            href="https://wa.me/5588060340?text=Hola!%20Quiero%20cotizar%20material%20impreso%20para%20mi%20empresa"
+            href="https://wa.me/525620115192?text=Hola!%20Quiero%20cotizar%20material%20impreso%20para%20mi%20empresa"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 text-white font-bold uppercase tracking-wider transition-opacity hover:opacity-90"
@@ -92,7 +92,7 @@ export default function ImpresionPage() {
           <h2 className="text-4xl font-black mb-4">¿Necesitas material impreso urgente?</h2>
           <p className="text-zinc-400 mb-8">Comparte tu diseño o brief con nosotros y te enviamos cotización y tiempos de entrega en menos de 2 horas.</p>
           <a
-            href="https://wa.me/5588060340?text=Hola!%20Necesito%20cotizar%20material%20impreso%20para%20mi%20empresa.%20%C2%BFpueden%20ayudarme%3F"
+            href="https://wa.me/525620115192?text=Hola!%20Necesito%20cotizar%20material%20impreso%20para%20mi%20empresa.%20%C2%BFpueden%20ayudarme%3F"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 font-bold uppercase tracking-wider text-white hover:opacity-90 transition-opacity"

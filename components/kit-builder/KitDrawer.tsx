@@ -131,7 +131,7 @@ export default function KitDrawer() {
 
   // Build WhatsApp cotización URL with client info + kit details
   const buildWhatsAppCotizacion = () => {
-    const phone = '5588060340';
+    const phone = '525620115192';
     const packagingOption = PACKAGING_OPTIONS.find(p => p.id === packaging);
     const itemsList = items.map(item => `  • ${item.quantity}x ${item.name}`).join('\n');
     const lines: string[] = ['¡Hola! Quiero solicitar una cotización:'];

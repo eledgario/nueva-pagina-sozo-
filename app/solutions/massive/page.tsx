@@ -169,7 +169,7 @@ INDUSTRIAL"
           {/* CTA */}
           <div className="mt-8 text-center">
             <a
-              href="https://wa.me/5588060340?text=Hola!%20Necesito%20cotizar%20un%20evento%20masivo"
+              href="https://wa.me/525620115192?text=Hola!%20Necesito%20cotizar%20un%20evento%20masivo"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 text-white font-bold rounded-full transition-colors"

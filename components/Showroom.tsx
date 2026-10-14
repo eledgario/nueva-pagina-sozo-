@@ -102,7 +102,7 @@ export default function Showroom() {
               className="flex flex-col sm:flex-row gap-3"
             >
               <a
-                href="https://wa.me/5588060340?text=Hola!%20Quiero%20agendar%20una%20visita%20al%20showroom%20de%20Sozo."
+                href="https://wa.me/525620115192?text=Hola!%20Quiero%20agendar%20una%20visita%20al%20showroom%20de%20Sozo."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 py-4 bg-zinc-900 hover:bg-[#FF007F] text-white font-bold text-sm uppercase tracking-wider transition-colors"
@@ -111,7 +111,7 @@ export default function Showroom() {
                 Agendar Visita
               </a>
               <a
-                href="https://wa.me/5588060340?text=Hola!%20Tengo%20una%20pregunta%20antes%20de%20visitarlos."
+                href="https://wa.me/525620115192?text=Hola!%20Tengo%20una%20pregunta%20antes%20de%20visitarlos."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 py-4 border-2 border-zinc-900 hover:bg-zinc-50 text-zinc-900 font-bold text-sm uppercase tracking-wider transition-colors"

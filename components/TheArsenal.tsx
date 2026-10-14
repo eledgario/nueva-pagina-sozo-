@@ -29,7 +29,7 @@ const filterTabs: { id: Category; label: string }[] = [
   { id: 'belleza',   label: 'Belleza'    },
 ];
 
-const WA = '5588060340';
+const WA = '525620115192';
 
 const products: Product[] = [
   // Drinkware

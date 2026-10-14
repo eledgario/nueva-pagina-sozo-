@@ -132,7 +132,7 @@ export default function OrderConfirmationEmail({
 
             {/* CTA Button */}
             <Section style={ctaSection}>
-              <Link href="https://wa.me/5588060340" style={ctaButton}>
+              <Link href="https://wa.me/525620115192" style={ctaButton}>
                 Contactar por WhatsApp
               </Link>
             </Section>

@@ -184,7 +184,7 @@ export function KitBuilderProvider({ children }: { children: ReactNode }) {
 
   // Generate WhatsApp URL
   const getWhatsAppUrl = useCallback(() => {
-    const phone = '5588060340'; // Replace with actual number
+    const phone = '525620115192'; // Replace with actual number
     const packagingOption = PACKAGING_OPTIONS.find((p) => p.id === packaging);
 
     const itemsList = items

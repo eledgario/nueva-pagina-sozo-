@@ -479,7 +479,7 @@ export default function PortalPage() {
                       Cuando hagas tu primer pedido aparecerá aquí.
                     </p>
                     <a
-                      href="https://wa.me/5588060340"
+                      href="https://wa.me/525620115192"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900 text-white text-sm font-bold rounded-full hover:bg-zinc-700 transition-colors"

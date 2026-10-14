@@ -97,7 +97,7 @@ interface KitItem   { producto: Producto; cantidad: number; }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const WA = '5588060340';
+const WA = '525620115192';
 const PAGE_SIZE = 18;
 
 const TECNICA_LABEL: Record<string, string> = {

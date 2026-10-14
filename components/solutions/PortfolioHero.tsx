@@ -155,7 +155,7 @@ export default function PortfolioHero({
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
-                  href="https://wa.me/5588060340"
+                  href="https://wa.me/525620115192"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary"
