@@ -570,8 +570,10 @@ function ProductModal({ p, nombre, empresa, onClose, onAddToKit, inKit }: {
             <div className="relative h-56 sm:h-0 sm:flex-1 overflow-hidden">
               {imgs.length > 0 ? (
                 <AnimatePresence>
-                  <motion.div key={imgIdx} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }} className="absolute inset-0 p-4">
-                    <Image src={imgs[imgIdx]} alt={p.nombre} fill quality={90} unoptimized className="object-contain" sizes="(max-width: 640px) 100vw, 50vw" />
+                  <motion.div key={imgIdx} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }} className="absolute inset-0 p-4 flex items-center justify-center">
+                    {/* Tamaño natural como máximo: las fotos de baja resolución no se estiran ni pixelean */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={imgs[imgIdx]} alt={p.nombre} className="max-w-full max-h-full object-contain" />
                   </motion.div>
                 </AnimatePresence>
               ) : (
